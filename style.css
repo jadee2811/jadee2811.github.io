@@ -5,3 +5,5 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
 
 h1 svg.asterisk{width:145px;height:145px;stroke-width:10;stroke-linecap:butt}@media(max-width:640px){h1 svg.asterisk{width:62px;height:62px;bottom:3%}}
+
+@media (min-width:641px){.menu-toggle{display:none}}
