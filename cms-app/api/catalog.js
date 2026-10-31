@@ -1,0 +1,4 @@
+const repo='jadee2811/jadee2811.github.io';
+async function gh(path,init={}){const r=await fetch(`https://api.github.com/repos/${repo}/${path}`,{...init,headers:{authorization:`Bearer ${process.env.GITHUB_TOKEN}`,accept:'application/vnd.github+json','content-type':'application/json'}});if(!r.ok){const e=Error('GitHub '+r.status);e.status=r.status;throw e}return r.json()}
+export async function read(ref='main'){try{const f=await gh('contents/content/published.json?ref='+ref);return {items:JSON.parse(Buffer.from(f.content,'base64')),sha:f.sha}}catch(e){if(e.status===404)return {items:[]};throw e}}
+export default async function handler(req,res){res.setHeader('Cache-Control','no-store');if(req.method!=='GET')return res.status(405).json({error:'Method not allowed'});try{return res.status(200).json(await read())}catch{return res.status(502).json({error:'Không tải được danh sách từ GitHub'})}}
