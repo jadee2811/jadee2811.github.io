@@ -57,7 +57,6 @@ html=f'''<section class="about-hero">
 <p data-en="I try to stay kind and easy with everyone, and to give my all and savour every moment. Work is one part of life, something I treat like a hobby but not the whole of it. And when I do it, I do it wholeheartedly." data-vi="Mình cố gắng thiện lành, chan hoà với mọi người, hướng đến lý tưởng làm hết mình và tận hưởng mọi khoảnh khắc. Công việc là một phần, xem như một sở thích nhưng không là tất cả. Còn khi đã làm thì mình làm hết mình.">I try to stay kind and easy with everyone, and to give my all and savour every moment. Work is one part of life, something I treat like a hobby but not the whole of it. And when I do it, I do it wholeheartedly.</p>
 <p class="sign-line" data-en="All of it, gathered together, is Jade. Is Bích Ngọc." data-vi="Hội tụ lại, là Jade. Là Bích Ngọc.">All of it, gathered together, is Jade. Is Bích Ngọc.</p>
 </div></section>
-<section class="about-nums">{nums}</section>
 <section class="about-journey">
 <div class="journey-head"><label data-en="THE JOURNEY" data-vi="HÀNH TRÌNH">THE JOURNEY</label><h2 data-en="From curious kid to <em>building AI products.</em>" data-vi="Từ cô bé tò mò đến <em>làm sản phẩm AI.</em>">From curious kid to <em>building AI products.</em></h2></div>
 <ol class="journey">{tls}</ol></section>
