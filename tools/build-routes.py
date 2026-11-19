@@ -95,3 +95,9 @@ Disallow: /pages/
 Sitemap: {site}/sitemap.xml
 ''')
 print(len(routes),'routes')
+
+# ---- redirect stubs for old URLs that no longer have a page (GitHub Pages cannot send 301) ----
+legacy={'/work/umc-ai':'/work/umc','/work/umc-web':'/work/umc'}
+for old,new in legacy.items():
+    d=os.path.join(root,old.strip('/'));os.makedirs(d,exist_ok=True)
+    open(os.path.join(d,'index.html'),'w',encoding='utf8').write(f'<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="robots" content="noindex"><title>Redirecting…</title><link rel="canonical" href="{site}{new}"><meta http-equiv="refresh" content="0;url={new}"><script>location.replace("{new}"+location.hash)</script></head><body><a href="{new}">Continue</a></body></html>')
