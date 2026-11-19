@@ -180,3 +180,27 @@ a.lang:hover i{color:var(--jade)}
 .to-top.show{opacity:1;visibility:visible;transform:none}
 .to-top:hover{background:var(--jade);color:#fff}
 @media(max-width:640px){.to-top{right:20px;bottom:90px}}
+
+/* hero: copy left, illustration right */
+.hero2{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:clamp(32px,5vw,72px);align-items:center}
+.hero2 .kicker{display:flex;flex-direction:column;gap:8px}
+.hero2 .kicker small{display:block;margin:0;text-align:left;color:var(--muted)}
+.hero2 h1{font-size:clamp(40px,5.6vw,92px);margin:clamp(24px,3vw,40px) 0}
+.hero2 .hero-foot{display:flex;flex-direction:column;align-items:flex-start;gap:28px}
+.hero2 .hero-foot p{max-width:520px}
+.hero-art{border-radius:8px;overflow:hidden;aspect-ratio:520/600;box-shadow:0 24px 55px #17382c24;background:#dcebe2}
+.hero-art svg{display:block;width:100%;height:100%}
+.hero-art .h-tree{transform-box:fill-box;transform-origin:50% 100%;animation:h-sway 6s ease-in-out infinite}
+.hero-art .h-t2{animation-duration:7.5s;animation-delay:-2s}.hero-art .h-t3{animation-duration:5.2s;animation-delay:-1s}
+.hero-art .h-sun{transform-box:fill-box;transform-origin:center;animation:h-pulse 7s ease-in-out infinite}
+.hero-art .h-cloud{animation:h-drift 28s ease-in-out infinite alternate}.hero-art .h-c2{animation-duration:36s;animation-delay:-8s}
+.hero-art .h-star{transform-box:fill-box;transform-origin:center;animation:h-twinkle 3.2s ease-in-out infinite}
+.hero-art .h-s2{animation-delay:-1.1s}.hero-art .h-s3{animation-delay:-2.2s}
+.hero-art .h-fly{animation:h-fly 16s ease-in-out infinite}
+@keyframes h-sway{0%,100%{transform:rotate(-1.6deg)}50%{transform:rotate(1.6deg)}}
+@keyframes h-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+@keyframes h-drift{from{transform:translateX(-18px)}to{transform:translateX(26px)}}
+@keyframes h-twinkle{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.75)}}
+@keyframes h-fly{0%{transform:translate(40px,330px)}25%{transform:translate(180px,290px)}50%{transform:translate(330px,350px)}75%{transform:translate(250px,300px)}100%{transform:translate(40px,330px)}}
+@media(prefers-reduced-motion:reduce){.hero-art *{animation:none!important}}
+@media(max-width:900px){.hero2{grid-template-columns:1fr}.hero-art{aspect-ratio:16/10}.hero2 h1{font-size:clamp(40px,10vw,72px)}}
