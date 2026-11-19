@@ -43,6 +43,12 @@
       "text": "Thay vì một trang chủ chung, website có ba trang chủ riêng: Người bệnh và cộng đồng, Chuyên gia y tế, và UMCers (cổng nội bộ). Đặt lịch khám được rút gọn còn năm bước."
     },
     {
+      "type": "image",
+      "src": "",
+      "alt": "Hình minh hoạ: ba trang chủ UMC",
+      "caption": "Hình minh hoạ: ba trang chủ UMC"
+    },
+    {
       "type": "steps",
       "items": [
         [
@@ -110,12 +116,24 @@
       ]
     },
     {
+      "type": "image",
+      "src": "",
+      "alt": "Hình minh hoạ: Thư viện Sức khỏe và AI chatbot",
+      "caption": "Hình minh hoạ: Thư viện Sức khỏe và AI chatbot"
+    },
+    {
       "type": "heading",
       "text": "5. Nền tảng marketing y tế"
     },
     {
       "type": "paragraph",
       "text": "Ba module kết nối thành một vòng khép kín: AI Chatbot và Livechat tiếp nhận câu hỏi, Customer 360/CDP ghi nhận hành vi và chủ đề quan tâm, Phân tích, báo cáo và dự đoán biến dữ liệu thành insight. Kế hoạch marketing đi theo ba tầng nối liền nghiên cứu thị trường: chẩn đoán chiến lược, chấm điểm ưu tiên dịch vụ, giải pháp marketing."
+    },
+    {
+      "type": "image",
+      "src": "",
+      "alt": "Hình minh hoạ: báo cáo marketing hoặc luồng 3 tầng",
+      "caption": "Hình minh hoạ: báo cáo marketing hoặc luồng 3 tầng"
     },
     {
       "type": "heading",
@@ -130,5 +148,6 @@
         "Đo AI bằng chỉ số vận hành, không chỉ số lượt chat."
       ]
     }
-  ]
+  ],
+  "logo": "assets/umc-logo.webp"
 }
