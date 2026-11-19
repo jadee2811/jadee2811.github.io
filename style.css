@@ -116,3 +116,27 @@ p,li,figcaption,dd{text-wrap:pretty}
 .sc-related>label{display:block;margin-bottom:28px}
 .sc-related .cards{grid-template-columns:1fr 1fr}
 @media(max-width:760px){.sc-related{width:calc(100% - 32px);padding:40px 0 56px}.sc-related .cards{grid-template-columns:1fr}}
+/* logo: j monogram with leaf + wordmark */
+.logo{display:inline-flex;align-items:center;gap:11px;font:400 34px/1 var(--serif);letter-spacing:0;margin-right:auto}
+.logo-mark{width:40px;height:40px;flex:none;display:block;transition:transform .35s}
+.logo:hover .logo-mark{transform:rotate(-8deg) scale(1.05)}
+.logo-word{font:italic 700 30px/1 var(--serif);letter-spacing:-.5px;color:var(--ink)}
+.logo-word span{color:var(--terra)}
+/* footer: jade theme */
+.full-footer{position:relative;background:#0e5a47;color:#e9f2ec;border-top:0;box-shadow:0 0 0 100vmax #0e5a47;clip-path:inset(0 -100vmax);padding:72px 0 28px;row-gap:56px}
+.full-footer .logo{margin:0 0 26px}
+.full-footer .logo-word{color:#fff}
+.full-footer .logo-word span{color:#f0a98f}
+.full-footer p{color:#bcd6c9}
+.full-footer b{color:#f0a98f}
+.full-footer a{color:#e9f2ec;transition:color .2s,transform .2s}
+.full-footer a:hover{color:#fff;transform:translateX(3px)}
+.full-footer .footer-bottom{grid-column:1/-1;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;flex-direction:row;border-top:1px solid #2c7b66;padding-top:22px;font-size:13px;color:#9fc4b4}
+.full-footer .footer-bottom span{font-size:13px}
+.full-footer::before{content:"";position:absolute;right:-60px;top:-90px;width:260px;height:260px;border-radius:50%;background:#e07b5a;opacity:.16;pointer-events:none}
+@media(max-width:760px){.logo{font-size:28px}.logo-mark{width:34px;height:34px}.logo-word{font-size:26px}.full-footer{padding:52px 0 24px}}
+.full-footer .footer-brand .logo{display:inline-flex}
+.full-footer .logo-word{font-size:30px;letter-spacing:-.5px;margin:0;text-transform:none;color:#fff}
+.full-footer .logo-mark{border-radius:10px;box-shadow:0 0 0 1.5px #5aa28b}
+.full-footer>div.footer-bottom{flex-direction:row;gap:16px;font-size:13px}
+@media(max-width:760px){.full-footer .logo-word{font-size:26px}}
