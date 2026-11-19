@@ -65,8 +65,8 @@ a.zalo{background:#0068ff}
 /* layout polish */
 .w{padding-top:56px}
 @media (min-width:900px){.w{max-width:640px;padding:64px 16px 64px}h1{font-size:46px}.step h2{font-size:34px}}
-h1{margin:8px 0 6px}
-.sub{margin:0 0 22px;line-height:1.5}
+h1{margin:8px 0 14px}
+.sub{margin:0 0 28px;line-height:1.5}
 .dots{margin:24px 0 14px}
 .step h2{margin:8px 0 8px}
 .hint{font-size:14px;line-height:1.5;color:#55698a;margin:0 0 16px}
@@ -215,9 +215,9 @@ function render(c,W,H){
  x.strokeStyle=dark?'rgba(244,236,216,.55)':'rgba(45,74,115,.45)';x.lineWidth=3;x.strokeRect(34,34,W-68,H-68);
  x.textAlign='center';x.fillStyle=F.ink;
  x.font='700 44px "Charm",cursive';x.globalAlpha=.85;x.fillText('Ngày Nhà giáo Việt Nam · 20.11',W/2,128);x.globalAlpha=1;
- const to=st.t||'người thầy của bạn';
+ const to=st.t||'';
  let fs=84;while(fs>44){x.font='700 '+fs+'px "Charm",cursive';if(x.measureText(to).width<W-220)break;fs-=4}
- x.fillText(to,W/2,228);
+ if(to)x.fillText(to,W/2,228);
  // hình
  const A=H>1200?500:330,ax=(W-A)/2,ay=H>1200?280:258;
  if(st.mode==='photo'&&PH){
