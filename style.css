@@ -166,3 +166,4 @@ input,textarea,select{border-radius:6px}
 @keyframes twinkle{0%,100%{opacity:.35;transform:scale(.85)}50%{opacity:1;transform:scale(1.1)}}
 @media(prefers-reduced-motion:reduce){.prince-stars i{animation:none}}
 @media(max-width:760px){.about-prince{padding-left:16px;padding-right:16px}.prince-stars i:nth-child(n+4){display:none}}
+a.lang{display:inline-block;line-height:1.2;color:inherit}

@@ -5,7 +5,7 @@ const view=document.getElementById('view');
 const langOf=p=>/^\/vi(\/|$)/.test(p)?'vi':'en';
 const baseOf=p=>p.replace(/^\/vi(?=\/|$)/,'')||'/';
 const pre=l=>l==='vi'?'/vi':'';
-const T={en:{client:'Client',role:'Role',year:'Year',project:'PROJECT',personal:'PERSONAL PROJECT',back:'← Back to work',related:'RELATED PROJECTS',hidden:'Not published',hiddenD:'This project is not published yet.',home:'Home',preview:T[L].preview,
+const T={en:{client:'Client',role:'Role',year:'Year',project:'PROJECT',personal:'PERSONAL PROJECT',back:'← Back to work',related:'RELATED PROJECTS',hidden:'Not published',hiddenD:'This project is not published yet.',home:'Home',preview:'Preview only · your message was not sent.',
   field:'FIELD NOTE',by:'By Jade · Jade Share',toc:'TABLE OF CONTENTS',t1:'01 Start with the decision',t2:'02 Map the handoff',t3:'03 Scale the system',stand:'These notes are a framework for discussing product and AI delivery. They do not represent a claim about a single client outcome.',
   h1:'Start with the recurring decision',p1:'Look first at the repeated decision a team makes, the context it requires and the consequence of getting it wrong. This reveals the useful unit of work before a feature or tool enters the discussion.',h2:'Map the handoffs',p2:'Document where information changes hands, where it is lost and where someone must review it. Clear handoffs make a workflow easier to evaluate and improve.',q:'Useful systems are defined by the workflow around a decision, not only by the quality of a single response.',h3:'Scale the system, not the demo',p3:'Scaling changes ownership, data, training and exception handling. A sustainable plan keeps those conditions visible from the start.',backblog:'Back to Jade Share →',nfT:'Page not found (404) | Jade',nfD:'This page does not exist or has moved. Head back to the Jade Share home page or browse the selected work.'},
  vi:{client:'Khách hàng',role:'Vai trò',year:'Năm',project:'DỰ ÁN',personal:'DỰ ÁN CÁ NHÂN',back:'← Quay lại dự án',related:'DỰ ÁN LIÊN QUAN',hidden:'Chưa công bố',hiddenD:'Dự án này chưa được công bố.',home:'Trang chủ',preview:'Chỉ là bản xem thử · tin nhắn của bạn chưa được gửi.',
@@ -23,14 +23,14 @@ function canonical(url){let l=document.querySelector('link[rel="canonical"]');if
 function ld(data){let s=document.querySelector('script[type="application/ld+json"]');if(!s){s=document.createElement('script');s.type='application/ld+json';document.head.append(s)}s.textContent=JSON.stringify(data)}
 const person={'@type':'Person','@id':siteUrl+'/#jade',name:'Jade',url:siteUrl+'/',jobTitle:'AI Product Owner and AI Growth Advisor',sameAs:['https://www.linkedin.com/in/jadeshare/','https://www.facebook.com/jadeshare.space/']};
 function seo(fullPath,r,R){
-  if(!r)return;const L=langOf(fullPath),path=baseOf(fullPath),px=pre(L),url=siteUrl+fullPath,img=siteUrl+'/'+(r.image||'assets/og/default.png'),label=r.label||r.title,alt=label+' | Jade Share';
+  if(!r)return;const L=langOf(fullPath),path=baseOf(fullPath),px=pre(L),url=siteUrl+(fullPath==='/vi'?'/vi/':fullPath),img=siteUrl+'/'+(r.image||'assets/og/default.png'),label=r.label||r.title,alt=label+' | Jade Share';
   document.title=r.title;meta('meta[name="description"]','content',r.description);
   meta('meta[name="robots"]','content',r.noindex?'noindex,follow':'index,follow,max-image-preview:large,max-snippet:-1');
   [['og:title',r.title],['og:description',r.description],['og:type',path.startsWith('/blog/')?'article':'website'],['og:url',url],['og:image',img],['og:image:alt',alt],['og:site_name','Jade Share'],['og:locale',L==='vi'?'vi_VN':'en_US']].forEach(([k,v])=>meta('meta[property="'+k+'"]','content',v));
   [['twitter:card','summary_large_image'],['twitter:title',r.title],['twitter:description',r.description],['twitter:image',img],['twitter:image:alt',alt]].forEach(([k,v])=>meta('meta[name="'+k+'"]','content',v));
   canonical(url);
   document.querySelectorAll('link[rel="alternate"][hreflang]').forEach(x=>x.remove());
-  if(!r.noindex){[['en',siteUrl+path],['vi',siteUrl+'/vi'+(path==='/'?'':path)],['x-default',siteUrl+path]].forEach(([h,u])=>{const l=document.createElement('link');l.rel='alternate';l.hreflang=h;l.href=u;document.head.append(l)})}
+  if(!r.noindex){[['en',siteUrl+path],['vi',siteUrl+'/vi'+path],['x-default',siteUrl+path]].forEach(([h,u])=>{const l=document.createElement('link');l.rel='alternate';l.hreflang=h;l.href=u;document.head.append(l)})}
   const type=path==='/'?'WebPage':path==='/about'?'AboutPage':path==='/blog'?'Blog':path==='/contact'?'ContactPage':(path==='/work'||path==='/sitemap')?'CollectionPage':path.startsWith('/blog/')?'BlogPosting':'CreativeWork';
   const node={'@type':type,'@id':url+'#page',name:r.title,url,description:r.description,image:img,inLanguage:L,author:{'@id':person['@id']},isPartOf:{'@id':siteUrl+'/#website'}};
   if(type==='BlogPosting'){node.headline=label;node.mainEntityOfPage=url;node.publisher={'@type':'Organization',name:'Jade Share',url:siteUrl+'/'}}
@@ -97,6 +97,7 @@ async function resolve(path,L){
 function bind(path){
   setLang();
   const L=lang,px=pre(L);
+  const lg=document.querySelector('a.lang');if(lg){const alt=L==='en'?'/vi'+(path==='/'?'/':path):path;lg.setAttribute('href',alt);lg.hreflang=L==='en'?'vi':'en'}
   if(L==='vi')view.querySelectorAll('a[href^="/"]').forEach(a=>{const h=a.getAttribute('href');if(!/^\/(vi(\/|$)|\/|cms|tools|assets|data|pages)/.test(h)&&!/\.(png|jpe?g|webp|svg|pdf|xml|json|txt)$/i.test(h))a.setAttribute('href',h==='/'?'/vi/':'/vi'+h)});
   view.querySelectorAll('a[href^="http"]').forEach(a=>{if(new URL(a.href).origin!==location.origin){a.target='_blank';a.rel='noopener noreferrer'}});
   const fs=view.querySelectorAll('[data-filter]'),cs=view.querySelectorAll('[data-category]');
@@ -119,7 +120,7 @@ async function render(url,{push=false,scroll=true}={}){
   const swap=()=>{
     view.innerHTML=res.html;
     getJSON(L==='vi'?'/data/routes.vi.json':'/data/routes.json').then(R=>seo(full,(res.seo&&!res.seo.fallback)?res.seo:(R[path]||res.seo),R),()=>{if(res.seo)seo(full,res.seo)});
-    if(push)history.pushState({},'',full+u.search+u.hash);else history.replaceState({},'',full+u.search+u.hash);
+    const shown=full==='/vi'?'/vi/':full;if(push)history.pushState({},'',shown+u.search+u.hash);else history.replaceState({},'',shown+u.search+u.hash);
     bind(path);current=full;nav&&nav.classList.remove('open');
     view.classList.remove('enter');void view.offsetWidth;view.classList.add('enter');
     if(u.hash&&document.querySelector(u.hash)){document.querySelector(u.hash).scrollIntoView()}else if(scroll)window.scrollTo(0,0);

@@ -23,7 +23,7 @@ person={'@type':'Person','@id':site+'/#jade','name':'Jade','url':site+'/','jobTi
 LOC={'en':'en_US','vi':'vi_VN'}
 def url_of(lang,p):
     if lang=='en':return site+p
-    return site+'/vi'+('' if p=='/' else p)
+    return site+'/vi'+('/' if p=='/' else p)
 def path_of(lang,p):return url_of(lang,p)[len(site):] or '/'
 def out_of(lang,p):
     base=os.path.join(root,'vi') if lang=='vi' else root
