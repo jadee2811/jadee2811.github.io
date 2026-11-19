@@ -95,6 +95,23 @@ function bind(path){
   nav&&nav.querySelectorAll('a').forEach(a=>{const h=a.getAttribute('href');a.classList.toggle('current',h==='/'?path==='/':path===h||path.startsWith(h+'/'))});
 }
 
+
+/* ---------- journey timeline: light up as you scroll ---------- */
+let jTick=null;
+function journey(){
+  if(jTick){removeEventListener('scroll',jTick);removeEventListener('resize',jTick);jTick=null}
+  const ol=view.querySelector('.journey');if(!ol)return;
+  const lis=[...ol.children],still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const dot=20,top=3;
+  const update=()=>{
+    const last=lis[lis.length-1],len=last.offsetTop+top+dot/2-(top+dot/2);
+    ol.style.setProperty('--len',len+'px');
+    const r=ol.getBoundingClientRect(),mark=innerHeight*.6,reach=Math.max(0,Math.min(len,mark-r.top-(top+dot/2)));
+    ol.style.setProperty('--p',(still?len:reach)+'px');
+    lis.forEach(li=>li.classList.toggle('lit',still||li.offsetTop<=reach+2));
+  };
+  jTick=()=>requestAnimationFrame(update);addEventListener('scroll',jTick,{passive:true});addEventListener('resize',jTick);update();
+}
 /* ---------- router ---------- */
 const legacy={'/index.html':'/','/work.html':'/work','/blog.html':'/blog','/contact.html':'/contact','/case-umc-ai.html':'/work/umc','/work/umc-ai':'/work/umc','/work/umc-web':'/work/umc','/blog-detail.html':'/blog/operating-model'};
 function clean(p){p=legacy[p]||p;if(p.length>1)p=p.replace(/\/+$/,'');return p||'/'}
@@ -106,7 +123,7 @@ async function render(url,{push=false,scroll=true}={}){
     view.innerHTML=res.html;
     getJSON('/data/routes.json').then(R=>seo(path,(res.seo&&!res.seo.fallback)?res.seo:(R[path]||res.seo),R),()=>{if(res.seo)seo(path,res.seo)});
     if(push)history.pushState({},'',path+u.search+u.hash);else history.replaceState({},'',path+u.search+u.hash);
-    bind(path);current=path;nav&&nav.classList.remove('open');
+    bind(path);journey();current=path;nav&&nav.classList.remove('open');
     view.classList.remove('enter');void view.offsetWidth;view.classList.add('enter');
     if(u.hash&&document.querySelector(u.hash)){document.querySelector(u.hash).scrollIntoView()}else if(scroll)window.scrollTo(0,0);
   };

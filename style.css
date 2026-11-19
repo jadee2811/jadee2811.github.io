@@ -116,3 +116,17 @@ p,li,figcaption,dd{text-wrap:pretty}
 .sc-related>label{display:block;margin-bottom:28px}
 .sc-related .cards{grid-template-columns:1fr 1fr}
 @media(max-width:760px){.sc-related{width:calc(100% - 32px);padding:40px 0 56px}.sc-related .cards{grid-template-columns:1fr}}
+
+/* journey timeline: aligned line, lights up on scroll */
+.journey{--dot:20px;--top:3px;position:relative}
+.journey:before{left:calc(var(--dot)/2 - 1px);top:calc(var(--top) + var(--dot)/2);bottom:auto;height:var(--len,0px);width:2px;background:var(--line)}
+.journey:after{content:"";position:absolute;left:calc(var(--dot)/2 - 1px);top:calc(var(--top) + var(--dot)/2);width:2px;height:var(--p,0px);background:var(--terra);transition:height .15s linear}
+.journey li{padding:0 0 38px calc(var(--dot) + 26px);opacity:.42;transition:opacity .5s}
+.journey li:last-child{padding-bottom:0}
+.journey li:before{left:0;top:var(--top);width:var(--dot);height:var(--dot);border:3px solid #b9c7c0;background:var(--paper);z-index:1;transition:border-color .4s,background .4s,box-shadow .4s,transform .4s}
+.journey li:last-child:before{background:var(--paper)}
+.journey li.lit{opacity:1}
+.journey li.lit:before{border-color:var(--terra);box-shadow:0 0 0 6px #b5523926}
+.journey li.lit:last-child:before{background:var(--terra)}
+.journey li.now-lit:before{transform:scale(1.15)}
+@media(prefers-reduced-motion:reduce){.journey li{opacity:1;transition:none}.journey:after{display:none}.journey li:before{border-color:var(--terra)}}
