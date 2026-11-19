@@ -145,7 +145,6 @@ p,li,figcaption,dd{text-wrap:pretty}
 .logo-svg{height:46px;width:auto;display:block;color:var(--ink);overflow:visible}
 .logo-svg .lg-leaf{fill:var(--jade)}
 .logo-svg .lg-star{fill:#e07b5a}
-.logo:hover .logo-svg .lg-star{transform-origin:213px 26px;transform:rotate(45deg) scale(1.15);transition:transform .4s}
 .full-footer .logo-svg{color:#fff;height:54px}
 .full-footer .logo-svg .lg-leaf{fill:#8fcab0}
 @media(max-width:760px){.logo-svg{height:34px}.full-footer .logo-svg{height:38px}}
