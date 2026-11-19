@@ -1,6 +1,6 @@
 (function(){
 const root=document.getElementById('showcase');if(!root)return;
-const slug=new URLSearchParams(location.search).get('p')||'umc';
+const slug=root.dataset.slug||new URLSearchParams(location.search).get('p')||'umc';
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const R={
 heading:b=>'<h2>'+esc(b.text)+'</h2>',
@@ -13,7 +13,7 @@ image:b=>'<figure>'+(b.src?'<img src="'+esc(b.src)+'" alt="'+esc(b.alt||'')+'" l
 embed:b=>'<div class="sc-embed"><iframe src="'+esc(b.src)+'" loading="lazy" allowfullscreen></iframe></div>',
 link:b=>'<p><a class="more" href="'+esc(b.href)+'">'+esc(b.text)+' →</a></p>'
 };
-fetch('data/showcase/'+encodeURIComponent(slug)+'.json').then(r=>{if(!r.ok)throw 0;return r.json()}).then(d=>{
+fetch('/data/showcase/'+encodeURIComponent(slug)+'.json').then(r=>{if(!r.ok)throw 0;return r.json()}).then(d=>{
 if(d.status!=='published'){root.innerHTML='<section class="sc-hero"><h1>Chưa công bố</h1></section>';return}
 document.title=d.title+' | Jade';
 root.innerHTML='<section class="sc-hero">'+(d.logo?'<img class="sc-logo" src="'+esc(d.logo)+'" alt="'+esc(d.client||'')+'">':'')+'<label>'+esc(d.sector)+' · '+(d.kind==='personal'?'DỰ ÁN CÁ NHÂN':'DỰ ÁN')+'</label><h1>'+esc(d.title)+'</h1><p>'+esc(d.summary)+'</p>'
