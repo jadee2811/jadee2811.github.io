@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><base href="/jason-teacher-day/"><script>window.API_BASE="https://sites-thiep-20-11.jason.vn"</script>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gửi người thầy của bạn · 20/11</title>
+<meta property="og:title" content="Có người vừa gửi bạn một tấm thiệp 20/11">
+<meta property="og:description" content="Mở ra để đọc lời chúc, và gửi lại cho người thầy của riêng bạn. Thiệp do Cáo Ú - Thử Việc làm.">
+<meta property="og:image" content="https://jadeshare.space/jason-teacher-day/og.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@500;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#2d4a73;--soft:#6b7f9e;--line:#d8cfba;--bl:#3a5fa0}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Be Vietnam Pro',system-ui,sans-serif;background:#f7f2e5 url(paper.jpg);color:#2b3447;font-weight:500}
+.w{max-width:540px;margin:0 auto;padding:18px 16px 44px}
+h1{font-family:'Dancing Script',cursive;font-size:40px;line-height:1.1;margin:8px 0 2px;color:var(--ink);text-align:center;font-weight:700}
+.sub{text-align:center;color:var(--soft);margin:0 0 14px;font-size:14px}
+canvas{width:100%;height:auto;display:block;border-radius:6px;box-shadow:0 10px 28px #2d4a7344,0 0 0 1px #0001;background:#f7f2e5}
+.dots{display:flex;gap:6px;justify-content:center;margin:16px 0 8px}
+.dots i{width:28px;height:4px;border-radius:2px;background:#cfd8e6}.dots i.on{background:var(--bl)}
+.step{display:none;margin-top:6px}.step.on{display:block}
+.step h2{font-family:'Dancing Script',cursive;font-size:30px;margin:6px 0 4px;color:var(--ink);font-weight:700}
+.hint{color:var(--soft);font-size:13px;margin:0 0 8px}
+.chips{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+#who .chip{border-radius:16px;padding:14px 12px;text-align:center;line-height:1.35;min-height:64px;display:flex;align-items:center;justify-content:center;font-weight:700}
+#who .chip small{display:block;font-size:12.5px;opacity:.75;margin-top:3px}
+.quote{font-family:'Dancing Script',cursive,serif;font-size:22px;color:var(--ink);text-align:center;margin:22px 8px 4px;opacity:.85}
+#next{flex:1}
+.quote,#who .chip,#who .chip small,.hint{text-wrap:balance}
+.chip{border:1.5px solid #b9c6dc;background:#fffdf7;border-radius:999px;padding:9px 14px;font:inherit;font-size:14px;color:var(--ink);cursor:pointer}
+.chip.on{background:var(--bl);border-color:var(--bl);color:#fff}
+.tabs{display:flex;gap:8px;margin-bottom:10px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.drop{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-height:150px;margin-top:10px;border:2px dashed #8fa3c4;border-radius:16px;background:#fffdf7;color:var(--ink);cursor:pointer;text-align:center;padding:16px}
+.drop b{font-size:16px}.drop span{font-size:13px;opacity:.7}.drop.has{border-style:solid;border-color:var(--bl)}
+.bgm{display:none;position:fixed;right:22px;bottom:22px;z-index:9;border:1.5px solid #b9c6dc;background:#fffdf7;color:var(--ink);border-radius:999px;padding:10px 16px;font:inherit;font-size:13px;cursor:pointer;box-shadow:0 4px 14px rgba(40,60,100,.15)}
+.bgm small{display:block;font-size:10.5px;opacity:.6}
+@media (min-width:900px){.bgm{display:block}}
+.th{-webkit-tap-highlight-color:transparent;transition:none}
+.th{border:2px solid transparent;border-radius:8px;padding:0;background:#fffdf7;cursor:pointer;overflow:hidden;font:inherit;color:var(--ink)}
+.th.on{border-color:var(--bl)}
+.th img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+.th span{display:flex;align-items:center;justify-content:center;text-align:center;font-size:12px;font-weight:700;height:38px;padding:0 4px;line-height:1.2}
+label{display:block;font-weight:700;font-size:13px;margin:22px 0 8px;color:var(--ink)}
+#s3 .row{margin:16px 0 0}
+#s3 .hint{margin:14px 0 6px;line-height:1.5}
+#s3 #fr{margin-bottom:6px}
+#nav{margin-top:26px}
+input[type=text],textarea{width:100%;font:inherit;padding:10px 12px;border:1.5px solid #c9d3e3;border-radius:8px;background:#fffdf7;color:#2b3447}
+textarea{min-height:110px;resize:vertical;line-height:1.5}
+.row{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 0}
+button.p,a.p{font:inherit;font-weight:700;border:0;border-radius:10px;padding:12px 16px;cursor:pointer;background:var(--bl);color:#fff;text-decoration:none;text-align:center;flex:1 1 140px;font-size:15px}
+button.s{font:inherit;font-weight:700;border:1.5px solid var(--bl);border-radius:10px;padding:12px 16px;cursor:pointer;background:#fffdf7;color:var(--bl);flex:1 1 140px;font-size:15px}
+a.zalo{background:#0068ff}
+.frames{display:flex;gap:10px}.frames .fr{flex:1;height:54px;border-radius:8px;border:2.5px solid transparent;cursor:pointer;font-size:12px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:3px;color:#2b3447}
+.frames .fr.on{border-color:#1f2f4d}
+.promo{display:flex;gap:14px;align-items:center;background:#fffdf7;border:1.5px dashed #9fb2d0;border-radius:12px;padding:14px;margin-top:22px;font-size:14px}
+.promo img{width:88px;height:88px;border-radius:6px}
+.promo b{color:var(--ink)}
+.note{font-size:12.5px;color:var(--soft);margin:8px 0 0;text-align:center}
+.hide{display:none!important}
+#photoBox{display:none}
+</style></head><body><div class="w">
+
+<h1 id="h1">Gửi người thầy của bạn</h1>
+<p class="sub" id="sub">20/11 · một tấm thiệp nhỏ cho người đã dạy bạn điều gì đó trong đời</p>
+
+<canvas id="cv" width="1080" height="1350"></canvas>
+
+<!-- người nhận -->
+<div id="viewAct" class="hide">
+  <div class="row"><button class="p" id="dlv">Tải thiệp về máy</button><button class="s" id="back">Gửi lại lời chúc</button></div>
+  <div class="row"><a class="p zalo" id="zl" target="_blank" rel="noopener">Nhận thiệp qua Zalo Cáo Ú, tặng trial dùng thử</a></div>
+  <p class="note">Không dùng Zalo thì cứ ở lại web, tải thiệp về là xong.</p>
+</div>
+
+<!-- người gửi -->
+<div id="make">
+ <div class="dots" id="dots"><i></i><i></i><i></i><i></i><i></i></div>
+
+ <div class="step on" id="s1">
+  <h2>Người thầy của bạn là ai?</h2>
+  <p class="hint">Không chỉ thầy cô trên lớp, đó có thể là sếp, đồng nghiệp hay một người đã chỉ dạy bạn.</p>
+  <div class="chips" id="who"></div>
+  <p class="quote">Ai cũng có một người thầy,<br>chỉ là chưa kịp nói lời cảm ơn.</p>
+ </div>
+
+ <div class="step" id="s2">
+  <h2>Chọn hình cho thiệp</h2>
+  <div class="tabs"><button class="chip on" id="tabI">Hình minh hoạ</button><button class="chip" id="tabP">Ảnh của bạn</button></div>
+  <div id="illuBox"><div class="grid" id="arts"></div></div>
+  <div id="photoBox"><p class="hint">Chọn ảnh của bạn, của người thầy hoặc ảnh chụp chung. Ảnh chỉ nằm trên máy bạn để làm thiệp.</p><label class="drop" for="file"><b id="dropT">Chạm để chọn ảnh</b><span id="dropS">từ thư viện hoặc chụp mới</span></label><input type="file" id="file" accept="image/*" hidden></div>
+ </div>
+
+ <div class="step" id="s3">
+  <h2>Viết đôi dòng</h2>
+  <label>Gửi đến</label><input type="text" id="to" maxlength="40" placeholder="Ví dụ: Cô Thu Hà">
+  <label>Lời bạn muốn gửi <span id="cnt" style="float:right;font-weight:500;opacity:.6">0/320</span></label>
+  <textarea id="msg" maxlength="320" rows="6" placeholder="Cứ viết như đang nhắn cho người ấy, ngắn hay dài, xưng hô thế nào cũng được. Ví dụ: cô ơi em làm hỏng bài thi mà cô vẫn động viên, em chưa kịp cảm ơn cô đàng hoàng..."></textarea>
+  <div class="row"><button class="s" id="gen">Nhờ Cáo Ú chỉnh văn phong</button><button class="s" id="undo" style="display:none">Quay lại bản của mình</button></div>
+  <p class="hint">Cáo Ú chỉ chỉnh cho mượt, vẫn giữ ý và cách xưng hô của bạn. Bạn cũng có thể giữ nguyên lời mình viết.</p>
+  <label>Tên người gửi</label><input type="text" id="fr" maxlength="40" placeholder="Tên của bạn">
+ </div>
+
+ <div class="step" id="s4">
+  <h2>Chọn khung thiệp</h2>
+  <p class="hint">Nền giấy màu nước, bạn chọn tông màu cho thiệp.</p>
+  <div class="frames" id="frames"></div>
+ </div>
+
+ <div class="step" id="s5">
+  <h2>Thiệp của bạn đây</h2>
+  <label>Tải xuống theo khung</label>
+  <div class="row" style="margin-top:4px"><button class="p" id="dlP">Ảnh dọc (Zalo, story)</button><button class="p" id="dlS" style="background:#5c7fb8">Ảnh vuông (Facebook)</button></div>
+  <label>Hoặc gửi bằng link</label>
+  <input type="text" id="lk" readonly>
+  <div class="row" style="margin-top:8px"><button class="s" id="cp">Sao chép link</button></div>
+  <p class="note" id="lkNote"></p>
+ </div>
+
+ <div class="row" id="nav"><button class="s" id="prev">Quay lại</button><button class="p" id="next">Tiếp</button></div>
+</div>
+
+<div class="promo">
+  <img src="qr.png" alt="QR">
+  <div><b>Thiệp này do Cáo Ú - Thử Việc làm.</b><br>Quét mã hoặc vào <a href="https://jason.vn">https://jason.vn</a> để trải nghiệm miễn phí, nhập mã <b>JADE</b> để thêm 30k credit.<br>Zalo Cáo Ú: <a href="https://zalo.me/0559041800"><b>0559 041 800</b></a></div>
+</div>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const WHO=[
+ {k:'tc',e:'📖',d:'dạy mình từng con chữ',n:'Thầy cô trên lớp',you:'thầy cô',me:'em',art:'butmay'},
+ {k:'sep',e:'🧭',d:'tin tưởng giao việc',n:'Sếp',you:'sếp',me:'em',art:'caydai'},
+ {k:'dn',e:'🤝',d:'sát cánh mỗi ngày',n:'Đồng nghiệp',you:'bạn',me:'mình',art:'lanban'},
+ {k:'ng',e:'🌱',d:'chỉ đường lúc mình chưa biết',n:'Người đã chỉ dạy mình',you:'anh chị',me:'em',art:'doday'}
+];
+const ARTS=[
+ {k:'doday',n:'Người lái đò',d:'người đưa mình qua sông',l:'Cảm ơn {you} đã đưa {me} qua sông, đúng những lúc {me} chênh vênh nhất.'},
+ {k:'denbien',n:'Ngọn hải đăng',d:'người soi đường lúc lạc',l:'Có những lúc {me} lạc hướng, ánh đèn của {you} vẫn sáng ở đó.'},
+ {k:'caydai',n:'Cây cổ thụ',d:'người che chở',l:'Dưới bóng {you}, {me} thấy mình được che chở và lớn lên từng ngày.'},
+ {k:'butmay',n:'Bút máy và con đường',d:'người dạy từng nét chữ',l:'Từng nét chữ {you} dạy, {me} vẫn giữ đến tận hôm nay.'},
+ {k:'lanban',n:'La bàn',d:'người chỉ hướng',l:'{You} không dắt {me} đi, chỉ chỉ hướng thôi, vậy mà {me} đi được xa.'},
+ {k:'denban',n:'Ngọn đèn bàn',d:'người thắp sáng mình',l:'Có những đêm {me} mệt, nghĩ đến {you} là thấy lòng mình sáng lại.'}
+];
+const FR=[
+ {k:'giay',n:'Giấy trắng',ink:'#2d4a73',sw:'#f7f2e5'},
+ {k:'troi',n:'Trời xanh',ink:'#1f3f77',sw:'#bcd0ee'},
+ {k:'am',n:'Nắng ấm',ink:'#7a4527',sw:'#f6cdb2'},
+ {k:'dem',n:'Đêm xanh',ink:'#f4ecd8',sw:'#27467f'}
+];
+const IMG={};ARTS.forEach(a=>{const i=new Image();i.src='art/'+a.k+'.jpg';i.onload=()=>draw();IMG[a.k]=i});
+const FOX=new Image();FOX.src='fox.png';FOX.onload=()=>draw();
+const PAPER=new Image();PAPER.src='paper.jpg';PAPER.onload=()=>draw();
+let PH=null;
+let st={w:0,a:'butmay',k:0,t:'',m:'',f:'',mode:'illu'};
+let step=0,viewMode=false;
+
+const cap=s=>s.charAt(0).toUpperCase()+s.slice(1);
+const enc=o=>btoa(unescape(encodeURIComponent(JSON.stringify(o)))).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'');
+const dec=s=>JSON.parse(decodeURIComponent(escape(atob(s.replace(/-/g,'+').replace(/_/g,'/')))));
+
+function wrap(x,t,maxw){const out=[];for(const para of t.split('\n')){let line='';for(const w of para.split(/\s+/)){if(!w)continue;const tt=line?line+' '+w:w;if(x.measureText(tt).width>maxw&&line){out.push(line);line=w}else line=tt}out.push(line)}return out}
+
+function render(c,W,H){
+ const x=c.getContext('2d'),F=FR[st.k]||FR[0],dark=F.k==='dem';
+ c.width=W;c.height=H;
+ x.globalCompositeOperation='source-over';
+ // nền giấy
+ if(dark){const g=x.createLinearGradient(0,0,0,H);g.addColorStop(0,'#2b4c86');g.addColorStop(1,'#1c3563');x.fillStyle=g;x.fillRect(0,0,W,H)}
+ else{x.fillStyle='#f7f2e5';x.fillRect(0,0,W,H);if(PAPER.complete&&PAPER.naturalWidth){x.fillStyle=x.createPattern(PAPER,'repeat');x.fillRect(0,0,W,H)}
+  if(F.k==='troi'||F.k==='am'){const g=x.createLinearGradient(0,0,0,H*.55);const col=F.k==='troi'?'112,156,226':'248,184,140';g.addColorStop(0,'rgba('+col+',.55)');g.addColorStop(.6,'rgba('+col+',.12)');g.addColorStop(1,'rgba('+col+',0)');x.globalCompositeOperation='multiply';x.fillStyle=g;x.fillRect(0,0,W,H);x.globalCompositeOperation='source-over'}}
+ // viền mảnh
+ x.strokeStyle=dark?'rgba(244,236,216,.55)':'rgba(45,74,115,.45)';x.lineWidth=3;x.strokeRect(34,34,W-68,H-68);
+ x.textAlign='center';x.fillStyle=F.ink;
+ x.font='600 44px "Dancing Script",cursive';x.globalAlpha=.85;x.fillText('20.11 · gửi người thầy của mình',W/2,128);x.globalAlpha=1;
+ const to=st.t||'người thầy của bạn';
+ let fs=84;while(fs>44){x.font='700 '+fs+'px "Dancing Script",cursive';if(x.measureText(to).width<W-220)break;fs-=4}
+ x.fillText(to,W/2,228);
+ // hình
+ const A=H>1200?500:330,ax=(W-A)/2,ay=H>1200?280:258;
+ if(st.mode==='photo'&&PH){
+  x.save();x.translate(W/2,ay+A/2);x.rotate(-0.03);
+  const pw=A*0.86,ph=A*0.98;x.shadowColor='rgba(0,0,0,.28)';x.shadowBlur=24;x.shadowOffsetY=8;x.fillStyle='#fffdf7';x.fillRect(-pw/2,-ph/2,pw,ph);x.shadowColor='transparent';
+  const pad=pw*.06,iw=pw-pad*2,ih=ph-pad*2-ph*.12;
+  const r=Math.max(iw/PH.width,ih/PH.height);const sw=iw/r,sh=ih/r;
+  x.drawImage(PH,(PH.width-sw)/2,(PH.height-sh)/2,sw,sh,-pw/2+pad,-ph/2+pad,iw,ih);
+  x.restore();
+ }else{
+  const im=IMG[st.a];
+  if(dark){x.fillStyle='#f7f2e5';x.beginPath();x.roundRect?x.roundRect(ax,ay,A,A,18):x.rect(ax,ay,A,A);x.fill();if(PAPER.complete&&PAPER.naturalWidth){x.save();x.globalCompositeOperation='multiply';x.fillStyle=x.createPattern(PAPER,'repeat');x.fillRect(ax,ay,A,A);x.restore()}}
+  if(im&&im.complete&&im.naturalWidth){x.save();x.globalCompositeOperation='multiply';
+   if(dark){x.beginPath();x.rect(ax,ay,A,A);x.clip()}
+   const o=document.createElement('canvas');o.width=o.height=Math.round(A*1.08);const ox=o.getContext('2d');ox.drawImage(im,0,0,o.width,o.height);
+   ox.globalCompositeOperation='destination-in';const R=o.width/2,g=ox.createRadialGradient(R,R,R*.8,R,R,R*1);g.addColorStop(0,'rgba(0,0,0,1)');g.addColorStop(1,'rgba(0,0,0,0)');ox.fillStyle=g;ox.fillRect(0,0,o.width,o.height);
+   x.drawImage(o,ax-A*.04,ay-A*.04);x.restore()}
+ }
+ // lời
+ const my=ay+A+75,mb=H-235;
+ const m=st.m||'Lời chúc của bạn sẽ hiện ở đây...';
+ let ms=60,lines;
+ for(;ms>28;ms-=2){x.font='600 '+ms+'px "Dancing Script",cursive';lines=wrap(x,m,W-210);if(lines.length*ms*1.32<mb-my)break}
+ x.fillStyle=st.m?F.ink:(dark?'#aab6cf':'#a0a9ba');x.textAlign='center';
+ lines.forEach((l,i)=>x.fillText(l,W/2,my+i*ms*1.32));
+ if(st.f){x.fillStyle=F.ink;x.font='700 50px "Dancing Script",cursive';x.textAlign='right';x.fillText('— '+st.f,W-110,H-185)}
+ // chân thiệp
+ x.fillStyle=dark?'rgba(244,236,216,.12)':'rgba(45,74,115,.07)';x.fillRect(34,H-150,W-68,116);
+ if(FOX.complete&&FOX.naturalWidth)x.drawImage(FOX,70,H-134,84,84);
+ x.textAlign='left';x.fillStyle=F.ink;x.font='700 28px "Be Vietnam Pro",sans-serif';x.fillText('Thiệp do Cáo Ú - Thử Việc làm',175,H-92);
+ x.font='500 23px "Be Vietnam Pro",sans-serif';x.globalAlpha=.85;x.fillText('Trải nghiệm miễn phí tại jason.vn',175,H-56);x.globalAlpha=1;
+}
+function draw(){render($('cv'),1080,1350)}
+function dlCanvas(W,H,name){const c=document.createElement('canvas');render(c,W,H);const a=document.createElement('a');a.download=name;a.href=c.toDataURL('image/png');a.click();draw()}
+
+// ---- UI
+function mkWho(){const b=$('who');b.innerHTML='';WHO.forEach((w,i)=>{const e=document.createElement('button');e.className='chip'+(st.w===i?' on':'');e.textContent=w.n;e.onclick=()=>{st.w=i;if(st.mode==='illu')st.a=w.art;mkWho();mkArts();draw()};b.appendChild(e)})}
+function mkArts(){const b=$('arts');if(!b.children.length){ARTS.forEach(a=>{const e=document.createElement('button');e.dataset.k=a.k;e.innerHTML='<img src="art/'+a.k+'.jpg" alt=""><span>'+a.n+'</span>';e.onclick=()=>{st.a=a.k;mkArts();draw()};b.appendChild(e)})}
+ [...b.children].forEach(e=>e.className='th'+(st.a===e.dataset.k?' on':''))}
+function mkFr(){const b=$('frames');if(!b.children.length){FR.forEach((f,i)=>{const e=document.createElement('div');e.style.background=f.sw;if(f.k==='dem')e.style.color='#fff';e.textContent=f.n;e.onclick=()=>{st.k=i;mkFr();draw()};b.appendChild(e)})}
+ [...b.children].forEach((e,i)=>e.className='fr'+(st.k===i?' on':''))}
+function setMode(m){st.mode=m;$('tabI').classList.toggle('on',m==='illu');$('tabP').classList.toggle('on',m==='photo');$('illuBox').style.display=m==='illu'?'block':'none';$('photoBox').style.display=m==='photo'?'block':'none';draw()}
+$('tabI').onclick=()=>setMode('illu');$('tabP').onclick=()=>setMode('photo');
+$('file').onchange=e=>{const f=e.target.files[0];if(!f)return;$('dropT').textContent='Đã chọn ảnh: '+f.name.slice(0,28);$('dropS').textContent='chạm để đổi ảnh khác';$('dropT').parentNode.classList.add('has');const r=new FileReader();r.onload=()=>{const i=new Image();i.onload=()=>{PH=i;draw()};i.src=r.result};r.readAsDataURL(f)};
+let orig='';
+function cnt(){$('cnt').textContent=$('msg').value.length+'/320'}
+$('msg').addEventListener('input',()=>{cnt();read()});
+$('undo').onclick=()=>{$('msg').value=orig;$('undo').style.display='none';cnt();read()};
+$('gen').onclick=async()=>{
+ const btn=$('gen'),old=btn.textContent,w=WHO[st.w],a=ARTS.find(x=>x.k===st.a);
+ orig=$('msg').value;btn.disabled=true;btn.textContent='Cáo Ú đang chỉnh...';
+ try{
+  const r=await fetch((window.API_BASE||'')+'/api/wish',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({who:w.n,to:$('to').value.trim(),art:st.mode==='illu'&&a?a.n+' ('+a.d+')':'',text:orig})});
+  const d=await r.json();if(!d.text)throw 0;$('msg').value=d.text;$('undo').style.display=orig?'':'none';cnt();read();
+ }catch(e){alert('Cáo Ú đang bận chút, bạn thử lại sau vài giây nha.')}
+ btn.disabled=false;btn.textContent=old;
+};
+function read(){st.t=$('to').value.trim();st.m=$('msg').value.trim();st.f=$('fr').value.trim();draw()}
+['to','msg','fr'].forEach(i=>$(i).addEventListener('input',read));
+
+function go(n){
+ step=Math.max(0,Math.min(4,n));
+ document.querySelectorAll('.step').forEach((e,i)=>e.classList.toggle('on',i===step));
+ document.querySelectorAll('#dots i').forEach((e,i)=>e.classList.toggle('on',i<=step));
+ $('prev').style.display=step===0?'none':'';
+ $('next').style.display=step===4?'none':'';
+ if(step===4)mkLink();
+ if(step===3)read();
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+$('next').onclick=()=>{
+ if(step===1&&st.mode==='photo'&&!PH){alert('Bạn chọn một tấm ảnh trước nha, hoặc chuyển sang hình minh hoạ.');return}
+ if(step===2){read();if(!st.t||!st.m){alert('Bạn nhập tên người nhận và lời chúc giúp nha.');return}}
+ go(step+1)};
+$('prev').onclick=()=>go(step-1);
+async function mkLink(){
+ const o={t:st.t,m:st.m,f:st.f,a:st.mode==='photo'?'doday':st.a,k:st.k};
+ const long=location.origin+'/?c='+enc(o);
+ $('lk').value='Đang tạo link ngắn...';
+ try{const r=await fetch((window.API_BASE||'')+'/api/card',{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(o)});const d=await r.json();$('lk').value=d.id?(window.API_BASE?location.origin+location.pathname+'?s='+d.id:location.origin+'/s/'+d.id):long}catch(e){$('lk').value=long}
+ $('lkNote').textContent=st.mode==='photo'?'Ảnh của bạn chỉ có trong file tải về, link sẽ hiện kèm hình minh hoạ.':'';
+}
+$('cp').onclick=async()=>{try{await navigator.clipboard.writeText($('lk').value)}catch(e){$('lk').select();document.execCommand('copy')}$('cp').textContent='Đã sao chép!'};
+$('dlP').onclick=()=>dlCanvas(1080,1350,'thiep-20-11-doc.png');
+$('dlS').onclick=()=>dlCanvas(1080,1080,'thiep-20-11-vuong.png');
+$('dlv').onclick=()=>dlCanvas(1080,1350,'thiep-20-11.png');
+$('back').onclick=()=>{
+ const f=st.f;viewMode=false;$('viewAct').classList.add('hide');$('make').classList.remove('hide');
+ $('h1').textContent='Gửi người thầy của bạn';$('sub').textContent='20/11 · một tấm thiệp nhỏ cho người đã dạy bạn điều gì đó trong đời';
+ st={w:0,a:'butmay',k:st.k,t:f,m:'',f:'',mode:'illu'};$('to').value=f;$('msg').value='';$('fr').value='';cnt();
+ PH=null;mkWho();mkArts();mkFr();setMode('illu');go(0);draw()};
+
+(async function init(){
+ mkWho();mkArts();mkFr();
+ const c=new URLSearchParams(location.search).get('c'),sm=location.pathname.match(/^\/s\/([a-z0-9]+)$/),sid=sm?sm[1]:new URLSearchParams(location.search).get('s');
+ const load=o=>{st={w:0,a:ARTS.some(a=>a.k===o.a)?o.a:'butmay',k:Math.min(3,Math.max(0,+o.k||0)),t:String(o.t||''),m:String(o.m||''),f:String(o.f||''),mode:'illu'};viewMode=true};
+ if(sid){try{const r=await fetch((window.API_BASE||'')+'/api/card/'+sid);if(r.ok)load(await r.json())}catch(e){}}
+ else if(c){try{load(dec(c))}catch(e){}}
+ if(viewMode){
+  $('make').classList.add('hide');$('viewAct').classList.remove('hide');
+  $('h1').textContent='Bạn có một tấm thiệp mới';$('sub').textContent=(st.f?st.f+' vừa gửi bạn tấm thiệp này':'Có người vừa gửi bạn một tấm thiệp 20/11');
+  $('zl').href='https://zalo.me/0559041800';$('zl').onclick=()=>{try{navigator.clipboard.writeText(location.href)}catch(e){}};
+ }else go(0);
+ const rd=()=>draw();
+ if(document.fonts&&document.fonts.load)Promise.all([document.fonts.load('700 60px "Dancing Script"'),document.fonts.load('600 40px "Dancing Script"'),document.fonts.load('700 28px "Be Vietnam Pro"'),document.fonts.load('500 23px "Be Vietnam Pro"')]).then(rd,rd);
+ draw();
+})();
+</script><button class="bgm" id="bgm" type="button">♪ Nhạc nền: <b id="bgmS">tắt</b><small>Promises to Keep, Kevin MacLeod (CC BY 4.0)</small></button>
+<audio id="aud" src="bgm.mp3" loop preload="none"></audio>
+<script>
+(function(){
+ if(!matchMedia('(min-width:900px)').matches)return;
+ const a=document.getElementById('aud'),b=document.getElementById('bgm'),t=document.getElementById('bgmS');
+ let on=false,iv;a.volume=0;
+ function fade(to){clearInterval(iv);iv=setInterval(()=>{const d=to-a.volume;if(Math.abs(d)<.03){a.volume=to;clearInterval(iv);if(!to)a.pause();return}a.volume=Math.max(0,Math.min(1,a.volume+Math.sign(d)*.03))},120)}
+ function play(){a.play().then(()=>{on=true;t.textContent='bật';fade(.35)}).catch(()=>{})}
+ function stop(){on=false;t.textContent='tắt';fade(0)}
+ b.onclick=e=>{e.stopPropagation();on?stop():play();user=true};
+ let user=false;
+ const first=e=>{if(e.target.closest&&e.target.closest('#bgm'))return;if(!user&&!on)play();user=true;removeEventListener('pointerdown',first)};
+ addEventListener('pointerdown',first);
+})();
+</script>
+</body></html>
+<!-- v12 -->
