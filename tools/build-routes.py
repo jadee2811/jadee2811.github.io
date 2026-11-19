@@ -14,7 +14,7 @@ shell=open(os.path.join(root,'tools','shell.html'),encoding='utf8').read()
 routes=json.load(open(os.path.join(root,'data','routes.json'),encoding='utf8'))
 today=datetime.date.today().isoformat()
 DEFAULT_IMG='assets/og/default.png'
-person={'@type':'Person','@id':site+'/#jade','name':'Jade','url':site+'/','jobTitle':'AI Product Owner and AI Growth Advisor','sameAs':['https://www.linkedin.com/in/jadeeasyai/','https://www.facebook.com/jadeshare.space/']}
+person={'@type':'Person','@id':site+'/#jade','name':'Jade','url':site+'/','jobTitle':'AI Product Owner and AI Growth Advisor','sameAs':['https://www.linkedin.com/in/jadeshare/','https://www.facebook.com/jadeshare.space/']}
 
 def page_type(p):
     if p=='/':return 'WebPage'

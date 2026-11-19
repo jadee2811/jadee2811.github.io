@@ -11,7 +11,7 @@ const getText=u=>cache[u]||(cache[u]=fetch(u).then(r=>{if(!r.ok)throw new Error(
 function meta(sel,attr,val){let e=document.querySelector(sel);if(!e){e=document.createElement('meta');const m=sel.match(/\[(name|property)="([^"]+)"\]/);if(m)e.setAttribute(m[1],m[2]);document.head.append(e)}e.setAttribute(attr,val)}
 function canonical(url){let l=document.querySelector('link[rel="canonical"]');if(!l){l=document.createElement('link');l.rel='canonical';document.head.append(l)}l.href=url}
 function ld(data){let s=document.querySelector('script[type="application/ld+json"]');if(!s){s=document.createElement('script');s.type='application/ld+json';document.head.append(s)}s.textContent=JSON.stringify(data)}
-const person={'@type':'Person','@id':siteUrl+'/#jade',name:'Jade',url:siteUrl+'/',jobTitle:'AI Product Owner and AI Growth Advisor',sameAs:['https://www.linkedin.com/in/jadeeasyai/','https://www.facebook.com/jadeshare.space/']};
+const person={'@type':'Person','@id':siteUrl+'/#jade',name:'Jade',url:siteUrl+'/',jobTitle:'AI Product Owner and AI Growth Advisor',sameAs:['https://www.linkedin.com/in/jadeshare/','https://www.facebook.com/jadeshare.space/']};
 function seo(path,r,R){
   if(!r)return;const url=siteUrl+path,img=siteUrl+'/'+(r.image||'assets/og/default.png'),label=r.label||r.title,alt=label+' | Jade Share';
   document.title=r.title;meta('meta[name="description"]','content',r.description);
