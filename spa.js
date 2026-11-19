@@ -67,7 +67,7 @@ function related(slug,L){
   const me=REL[slug];if(!me)return'';const keys=Object.keys(REL),same=keys.filter(k=>k!==slug&&REL[k][3]===me[3]);
   const i=keys.indexOf(slug),order=same.slice().sort((a,b)=>((keys.indexOf(a)-i+keys.length)%keys.length)-((keys.indexOf(b)-i+keys.length)%keys.length));
   const pick=order.slice(0,2);if(!pick.length)return'';
-  return '<section class="sc-related"><label>'+T[L].related+'</label><div class="cards">'+pick.map(k=>{const r=REL[k],nm=L==='vi'?REL_VI[k]:r[0];return '<a class="card" href="/work/'+k+'"><div class="art '+r[2]+'"><img src="assets/'+r[1]+'.svg" alt="'+esc(nm)+'" loading="lazy"><i>↗</i></div><h2>'+esc(nm)+'</h2></a>'}).join('')+'</div></section>';
+  return '<section class="sc-related"><label>'+T[L].related+'</label><div class="cards">'+pick.map(k=>{const r=REL[k],nm=L==='vi'?REL_VI[k]:r[0];return '<a class="card" href="/work/'+k+'"><div class="art '+r[2]+'"><img src="assets/'+r[1]+'.svg" alt="'+esc(nm)+'" loading="lazy"><i>↗︎</i></div><h2>'+esc(nm)+'</h2></a>'}).join('')+'</div></section>';
 }
 async function showcase(slug,L){
   const d=await getJSON('/data/showcase/'+(L==='en'?'en/':'')+encodeURIComponent(slug)+'.json');

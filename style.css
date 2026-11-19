@@ -215,3 +215,23 @@ input,textarea,.button,.button.secondary,.lang,.close a,.filters button,.studiot
 .journey:before{left:7px;width:2px;top:14px;bottom:14px}
 .journey li{padding-left:42px}
 .journey li:before{box-sizing:border-box;left:0;top:4px;width:16px;height:16px;border-width:3px}
+
+/* mobile fixes: arrows as text glyph, hamburger, card images, writing list */
+.button,.more,.lang,.writing span{font-variant-emoji:text}
+.menu{font-size:0;color:transparent;width:44px;height:44px;padding:0;flex:none;cursor:pointer;border:1px solid var(--line);border-radius:var(--r-control);background:linear-gradient(var(--ink),var(--ink)) center 14px/18px 2px no-repeat,linear-gradient(var(--ink),var(--ink)) center 21px/18px 2px no-repeat,linear-gradient(var(--ink),var(--ink)) center 28px/18px 2px no-repeat;-webkit-appearance:none;appearance:none}
+.menu:hover{border-color:var(--jade)}
+header:has(nav.open) .menu{background:linear-gradient(45deg,transparent 46%,var(--ink) 46% 54%,transparent 54%) center/18px 18px no-repeat,linear-gradient(-45deg,transparent 46%,var(--ink) 46% 54%,transparent 54%) center/18px 18px no-repeat}
+@media(max-width:760px){
+header{gap:12px}
+header nav{top:100%;left:0;right:0;padding:10px 20px 16px;background:var(--paper);border:1px solid var(--line);border-radius:var(--r-media);box-shadow:0 18px 40px #17382c24}
+header nav a{display:block;padding:14px 4px;font-size:18px;border-bottom:1px solid var(--line)}
+header nav a:last-child{border-bottom:0}
+.menu{margin-left:auto}
+.project-photo,.vt .project-photo{height:auto;aspect-ratio:12/7;object-fit:contain;transform:none;width:100%;margin:20px 0}
+.spot{min-height:0;padding:20px}
+.spot>small,.card>small,.writing small,.posts small{white-space:normal}
+.writing a{grid-template-columns:minmax(0,1fr) auto;column-gap:16px;padding:20px 0}
+.writing small,.writing h3{grid-column:1}
+.writing h3{text-wrap:pretty}
+.writing span{grid-column:2;grid-row:1/3;white-space:nowrap;align-self:center;color:var(--muted);font-size:14px}
+}
