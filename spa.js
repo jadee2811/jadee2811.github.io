@@ -155,7 +155,7 @@ b.onclick=()=>window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motio
 const on=()=>{b.classList.toggle('show',scrollY>500);lab()};addEventListener('scroll',on,{passive:true});on();document.body.append(b)})();
 
 /* chat widget: same 6px corners as the site's buttons */
-(()=>{let n=0;const t=setInterval(()=>{const w=document.querySelector('jason-widget');if(w){w.style.setProperty('--button-radius','6px');w.style.setProperty('--icon-button-radius','6px');const r=w.shadowRoot;if(r&&!r.querySelector('#jade-corners')){const s=document.createElement('style');s.id='jade-corners';s.textContent='.tag,.suggestions>button{border-radius:6px!important}';r.append(s)}if(r&&r.querySelector('#jade-corners')){clearInterval(t)}}else if(++n>80)clearInterval(t)},250)})();
+(()=>{let n=0;const t=setInterval(()=>{const w=document.querySelector('jason-widget');if(w){w.style.setProperty('--button-radius','6px');w.style.setProperty('--icon-button-radius','6px');const r=w.shadowRoot;if(r&&!r.querySelector('#jade-corners')){const s=document.createElement('style');s.id='jade-corners';s.textContent='.tag,.suggestions>button{border-radius:6px!important}@media(max-width:760px){.ui-launcher-note .suggestions{display:none!important}}';r.append(s)}if(r&&r.querySelector('#jade-corners')){clearInterval(t)}}else if(++n>80)clearInterval(t)},250)})();
 
 /* ---------- intro: night sky, falling star, star-shaped zoom into the home page ---------- */
 (()=>{
