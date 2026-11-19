@@ -1,0 +1,78 @@
+{
+  "slug": "truong-son",
+  "status": "published",
+  "template": "case-long",
+  "logo": "",
+  "cover": "/assets/cover-truong-son.svg",
+  "title": "Đấu giá Trường Sơn: nền tảng đấu giá trực tuyến tích hợp C06 và VNeID",
+  "kind": "company",
+  "sector": "Pháp lý · Công nghệ",
+  "year": "2022–2024",
+  "role": "UX Content Lead",
+  "client": "Đấu giá Trường Sơn",
+  "summary": "Nền tảng đấu giá trực tuyến có quy trình chặt chẽ, tích hợp C06 và VNeID để xác thực người tham gia.",
+  "blocks": [
+    {
+      "type": "heading",
+      "text": "1. Bối cảnh và bài toán"
+    },
+    {
+      "type": "paragraph",
+      "text": "Đấu giá trực tuyến là quy trình có quy định, người tham gia cần hiểu rõ từng bước và tin vào sự minh bạch của hệ thống."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Người tham gia cần biết mình đang ở bước nào và việc tiếp theo là gì.",
+        "Xác thực danh tính phải chặt chẽ nhưng không gây khó cho người dùng.",
+        "Thông tin về lô đấu giá và trạng thái trả giá phải rõ ràng, kịp thời."
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "2. Vai trò"
+    },
+    {
+      "type": "paragraph",
+      "text": "Tôi phụ trách nội dung và trải nghiệm: chuyển quy trình đấu giá và yêu cầu pháp lý thành các bước dễ hiểu, cùng cách thông báo trạng thái cho người dùng."
+    },
+    {
+      "type": "heading",
+      "text": "3. Cách tiếp cận"
+    },
+    {
+      "type": "steps",
+      "items": [
+        [
+          "Quy trình theo bước",
+          "Đăng ký, đặt cọc, đấu giá, kết quả, mỗi bước có trạng thái rõ ràng."
+        ],
+        [
+          "Xác thực tích hợp C06 và VNeID",
+          "Giảm thao tác nhập tay, tăng độ tin cậy của người tham gia."
+        ],
+        [
+          "Thông tin lô đấu giá minh bạch",
+          "Giá khởi điểm, thời gian còn lại và lịch sử trả giá hiển thị rõ."
+        ]
+      ]
+    },
+    {
+      "type": "image",
+      "src": "/assets/truong-son.svg",
+      "alt": "Hình minh hoạ: màn hình lô đấu giá và lịch sử trả giá",
+      "caption": "Hình minh hoạ: màn hình lô đấu giá và lịch sử trả giá"
+    },
+    {
+      "type": "heading",
+      "text": "4. Bài học"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Với sản phẩm có quy định, giải thích từng bước cũng là một phần của thiết kế.",
+        "Minh bạch trạng thái tạo niềm tin hơn mọi lời trấn an."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "slug": "viettel-store",
+  "status": "published",
+  "template": "case-long",
+  "logo": "",
+  "cover": "/assets/cover-viettel-store.svg",
+  "title": "Viettel Store: trợ lý AI bán hàng và live chat trong mùa mở bán iPhone",
+  "kind": "company",
+  "sector": "Bán lẻ",
+  "year": "2024–2026",
+  "role": "Product Owner",
+  "client": "Viettel Store",
+  "summary": "Trợ lý AI tư vấn bán hàng kết hợp live chat, phục vụ lượng khách rất lớn trong mùa đặt trước iPhone.",
+  "blocks": [
+    {
+      "type": "heading",
+      "text": "1. Bối cảnh và bài toán"
+    },
+    {
+      "type": "paragraph",
+      "text": "Mùa mở bán iPhone kéo theo lượng khách hỏi đồng thời rất lớn, cần được tư vấn nhanh, đúng sản phẩm và chuyển sang nhân viên khi cần."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Khách đa phần không chuyên, hỏi nhiều về hàng, giá, đặt cọc.",
+        "Câu trả lời phải nhanh và nhất quán trong giờ cao điểm.",
+        "Cần bàn giao mượt giữa AI và nhân viên."
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "2. Vai trò"
+    },
+    {
+      "type": "paragraph",
+      "text": "Tôi làm Product Owner: xác định các tình huống tư vấn, cấu trúc kho tri thức, thiết kế luồng hội thoại, quy tắc chuyển người và theo dõi chất lượng sau go-live."
+    },
+    {
+      "type": "heading",
+      "text": "3. Cách tiếp cận"
+    },
+    {
+      "type": "steps",
+      "items": [
+        [
+          "Bắt đầu từ các tình huống thật",
+          "Phân loại câu hỏi khách hay hỏi trong mùa mở bán."
+        ],
+        [
+          "Kho tri thức sản phẩm",
+          "Thông tin hàng, giá, đặt cọc được tổ chức để AI trả lời nhất quán."
+        ],
+        [
+          "AI và nhân viên cùng làm",
+          "Quy tắc chuyển người rõ ràng khi cần xử lý ngoại lệ."
+        ]
+      ]
+    },
+    {
+      "type": "stats",
+      "items": [
+        [
+          "15.000+",
+          "yêu cầu iPhone được xử lý trong mùa đặt trước cao điểm"
+        ],
+        [
+          "57.000",
+          "lượt đặt cọc trong một ngày"
+        ]
+      ]
+    },
+    {
+      "type": "image",
+      "src": "/assets/viettel-store.svg",
+      "alt": "Hình minh hoạ: hội thoại tư vấn và thẻ sản phẩm",
+      "caption": "Hình minh hoạ: hội thoại tư vấn và thẻ sản phẩm"
+    },
+    {
+      "type": "heading",
+      "text": "4. Bài học"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Trong giờ cao điểm, tốc độ phản hồi và độ nhất quán quan trọng ngang độ thông minh.",
+        "Chuyển người đúng lúc là một phần của sản phẩm AI."
+      ]
+    }
+  ]
+}

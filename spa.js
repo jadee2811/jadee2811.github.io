@@ -45,10 +45,10 @@ link:b=>'<p><a class="more" href="'+esc(b.href)+'">'+esc(b.text)+' →</a></p>'}
 async function showcase(slug){
   const d=await getJSON('/data/showcase/'+encodeURIComponent(slug)+'.json');
   if(d.status!=='published')return{html:'<section class="sc-hero"><h1>Chưa công bố</h1></section>',seo:{title:'Chưa công bố | Jade',description:''}};
-  return{html:'<div id="showcase"><section class="sc-hero">'+(d.logo?'<img class="sc-logo" src="'+esc(d.logo)+'" alt="'+esc(d.client||'')+'">':'')+'<label>'+esc(d.sector)+' · '+(d.kind==='personal'?'DỰ ÁN CÁ NHÂN':'DỰ ÁN')+'</label><h1>'+esc(d.title)+'</h1><p>'+esc(d.summary)+'</p>'
+  return{html:'<div id="showcase">'+(d.cover?'<div class="sc-cover"><img src="'+esc(d.cover)+'" alt=""></div>':'')+'<section class="sc-hero">'+(d.logo?'<img class="sc-logo" src="'+esc(d.logo)+'" alt="'+esc(d.client||'')+'">':'')+'<label>'+esc(d.sector)+' · '+(d.kind==='personal'?'DỰ ÁN CÁ NHÂN':'DỰ ÁN')+'</label><h1>'+esc(d.title)+'</h1><p>'+esc(d.summary)+'</p>'
   +'<dl><div><dt>Khách hàng</dt><dd>'+esc(d.client||'—')+'</dd></div><div><dt>Vai trò</dt><dd>'+esc(d.role)+'</dd></div><div><dt>Năm</dt><dd>'+esc(d.year)+'</dd></div></dl></section>'
   +'<section class="sc-body">'+d.blocks.map(b=>(BLOCKS[b.type]||(()=>''))(b)).join('')+'<p><a class="more" href="/work">← Quay lại showcase</a></p></section></div>',
-  seo:{title:d.title+' | Jade',description:d.summary,image:d.logo?d.logo.replace(/^\//,''):undefined}};
+  seo:{title:d.title+' | Jade',description:d.summary,image:(d.cover||d.logo||'').replace(/^\//,'')||undefined}};
 }
 async function caseStudy(slug){
   const d=(await getJSON('/data/content.json')).cases[slug];if(!d)throw 0;
@@ -58,7 +58,7 @@ async function article(slug){
   const d=(await getJSON('/data/content.json')).articles[slug];if(!d)throw 0;
   return{html:'<section class="article-hero"><div class="article-heading"><label>'+d[0]+' · FIELD NOTE</label><h1>'+d[1]+'</h1><p>'+d[2]+'</p><div class="article-by">By Jade · Jade Share</div></div></section><section class="article-body"><aside><b>TABLE OF CONTENTS</b><a href="#start">01 Start with the decision</a><a href="#handoff">02 Map the handoff</a><a href="#scale">03 Scale the system</a></aside><article><p class="standfirst">These notes are a framework for discussing product and AI delivery. They do not represent a claim about a single client outcome.</p><h2 id="start">Start with the recurring decision</h2><p>Look first at the repeated decision a team makes, the context it requires and the consequence of getting it wrong. This reveals the useful unit of work before a feature or tool enters the discussion.</p><h2 id="handoff">Map the handoffs</h2><p>Document where information changes hands, where it is lost and where someone must review it. Clear handoffs make a workflow easier to evaluate and improve.</p><blockquote>Useful systems are defined by the workflow around a decision, not only by the quality of a single response.</blockquote><h2 id="scale">Scale the system, not the demo</h2><p>Scaling changes ownership, data, training and exception handling. A sustainable plan keeps those conditions visible from the start.</p><p><a class="more" href="/blog">Back to Jade Share →</a></p></article></section>'};
 }
-const PAGES={'/':'home','/about':'about','/work':'work','/blog':'blog','/contact':'contact','/work/umc-ai':'umc-ai','/blog/operating-model':'operating-model'};
+const PAGES={'/':'home','/about':'about','/work':'work','/blog':'blog','/contact':'contact','/blog/operating-model':'operating-model'};
 const notFoundSeo={title:'Lost in the forest (404) | Jade',description:'This page does not exist or has moved.'};
 async function resolve(path){
   if(PAGES[path])return{html:await getText('/pages/'+PAGES[path]+'.html')};
@@ -77,7 +77,7 @@ function bind(path){
   view.querySelectorAll('a[href^="http"]').forEach(a=>{if(new URL(a.href).origin!==location.origin){a.target='_blank';a.rel='noopener noreferrer'}});
   const fs=view.querySelectorAll('[data-filter]'),cs=view.querySelectorAll('[data-category]');
   fs.forEach(f=>f.onclick=()=>{fs.forEach(x=>x.classList.remove('active'));f.classList.add('active');cs.forEach(c=>c.hidden=f.dataset.filter!=='all'&&c.dataset.category!==f.dataset.filter)});
-  const slugs={'UMC Digital Health Platform':'umc-web','Money Forward Vietnam Digital Experience':'money-forward','Jungle Boss Adventure Travel Experience':'jungle-boss','Trường Sơn Online Auction Platform':'truong-son','Viettel Store AI Sales Advisor':'viettel-store','UMC AI-Powered Health Knowledge System':'umc-ai','Rạng Đông AI-Assisted Dealer Commerce':'rang-dong','MediaMart AI Sales & Customer Service':'media-mart'};
+  const slugs={'UMC Digital Health Platform':'umc','Money Forward Vietnam Digital Experience':'money-forward','Jungle Boss Adventure Travel Experience':'jungle-boss','Trường Sơn Online Auction Platform':'truong-son','Viettel Store AI Sales Advisor':'viettel-store','UMC AI-Powered Health Knowledge System':'umc','Rạng Đông AI-Assisted Dealer Commerce':'rang-dong','MediaMart AI Sales & Customer Service':'media-mart'};
   view.querySelectorAll('.card').forEach(c=>{const t=c.querySelector('h2')?.textContent.trim();if(slugs[t])c.setAttribute('href','/work/'+slugs[t])});
   const posts={'Designing the workflow before choosing the tool':'workflow','What makes an enterprise pilot worth scaling':'pilot','Lessons from shipping AI for real service teams':'service'};
   view.querySelectorAll('.posts article').forEach(a=>{const k=posts[a.querySelector('h2')?.textContent.trim()];if(!k)return;let l=a.querySelector('a');if(!l){l=document.createElement('a');while(a.firstChild)l.append(a.firstChild);a.append(l)}l.setAttribute('href','/blog/'+k)});
@@ -86,7 +86,7 @@ function bind(path){
 }
 
 /* ---------- router ---------- */
-const legacy={'/index.html':'/','/work.html':'/work','/blog.html':'/blog','/contact.html':'/contact','/case-umc-ai.html':'/work/umc-ai','/blog-detail.html':'/blog/operating-model'};
+const legacy={'/index.html':'/','/work.html':'/work','/blog.html':'/blog','/contact.html':'/contact','/case-umc-ai.html':'/work/umc','/work/umc-ai':'/work/umc','/work/umc-web':'/work/umc','/blog-detail.html':'/blog/operating-model'};
 function clean(p){p=legacy[p]||p;if(p.length>1)p=p.replace(/\/+$/,'');return p||'/'}
 let token=0,current=null;
 async function render(url,{push=false,scroll=true}={}){

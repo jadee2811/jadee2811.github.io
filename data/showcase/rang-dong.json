@@ -1,0 +1,91 @@
+{
+  "slug": "rang-dong",
+  "status": "published",
+  "template": "case-long",
+  "logo": "",
+  "cover": "/assets/cover-rang-dong.svg",
+  "title": "Rạng Đông: trợ lý AI hỗ trợ đại lý trong hành trình mua hàng",
+  "kind": "company",
+  "sector": "Sản xuất · B2B",
+  "year": "2024–2026",
+  "role": "Product Owner",
+  "client": "Rạng Đông",
+  "summary": "Trợ lý AI hỗ trợ đại lý tra cứu sản phẩm và đặt hàng, với bàn giao thương mại rõ ràng.",
+  "blocks": [
+    {
+      "type": "heading",
+      "text": "1. Bối cảnh và bài toán"
+    },
+    {
+      "type": "paragraph",
+      "text": "Đại lý cần tra cứu sản phẩm, tồn kho, chính sách và đặt hàng nhanh, trong khi đội kinh doanh không thể trả lời từng câu hỏi lặp lại."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Danh mục sản phẩm lớn, thông số kỹ thuật nhiều.",
+        "Đại lý cần phản hồi nhanh và nhất quán.",
+        "Các yêu cầu thương mại cần được chuyển đúng người xử lý."
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "2. Vai trò"
+    },
+    {
+      "type": "paragraph",
+      "text": "Tôi làm Product Owner: làm rõ các tình huống hỗ trợ đại lý, tổ chức kho tri thức sản phẩm, thiết kế luồng hội thoại và quy tắc chuyển giao cho nhân viên."
+    },
+    {
+      "type": "heading",
+      "text": "3. Cách tiếp cận"
+    },
+    {
+      "type": "steps",
+      "items": [
+        [
+          "Hỗ trợ theo ngữ cảnh",
+          "Trả lời dựa trên sản phẩm và tình huống mà đại lý đang hỏi."
+        ],
+        [
+          "Bàn giao thương mại có thể dự đoán",
+          "Báo giá, chiết khấu, đơn hàng đặc biệt chuyển đúng bộ phận."
+        ],
+        [
+          "Đo bằng chỉ số vận hành",
+          "Theo dõi thời gian phản hồi và mức hài lòng."
+        ]
+      ]
+    },
+    {
+      "type": "stats",
+      "items": [
+        [
+          "93,8%",
+          "CSAT"
+        ],
+        [
+          "8,927 giây",
+          "thời gian phản hồi đầu tiên (FRT)"
+        ]
+      ]
+    },
+    {
+      "type": "image",
+      "src": "/assets/rang-dong.svg",
+      "alt": "Hình minh hoạ: cổng đại lý và trợ lý hỗ trợ",
+      "caption": "Hình minh hoạ: cổng đại lý và trợ lý hỗ trợ"
+    },
+    {
+      "type": "heading",
+      "text": "4. Bài học"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Với B2B, trả lời đúng ngữ cảnh đại lý quan trọng hơn trả lời nhiều.",
+        "Ranh giới giữa AI và đội kinh doanh cần rõ ngay từ đầu."
+      ]
+    }
+  ]
+}
