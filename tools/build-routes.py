@@ -61,7 +61,7 @@ def localize(lang,p):
     other='vi' if lang=='en' else 'en'
     cur_b,oth_b=('EN','VI') if lang=='en' else ('VI','EN')
     sw=(f'<a class="lang" href="{path_of(other,p)}" hreflang="{other}" lang="{other}" aria-label="{"Tiếng Việt" if other=="vi" else "English"}">'
-        +('<b>EN</b> / <i>VI</i>' if lang=='en' else '<i>EN</i> / <b>VI</b>')+'</a>')
+        +('<b>EN</b><i>VI</i>' if lang=='en' else '<i>EN</i><b>VI</b>')+'</a>')
     s=re.sub(r'<button class="lang">.*?</button>',lambda m:sw,s,flags=re.S)
     return s
 

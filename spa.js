@@ -41,9 +41,15 @@ function seo(fullPath,r,R){
 
 /* ---------- language, menu ---------- */
 let lang=langOf(location.pathname);
-const lb=document.querySelector('.lang'),nav=document.querySelector('header nav');
+let lb=document.querySelector('.lang'),nav=document.querySelector('header nav');
 function setLang(){document.documentElement.lang=lang}
-const menu=document.querySelector('.menu');if(menu&&nav)menu.onclick=()=>nav.classList.toggle('open');
+let menu=document.querySelector('.menu');if(menu&&nav)menu.onclick=()=>nav.classList.toggle('open');
+async function shellFor(L){
+  if(document.documentElement.lang===L)return;
+  try{const h=await (await fetch(L==='vi'?'/vi/':'/',{cache:'no-cache'})).text(),d=new DOMParser().parseFromString(h,'text/html');
+    ['header','footer'].forEach(t=>{const a=document.querySelector(t),b=d.querySelector(t);if(a&&b)a.replaceWith(b)});
+    document.documentElement.lang=L;lb=document.querySelector('.lang');nav=document.querySelector('header nav');menu=document.querySelector('.menu');if(menu&&nav)menu.onclick=()=>nav.classList.toggle('open')}catch(e){}
+}
 
 /* ---------- renderers ---------- */
 const BLOCKS={
@@ -117,6 +123,7 @@ let token=0,current=null;
 async function render(url,{push=false,scroll=true}={}){
   const u=new URL(url,location.origin),full=clean(u.pathname),L=langOf(full),path=clean(baseOf(full)),my=++token;lang=L;
   const res=await resolve(path,L);if(my!==token)return;
+  if(!current)await shellFor(L);
   const swap=()=>{
     view.innerHTML=res.html;
     getJSON(L==='vi'?'/data/routes.vi.json':'/data/routes.json').then(R=>seo(full,(res.seo&&!res.seo.fallback)?res.seo:(R[path]||res.seo),R),()=>{if(res.seo)seo(full,res.seo)});
