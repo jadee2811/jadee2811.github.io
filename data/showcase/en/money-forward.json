@@ -1,0 +1,78 @@
+{
+  "slug": "money-forward",
+  "status": "published",
+  "template": "case-long",
+  "logo": "",
+  "cover": "/assets/cover-money-forward.svg",
+  "title": "Money Forward Vietnam: candidate experience and employer brand",
+  "kind": "company",
+  "sector": "Fintech",
+  "year": "2022–2024",
+  "role": "UX Content Lead",
+  "client": "Money Forward Vietnam",
+  "summary": "A digital experience for candidates, built around the hiring journey and the employer brand of a fintech company.",
+  "blocks": [
+    {
+      "type": "heading",
+      "text": "1. Context and problem"
+    },
+    {
+      "type": "paragraph",
+      "text": "Money Forward Vietnam needed a place where candidates could understand what the company does, what its culture is like and which role suits them, before deciding to apply."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Candidates need clear information about roles, locations and the hiring process.",
+        "The employer brand must be consistent with the product brand.",
+        "Content must be easy to update as hiring needs change."
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "2. Role"
+    },
+    {
+      "type": "paragraph",
+      "text": "I led content and experience: information structure, brand storytelling, and the writing for each step of the candidate journey, working with the client's design, engineering and HR teams."
+    },
+    {
+      "type": "heading",
+      "text": "3. Approach"
+    },
+    {
+      "type": "steps",
+      "items": [
+        [
+          "Follow the candidate journey",
+          "From learning about the company and browsing roles to submitting an application."
+        ],
+        [
+          "One brand story",
+          "A consistent voice and message across all pages."
+        ],
+        [
+          "Content that can be operated",
+          "Job pages structured so the HR team can update them on its own."
+        ]
+      ]
+    },
+    {
+      "type": "image",
+      "src": "/assets/money-forward.svg",
+      "alt": "Illustration: the careers page and job listing",
+      "caption": "Illustration: the careers page and job listing"
+    },
+    {
+      "type": "heading",
+      "text": "4. Lessons"
+    },
+    {
+      "type": "list",
+      "items": [
+        "For candidates, clarity matters more than polish.",
+        "The employer brand is part of the product and should be designed as a journey."
+      ]
+    }
+  ]
+}

@@ -55,7 +55,7 @@ function related(slug){
 async function showcase(slug){
   const d=await getJSON('/data/showcase/'+encodeURIComponent(slug)+'.json');
   if(d.status!=='published')return{html:'<section class="sc-hero"><h1>Chưa công bố</h1></section>',seo:{title:'Chưa công bố | Jade',description:'Dự án này chưa được công bố.',noindex:true}};
-  return{html:'<div id="showcase">'+(d.cover?'<div class="sc-cover"><img src="'+esc(d.cover)+'" alt="'+esc(d.title)+'"></div>':'')+'<section class="sc-hero">'+(d.logo?'<img class="sc-logo" src="'+esc(d.logo)+'" alt="'+esc(d.client||'')+'">':'')+'<label>'+esc(d.sector)+' · '+(d.kind==='personal'?'DỰ ÁN CÁ NHÂN':'DỰ ÁN')+'</label><h1>'+esc(d.title)+'</h1><p>'+esc(d.summary)+'</p>'
+  return{html:'<div id="showcase">'+(d.cover?'<div class="sc-cover"><img src="'+esc(d.cover)+'" alt="'+esc(d.title)+'"></div>':'')+'<section class="sc-hero">'+'<label>'+esc(d.sector)+' · '+(d.kind==='personal'?'DỰ ÁN CÁ NHÂN':'DỰ ÁN')+'</label><h1>'+esc(d.title)+'</h1><p>'+esc(d.summary)+'</p>'
   +'<dl><div><dt>Khách hàng</dt><dd>'+esc(d.client||'—')+'</dd></div><div><dt>Vai trò</dt><dd>'+esc(d.role)+'</dd></div><div><dt>Năm</dt><dd>'+esc(d.year)+'</dd></div></dl></section>'
   +'<section class="sc-body">'+d.blocks.map(b=>(BLOCKS[b.type]||(()=>''))(b)).join('')+'<p><a class="more" href="/work">← Quay lại showcase</a></p></section>'+related(slug)+'</div>',
   seo:{title:d.seoTitle||(d.title+' | Jade'),description:d.seoDescription||d.summary,label:d.client||d.title,image:/\.(png|jpe?g|webp)$/i.test(d.cover||'')?d.cover.replace(/^\//,''):'assets/og/default.png',fallback:true}};

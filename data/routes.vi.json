@@ -1,0 +1,104 @@
+{
+ "/": {
+  "title": "Jade | AI Product Owner & Growth Advisor",
+  "description": "Jade là AI Product Owner và Growth Advisor, xây dựng sản phẩm số, workflow AI và hệ thống tăng trưởng thực tiễn tại Việt Nam và Đông Nam Á.",
+  "label": "Trang chủ",
+  "image": "assets/og/default.png"
+ },
+ "/about": {
+  "title": "Giới thiệu Jade (Bích Ngọc) | AI Product Owner",
+  "description": "Jade, Bích Ngọc: tò mò từ nhỏ, nay là AI Product Owner sống trọn vẹn. Câu chuyện, hành trình sự nghiệp và nhiều góc khác của một cuộc sống.",
+  "label": "Giới thiệu",
+  "image": "assets/og/default.png"
+ },
+ "/work": {
+  "title": "Dự án tiêu biểu | Jade, AI Product Owner",
+  "description": "Các nền tảng số và giải pháp AI tiêu biểu trong y tế, bán lẻ, công nghệ, du lịch và vận hành doanh nghiệp, từ nền tảng web đến trợ lý AI.",
+  "label": "Dự án",
+  "image": "assets/og/default.png"
+ },
+ "/blog": {
+  "title": "Blog | Ghi chép thực tế về AI Product | Jade",
+  "description": "Ghi chép thực tế về sản phẩm, ứng dụng AI, triển khai và hệ thống vận hành thực tiễn từ Jade, AI Product Owner và Growth Advisor.",
+  "label": "Blog",
+  "image": "assets/og/default.png"
+ },
+ "/contact": {
+  "title": "Liên hệ Jade | AI Product & tăng trưởng",
+  "description": "Liên hệ Jade để trao đổi về sản phẩm AI, chuyển đổi số, chiến lược tăng trưởng và hệ thống vận hành thực tiễn cho bài toán kinh doanh thật.",
+  "label": "Liên hệ",
+  "image": "assets/og/default.png"
+ },
+ "/sitemap": {
+  "title": "Sơ đồ trang | Jade AI Product Owner",
+  "description": "Toàn bộ các trang trên jadeshare.space trong một nơi: giới thiệu, dự án tiêu biểu, các dự án showcase, ghi chép thực tế và liên hệ.",
+  "label": "Sơ đồ trang",
+  "image": "assets/og/default.png"
+ },
+ "/work/umc": {
+  "title": "UMC: web, trợ lý AI và marketing y tế | Jade",
+  "description": "Một dự án nhiều lớp trong cùng một bệnh viện: cổng thông tin web, trợ lý AI và Thư viện Sức khỏe, nền tảng marketing y tế cho UMC.",
+  "label": "UMC",
+  "image": "assets/og/umc.png"
+ },
+ "/work/money-forward": {
+  "title": "Money Forward Vietnam: web tuyển dụng | Jade",
+  "description": "Trải nghiệm số cho ứng viên Money Forward Vietnam, dựng quanh hành trình tuyển dụng và thương hiệu nhà tuyển dụng của một công ty fintech.",
+  "label": "Money Forward Vietnam",
+  "image": "assets/og/money-forward.png"
+ },
+ "/work/jungle-boss": {
+  "title": "Jungle Boss: website tour Phong Nha | Jade",
+  "description": "Website đa ngôn ngữ cho đơn vị tour mạo hiểm tại Phong Nha, cân bằng giữa cảm hứng khám phá và thông tin đặt tour thực tế.",
+  "label": "Jungle Boss",
+  "image": "assets/og/jungle-boss.png"
+ },
+ "/work/truong-son": {
+  "title": "Đấu giá Trường Sơn: nền tảng đấu giá | Jade",
+  "description": "Nền tảng đấu giá trực tuyến có quy trình chặt chẽ, tích hợp C06 và VNeID để xác thực người tham gia, thiết kế bởi Jade.",
+  "label": "Đấu giá Trường Sơn",
+  "image": "assets/og/truong-son.png"
+ },
+ "/work/viettel-store": {
+  "title": "Viettel Store: trợ lý AI bán hàng | Jade",
+  "description": "Trợ lý AI tư vấn bán hàng kết hợp live chat cho Viettel Store, phục vụ lượng khách rất lớn trong mùa đặt trước iPhone.",
+  "label": "Viettel Store",
+  "image": "assets/og/viettel-store.png"
+ },
+ "/work/rang-dong": {
+  "title": "Rạng Đông: trợ lý AI cho đại lý | Jade",
+  "description": "Trợ lý AI hỗ trợ đại lý Rạng Đông tra cứu sản phẩm và đặt hàng trong hành trình mua hàng, với bàn giao thương mại rõ ràng.",
+  "label": "Rạng Đông",
+  "image": "assets/og/rang-dong.png"
+ },
+ "/work/media-mart": {
+  "title": "MediaMart: trợ lý AI bán hàng và CSKH | Jade",
+  "description": "Trợ lý AI hỗ trợ bán hàng và chăm sóc khách hàng điện máy MediaMart, xử lý phản hồi đầu tiên và các ngoại lệ một cách nhất quán.",
+  "label": "MediaMart",
+  "image": "assets/og/media-mart.png"
+ },
+ "/blog/operating-model": {
+  "title": "Khi AI trở thành một phần của mô hình vận hành | Jade",
+  "description": "Từ các công cụ AI rời rạc đến hệ thống gắn liền với vận hành khách hàng hằng ngày: ghi chép về việc biến AI thành mô hình vận hành.",
+  "label": "Khi AI trở thành một phần của mô hình vận hành",
+  "image": "assets/og/default.png"
+ },
+ "/blog/workflow": {
+  "title": "Thiết kế workflow trước khi chọn công cụ | Jade",
+  "description": "Phương pháp thực tế để tìm ra quyết định, khâu bàn giao và ngoại lệ mà sản phẩm cần phục vụ, trước khi chọn bất kỳ công cụ hay nhà cung cấp AI nào.",
+  "label": "Thiết kế workflow trước khi chọn công cụ",
+  "image": "assets/og/default.png"
+ },
+ "/blog/pilot": {
+  "title": "Điều gì khiến pilot AI doanh nghiệp đáng nhân rộng | Jade",
+  "description": "Một dự án thử nghiệm nên giảm bất định về mô hình vận hành, chứ không chỉ chứng minh một tính năng chạy được. Ghi chép về cách đánh giá pilot AI.",
+  "label": "Điều gì khiến một dự án thử nghiệm doanh nghiệp đáng nhân rộng",
+  "image": "assets/og/default.png"
+ },
+ "/blog/service": {
+  "title": "Bài học khi triển khai AI cho đội dịch vụ | Jade",
+  "description": "Trong vận hành khách hàng, việc áp dụng AI phụ thuộc vào workflow quanh câu trả lời không kém gì bản thân câu trả lời. Bài học từ các đội dịch vụ thực tế.",
+  "label": "Bài học khi triển khai AI cho các đội dịch vụ thực tế",
+  "image": "assets/og/default.png"
+ }
+}

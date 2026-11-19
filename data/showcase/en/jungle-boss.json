@@ -1,0 +1,78 @@
+{
+  "slug": "jungle-boss",
+  "status": "published",
+  "template": "case-long",
+  "logo": "",
+  "cover": "/assets/cover-jungle-boss.svg",
+  "title": "Jungle Boss: exploring Phong Nha on a multilingual website",
+  "kind": "company",
+  "sector": "Travel",
+  "year": "2022–2024",
+  "role": "UX Content Lead",
+  "client": "Jungle Boss Adventure Travel",
+  "summary": "A multilingual website for an adventure tour operator in Phong Nha, balancing the inspiration to explore with practical booking information.",
+  "blocks": [
+    {
+      "type": "heading",
+      "text": "1. Context and problem"
+    },
+    {
+      "type": "paragraph",
+      "text": "International travelers looking for adventure tours need to feel inspired and also trust the operator enough to book: what the tour includes, how hard it is, the price and how to book."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Guests come from many countries and need multilingual content.",
+        "Adventure tours need clear safety information and difficulty levels.",
+        "Visual emotion must come with practical information so guests feel confident booking."
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "2. Role"
+    },
+    {
+      "type": "paragraph",
+      "text": "I led content structure and experience: how each tour is described, the order of information on the page, and the voice for international guests."
+    },
+    {
+      "type": "heading",
+      "text": "3. Approach"
+    },
+    {
+      "type": "steps",
+      "items": [
+        [
+          "Inspiration first, details second",
+          "Open the page with imagery and story, with the tour information right below."
+        ],
+        [
+          "One information template per tour",
+          "Duration, difficulty, price and inclusions, in the same structure."
+        ],
+        [
+          "Multilingual from the start",
+          "The content structure is prepared to add more languages."
+        ]
+      ]
+    },
+    {
+      "type": "image",
+      "src": "/assets/jungle-boss.svg",
+      "alt": "Illustration: the homepage and tour list",
+      "caption": "Illustration: the homepage and tour list"
+    },
+    {
+      "type": "heading",
+      "text": "4. Lessons"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Travelers need inspiration and reassurance at the same time.",
+        "A consistent information template makes tours easier to compare."
+      ]
+    }
+  ]
+}

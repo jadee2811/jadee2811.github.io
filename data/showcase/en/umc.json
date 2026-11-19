@@ -1,0 +1,154 @@
+{
+  "slug": "umc",
+  "status": "published",
+  "template": "case-long",
+  "title": "UMC: from web experience to AI and a healthcare marketing platform",
+  "kind": "company",
+  "sector": "Healthcare",
+  "year": "2024–2026",
+  "role": "Product Owner · UX Research",
+  "client": "University Medical Center Ho Chi Minh City (UMC)",
+  "summary": "A multi-layer project inside one hospital: a web portal, an AI assistant with a Health Library, and a healthcare marketing platform.",
+  "blocks": [
+    {
+      "type": "heading",
+      "text": "1. Context and problem"
+    },
+    {
+      "type": "paragraph",
+      "text": "UMC is a first-class public hospital with advanced, high-technology general care, and also a training and research institution. It holds a large body of medical knowledge, but most of it serves internal professional use and has not become content that is accessible to the public."
+    },
+    {
+      "type": "list",
+      "items": [
+        "People need quick answers: specialties, the visit process, booking, and common health knowledge.",
+        "Health information online is abundant and often inaccurate, so the hospital needs to be an authoritative source.",
+        "Interaction data is scattered across many channels, so the hospital struggles to see what users care about."
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "2. Role"
+    },
+    {
+      "type": "paragraph",
+      "text": "I was Product Owner throughout the project and also led UX Research across all three areas: the web, the AI chatbot and the healthcare marketing platform. The main work was turning the needs of the hospital, doctors and patients into product requirements, deciding priorities, and keeping all three on the same experience logic."
+    },
+    {
+      "type": "heading",
+      "text": "3. Web: one portal, three entry points"
+    },
+    {
+      "type": "paragraph",
+      "text": "Instead of one shared homepage, the website has three: Patients and the community, Healthcare professionals, and UMCers (the internal portal). Appointment booking was cut down to five steps."
+    },
+    {
+      "type": "image",
+      "src": "/assets/umc-homepages.svg",
+      "alt": "Illustration: the three UMC homepages",
+      "caption": "Illustration: the three UMC homepages"
+    },
+    {
+      "type": "steps",
+      "items": [
+        [
+          "Select or create a patient profile",
+          ""
+        ],
+        [
+          "Choose a specialty, doctor and time slot",
+          ""
+        ],
+        [
+          "Confirm the details",
+          ""
+        ],
+        [
+          "Pay online",
+          ""
+        ],
+        [
+          "Receive an electronic visit slip with a barcode for check-in",
+          ""
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "4. AI: the assistant supports, experts decide"
+    },
+    {
+      "type": "quote",
+      "text": "AI does not play doctor. It handles what can be standardized and repeated, and experts always decide the final content."
+    },
+    {
+      "type": "steps",
+      "items": [
+        [
+          "Medical knowledge base",
+          "Organized by condition, topic and lookup need."
+        ],
+        [
+          "Drafting support",
+          "AI proposes drafts, explains terminology and standardizes presentation."
+        ],
+        [
+          "Professional review",
+          "The hospital's expert council reviews content before publication."
+        ],
+        [
+          "Distribution and lookup",
+          "Content goes to the website and the AI chatbot, so people can look things up from an authoritative source."
+        ]
+      ]
+    },
+    {
+      "type": "stats",
+      "items": [
+        [
+          "1,000+",
+          "professional articles in 5 months"
+        ],
+        [
+          "267",
+          "doctors, nurses and medical staff took part in editing"
+        ]
+      ]
+    },
+    {
+      "type": "image",
+      "src": "/assets/umc-library-chatbot.svg",
+      "alt": "Illustration: the Health Library and AI chatbot",
+      "caption": "Illustration: the Health Library and AI chatbot"
+    },
+    {
+      "type": "heading",
+      "text": "5. Healthcare marketing platform"
+    },
+    {
+      "type": "paragraph",
+      "text": "Three modules connect into a closed loop: the AI Chatbot and Livechat receive questions, Customer 360/CDP records behavior and topics of interest, and Analytics, reporting and prediction turn the data into insight. The marketing plan follows three layers tied to market research: strategic diagnosis, service priority scoring, and marketing solutions."
+    },
+    {
+      "type": "image",
+      "src": "/assets/umc-marketing-flow.svg",
+      "alt": "Illustration: a marketing report or the three-layer flow",
+      "caption": "Illustration: a marketing report or the three-layer flow"
+    },
+    {
+      "type": "heading",
+      "text": "6. Lessons"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Pick a problem with clear value and manageable risk, then expand.",
+        "In healthcare, review is part of the product, not a final step.",
+        "Build a standardized knowledge base before letting AI answer from it.",
+        "Measure AI with operational metrics, not just chat counts."
+      ]
+    }
+  ],
+  "logo": "assets/umc-logo.webp",
+  "cover": "/assets/cover-umc.svg"
+}

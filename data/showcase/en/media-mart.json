@@ -1,0 +1,78 @@
+{
+  "slug": "media-mart",
+  "status": "published",
+  "template": "case-long",
+  "logo": "",
+  "cover": "/assets/cover-media-mart.svg",
+  "title": "MediaMart: an AI assistant for electronics sales and customer care",
+  "kind": "company",
+  "sector": "Retail",
+  "year": "2024–2026",
+  "role": "Product Owner",
+  "client": "MediaMart",
+  "summary": "An AI assistant for electronics sales and customer care, handling first responses and exceptions consistently.",
+  "blocks": [
+    {
+      "type": "heading",
+      "text": "1. Context and problem"
+    },
+    {
+      "type": "paragraph",
+      "text": "Electronics customers ask a lot about products, orders and delivery, and need fast responses that still follow policy."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Many repeated questions about products, order status and delivery.",
+        "Exceptions must be passed to staff at the right time.",
+        "The care tone must be consistent across channels."
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "2. Role"
+    },
+    {
+      "type": "paragraph",
+      "text": "I was Product Owner: classifying sales and care scenarios, organizing the knowledge base, and designing conversation flows and exception-handling rules."
+    },
+    {
+      "type": "heading",
+      "text": "3. Approach"
+    },
+    {
+      "type": "steps",
+      "items": [
+        [
+          "Fast first response",
+          "AI answers common questions immediately."
+        ],
+        [
+          "Deliberate exception handling",
+          "Cases outside the script go to staff with full context."
+        ],
+        [
+          "Clear order status",
+          "Customers know where their order is without waiting."
+        ]
+      ]
+    },
+    {
+      "type": "image",
+      "src": "/assets/media-mart.svg",
+      "alt": "Illustration: a care conversation and order status",
+      "caption": "Illustration: a care conversation and order status"
+    },
+    {
+      "type": "heading",
+      "text": "4. Lessons"
+    },
+    {
+      "type": "list",
+      "items": [
+        "A fast first response makes customers feel looked after.",
+        "Well-designed exceptions make customers trust the whole system."
+      ]
+    }
+  ]
+}

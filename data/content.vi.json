@@ -1,0 +1,70 @@
+{
+ "cases": {
+  "umc-web": [
+   "Healthcare · Web Platform",
+   "umc-web.svg",
+   "UMC Digital Health Platform",
+   "A digital front door for trusted health information and hospital services.",
+   "Clear information pathways and a calm, credible service experience."
+  ],
+  "money-forward": [
+   "Fintech · Employer Branding",
+   "money-forward.svg",
+   "Money Forward Vietnam Digital Experience",
+   "A candidate-facing digital experience shaped around the recruitment journey.",
+   "A clear narrative that supports informed role decisions."
+  ],
+  "jungle-boss": [
+   "Travel · Multilingual Website",
+   "jungle-boss.svg",
+   "Jungle Boss Adventure Travel Experience",
+   "An immersive digital expression of exploration, planning and trust.",
+   "Atmosphere balanced with practical trip discovery."
+  ],
+  "truong-son": [
+   "Legal Technology · Digital Platform",
+   "truong-son.svg",
+   "Trường Sơn Online Auction Platform",
+   "A structured platform for regulated online auction processes.",
+   "Legible steps, status communication and high-trust information."
+  ],
+  "viettel-store": [
+   "Retail · AI Sales",
+   "viettel-store.svg",
+   "Viettel Store AI Sales Advisor",
+   "AI-assisted product consultation for a high-demand retail launch.",
+   "Intent recognition, product context and clear human handoff."
+  ],
+  "rang-dong": [
+   "Manufacturing · B2B Commerce",
+   "rang-dong.svg",
+   "Rạng Đông AI-Assisted Dealer Commerce",
+   "Consistent product support across the dealer purchasing journey.",
+   "Contextual assistance and predictable commercial handoff."
+  ],
+  "media-mart": [
+   "Retail · Customer Operations",
+   "media-mart.svg",
+   "MediaMart AI Sales & Customer Service",
+   "Responsive sales and customer-service support for electronics retail.",
+   "First-response support and coherent exception handling."
+  ]
+ },
+ "articles": {
+  "workflow": [
+   "SẢN PHẨM & HỆ THỐNG",
+   "Thiết kế workflow trước khi chọn công cụ",
+   "Phương pháp thực tế để tìm ra quyết định, khâu bàn giao và ngoại lệ mà sản phẩm cần phục vụ."
+  ],
+  "pilot": [
+   "BÍ QUYẾT TĂNG TRƯỞNG",
+   "Điều gì khiến một dự án thử nghiệm doanh nghiệp đáng nhân rộng",
+   "Một dự án thử nghiệm nên giảm bất định về mô hình vận hành, chứ không chỉ chứng minh một tính năng chạy được."
+  ],
+  "service": [
+   "GHI CHÉP TỪ THỰC TẾ",
+   "Bài học khi triển khai AI cho các đội dịch vụ thực tế",
+   "Trong vận hành khách hàng, việc áp dụng phụ thuộc vào workflow quanh câu trả lời không kém gì bản thân câu trả lời."
+  ]
+ }
+}

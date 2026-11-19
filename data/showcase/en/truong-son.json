@@ -1,0 +1,78 @@
+{
+  "slug": "truong-son",
+  "status": "published",
+  "template": "case-long",
+  "logo": "",
+  "cover": "/assets/cover-truong-son.svg",
+  "title": "Trường Sơn Auction: an online auction platform integrated with C06 and VNeID",
+  "kind": "company",
+  "sector": "Legal · Technology",
+  "year": "2022–2024",
+  "role": "UX Content Lead",
+  "client": "Trường Sơn Auction",
+  "summary": "An online auction platform with a strict process, integrated with C06 and VNeID to verify participants.",
+  "blocks": [
+    {
+      "type": "heading",
+      "text": "1. Context and problem"
+    },
+    {
+      "type": "paragraph",
+      "text": "Online auctions follow a regulated process, so participants need to understand each step and trust the transparency of the system."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Participants need to know which step they are on and what comes next.",
+        "Identity verification must be strict without making things hard for users.",
+        "Information about auction lots and bidding status must be clear and timely."
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "2. Role"
+    },
+    {
+      "type": "paragraph",
+      "text": "I led content and experience: turning the auction process and legal requirements into easy-to-follow steps, along with how status is communicated to users."
+    },
+    {
+      "type": "heading",
+      "text": "3. Approach"
+    },
+    {
+      "type": "steps",
+      "items": [
+        [
+          "A step-by-step process",
+          "Registration, deposit, bidding, result, each step with a clear status."
+        ],
+        [
+          "Verification integrated with C06 and VNeID",
+          "Less manual entry and more trustworthy participants."
+        ],
+        [
+          "Transparent lot information",
+          "Starting price, time remaining and bid history are clearly displayed."
+        ]
+      ]
+    },
+    {
+      "type": "image",
+      "src": "/assets/truong-son.svg",
+      "alt": "Illustration: the auction lot screen and bid history",
+      "caption": "Illustration: the auction lot screen and bid history"
+    },
+    {
+      "type": "heading",
+      "text": "4. Lessons"
+    },
+    {
+      "type": "list",
+      "items": [
+        "In a regulated product, explaining each step is part of the design.",
+        "Transparent status builds more trust than any reassurance."
+      ]
+    }
+  ]
+}
