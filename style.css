@@ -111,3 +111,8 @@ p,li,figcaption,dd{text-wrap:pretty}
 .sitemap li a{font-size:19px;color:#142824;text-decoration:none;font-weight:600}
 .sitemap li a:hover{color:#116b54;text-decoration:underline}
 .sitemap li span{font-size:14px;line-height:1.5;color:#5f726b}
+/* related showcase */
+.sc-related{width:min(1280px,calc(100% - 96px));margin:0 auto;padding:56px 0 90px;border-top:1px solid var(--line)}
+.sc-related>label{display:block;margin-bottom:28px}
+.sc-related .cards{grid-template-columns:1fr 1fr}
+@media(max-width:760px){.sc-related{width:calc(100% - 32px);padding:40px 0 56px}.sc-related .cards{grid-template-columns:1fr}}

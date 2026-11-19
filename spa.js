@@ -45,12 +45,19 @@ stats:b=>'<div class="sc-stats">'+b.items.map(i=>'<div><em>'+esc(i[0])+'</em><sp
 image:b=>'<figure>'+(b.src?'<img src="'+esc(b.src)+'" alt="'+esc(b.alt||b.caption||'')+'" loading="lazy">':'<div class="sc-ph">'+esc(b.caption||'Hình minh hoạ')+'</div>')+(b.src&&b.caption?'<figcaption>'+esc(b.caption)+'</figcaption>':'')+'</figure>',
 embed:b=>'<div class="sc-embed"><iframe src="'+esc(b.src)+'" loading="lazy" allowfullscreen></iframe></div>',
 link:b=>'<p><a class="more" href="'+esc(b.href)+'">'+esc(b.text)+' →</a></p>'};
+const REL={umc:['UMC Digital Health Platform','umc-web','health','web'],'money-forward':['Money Forward Vietnam Digital Experience','money-forward','tech','web'],'jungle-boss':['Jungle Boss Adventure Travel Experience','jungle-boss','travel','web'],'truong-son':['Trường Sơn Online Auction Platform','truong-son','auction','web'],'viettel-store':['Viettel Store AI Sales Advisor','viettel-store','viettel','ai'],'rang-dong':['Rạng Đông AI-Assisted Dealer Commerce','rang-dong','rangdong','ai'],'media-mart':['MediaMart AI Sales & Customer Service','media-mart','media','ai']};
+function related(slug){
+  const me=REL[slug];if(!me)return'';const keys=Object.keys(REL),same=keys.filter(k=>k!==slug&&REL[k][3]===me[3]);
+  const i=keys.indexOf(slug),order=same.slice().sort((a,b)=>((keys.indexOf(a)-i+keys.length)%keys.length)-((keys.indexOf(b)-i+keys.length)%keys.length));
+  const pick=order.slice(0,2);if(!pick.length)return'';
+  return '<section class="sc-related"><label data-en="RELATED SHOWCASE" data-vi="SHOWCASE LIÊN QUAN">RELATED SHOWCASE</label><div class="cards">'+pick.map(k=>{const r=REL[k];return '<a class="card" href="/work/'+k+'"><div class="art '+r[2]+'"><img src="assets/'+r[1]+'.svg" alt="'+esc(r[0])+'" loading="lazy"><i>↗</i></div><h2>'+esc(r[0])+'</h2></a>'}).join('')+'</div></section>';
+}
 async function showcase(slug){
   const d=await getJSON('/data/showcase/'+encodeURIComponent(slug)+'.json');
   if(d.status!=='published')return{html:'<section class="sc-hero"><h1>Chưa công bố</h1></section>',seo:{title:'Chưa công bố | Jade',description:'Dự án này chưa được công bố.',noindex:true}};
   return{html:'<div id="showcase">'+(d.cover?'<div class="sc-cover"><img src="'+esc(d.cover)+'" alt="'+esc(d.title)+'"></div>':'')+'<section class="sc-hero">'+(d.logo?'<img class="sc-logo" src="'+esc(d.logo)+'" alt="'+esc(d.client||'')+'">':'')+'<label>'+esc(d.sector)+' · '+(d.kind==='personal'?'DỰ ÁN CÁ NHÂN':'DỰ ÁN')+'</label><h1>'+esc(d.title)+'</h1><p>'+esc(d.summary)+'</p>'
   +'<dl><div><dt>Khách hàng</dt><dd>'+esc(d.client||'—')+'</dd></div><div><dt>Vai trò</dt><dd>'+esc(d.role)+'</dd></div><div><dt>Năm</dt><dd>'+esc(d.year)+'</dd></div></dl></section>'
-  +'<section class="sc-body">'+d.blocks.map(b=>(BLOCKS[b.type]||(()=>''))(b)).join('')+'<p><a class="more" href="/work">← Quay lại showcase</a></p></section></div>',
+  +'<section class="sc-body">'+d.blocks.map(b=>(BLOCKS[b.type]||(()=>''))(b)).join('')+'<p><a class="more" href="/work">← Quay lại showcase</a></p></section>'+related(slug)+'</div>',
   seo:{title:d.seoTitle||(d.title+' | Jade'),description:d.seoDescription||d.summary,label:d.client||d.title,image:/\.(png|jpe?g|webp)$/i.test(d.cover||'')?d.cover.replace(/^\//,''):'assets/og/default.png',fallback:true}};
 }
 async function caseStudy(slug){
