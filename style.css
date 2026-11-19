@@ -70,3 +70,13 @@ nav a.current{color:var(--jade);box-shadow:0 2px 0 var(--terra)}
 @keyframes lostIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 @media(max-width:760px){.lost{min-height:calc(100vh - 78px)}}@media(prefers-reduced-motion:reduce){.cloud,.bf,.lost-card{animation:none}}
 @keyframes flutter2{0%{transform:translate(1200px,380px)}100%{transform:translate(1130px,320px)}}
+/* no ugly line breaks */
+h1,h2,h3,.lead,.standfirst,blockquote,.sc-hero>p,.pagehero p,.hero-foot p,.lost-card p{text-wrap:balance}
+p,li,figcaption,dd{text-wrap:pretty}
+.button,.more,nav a,.lang,.filters button,.pill,label,.kicker,.strip span,.art>span,small,.full-footer b,.full-footer a,.row.head span,.article-by,.sc-hero dt{white-space:nowrap}
+.hero h1 em,.pagehero h1 em,h2 em,.lost-card h1 em{white-space:normal}
+.card h2,.spot h3,.writing h3,.posts h2,.mainpost h2{text-wrap:balance}
+.kicker{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;white-space:normal}.kicker small{float:none}
+@media(max-width:760px){label,small,.art>span,.strip span{white-space:normal}.full-footer a,.full-footer b{white-space:normal}}
+@media(max-width:760px){h1 br,h2 br{display:none}}
+@media(max-width:760px){.strip i{display:none}.strip{justify-content:center;gap:8px 22px}}
