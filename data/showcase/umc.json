@@ -44,7 +44,7 @@
     },
     {
       "type": "image",
-      "src": "",
+      "src": "/assets/umc-homepages.svg",
       "alt": "Hình minh hoạ: ba trang chủ UMC",
       "caption": "Hình minh hoạ: ba trang chủ UMC"
     },
@@ -117,7 +117,7 @@
     },
     {
       "type": "image",
-      "src": "",
+      "src": "/assets/umc-library-chatbot.svg",
       "alt": "Hình minh hoạ: Thư viện Sức khỏe và AI chatbot",
       "caption": "Hình minh hoạ: Thư viện Sức khỏe và AI chatbot"
     },
@@ -131,7 +131,7 @@
     },
     {
       "type": "image",
-      "src": "",
+      "src": "/assets/umc-marketing-flow.svg",
       "alt": "Hình minh hoạ: báo cáo marketing hoặc luồng 3 tầng",
       "caption": "Hình minh hoạ: báo cáo marketing hoặc luồng 3 tầng"
     },

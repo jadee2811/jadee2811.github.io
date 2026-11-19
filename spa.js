@@ -13,7 +13,7 @@ function canonical(url){let l=document.querySelector('link[rel="canonical"]');if
 function ld(data){let s=document.querySelector('script[type="application/ld+json"]');if(!s){s=document.createElement('script');s.type='application/ld+json';document.head.append(s)}s.textContent=JSON.stringify(data)}
 const person={'@type':'Person','@id':siteUrl+'/#jade',name:'Jade',url:siteUrl+'/',jobTitle:'AI Product Owner and AI Growth Advisor',sameAs:['https://www.linkedin.com/in/jadeeasyai/','https://www.facebook.com/jadeshare.space/']};
 function seo(path,r){
-  if(!r)return;const url=siteUrl+path,img=siteUrl+'/'+(r.image||'assets/umc-ai.png');
+  if(!r)return;const url=siteUrl+path,img=siteUrl+'/'+(r.image||'assets/umc-ai.svg');
   document.title=r.title;meta('meta[name="description"]','content',r.description);
   meta('meta[property="og:title"]','content',r.title);meta('meta[property="og:description"]','content',r.description);
   meta('meta[property="og:type"]','content','website');meta('meta[property="og:url"]','content',url);meta('meta[property="og:image"]','content',img);
@@ -59,7 +59,7 @@ async function article(slug){
   return{html:'<section class="article-hero"><div class="article-heading"><label>'+d[0]+' · FIELD NOTE</label><h1>'+d[1]+'</h1><p>'+d[2]+'</p><div class="article-by">By Jade · Jade Share</div></div></section><section class="article-body"><aside><b>TABLE OF CONTENTS</b><a href="#start">01 Start with the decision</a><a href="#handoff">02 Map the handoff</a><a href="#scale">03 Scale the system</a></aside><article><p class="standfirst">These notes are a framework for discussing product and AI delivery. They do not represent a claim about a single client outcome.</p><h2 id="start">Start with the recurring decision</h2><p>Look first at the repeated decision a team makes, the context it requires and the consequence of getting it wrong. This reveals the useful unit of work before a feature or tool enters the discussion.</p><h2 id="handoff">Map the handoffs</h2><p>Document where information changes hands, where it is lost and where someone must review it. Clear handoffs make a workflow easier to evaluate and improve.</p><blockquote>Useful systems are defined by the workflow around a decision, not only by the quality of a single response.</blockquote><h2 id="scale">Scale the system, not the demo</h2><p>Scaling changes ownership, data, training and exception handling. A sustainable plan keeps those conditions visible from the start.</p><p><a class="more" href="/blog">Back to Jade Share →</a></p></article></section>'};
 }
 const PAGES={'/':'home','/work':'work','/blog':'blog','/contact':'contact','/work/umc-ai':'umc-ai','/blog/operating-model':'operating-model'};
-const notFound={html:'<section class="pagehero"><label>404</label><h1>Page not <em>found.</em></h1><p><a class="more" href="/">← Back to home</a></p></section>',seo:{title:'Not found | Jade',description:''}};
+const notFoundSeo={title:'Lost in the forest (404) | Jade',description:'This page does not exist or has moved.'};
 async function resolve(path){
   if(PAGES[path])return{html:await getText('/pages/'+PAGES[path]+'.html')};
   let m;
@@ -68,7 +68,7 @@ async function resolve(path){
     try{return await caseStudy(m[1])}catch(e){}
   }
   if(m=path.match(/^\/blog\/([\w-]+)$/)){try{return await article(m[1])}catch(e){}}
-  return notFound;
+  return{html:await getText('/pages/404.html'),seo:notFoundSeo};
 }
 
 /* ---------- per-view behaviour ---------- */

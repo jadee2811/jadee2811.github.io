@@ -8,7 +8,7 @@ routes=json.load(open(os.path.join(root,'data','routes.json'),encoding='utf8'))
 site='https://jadeshare.space'
 def meta(path,r):
     url=site+(path if path!='/' else '/')+('' if path=='/' else '')
-    t=html.escape(r['title']);d=html.escape(r['description']);img=site+'/'+r.get('image','assets/umc-ai.png')
+    t=html.escape(r['title']);d=html.escape(r['description']);img=site+'/'+r.get('image','assets/umc-ai.svg')
     return (f'<title>{t}</title>\n    <meta name="description" content="{d}" />\n    <link rel="canonical" href="{url}" />\n'
             f'    <meta property="og:title" content="{t}" />\n    <meta property="og:description" content="{d}" />\n    <meta property="og:type" content="website" />\n'
             f'    <meta property="og:url" content="{url}" />\n    <meta property="og:image" content="{img}" />\n    <meta name="twitter:card" content="summary_large_image" />')
