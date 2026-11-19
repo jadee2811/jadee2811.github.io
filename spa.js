@@ -163,48 +163,67 @@ const on=()=>{b.classList.toggle('show',scrollY>500);lab()};addEventListener('sc
   if(p!==''&&p!=='/vi')return;
   if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
   try{if(sessionStorage.getItem('jade-intro'))return;sessionStorage.setItem('jade-intro','1')}catch(e){}
-  let st='';const R=(a,b)=>a+Math.random()*(b-a);
-  for(let i=0;i<90;i++){const x=R(0,1440),y=R(0,520),r=R(.6,2.2);st+=`<circle class="i-st" style="animation-delay:${R(0,3).toFixed(2)}s" cx="${x.toFixed(0)}" cy="${y.toFixed(0)}" r="${r.toFixed(1)}" fill="#fff"/>`}
-  const tree=(x,s,c1,c2)=>`<g transform="translate(${x} 700) scale(${s})"><rect x="-8" y="-30" width="16" height="70" fill="${c1}"/><path d="M0-230L70-110H-70Z" fill="${c2}"/><path d="M0-170L90-30H-90Z" fill="${c1}"/></g>`;
-  let trees='';[[60,1.1],[190,.8],[330,1.3],[470,.9],[640,.7],[800,1.0],[960,.8],[1100,1.35],[1250,.9],[1380,1.15]].forEach(([x,s],i)=>trees+=tree(x,s,i%2?'#0a2a23':'#07201b',i%2?'#0f3b31':'#0c3028'));
-  const star='M0-1L.26-.26L1 0L.26.26L0 1L-.26.26L-1 0L-.26-.26Z';
+  let seed=7;const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647,R=(a,b)=>a+rnd()*(b-a);
+  const S4=(r)=>`M0-${r}L${r*.26}-${r*.26}L${r} 0L${r*.26} ${r*.26}L0 ${r}L-${r*.26} ${r*.26}L-${r} 0L-${r*.26}-${r*.26}Z`;
+  let st='';
+  for(let i=0;i<230;i++){const x=R(0,1440),y=R(0,560)*R(.55,1),r=R(.5,2);st+=`<circle class="i-st" style="animation-delay:${R(0,3).toFixed(2)}s;animation-duration:${R(1.6,3.4).toFixed(1)}s" cx="${x.toFixed(0)}" cy="${y.toFixed(0)}" r="${r.toFixed(1)}" fill="#fff"/>`}
+  for(let i=0;i<16;i++){const x=R(30,1410),y=R(20,430),r=R(5,10);st+=`<g transform="translate(${x.toFixed(0)} ${y.toFixed(0)})"><path class="i-tw4" style="animation-delay:${R(0,3).toFixed(2)}s" d="${S4(r)}" fill="#fff6d8"/></g>`}
+  const conifer=(x,y,s,c1,c2)=>`<g transform="translate(${x.toFixed(0)} ${y.toFixed(0)}) scale(${s.toFixed(2)})"><rect x="-4" y="-6" width="8" height="26" fill="#1a1410"/><path d="M0-120L34-50H14L44 0H-44L-14-50H-34Z" fill="${c1}"/></g>`;
+  const round=(x,y,s,c)=>`<g transform="translate(${x.toFixed(0)} ${y.toFixed(0)}) scale(${s.toFixed(2)})"><path d="M-7 0L-5-60H5L7 0Z" fill="#1a1410"/><circle cx="0" cy="-95" r="55" fill="${c}"/><circle cx="-38" cy="-70" r="38" fill="${c}"/><circle cx="38" cy="-70" r="38" fill="${c}"/><circle cx="-14" cy="-120" r="30" fill="#ffffff10"/></g>`;
+  const tall=(x,y,s,c1,c2)=>`<g transform="translate(${x.toFixed(0)} ${y.toFixed(0)}) scale(${s.toFixed(2)})"><rect x="-8" y="-30" width="16" height="70" fill="#1a1410"/><path d="M0-230L70-110H-70Z" fill="${c2}"/><path d="M0-170L90-30H-90Z" fill="${c1}"/></g>`;
+  let back='',mid='',front='',flowers='';
+  for(let x=-10;x<1460;x+=R(34,60))back+=conifer(x,R(612,640),R(.55,.9),'#0f3a31');
+  [[110,.85],[300,1.2],[520,.8],[740,1.05],[930,.8],[1130,1.25],[1330,.9]].forEach(([x,s],k)=>mid+=k%3==1?tall(x,690,s,'#0a2c24','#0e3830'):conifer(x,700,s*2,k%2?'#0c3128':'#0a2a22'));
+  [[60,1.5],[210,1.0],[420,1.3],[640,1.0],[860,1.45],[1060,1.0],[1250,1.5],[1400,1.1]].forEach(([x,s],k)=>front+=k%2?round(x,745+R(0,20),s,'#072a22'):conifer(x,760+R(0,15),s*1.5,'#061f1a'));
+  for(let i=0;i<46;i++){const x=R(0,1440),y=R(735,795),c=['#d9a77a','#e8d9b4','#c98a7a','#cfd8d0'][i%4];flowers+=`<circle cx="${x.toFixed(0)}" cy="${y.toFixed(0)}" r="${R(2,3.6).toFixed(1)}" fill="${c}" opacity=".8"/>`}
   const d=document.createElement('div');d.id='intro';d.setAttribute('aria-hidden','true');
   d.innerHTML=`<svg viewBox="0 0 1440 800" preserveAspectRatio="xMidYMid slice">
   <defs>
     <linearGradient id="i-night" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#050f1c"/><stop offset=".6" stop-color="#0b2a2a"/><stop offset="1" stop-color="#14473c"/></linearGradient>
     <linearGradient id="i-dawn" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfe3d6"/><stop offset="1" stop-color="#f6f4ed"/></linearGradient>
     <radialGradient id="i-moon" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff6d8" stop-opacity=".9"/><stop offset="1" stop-color="#fff6d8" stop-opacity="0"/></radialGradient>
-    <mask id="i-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="1440" height="800"><rect width="1440" height="800" fill="#fff"/><g transform="translate(720 400)"><path class="i-hole" d="${star}" fill="#000"/></g></mask>
+    <mask id="i-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="1440" height="800"><rect width="1440" height="800" fill="#fff"/><g transform="translate(720 400)"><path class="i-hole" d="${S4(1)}" fill="#000"/></g></mask>
   </defs>
   <g mask="url(#i-mask)">
     <rect width="1440" height="800" fill="url(#i-night)"/>
     <rect class="i-dawn" width="1440" height="800" fill="url(#i-dawn)"/>
     <g class="i-sky">${st}</g>
     <circle cx="1130" cy="150" r="150" fill="url(#i-moon)" class="i-glow"/>
-    <circle cx="1130" cy="150" r="46" fill="#fff3cf"/><circle cx="1146" cy="140" r="40" fill="#050f1c" opacity=".0"/>
-    <path d="M0 640 Q300 600 620 650 T1440 620 V800 H0Z" fill="#0d3a30"/>
-    <g class="i-forest">${trees}</g>
-    <path d="M0 720 Q380 680 760 730 T1440 710 V800 H0Z" fill="#061c17"/>
-    <path d="M520 800 C590 760 650 750 620 710" stroke="#2a4a3c" stroke-width="18" fill="none" stroke-linecap="round" opacity=".7"/>
-    <g class="i-shoot"><path d="M0 0 L-170 -70" stroke="url(#i-moon)" stroke-width="3" stroke-linecap="round"/><circle r="5" fill="#fff6d8"/></g>
+    <circle cx="1130" cy="150" r="46" fill="#fff3cf"/>
+    <g class="i-forest">
+      <path d="M0 600 Q300 560 620 610 T1440 585 V800H0Z" fill="#0c3a30"/>
+      <g>${back}</g>
+      <path d="M0 665 Q380 625 760 675 T1440 655 V800H0Z" fill="#0a2e26"/>
+      <g>${mid}</g>
+      <path d="M0 725 Q380 695 760 735 T1440 715 V800H0Z" fill="#061c17"/>
+      <path d="M560 800C610 770 650 760 630 730" stroke="#24463a" stroke-width="16" fill="none" stroke-linecap="round" opacity=".7"/>
+      <g>${front}</g>
+      <g>${flowers}</g>
+    </g>
+    <g class="i-shoot"><g class="i-blink"><path d="${S4(15)}" fill="#f2c46d"/></g></g>
   </g>
-  <g transform="translate(720 400)"><path class="i-core" d="${star}" fill="#f2c46d"/></g>
+  <g transform="translate(720 400)"><g class="i-corewrap"><path class="i-core" d="${S4(1)}" fill="#f2c46d"/></g></g>
   </svg>`;
   const css=document.createElement('style');css.textContent=`
-#intro{position:fixed;inset:0;z-index:2147483600;background:transparent;pointer-events:auto;cursor:pointer;animation:i-out .5s ease 3.9s forwards}
+#intro{position:fixed;inset:0;z-index:2147483600;background:transparent;cursor:pointer;animation:i-out .5s ease 5.2s forwards}
 #intro svg{position:absolute;inset:0;width:100%;height:100%}
-#intro .i-st{animation:i-tw 2.4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+#intro .i-st{animation:i-tw 2.4s ease-in-out infinite}
+#intro .i-tw4,#intro .i-blink,#intro .i-corewrap{transform-box:fill-box;transform-origin:center}
+#intro .i-tw4{animation:i-blink 2.6s ease-in-out infinite}
+#intro .i-blink{animation:i-blink 1.1s ease-in-out infinite;filter:drop-shadow(0 0 6px #f2c46d)}
+#intro .i-corewrap{animation:i-blink 1.3s ease-in-out infinite}
 #intro .i-glow{animation:i-gl 3s ease-in-out infinite alternate;transform-box:fill-box;transform-origin:center}
-#intro .i-dawn{opacity:0;animation:i-dawn 1.6s ease-in 2.4s forwards}
-#intro .i-sky,#intro .i-forest{animation:i-fade 1.4s ease-in 2.6s forwards}
-#intro .i-shoot{animation:i-shoot 1.1s cubic-bezier(.4,0,.6,1) .5s both;transform:translate(1000px,-60px)}
-#intro .i-hole{transform-box:fill-box;transform-origin:center;transform:scale(0);animation:i-zoom 1.7s cubic-bezier(.65,0,.35,1) 2.2s forwards}
-#intro .i-core{transform-box:fill-box;transform-origin:center;transform:scale(0);filter:drop-shadow(0 0 12px #f2c46d);animation:i-core 1.9s cubic-bezier(.65,0,.35,1) 1.3s forwards}
+#intro .i-dawn{opacity:0;animation:i-dawn 1.6s ease-in 3.5s forwards}
+#intro .i-sky,#intro .i-forest{animation:i-fade 1.4s ease-in 3.8s forwards}
+#intro .i-shoot{animation:i-shoot 2.4s cubic-bezier(.35,0,.55,1) .4s both;transform:translate(1010px,-40px)}
+#intro .i-hole{transform-box:fill-box;transform-origin:center;transform:scale(0);animation:i-zoom 1.7s cubic-bezier(.65,0,.35,1) 3.4s forwards}
+#intro .i-core{transform-box:fill-box;transform-origin:center;transform:scale(0);filter:drop-shadow(0 0 12px #f2c46d);animation:i-core 1.6s ease-out 2.6s forwards}
 body.intro-lock{overflow:hidden}
-@keyframes i-tw{0%,100%{opacity:1}50%{opacity:.25}}
+@keyframes i-tw{0%,100%{opacity:1}50%{opacity:.2}}
+@keyframes i-blink{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.7)}}
 @keyframes i-gl{from{transform:scale(.94)}to{transform:scale(1.06)}}
-@keyframes i-shoot{0%{transform:translate(1000px,-60px);opacity:0}15%{opacity:1}100%{transform:translate(720px,400px);opacity:1}}
-@keyframes i-core{0%{transform:scale(0);opacity:0}25%{transform:scale(26);opacity:1}100%{transform:scale(26);opacity:0}}
+@keyframes i-shoot{0%{transform:translate(1010px,-40px);opacity:0}12%{opacity:1}100%{transform:translate(720px,400px);opacity:1}}
+@keyframes i-core{0%{transform:scale(0);opacity:0}100%{transform:scale(30);opacity:1}}
 @keyframes i-zoom{0%{transform:scale(0)}100%{transform:scale(3000)}}
 @keyframes i-dawn{to{opacity:1}}
 @keyframes i-fade{to{opacity:0}}
@@ -212,5 +231,5 @@ body.intro-lock{overflow:hidden}
 `;
   document.head.append(css);document.body.append(d);document.body.classList.add('intro-lock');
   const end=()=>{d.remove();css.remove();document.body.classList.remove('intro-lock')};
-  d.addEventListener('click',end);setTimeout(end,4500);
+  d.addEventListener('click',end);setTimeout(end,6000);
 })();
