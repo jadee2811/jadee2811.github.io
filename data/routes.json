@@ -22,51 +22,11 @@
  "/work/umc": {
   "title": "UMC: từ trải nghiệm web đến AI và nền tảng marketing y tế | Jade",
   "description": "Một dự án nhiều lớp trong cùng một bệnh viện: cổng thông tin web, trợ lý AI và Thư viện Sức khỏe, nền tảng marketing y tế.",
-  "image": "assets/umc-logo.webp"
- },
- "/work/umc-ai": {
-  "title": "UMC AI-Powered Health Knowledge System | Jade",
-  "description": "A public-ready portfolio summary of patient support, behavioural insight and controlled medical content operations.",
-  "image": "assets/umc-ai.svg"
+  "image": "assets/cover-umc.svg"
  },
  "/blog/operating-model": {
   "title": "When AI Becomes Part of the Operating Model | Jade",
   "description": "Moving from isolated AI tools to systems embedded in daily customer operations."
- },
- "/work/umc-web": {
-  "title": "UMC Digital Health Platform | Jade",
-  "description": "Clear information pathways and a calm, credible service experience.",
-  "image": "assets/umc-web.svg"
- },
- "/work/money-forward": {
-  "title": "Money Forward Vietnam Digital Experience | Jade",
-  "description": "A clear narrative that supports informed role decisions.",
-  "image": "assets/money-forward.svg"
- },
- "/work/jungle-boss": {
-  "title": "Jungle Boss Adventure Travel Experience | Jade",
-  "description": "Atmosphere balanced with practical trip discovery.",
-  "image": "assets/jungle-boss.svg"
- },
- "/work/truong-son": {
-  "title": "Trường Sơn Online Auction Platform | Jade",
-  "description": "Legible steps, status communication and high-trust information.",
-  "image": "assets/truong-son.svg"
- },
- "/work/viettel-store": {
-  "title": "Viettel Store AI Sales Advisor | Jade",
-  "description": "Intent recognition, product context and clear human handoff.",
-  "image": "assets/viettel-store.svg"
- },
- "/work/rang-dong": {
-  "title": "Rạng Đông AI-Assisted Dealer Commerce | Jade",
-  "description": "Contextual assistance and predictable commercial handoff.",
-  "image": "assets/rang-dong.svg"
- },
- "/work/media-mart": {
-  "title": "MediaMart AI Sales & Customer Service | Jade",
-  "description": "First-response support and coherent exception handling.",
-  "image": "assets/media-mart.svg"
  },
  "/blog/workflow": {
   "title": "Designing the workflow before choosing the tool | Jade",
@@ -79,5 +39,35 @@
  "/blog/service": {
   "title": "Lessons from shipping AI for real service teams | Jade",
   "description": "In customer operations, adoption depends on the workflow surrounding an answer as much as the answer itself."
+ },
+ "/work/money-forward": {
+  "title": "Money Forward Vietnam: trải nghiệm ứng viên và thương hiệu tuyển dụng | Jade",
+  "description": "Một trải nghiệm số cho ứng viên, dựng quanh hành trình tuyển dụng và thương hiệu nhà tuyển dụng của một công ty fintech.",
+  "image": "assets/cover-money-forward.svg"
+ },
+ "/work/jungle-boss": {
+  "title": "Jungle Boss: trải nghiệm khám phá Phong Nha trên website đa ngôn ngữ | Jade",
+  "description": "Website đa ngôn ngữ cho đơn vị tour mạo hiểm tại Phong Nha, cân bằng giữa cảm hứng khám phá và thông tin đặt tour thực tế.",
+  "image": "assets/cover-jungle-boss.svg"
+ },
+ "/work/truong-son": {
+  "title": "Đấu giá Trường Sơn: nền tảng đấu giá trực tuyến tích hợp C06 và VNeID | Jade",
+  "description": "Nền tảng đấu giá trực tuyến có quy trình chặt chẽ, tích hợp C06 và VNeID để xác thực người tham gia.",
+  "image": "assets/cover-truong-son.svg"
+ },
+ "/work/viettel-store": {
+  "title": "Viettel Store: trợ lý AI bán hàng và live chat trong mùa mở bán iPhone | Jade",
+  "description": "Trợ lý AI tư vấn bán hàng kết hợp live chat, phục vụ lượng khách rất lớn trong mùa đặt trước iPhone.",
+  "image": "assets/cover-viettel-store.svg"
+ },
+ "/work/rang-dong": {
+  "title": "Rạng Đông: trợ lý AI hỗ trợ đại lý trong hành trình mua hàng | Jade",
+  "description": "Trợ lý AI hỗ trợ đại lý tra cứu sản phẩm và đặt hàng, với bàn giao thương mại rõ ràng.",
+  "image": "assets/cover-rang-dong.svg"
+ },
+ "/work/media-mart": {
+  "title": "MediaMart: trợ lý AI bán hàng và chăm sóc khách hàng điện máy | Jade",
+  "description": "Trợ lý AI hỗ trợ bán hàng và chăm sóc khách hàng điện máy, xử lý phản hồi đầu tiên và ngoại lệ nhất quán.",
+  "image": "assets/cover-media-mart.svg"
  }
 }

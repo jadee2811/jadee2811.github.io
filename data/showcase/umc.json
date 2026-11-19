@@ -149,5 +149,6 @@
       ]
     }
   ],
-  "logo": "assets/umc-logo.webp"
+  "logo": "assets/umc-logo.webp",
+  "cover": "/assets/cover-umc.svg"
 }

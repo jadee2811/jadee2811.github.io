@@ -2,12 +2,66 @@
   "projects": [
     {
       "slug": "umc",
+      "status": "published",
       "title": "UMC: từ trải nghiệm web đến AI và nền tảng marketing y tế",
       "kind": "company",
       "sector": "Y tế",
       "year": "2024–2026",
-      "summary": "Một dự án nhiều lớp trong cùng một bệnh viện: cổng thông tin web, trợ lý AI và Thư viện Sức khỏe, nền tảng marketing y tế.",
-      "status": "published"
+      "summary": "Một dự án nhiều lớp trong cùng một bệnh viện: cổng thông tin web, trợ lý AI và Thư viện Sức khỏe, nền tảng marketing y tế."
+    },
+    {
+      "slug": "money-forward",
+      "status": "published",
+      "title": "Money Forward Vietnam: trải nghiệm ứng viên và thương hiệu tuyển dụng",
+      "kind": "company",
+      "sector": "Fintech",
+      "year": "2022–2024",
+      "summary": "Một trải nghiệm số cho ứng viên, dựng quanh hành trình tuyển dụng và thương hiệu nhà tuyển dụng của một công ty fintech."
+    },
+    {
+      "slug": "jungle-boss",
+      "status": "published",
+      "title": "Jungle Boss: trải nghiệm khám phá Phong Nha trên website đa ngôn ngữ",
+      "kind": "company",
+      "sector": "Du lịch",
+      "year": "2022–2024",
+      "summary": "Website đa ngôn ngữ cho đơn vị tour mạo hiểm tại Phong Nha, cân bằng giữa cảm hứng khám phá và thông tin đặt tour thực tế."
+    },
+    {
+      "slug": "truong-son",
+      "status": "published",
+      "title": "Đấu giá Trường Sơn: nền tảng đấu giá trực tuyến tích hợp C06 và VNeID",
+      "kind": "company",
+      "sector": "Pháp lý · Công nghệ",
+      "year": "2022–2024",
+      "summary": "Nền tảng đấu giá trực tuyến có quy trình chặt chẽ, tích hợp C06 và VNeID để xác thực người tham gia."
+    },
+    {
+      "slug": "viettel-store",
+      "status": "published",
+      "title": "Viettel Store: trợ lý AI bán hàng và live chat trong mùa mở bán iPhone",
+      "kind": "company",
+      "sector": "Bán lẻ",
+      "year": "2024–2026",
+      "summary": "Trợ lý AI tư vấn bán hàng kết hợp live chat, phục vụ lượng khách rất lớn trong mùa đặt trước iPhone."
+    },
+    {
+      "slug": "rang-dong",
+      "status": "published",
+      "title": "Rạng Đông: trợ lý AI hỗ trợ đại lý trong hành trình mua hàng",
+      "kind": "company",
+      "sector": "Sản xuất · B2B",
+      "year": "2024–2026",
+      "summary": "Trợ lý AI hỗ trợ đại lý tra cứu sản phẩm và đặt hàng, với bàn giao thương mại rõ ràng."
+    },
+    {
+      "slug": "media-mart",
+      "status": "published",
+      "title": "MediaMart: trợ lý AI bán hàng và chăm sóc khách hàng điện máy",
+      "kind": "company",
+      "sector": "Bán lẻ",
+      "year": "2024–2026",
+      "summary": "Trợ lý AI hỗ trợ bán hàng và chăm sóc khách hàng điện máy, xử lý phản hồi đầu tiên và ngoại lệ nhất quán."
     }
   ]
 }

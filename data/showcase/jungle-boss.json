@@ -1,0 +1,78 @@
+{
+  "slug": "jungle-boss",
+  "status": "published",
+  "template": "case-long",
+  "logo": "",
+  "cover": "/assets/cover-jungle-boss.svg",
+  "title": "Jungle Boss: trải nghiệm khám phá Phong Nha trên website đa ngôn ngữ",
+  "kind": "company",
+  "sector": "Du lịch",
+  "year": "2022–2024",
+  "role": "UX Content Lead",
+  "client": "Jungle Boss Adventure Travel",
+  "summary": "Website đa ngôn ngữ cho đơn vị tour mạo hiểm tại Phong Nha, cân bằng giữa cảm hứng khám phá và thông tin đặt tour thực tế.",
+  "blocks": [
+    {
+      "type": "heading",
+      "text": "1. Bối cảnh và bài toán"
+    },
+    {
+      "type": "paragraph",
+      "text": "Khách du lịch quốc tế tìm tour mạo hiểm cần vừa được truyền cảm hứng, vừa tin tưởng để đặt chỗ: tour gồm gì, mức độ khó, giá và cách đặt."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Khách đến từ nhiều quốc gia, cần nội dung đa ngôn ngữ.",
+        "Tour mạo hiểm cần thông tin an toàn và mức độ thử thách rõ ràng.",
+        "Cảm xúc hình ảnh phải đi cùng thông tin thực tế để khách dám đặt tour."
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "2. Vai trò"
+    },
+    {
+      "type": "paragraph",
+      "text": "Tôi phụ trách cấu trúc nội dung và trải nghiệm: cách mô tả từng tour, thứ tự thông tin trên trang và giọng văn cho khách quốc tế."
+    },
+    {
+      "type": "heading",
+      "text": "3. Cách tiếp cận"
+    },
+    {
+      "type": "steps",
+      "items": [
+        [
+          "Cảm hứng trước, chi tiết sau",
+          "Mở trang bằng hình ảnh và câu chuyện, đặt thông tin tour ngay bên dưới."
+        ],
+        [
+          "Mỗi tour một khuôn thông tin",
+          "Thời gian, độ khó, giá, những gì bao gồm, theo cùng một cấu trúc."
+        ],
+        [
+          "Đa ngôn ngữ từ đầu",
+          "Cấu trúc nội dung được chuẩn bị để mở rộng thêm ngôn ngữ."
+        ]
+      ]
+    },
+    {
+      "type": "image",
+      "src": "/assets/jungle-boss.svg",
+      "alt": "Hình minh hoạ: trang chủ và danh sách tour",
+      "caption": "Hình minh hoạ: trang chủ và danh sách tour"
+    },
+    {
+      "type": "heading",
+      "text": "4. Bài học"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Khách du lịch cần cảm hứng và sự yên tâm cùng lúc.",
+        "Khuôn thông tin thống nhất giúp so sánh tour dễ hơn."
+      ]
+    }
+  ]
+}

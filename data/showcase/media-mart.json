@@ -1,0 +1,78 @@
+{
+  "slug": "media-mart",
+  "status": "published",
+  "template": "case-long",
+  "logo": "",
+  "cover": "/assets/cover-media-mart.svg",
+  "title": "MediaMart: trợ lý AI bán hàng và chăm sóc khách hàng điện máy",
+  "kind": "company",
+  "sector": "Bán lẻ",
+  "year": "2024–2026",
+  "role": "Product Owner",
+  "client": "MediaMart",
+  "summary": "Trợ lý AI hỗ trợ bán hàng và chăm sóc khách hàng điện máy, xử lý phản hồi đầu tiên và ngoại lệ nhất quán.",
+  "blocks": [
+    {
+      "type": "heading",
+      "text": "1. Bối cảnh và bài toán"
+    },
+    {
+      "type": "paragraph",
+      "text": "Khách điện máy hỏi nhiều về sản phẩm, đơn hàng và giao nhận, cần được phản hồi nhanh mà vẫn đúng chính sách."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Câu hỏi lặp lại nhiều về sản phẩm, tình trạng đơn và giao hàng.",
+        "Ngoại lệ cần chuyển cho nhân viên đúng lúc.",
+        "Giọng điệu chăm sóc phải nhất quán giữa các kênh."
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "2. Vai trò"
+    },
+    {
+      "type": "paragraph",
+      "text": "Tôi làm Product Owner: phân loại tình huống bán hàng và chăm sóc, tổ chức kho tri thức, thiết kế luồng hội thoại và quy tắc xử lý ngoại lệ."
+    },
+    {
+      "type": "heading",
+      "text": "3. Cách tiếp cận"
+    },
+    {
+      "type": "steps",
+      "items": [
+        [
+          "Phản hồi đầu tiên nhanh",
+          "AI xử lý câu hỏi thường gặp ngay lập tức."
+        ],
+        [
+          "Xử lý ngoại lệ có chủ đích",
+          "Trường hợp ngoài kịch bản chuyển cho nhân viên kèm đủ ngữ cảnh."
+        ],
+        [
+          "Trạng thái đơn hàng rõ ràng",
+          "Khách biết đơn đang ở đâu mà không cần chờ."
+        ]
+      ]
+    },
+    {
+      "type": "image",
+      "src": "/assets/media-mart.svg",
+      "alt": "Hình minh hoạ: hội thoại chăm sóc và trạng thái đơn hàng",
+      "caption": "Hình minh hoạ: hội thoại chăm sóc và trạng thái đơn hàng"
+    },
+    {
+      "type": "heading",
+      "text": "4. Bài học"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Phản hồi đầu tiên nhanh tạo cảm giác được quan tâm.",
+        "Ngoại lệ được thiết kế tốt làm khách tin cả hệ thống."
+      ]
+    }
+  ]
+}
