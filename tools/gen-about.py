@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generates pages/about.html (story, journey, numbers, life library). Hobby tiles are inline SVG
+"""Generates pages/src/about.bi.html (bilingual source; tools/build-routes.py splits it into pages/about.html + pages/vi/about.html. The Little Prince section was added by hand in the output, re-add it if you regenerate) (story, journey, numbers, life library). Hobby tiles are inline SVG
 illustrations; replace one with a real photo by adding <img> in data/about.json later."""
 import os
 root=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -66,4 +66,4 @@ html=f'''<section class="about-hero">
 <section class="about-values"><label data-en="HOW I LIVE & WORK" data-vi="CÁCH MÌNH SỐNG VÀ LÀM VIỆC">HOW I LIVE & WORK</label><ul>{values}</ul></section>
 <section class="close"><label data-en="LET'S TALK" data-vi="TRÒ CHUYỆN">LET'S TALK</label><h2 data-en="Curious about something? <em>Let's talk.</em>" data-vi="Tò mò điều gì đó? <em>Mình trò chuyện nhé.</em>">Curious about something? <em>Let's talk.</em></h2><a href="/contact" data-en="Get in touch ↗" data-vi="Liên hệ ↗">Get in touch ↗</a></section>
 '''
-open(os.path.join(root,'pages','about.html'),'w',encoding='utf8').write(html.replace('HOW I LIVE & WORK','HOW I LIVE &amp; WORK'))
+open(os.path.join(root,'pages','src','about.bi.html'),'w',encoding='utf8').write(html.replace('HOW I LIVE & WORK','HOW I LIVE &amp; WORK'))
