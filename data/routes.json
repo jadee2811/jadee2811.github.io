@@ -1,73 +1,104 @@
 {
  "/": {
   "title": "Jade | AI Product Owner & Growth Advisor",
-  "description": "Jade is an AI Product Owner and Growth Advisor shaping practical digital products, AI workflows and growth systems in Vietnam and Southeast Asia."
+  "description": "Jade is an AI Product Owner and Growth Advisor shaping practical digital products, AI workflows and growth systems in Vietnam and Southeast Asia.",
+  "label": "Home",
+  "image": "assets/og/default.png"
  },
  "/about": {
   "title": "About Jade (Bích Ngọc) | AI Product Owner",
-  "description": "Jade, Bích Ngọc: curious since childhood, now an AI Product Owner living life as fully as possible. Story, journey and the many corners of a life."
+  "description": "Jade, Bích Ngọc: curious since childhood, now an AI Product Owner living life fully. Her story, career journey and the many corners of a life.",
+  "label": "About",
+  "image": "assets/og/default.png"
  },
  "/work": {
-  "title": "Selected Work | Jade Share",
-  "description": "Selected digital platforms and AI systems across healthcare, retail, technology, tourism and enterprise operations."
+  "title": "Selected Work | Jade, AI Product Owner",
+  "description": "Selected digital platforms and AI solutions across healthcare, retail, technology, tourism and enterprise operations, from web platforms to AI assistants.",
+  "label": "Work",
+  "image": "assets/og/default.png"
  },
  "/blog": {
-  "title": "Blog | Jade Share",
-  "description": "Notes on product, AI adoption, delivery and practical systems from Jade, an AI Product Owner and Growth Advisor."
+  "title": "Blog | Field Notes on AI Product | Jade",
+  "description": "Field notes on product, AI adoption, delivery and practical operating systems from Jade, an AI Product Owner and Growth Advisor.",
+  "label": "Blog",
+  "image": "assets/og/default.png"
  },
  "/contact": {
   "title": "Contact Jade | AI Product & Growth",
-  "description": "Contact Jade to discuss AI products, digital transformation, growth strategy and practical operating systems."
+  "description": "Contact Jade to discuss AI products, digital transformation, growth strategy and practical operating systems for real business problems.",
+  "label": "Contact",
+  "image": "assets/og/default.png"
+ },
+ "/sitemap": {
+  "title": "Sitemap | Jade AI Product Owner",
+  "description": "All pages on jadeshare.space in one place: About, selected work, showcase projects, field notes and contact.",
+  "label": "Sitemap",
+  "image": "assets/og/default.png"
  },
  "/work/umc": {
-  "title": "UMC: từ trải nghiệm web đến AI và nền tảng marketing y tế | Jade",
-  "description": "Một dự án nhiều lớp trong cùng một bệnh viện: cổng thông tin web, trợ lý AI và Thư viện Sức khỏe, nền tảng marketing y tế.",
-  "image": "assets/cover-umc.svg"
+  "title": "UMC: web, AI assistant and health marketing | Jade",
+  "description": "Một dự án nhiều lớp trong cùng một bệnh viện: cổng thông tin web, trợ lý AI và Thư viện Sức khỏe, nền tảng marketing y tế cho UMC.",
+  "label": "UMC",
+  "image": "assets/og/umc.png"
+ },
+ "/work/money-forward": {
+  "title": "Money Forward Vietnam: web tuyển dụng | Jade",
+  "description": "Trải nghiệm số cho ứng viên Money Forward Vietnam, dựng quanh hành trình tuyển dụng và thương hiệu nhà tuyển dụng của một công ty fintech.",
+  "label": "Money Forward Vietnam",
+  "image": "assets/og/money-forward.png"
+ },
+ "/work/jungle-boss": {
+  "title": "Jungle Boss: website tour Phong Nha | Jade",
+  "description": "Website đa ngôn ngữ cho đơn vị tour mạo hiểm tại Phong Nha, cân bằng giữa cảm hứng khám phá và thông tin đặt tour thực tế.",
+  "label": "Jungle Boss",
+  "image": "assets/og/jungle-boss.png"
+ },
+ "/work/truong-son": {
+  "title": "Đấu giá Trường Sơn: nền tảng đấu giá | Jade",
+  "description": "Nền tảng đấu giá trực tuyến có quy trình chặt chẽ, tích hợp C06 và VNeID để xác thực người tham gia, thiết kế bởi Jade.",
+  "label": "Đấu giá Trường Sơn",
+  "image": "assets/og/truong-son.png"
+ },
+ "/work/viettel-store": {
+  "title": "Viettel Store: trợ lý AI bán hàng | Jade",
+  "description": "Trợ lý AI tư vấn bán hàng kết hợp live chat cho Viettel Store, phục vụ lượng khách rất lớn trong mùa đặt trước iPhone.",
+  "label": "Viettel Store",
+  "image": "assets/og/viettel-store.png"
+ },
+ "/work/rang-dong": {
+  "title": "Rạng Đông: trợ lý AI cho đại lý | Jade",
+  "description": "Trợ lý AI hỗ trợ đại lý Rạng Đông tra cứu sản phẩm và đặt hàng trong hành trình mua hàng, với bàn giao thương mại rõ ràng.",
+  "label": "Rạng Đông",
+  "image": "assets/og/rang-dong.png"
+ },
+ "/work/media-mart": {
+  "title": "MediaMart: trợ lý AI bán hàng và CSKH | Jade",
+  "description": "Trợ lý AI hỗ trợ bán hàng và chăm sóc khách hàng điện máy MediaMart, xử lý phản hồi đầu tiên và các ngoại lệ một cách nhất quán.",
+  "label": "MediaMart",
+  "image": "assets/og/media-mart.png"
  },
  "/blog/operating-model": {
   "title": "When AI Becomes Part of the Operating Model | Jade",
-  "description": "Moving from isolated AI tools to systems embedded in daily customer operations."
+  "description": "Moving from isolated AI tools to systems embedded in daily customer operations: a field note on turning AI into an operating model.",
+  "label": "When AI Becomes Part of the Operating Model",
+  "image": "assets/og/default.png"
  },
  "/blog/workflow": {
-  "title": "Designing the workflow before choosing the tool | Jade",
-  "description": "A practical method for finding the decision, handoff and exception a product needs to serve."
+  "title": "Design the Workflow Before the Tool | Jade",
+  "description": "A practical method for finding the decision, handoff and exception a product needs to serve, before choosing any AI tool or vendor.",
+  "label": "Designing the workflow before choosing the tool",
+  "image": "assets/og/default.png"
  },
  "/blog/pilot": {
-  "title": "What makes an enterprise pilot worth scaling | Jade",
-  "description": "A pilot should reduce uncertainty about an operating model, not only prove that a feature can work."
+  "title": "What Makes an Enterprise AI Pilot Worth Scaling | Jade",
+  "description": "A pilot should reduce uncertainty about an operating model, not only prove that a feature can work. Notes on judging an enterprise AI pilot.",
+  "label": "What makes an enterprise pilot worth scaling",
+  "image": "assets/og/default.png"
  },
  "/blog/service": {
-  "title": "Lessons from shipping AI for real service teams | Jade",
-  "description": "In customer operations, adoption depends on the workflow surrounding an answer as much as the answer itself."
- },
- "/work/money-forward": {
-  "title": "Money Forward Vietnam: trải nghiệm ứng viên và thương hiệu tuyển dụng | Jade",
-  "description": "Một trải nghiệm số cho ứng viên, dựng quanh hành trình tuyển dụng và thương hiệu nhà tuyển dụng của một công ty fintech.",
-  "image": "assets/cover-money-forward.svg"
- },
- "/work/jungle-boss": {
-  "title": "Jungle Boss: trải nghiệm khám phá Phong Nha trên website đa ngôn ngữ | Jade",
-  "description": "Website đa ngôn ngữ cho đơn vị tour mạo hiểm tại Phong Nha, cân bằng giữa cảm hứng khám phá và thông tin đặt tour thực tế.",
-  "image": "assets/cover-jungle-boss.svg"
- },
- "/work/truong-son": {
-  "title": "Đấu giá Trường Sơn: nền tảng đấu giá trực tuyến tích hợp C06 và VNeID | Jade",
-  "description": "Nền tảng đấu giá trực tuyến có quy trình chặt chẽ, tích hợp C06 và VNeID để xác thực người tham gia.",
-  "image": "assets/cover-truong-son.svg"
- },
- "/work/viettel-store": {
-  "title": "Viettel Store: trợ lý AI bán hàng và live chat trong mùa mở bán iPhone | Jade",
-  "description": "Trợ lý AI tư vấn bán hàng kết hợp live chat, phục vụ lượng khách rất lớn trong mùa đặt trước iPhone.",
-  "image": "assets/cover-viettel-store.svg"
- },
- "/work/rang-dong": {
-  "title": "Rạng Đông: trợ lý AI hỗ trợ đại lý trong hành trình mua hàng | Jade",
-  "description": "Trợ lý AI hỗ trợ đại lý tra cứu sản phẩm và đặt hàng, với bàn giao thương mại rõ ràng.",
-  "image": "assets/cover-rang-dong.svg"
- },
- "/work/media-mart": {
-  "title": "MediaMart: trợ lý AI bán hàng và chăm sóc khách hàng điện máy | Jade",
-  "description": "Trợ lý AI hỗ trợ bán hàng và chăm sóc khách hàng điện máy, xử lý phản hồi đầu tiên và ngoại lệ nhất quán.",
-  "image": "assets/cover-media-mart.svg"
+  "title": "Lessons from Shipping AI for Service Teams | Jade",
+  "description": "In customer operations, AI adoption depends on the workflow around an answer as much as the answer itself. Lessons from real service teams.",
+  "label": "Lessons from shipping AI for real service teams",
+  "image": "assets/og/default.png"
  }
 }

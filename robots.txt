@@ -1,5 +1,9 @@
 User-agent: *
 Allow: /
+Disallow: /cms/
+Disallow: /cms-app/
 Disallow: /studio.html
+Disallow: /tools/
+Disallow: /pages/
 
 Sitemap: https://jadeshare.space/sitemap.xml

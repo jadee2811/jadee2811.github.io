@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://jadeshare.space/</loc></url>
-  <url><loc>https://jadeshare.space/about</loc></url>
-  <url><loc>https://jadeshare.space/work</loc></url>
-  <url><loc>https://jadeshare.space/blog</loc></url>
-  <url><loc>https://jadeshare.space/contact</loc></url>
-  <url><loc>https://jadeshare.space/work/umc</loc></url>
-  <url><loc>https://jadeshare.space/blog/operating-model</loc></url>
-  <url><loc>https://jadeshare.space/blog/workflow</loc></url>
-  <url><loc>https://jadeshare.space/blog/pilot</loc></url>
-  <url><loc>https://jadeshare.space/blog/service</loc></url>
-  <url><loc>https://jadeshare.space/work/money-forward</loc></url>
-  <url><loc>https://jadeshare.space/work/jungle-boss</loc></url>
-  <url><loc>https://jadeshare.space/work/truong-son</loc></url>
-  <url><loc>https://jadeshare.space/work/viettel-store</loc></url>
-  <url><loc>https://jadeshare.space/work/rang-dong</loc></url>
-  <url><loc>https://jadeshare.space/work/media-mart</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url><loc>https://jadeshare.space/</loc><lastmod>2026-11-20</lastmod><changefreq>monthly</changefreq><priority>1.0</priority><image:image><image:loc>https://jadeshare.space/assets/og/default.png</image:loc></image:image></url>
+  <url><loc>https://jadeshare.space/about</loc><lastmod>2026-11-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority><image:image><image:loc>https://jadeshare.space/assets/og/default.png</image:loc></image:image></url>
+  <url><loc>https://jadeshare.space/work</loc><lastmod>2026-11-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority><image:image><image:loc>https://jadeshare.space/assets/og/default.png</image:loc></image:image></url>
+  <url><loc>https://jadeshare.space/blog</loc><lastmod>2026-11-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority><image:image><image:loc>https://jadeshare.space/assets/og/default.png</image:loc></image:image></url>
+  <url><loc>https://jadeshare.space/contact</loc><lastmod>2026-11-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority><image:image><image:loc>https://jadeshare.space/assets/og/default.png</image:loc></image:image></url>
+  <url><loc>https://jadeshare.space/sitemap</loc><lastmod>2026-11-20</lastmod><changefreq>monthly</changefreq><priority>0.3</priority><image:image><image:loc>https://jadeshare.space/assets/og/default.png</image:loc></image:image></url>
+  <url><loc>https://jadeshare.space/work/umc</loc><lastmod>2026-11-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority><image:image><image:loc>https://jadeshare.space/assets/og/umc.png</image:loc></image:image></url>
+  <url><loc>https://jadeshare.space/work/money-forward</loc><lastmod>2026-11-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority><image:image><image:loc>https://jadeshare.space/assets/og/money-forward.png</image:loc></image:image></url>
+  <url><loc>https://jadeshare.space/work/jungle-boss</loc><lastmod>2026-11-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority><image:image><image:loc>https://jadeshare.space/assets/og/jungle-boss.png</image:loc></image:image></url>
+  <url><loc>https://jadeshare.space/work/truong-son</loc><lastmod>2026-11-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority><image:image><image:loc>https://jadeshare.space/assets/og/truong-son.png</image:loc></image:image></url>
+  <url><loc>https://jadeshare.space/work/viettel-store</loc><lastmod>2026-11-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority><image:image><image:loc>https://jadeshare.space/assets/og/viettel-store.png</image:loc></image:image></url>
+  <url><loc>https://jadeshare.space/work/rang-dong</loc><lastmod>2026-11-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority><image:image><image:loc>https://jadeshare.space/assets/og/rang-dong.png</image:loc></image:image></url>
+  <url><loc>https://jadeshare.space/work/media-mart</loc><lastmod>2026-11-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority><image:image><image:loc>https://jadeshare.space/assets/og/media-mart.png</image:loc></image:image></url>
+  <url><loc>https://jadeshare.space/blog/operating-model</loc><lastmod>2026-11-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority><image:image><image:loc>https://jadeshare.space/assets/og/default.png</image:loc></image:image></url>
+  <url><loc>https://jadeshare.space/blog/workflow</loc><lastmod>2026-11-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority><image:image><image:loc>https://jadeshare.space/assets/og/default.png</image:loc></image:image></url>
+  <url><loc>https://jadeshare.space/blog/pilot</loc><lastmod>2026-11-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority><image:image><image:loc>https://jadeshare.space/assets/og/default.png</image:loc></image:image></url>
+  <url><loc>https://jadeshare.space/blog/service</loc><lastmod>2026-11-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority><image:image><image:loc>https://jadeshare.space/assets/og/default.png</image:loc></image:image></url>
 </urlset>

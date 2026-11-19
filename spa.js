@@ -12,16 +12,19 @@ function meta(sel,attr,val){let e=document.querySelector(sel);if(!e){e=document.
 function canonical(url){let l=document.querySelector('link[rel="canonical"]');if(!l){l=document.createElement('link');l.rel='canonical';document.head.append(l)}l.href=url}
 function ld(data){let s=document.querySelector('script[type="application/ld+json"]');if(!s){s=document.createElement('script');s.type='application/ld+json';document.head.append(s)}s.textContent=JSON.stringify(data)}
 const person={'@type':'Person','@id':siteUrl+'/#jade',name:'Jade',url:siteUrl+'/',jobTitle:'AI Product Owner and AI Growth Advisor',sameAs:['https://www.linkedin.com/in/jadeeasyai/','https://www.facebook.com/jadeshare.space/']};
-function seo(path,r){
-  if(!r)return;const url=siteUrl+path,img=siteUrl+'/'+(r.image||'assets/umc-ai.svg');
+function seo(path,r,R){
+  if(!r)return;const url=siteUrl+path,img=siteUrl+'/'+(r.image||'assets/og/default.png'),label=r.label||r.title,alt=label+' | Jade Share';
   document.title=r.title;meta('meta[name="description"]','content',r.description);
-  meta('meta[property="og:title"]','content',r.title);meta('meta[property="og:description"]','content',r.description);
-  meta('meta[property="og:type"]','content','website');meta('meta[property="og:url"]','content',url);meta('meta[property="og:image"]','content',img);
-  meta('meta[name="twitter:card"]','content','summary_large_image');canonical(url);
-  const type=path==='/'?'WebPage':path==='/blog'?'Blog':path==='/contact'?'ContactPage':path==='/work'?'CollectionPage':path.startsWith('/blog/')?'BlogPosting':'CreativeWork';
-  const node={'@type':type,name:r.title,url,description:r.description,author:person};
-  if(type==='BlogPosting'){node.headline=r.title;node.publisher={'@type':'Organization',name:'Jade Share',url:siteUrl+'/'}}
-  ld({'@context':'https://schema.org','@graph':[person,{'@type':'WebSite',name:'Jade Share',url:siteUrl+'/'},node]});
+  meta('meta[name="robots"]','content',r.noindex?'noindex,follow':'index,follow,max-image-preview:large,max-snippet:-1');
+  [['og:title',r.title],['og:description',r.description],['og:type',path.startsWith('/blog/')?'article':'website'],['og:url',url],['og:image',img],['og:image:alt',alt],['og:site_name','Jade Share']].forEach(([k,v])=>meta('meta[property="'+k+'"]','content',v));
+  [['twitter:card','summary_large_image'],['twitter:title',r.title],['twitter:description',r.description],['twitter:image',img],['twitter:image:alt',alt]].forEach(([k,v])=>meta('meta[name="'+k+'"]','content',v));
+  canonical(url);
+  const type=path==='/'?'WebPage':path==='/about'?'AboutPage':path==='/blog'?'Blog':path==='/contact'?'ContactPage':(path==='/work'||path==='/sitemap')?'CollectionPage':path.startsWith('/blog/')?'BlogPosting':'CreativeWork';
+  const node={'@type':type,'@id':url+'#page',name:r.title,url,description:r.description,image:img,author:{'@id':person['@id']},isPartOf:{'@id':siteUrl+'/#website'}};
+  if(type==='BlogPosting'){node.headline=label;node.mainEntityOfPage=url;node.publisher={'@type':'Organization',name:'Jade Share',url:siteUrl+'/'}}
+  const g=[person,{'@type':'WebSite','@id':siteUrl+'/#website',name:'Jade Share',url:siteUrl+'/',publisher:{'@id':person['@id']}},node];
+  if(path!=='/'&&!r.noindex){const parts=path.split('/').filter(Boolean),c=[['Home',siteUrl+'/']];if(parts.length>1){const par='/'+parts[0];c.push([(R&&R[par]&&R[par].label)||parts[0],siteUrl+par])}c.push([label,url]);g.push({'@type':'BreadcrumbList',itemListElement:c.map((x,i)=>({'@type':'ListItem',position:i+1,name:x[0],item:x[1]}))})}
+  if(r.noindex){document.querySelectorAll('link[rel="canonical"]').forEach(l=>l.remove());const s=document.querySelector('script[type="application/ld+json"]');if(s)s.remove()}else ld({'@context':'https://schema.org','@graph':g});
 }
 
 /* ---------- language, menu ---------- */
@@ -39,16 +42,16 @@ quote:b=>'<blockquote>'+esc(b.text)+'</blockquote>',
 list:b=>'<ul>'+b.items.map(i=>'<li>'+esc(i)+'</li>').join('')+'</ul>',
 steps:b=>'<ol class="sc-steps">'+b.items.map((i,n)=>'<li><b>'+String(n+1).padStart(2,'0')+'</b><div><strong>'+esc(i[0])+'</strong>'+(i[1]?'<span>'+esc(i[1])+'</span>':'')+'</div></li>').join('')+'</ol>',
 stats:b=>'<div class="sc-stats">'+b.items.map(i=>'<div><em>'+esc(i[0])+'</em><span>'+esc(i[1])+'</span></div>').join('')+'</div>',
-image:b=>'<figure>'+(b.src?'<img src="'+esc(b.src)+'" alt="'+esc(b.alt||'')+'" loading="lazy">':'<div class="sc-ph">'+esc(b.caption||'Hình minh hoạ')+'</div>')+(b.src&&b.caption?'<figcaption>'+esc(b.caption)+'</figcaption>':'')+'</figure>',
+image:b=>'<figure>'+(b.src?'<img src="'+esc(b.src)+'" alt="'+esc(b.alt||b.caption||'')+'" loading="lazy">':'<div class="sc-ph">'+esc(b.caption||'Hình minh hoạ')+'</div>')+(b.src&&b.caption?'<figcaption>'+esc(b.caption)+'</figcaption>':'')+'</figure>',
 embed:b=>'<div class="sc-embed"><iframe src="'+esc(b.src)+'" loading="lazy" allowfullscreen></iframe></div>',
 link:b=>'<p><a class="more" href="'+esc(b.href)+'">'+esc(b.text)+' →</a></p>'};
 async function showcase(slug){
   const d=await getJSON('/data/showcase/'+encodeURIComponent(slug)+'.json');
-  if(d.status!=='published')return{html:'<section class="sc-hero"><h1>Chưa công bố</h1></section>',seo:{title:'Chưa công bố | Jade',description:''}};
-  return{html:'<div id="showcase">'+(d.cover?'<div class="sc-cover"><img src="'+esc(d.cover)+'" alt=""></div>':'')+'<section class="sc-hero">'+(d.logo?'<img class="sc-logo" src="'+esc(d.logo)+'" alt="'+esc(d.client||'')+'">':'')+'<label>'+esc(d.sector)+' · '+(d.kind==='personal'?'DỰ ÁN CÁ NHÂN':'DỰ ÁN')+'</label><h1>'+esc(d.title)+'</h1><p>'+esc(d.summary)+'</p>'
+  if(d.status!=='published')return{html:'<section class="sc-hero"><h1>Chưa công bố</h1></section>',seo:{title:'Chưa công bố | Jade',description:'Dự án này chưa được công bố.',noindex:true}};
+  return{html:'<div id="showcase">'+(d.cover?'<div class="sc-cover"><img src="'+esc(d.cover)+'" alt="'+esc(d.title)+'"></div>':'')+'<section class="sc-hero">'+(d.logo?'<img class="sc-logo" src="'+esc(d.logo)+'" alt="'+esc(d.client||'')+'">':'')+'<label>'+esc(d.sector)+' · '+(d.kind==='personal'?'DỰ ÁN CÁ NHÂN':'DỰ ÁN')+'</label><h1>'+esc(d.title)+'</h1><p>'+esc(d.summary)+'</p>'
   +'<dl><div><dt>Khách hàng</dt><dd>'+esc(d.client||'—')+'</dd></div><div><dt>Vai trò</dt><dd>'+esc(d.role)+'</dd></div><div><dt>Năm</dt><dd>'+esc(d.year)+'</dd></div></dl></section>'
   +'<section class="sc-body">'+d.blocks.map(b=>(BLOCKS[b.type]||(()=>''))(b)).join('')+'<p><a class="more" href="/work">← Quay lại showcase</a></p></section></div>',
-  seo:{title:d.title+' | Jade',description:d.summary,image:(d.cover||d.logo||'').replace(/^\//,'')||undefined}};
+  seo:{title:d.seoTitle||(d.title+' | Jade'),description:d.seoDescription||d.summary,label:d.client||d.title,image:/\.(png|jpe?g|webp)$/i.test(d.cover||'')?d.cover.replace(/^\//,''):'assets/og/default.png',fallback:true}};
 }
 async function caseStudy(slug){
   const d=(await getJSON('/data/content.json')).cases[slug];if(!d)throw 0;
@@ -58,8 +61,8 @@ async function article(slug){
   const d=(await getJSON('/data/content.json')).articles[slug];if(!d)throw 0;
   return{html:'<section class="article-hero"><div class="article-heading"><label>'+d[0]+' · FIELD NOTE</label><h1>'+d[1]+'</h1><p>'+d[2]+'</p><div class="article-by">By Jade · Jade Share</div></div></section><section class="article-body"><aside><b>TABLE OF CONTENTS</b><a href="#start">01 Start with the decision</a><a href="#handoff">02 Map the handoff</a><a href="#scale">03 Scale the system</a></aside><article><p class="standfirst">These notes are a framework for discussing product and AI delivery. They do not represent a claim about a single client outcome.</p><h2 id="start">Start with the recurring decision</h2><p>Look first at the repeated decision a team makes, the context it requires and the consequence of getting it wrong. This reveals the useful unit of work before a feature or tool enters the discussion.</p><h2 id="handoff">Map the handoffs</h2><p>Document where information changes hands, where it is lost and where someone must review it. Clear handoffs make a workflow easier to evaluate and improve.</p><blockquote>Useful systems are defined by the workflow around a decision, not only by the quality of a single response.</blockquote><h2 id="scale">Scale the system, not the demo</h2><p>Scaling changes ownership, data, training and exception handling. A sustainable plan keeps those conditions visible from the start.</p><p><a class="more" href="/blog">Back to Jade Share →</a></p></article></section>'};
 }
-const PAGES={'/':'home','/about':'about','/work':'work','/blog':'blog','/contact':'contact','/blog/operating-model':'operating-model'};
-const notFoundSeo={title:'Lost in the forest (404) | Jade',description:'This page does not exist or has moved.'};
+const PAGES={'/':'home','/about':'about','/work':'work','/blog':'blog','/contact':'contact','/sitemap':'sitemap','/blog/operating-model':'operating-model'};
+const notFoundSeo={title:'Page not found (404) | Jade',description:'This page does not exist or has moved. Head back to the Jade Share home page or browse the selected work.',label:'404',noindex:true};
 async function resolve(path){
   if(PAGES[path])return{html:await getText('/pages/'+PAGES[path]+'.html')};
   let m;
@@ -94,7 +97,7 @@ async function render(url,{push=false,scroll=true}={}){
   const res=await resolve(path);if(my!==token)return;
   const swap=()=>{
     view.innerHTML=res.html;
-    if(res.seo)seo(path,res.seo);else getJSON('/data/routes.json').then(R=>seo(path,R[path]),()=>{});
+    getJSON('/data/routes.json').then(R=>seo(path,(res.seo&&!res.seo.fallback)?res.seo:(R[path]||res.seo),R),()=>{if(res.seo)seo(path,res.seo)});
     if(push)history.pushState({},'',path+u.search+u.hash);else history.replaceState({},'',path+u.search+u.hash);
     bind(path);current=path;nav&&nav.classList.remove('open');
     view.classList.remove('enter');void view.offsetWidth;view.classList.add('enter');
