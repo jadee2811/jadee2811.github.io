@@ -204,3 +204,9 @@ a.lang:hover i{color:var(--jade)}
 @keyframes h-fly{0%{transform:translate(40px,330px)}25%{transform:translate(180px,290px)}50%{transform:translate(330px,350px)}75%{transform:translate(250px,300px)}100%{transform:translate(40px,330px)}}
 @media(prefers-reduced-motion:reduce){.hero-art *{animation:none!important}}
 @media(max-width:900px){.hero2{grid-template-columns:1fr}.hero-art{aspect-ratio:16/10}.hero2 h1{font-size:clamp(40px,10vw,72px)}}
+
+/* design tokens: see DESIGN-SYSTEM.md */
+:root{--r-control:6px;--r-media:8px;--space-section:clamp(56px,8vw,112px)}
+input,textarea,.button,.button.secondary,.lang,.close a,.filters button,.studiotop button,button.button{border-radius:var(--r-control)}
+.art,.card .art,.article-image img,.sc-body img,.sc-ph,.sc-cover,.mock,.life-tile,.hero-art,.project-photo{border-radius:var(--r-media)}
+.filters button b{border-radius:var(--r-control)}
