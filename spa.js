@@ -156,3 +156,61 @@ const on=()=>{b.classList.toggle('show',scrollY>500);lab()};addEventListener('sc
 
 /* chat widget: same 6px corners as the site's buttons */
 (()=>{let n=0;const t=setInterval(()=>{const w=document.querySelector('jason-widget');if(w){w.style.setProperty('--button-radius','6px');w.style.setProperty('--icon-button-radius','6px');const r=w.shadowRoot;if(r&&!r.querySelector('#jade-corners')){const s=document.createElement('style');s.id='jade-corners';s.textContent='.tag,.suggestions>button{border-radius:6px!important}';r.append(s)}if(r&&r.querySelector('#jade-corners')){clearInterval(t)}}else if(++n>80)clearInterval(t)},250)})();
+
+/* ---------- intro: night sky, falling star, star-shaped zoom into the home page ---------- */
+(()=>{
+  const p=location.pathname.replace(/\/+$/,'');
+  if(p!==''&&p!=='/vi')return;
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  try{if(sessionStorage.getItem('jade-intro'))return;sessionStorage.setItem('jade-intro','1')}catch(e){}
+  let st='';const R=(a,b)=>a+Math.random()*(b-a);
+  for(let i=0;i<90;i++){const x=R(0,1440),y=R(0,520),r=R(.6,2.2);st+=`<circle class="i-st" style="animation-delay:${R(0,3).toFixed(2)}s" cx="${x.toFixed(0)}" cy="${y.toFixed(0)}" r="${r.toFixed(1)}" fill="#fff"/>`}
+  const tree=(x,s,c1,c2)=>`<g transform="translate(${x} 700) scale(${s})"><rect x="-8" y="-30" width="16" height="70" fill="${c1}"/><path d="M0-230L70-110H-70Z" fill="${c2}"/><path d="M0-170L90-30H-90Z" fill="${c1}"/></g>`;
+  let trees='';[[60,1.1],[190,.8],[330,1.3],[470,.9],[640,.7],[800,1.0],[960,.8],[1100,1.35],[1250,.9],[1380,1.15]].forEach(([x,s],i)=>trees+=tree(x,s,i%2?'#0a2a23':'#07201b',i%2?'#0f3b31':'#0c3028'));
+  const star='M0-1L.26-.26L1 0L.26.26L0 1L-.26.26L-1 0L-.26-.26Z';
+  const d=document.createElement('div');d.id='intro';d.setAttribute('aria-hidden','true');
+  d.innerHTML=`<svg viewBox="0 0 1440 800" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="i-night" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#050f1c"/><stop offset=".6" stop-color="#0b2a2a"/><stop offset="1" stop-color="#14473c"/></linearGradient>
+    <linearGradient id="i-dawn" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfe3d6"/><stop offset="1" stop-color="#f6f4ed"/></linearGradient>
+    <radialGradient id="i-moon" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#fff6d8" stop-opacity=".9"/><stop offset="1" stop-color="#fff6d8" stop-opacity="0"/></radialGradient>
+    <mask id="i-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="1440" height="800"><rect width="1440" height="800" fill="#fff"/><g transform="translate(720 400)"><path class="i-hole" d="${star}" fill="#000"/></g></mask>
+  </defs>
+  <g mask="url(#i-mask)">
+    <rect width="1440" height="800" fill="url(#i-night)"/>
+    <rect class="i-dawn" width="1440" height="800" fill="url(#i-dawn)"/>
+    <g class="i-sky">${st}</g>
+    <circle cx="1130" cy="150" r="150" fill="url(#i-moon)" class="i-glow"/>
+    <circle cx="1130" cy="150" r="46" fill="#fff3cf"/><circle cx="1146" cy="140" r="40" fill="#050f1c" opacity=".0"/>
+    <path d="M0 640 Q300 600 620 650 T1440 620 V800 H0Z" fill="#0d3a30"/>
+    <g class="i-forest">${trees}</g>
+    <path d="M0 720 Q380 680 760 730 T1440 710 V800 H0Z" fill="#061c17"/>
+    <path d="M520 800 C590 760 650 750 620 710" stroke="#2a4a3c" stroke-width="18" fill="none" stroke-linecap="round" opacity=".7"/>
+    <g class="i-shoot"><path d="M0 0 L-170 -70" stroke="url(#i-moon)" stroke-width="3" stroke-linecap="round"/><circle r="5" fill="#fff6d8"/></g>
+  </g>
+  <g transform="translate(720 400)"><path class="i-core" d="${star}" fill="#f2c46d"/></g>
+  </svg>`;
+  const css=document.createElement('style');css.textContent=`
+#intro{position:fixed;inset:0;z-index:2147483600;background:transparent;pointer-events:auto;cursor:pointer;animation:i-out .5s ease 3.9s forwards}
+#intro svg{position:absolute;inset:0;width:100%;height:100%}
+#intro .i-st{animation:i-tw 2.4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+#intro .i-glow{animation:i-gl 3s ease-in-out infinite alternate;transform-box:fill-box;transform-origin:center}
+#intro .i-dawn{opacity:0;animation:i-dawn 1.6s ease-in 2.4s forwards}
+#intro .i-sky,#intro .i-forest{animation:i-fade 1.4s ease-in 2.6s forwards}
+#intro .i-shoot{animation:i-shoot 1.1s cubic-bezier(.4,0,.6,1) .5s both;transform:translate(1000px,-60px)}
+#intro .i-hole{transform-box:fill-box;transform-origin:center;transform:scale(0);animation:i-zoom 1.7s cubic-bezier(.65,0,.35,1) 2.2s forwards}
+#intro .i-core{transform-box:fill-box;transform-origin:center;transform:scale(0);filter:drop-shadow(0 0 12px #f2c46d);animation:i-core 1.9s cubic-bezier(.65,0,.35,1) 1.3s forwards}
+body.intro-lock{overflow:hidden}
+@keyframes i-tw{0%,100%{opacity:1}50%{opacity:.25}}
+@keyframes i-gl{from{transform:scale(.94)}to{transform:scale(1.06)}}
+@keyframes i-shoot{0%{transform:translate(1000px,-60px);opacity:0}15%{opacity:1}100%{transform:translate(720px,400px);opacity:1}}
+@keyframes i-core{0%{transform:scale(0);opacity:0}25%{transform:scale(26);opacity:1}100%{transform:scale(26);opacity:0}}
+@keyframes i-zoom{0%{transform:scale(0)}100%{transform:scale(3000)}}
+@keyframes i-dawn{to{opacity:1}}
+@keyframes i-fade{to{opacity:0}}
+@keyframes i-out{to{opacity:0;visibility:hidden}}
+`;
+  document.head.append(css);document.body.append(d);document.body.classList.add('intro-lock');
+  const end=()=>{d.remove();css.remove();document.body.classList.remove('intro-lock')};
+  d.addEventListener('click',end);setTimeout(end,4500);
+})();
