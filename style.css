@@ -174,3 +174,9 @@ a.lang b,a.lang i,button.lang b,button.lang i{font-style:normal;font-weight:700;
 a.lang b,button.lang b{background:var(--jade);color:#fff}
 a.lang i,button.lang i{color:var(--muted)}
 a.lang:hover i{color:var(--jade)}
+
+/* back to top, sits above the chat launcher */
+.to-top{position:fixed;right:24px;bottom:96px;z-index:900;width:44px;height:44px;border-radius:8px;border:1px solid var(--line);background:var(--paper);color:var(--jade);display:grid;place-items:center;cursor:pointer;box-shadow:0 6px 18px rgba(20,40,36,.14);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,visibility .2s,background .2s,color .2s}
+.to-top.show{opacity:1;visibility:visible;transform:none}
+.to-top:hover{background:var(--jade);color:#fff}
+@media(max-width:640px){.to-top{right:20px;bottom:90px}}

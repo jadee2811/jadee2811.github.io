@@ -147,3 +147,9 @@ document.addEventListener('click',e=>{
 addEventListener('popstate',()=>render(location.pathname+location.search+location.hash,{scroll:false}));
 render(location.pathname+location.search+location.hash);
 })();
+
+/* ---------- scroll to top ---------- */
+(()=>{const b=document.createElement('button');b.className='to-top';b.type='button';b.innerHTML='<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>';
+const lab=()=>{const t=document.documentElement.lang==='vi'?'Lên đầu trang':'Back to top';b.setAttribute('aria-label',t);b.title=t};lab();
+b.onclick=()=>window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});
+const on=()=>{b.classList.toggle('show',scrollY>500);lab()};addEventListener('scroll',on,{passive:true});on();document.body.append(b)})();
