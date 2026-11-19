@@ -1,0 +1,153 @@
+{
+  "slug": "umc",
+  "status": "published",
+  "template": "case-long",
+  "title": "UMC: từ trải nghiệm web đến AI và nền tảng marketing y tế",
+  "kind": "company",
+  "sector": "Y tế",
+  "year": "2024–2026",
+  "role": "Product Owner · UX Research",
+  "client": "Bệnh viện Đại học Y Dược TP.HCM",
+  "summary": "Một dự án nhiều lớp trong cùng một bệnh viện: cổng thông tin web, trợ lý AI và Thư viện Sức khỏe, nền tảng marketing y tế.",
+  "blocks": [
+    {
+      "type": "heading",
+      "text": "1. Bối cảnh và bài toán"
+    },
+    {
+      "type": "paragraph",
+      "text": "UMC là bệnh viện công hạng I, đa khoa chuyên sâu kỹ thuật cao, đồng thời là cơ sở đào tạo và nghiên cứu. Bệnh viện có khối tri thức y khoa lớn, nhưng phần nhiều phục vụ chuyên môn nội bộ, chưa thành nội dung gần gũi cho người dân."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Người dân cần tra cứu nhanh: chuyên khoa, quy trình khám, đặt lịch, kiến thức sức khỏe thường gặp.",
+        "Thông tin y tế trên mạng nhiều và dễ sai lệch, bệnh viện cần là nguồn chính thống.",
+        "Dữ liệu tương tác nằm rải rác ở nhiều kênh, bệnh viện khó biết người dùng đang quan tâm điều gì."
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "2. Vai trò"
+    },
+    {
+      "type": "paragraph",
+      "text": "Tôi làm Product Owner xuyên suốt dự án, đồng thời phụ trách UX Research cho cả ba mảng: web, AI chatbot và nền tảng marketing y tế. Việc chính là chuyển nhu cầu của bệnh viện, bác sĩ và người bệnh thành yêu cầu sản phẩm, quyết định thứ tự ưu tiên và giữ cho cả ba đi cùng một logic trải nghiệm."
+    },
+    {
+      "type": "heading",
+      "text": "3. Web: một cổng, ba lối vào"
+    },
+    {
+      "type": "paragraph",
+      "text": "Thay vì một trang chủ chung, website có ba trang chủ riêng: Người bệnh và cộng đồng, Chuyên gia y tế, và UMCers (cổng nội bộ). Đặt lịch khám được rút gọn còn năm bước."
+    },
+    {
+      "type": "image",
+      "src": "/assets/umc-homepages.svg",
+      "alt": "Hình minh hoạ: ba trang chủ UMC",
+      "caption": "Hình minh hoạ: ba trang chủ UMC"
+    },
+    {
+      "type": "steps",
+      "items": [
+        [
+          "Chọn hoặc tạo hồ sơ bệnh nhân",
+          ""
+        ],
+        [
+          "Chọn chuyên khoa, bác sĩ và giờ khám",
+          ""
+        ],
+        [
+          "Xác nhận thông tin",
+          ""
+        ],
+        [
+          "Thanh toán trực tuyến",
+          ""
+        ],
+        [
+          "Nhận phiếu khám điện tử có mã vạch để check-in",
+          ""
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "4. AI: trợ lý hỗ trợ, chuyên gia quyết định"
+    },
+    {
+      "type": "quote",
+      "text": "AI không đóng vai bác sĩ. AI lo phần có thể chuẩn hoá và lặp lại, chuyên gia luôn quyết định nội dung cuối cùng."
+    },
+    {
+      "type": "steps",
+      "items": [
+        [
+          "Kho tri thức y khoa",
+          "Tổ chức theo bệnh lý, chủ đề và nhu cầu tra cứu."
+        ],
+        [
+          "Hỗ trợ biên soạn",
+          "AI đề xuất bản nháp, diễn giải thuật ngữ, chuẩn hoá cách trình bày."
+        ],
+        [
+          "Kiểm duyệt chuyên môn",
+          "Hội đồng chuyên gia của bệnh viện thẩm định trước khi xuất bản."
+        ],
+        [
+          "Phân phối và tra cứu",
+          "Nội dung lên website và AI chatbot để người dân tra cứu từ nguồn chính thống."
+        ]
+      ]
+    },
+    {
+      "type": "stats",
+      "items": [
+        [
+          "1.000+",
+          "bài viết chuyên môn trong 5 tháng"
+        ],
+        [
+          "267",
+          "bác sĩ, điều dưỡng, nhân viên y tế tham gia biên tập"
+        ]
+      ]
+    },
+    {
+      "type": "image",
+      "src": "/assets/umc-library-chatbot.svg",
+      "alt": "Hình minh hoạ: Thư viện Sức khỏe và AI chatbot",
+      "caption": "Hình minh hoạ: Thư viện Sức khỏe và AI chatbot"
+    },
+    {
+      "type": "heading",
+      "text": "5. Nền tảng marketing y tế"
+    },
+    {
+      "type": "paragraph",
+      "text": "Ba module kết nối thành một vòng khép kín: AI Chatbot và Livechat tiếp nhận câu hỏi, Customer 360/CDP ghi nhận hành vi và chủ đề quan tâm, Phân tích, báo cáo và dự đoán biến dữ liệu thành insight. Kế hoạch marketing đi theo ba tầng nối liền nghiên cứu thị trường: chẩn đoán chiến lược, chấm điểm ưu tiên dịch vụ, giải pháp marketing."
+    },
+    {
+      "type": "image",
+      "src": "/assets/umc-marketing-flow.svg",
+      "alt": "Hình minh hoạ: báo cáo marketing hoặc luồng 3 tầng",
+      "caption": "Hình minh hoạ: báo cáo marketing hoặc luồng 3 tầng"
+    },
+    {
+      "type": "heading",
+      "text": "6. Bài học"
+    },
+    {
+      "type": "list",
+      "items": [
+        "Chọn bài toán có giá trị rõ và rủi ro kiểm soát được, rồi mới mở rộng.",
+        "Với y tế, kiểm duyệt là một phần của sản phẩm, không phải bước cuối.",
+        "Xây kho tri thức chuẩn hoá trước khi cho AI trả lời trên đó.",
+        "Đo AI bằng chỉ số vận hành, không chỉ số lượt chat."
+      ]
+    }
+  ],
+  "logo": "assets/umc-logo.webp"
+}

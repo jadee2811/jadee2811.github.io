@@ -1,0 +1,13 @@
+{
+  "projects": [
+    {
+      "slug": "umc",
+      "title": "UMC: từ trải nghiệm web đến AI và nền tảng marketing y tế",
+      "kind": "company",
+      "sector": "Y tế",
+      "year": "2024–2026",
+      "summary": "Một dự án nhiều lớp trong cùng một bệnh viện: cổng thông tin web, trợ lý AI và Thư viện Sức khỏe, nền tảng marketing y tế.",
+      "status": "published"
+    }
+  ]
+}
