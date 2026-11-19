@@ -233,3 +233,6 @@ body.intro-lock{overflow:hidden}
   const end=()=>{d.remove();css.remove();document.body.classList.remove('intro-lock')};
   d.addEventListener('click',end);setTimeout(end,6000);
 })();
+
+/* mobile: language switch lives inside the hamburger menu */
+(()=>{const mq=matchMedia('(max-width:760px)');const place=()=>{const h=document.querySelector('header'),n=h&&h.querySelector('nav'),l=document.querySelector('.lang');if(!h||!n||!l)return;if(mq.matches){if(l.parentNode!==n)n.append(l)}else if(l.parentNode!==h)h.append(l)};place();mq.addEventListener('change',place);addEventListener('load',place);document.addEventListener('click',()=>setTimeout(place,50))})();

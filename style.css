@@ -235,3 +235,6 @@ header nav a:last-child{border-bottom:0}
 .writing h3{text-wrap:pretty}
 .writing span{grid-column:2;grid-row:1/3;white-space:nowrap;align-self:center;color:var(--muted);font-size:14px}
 }
+@media(max-width:760px){
+header nav .lang{display:inline-flex;margin-top:14px;align-self:flex-start;padding:8px 12px;border-bottom:1px solid var(--line)}
+}
