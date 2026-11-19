@@ -140,3 +140,12 @@ p,li,figcaption,dd{text-wrap:pretty}
 .full-footer .logo-mark{border-radius:10px;box-shadow:0 0 0 1.5px #5aa28b}
 .full-footer>div.footer-bottom{flex-direction:row;gap:16px;font-size:13px}
 @media(max-width:760px){.full-footer .logo-word{font-size:26px}}
+
+/* wordmark logo */
+.logo-svg{height:48px;width:auto;display:block;color:var(--ink);overflow:visible}
+.logo-svg .lg-leaf{color:var(--jade);fill:var(--jade)}
+.logo-svg .lg-star{fill:#e07b5a}
+.logo:hover .logo-svg .lg-star{transform-origin:18px 11px;transform:rotate(45deg) scale(1.15);transition:transform .4s}
+.full-footer .logo-svg{color:#fff;height:56px}
+.full-footer .logo-svg .lg-leaf{color:#8fcab0;fill:#8fcab0}
+@media(max-width:760px){.logo-svg{height:34px}.full-footer .logo-svg{height:38px}}
