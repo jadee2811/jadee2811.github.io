@@ -1,0 +1,91 @@
+{
+  "slug": "rang-dong",
+  "status": "published",
+  "template": "case-long",
+  "logo": "",
+  "cover": "/assets/cover-rang-dong.svg",
+  "title": "Rạng Đông: an AI assistant supporting dealers through the purchasing journey",
+  "kind": "company",
+  "sector": "Manufacturing · B2B",
+  "year": "2024–2026",
+  "role": "Product Owner",
+  "client": "Rạng Đông",
+  "summary": "An AI assistant that helps dealers look up products and place orders, with clear commercial handoffs.",
+  "blocks": [
+    {
+      "type": "heading",
+      "text": "1. Context and problem"
+    },
+    {
+      "type": "paragraph",
+      "text": "Dealers need to look up products, stock and policies and place orders quickly, while the sales team cannot answer every repeated question."
+    },
+    {
+      "type": "list",
+      "items": [
+        "The product catalog is large with many technical specifications.",
+        "Dealers need fast, consistent responses.",
+        "Commercial requests must be routed to the right person."
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "2. Role"
+    },
+    {
+      "type": "paragraph",
+      "text": "I was Product Owner: clarifying dealer support scenarios, organizing the product knowledge base, and designing conversation flows and handoff rules for staff."
+    },
+    {
+      "type": "heading",
+      "text": "3. Approach"
+    },
+    {
+      "type": "steps",
+      "items": [
+        [
+          "Context-aware support",
+          "Answers are based on the product and situation the dealer is asking about."
+        ],
+        [
+          "Predictable commercial handoff",
+          "Quotes, discounts and special orders go to the right department."
+        ],
+        [
+          "Measured by operational metrics",
+          "Track response time and satisfaction."
+        ]
+      ]
+    },
+    {
+      "type": "stats",
+      "items": [
+        [
+          "93.8%",
+          "CSAT"
+        ],
+        [
+          "8.927 seconds",
+          "first response time (FRT)"
+        ]
+      ]
+    },
+    {
+      "type": "image",
+      "src": "/assets/rang-dong.svg",
+      "alt": "Illustration: the dealer portal and support assistant",
+      "caption": "Illustration: the dealer portal and support assistant"
+    },
+    {
+      "type": "heading",
+      "text": "4. Lessons"
+    },
+    {
+      "type": "list",
+      "items": [
+        "In B2B, answering in the dealer's context matters more than answering a lot.",
+        "The boundary between AI and the sales team must be clear from the start."
+      ]
+    }
+  ]
+}

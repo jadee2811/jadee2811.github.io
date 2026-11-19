@@ -1,0 +1,91 @@
+{
+  "slug": "viettel-store",
+  "status": "published",
+  "template": "case-long",
+  "logo": "",
+  "cover": "/assets/cover-viettel-store.svg",
+  "title": "Viettel Store: an AI sales assistant and live chat for the iPhone launch season",
+  "kind": "company",
+  "sector": "Retail",
+  "year": "2024–2026",
+  "role": "Product Owner",
+  "client": "Viettel Store",
+  "summary": "An AI sales assistant combined with live chat, serving a very large number of customers during the iPhone pre-order season.",
+  "blocks": [
+    {
+      "type": "heading",
+      "text": "1. Context and problem"
+    },
+    {
+      "type": "paragraph",
+      "text": "The iPhone launch season brings a very large number of simultaneous inquiries, which need fast, accurate product advice and a handoff to staff when needed."
+    },
+    {
+      "type": "list",
+      "items": [
+        "Most customers are non-experts and ask mainly about stock, price and deposits.",
+        "Answers must be fast and consistent at peak hours.",
+        "The handoff between AI and staff must be smooth."
+      ]
+    },
+    {
+      "type": "heading",
+      "text": "2. Role"
+    },
+    {
+      "type": "paragraph",
+      "text": "I was Product Owner: defining advisory scenarios, structuring the knowledge base, designing conversation flows and handoff rules, and monitoring quality after go-live."
+    },
+    {
+      "type": "heading",
+      "text": "3. Approach"
+    },
+    {
+      "type": "steps",
+      "items": [
+        [
+          "Start from real scenarios",
+          "Classify the questions customers ask most during the launch season."
+        ],
+        [
+          "Product knowledge base",
+          "Stock, price and deposit information is organized so the AI answers consistently."
+        ],
+        [
+          "AI and staff working together",
+          "Clear handoff rules for when exceptions need handling."
+        ]
+      ]
+    },
+    {
+      "type": "stats",
+      "items": [
+        [
+          "15,000+",
+          "iPhone requests handled during the peak pre-order season"
+        ],
+        [
+          "57,000",
+          "deposits in a single day"
+        ]
+      ]
+    },
+    {
+      "type": "image",
+      "src": "/assets/viettel-store.svg",
+      "alt": "Illustration: an advisory conversation and product cards",
+      "caption": "Illustration: an advisory conversation and product cards"
+    },
+    {
+      "type": "heading",
+      "text": "4. Lessons"
+    },
+    {
+      "type": "list",
+      "items": [
+        "At peak hours, response speed and consistency matter as much as intelligence.",
+        "Handing off at the right moment is part of the AI product."
+      ]
+    }
+  ]
+}
