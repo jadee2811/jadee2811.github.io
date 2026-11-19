@@ -191,7 +191,7 @@ const FR=[
  {k:'dem',n:'Đêm xanh',ink:'#f4ecd8',sw:'#27467f'}
 ];
 const IMG={};ARTS.forEach(a=>{const i=new Image();i.src='art/'+a.k+'.jpg';i.onload=()=>draw();IMG[a.k]=i});
-const FOX=new Image();FOX.src='fox-student.png';FOX.onload=()=>draw();
+const QRI=new Image();QRI.src='qr.png';QRI.onload=()=>draw();const FOX=new Image();FOX.src='fox-student.png';FOX.onload=()=>draw();
 const PAPER=new Image();PAPER.src='paper.jpg';PAPER.onload=()=>draw();
 let PH=null;
 let st={w:0,a:'butmay',k:0,t:'',m:'',f:'',mode:'illu'};
@@ -249,6 +249,7 @@ function render(c,W,H){
  if(FOX.complete&&FOX.naturalWidth)x.drawImage(FOX,70,H-134,84,84);
  x.textAlign='left';x.fillStyle=F.ink;x.font='700 28px "Be Vietnam Pro",sans-serif';x.fillText('Thiệp do Cáo Ú - Thử Việc làm',175,H-92);
  x.font='500 23px "Be Vietnam Pro",sans-serif';x.globalAlpha=.85;x.fillText('Trải nghiệm miễn phí tại jason.vn',175,H-56);x.globalAlpha=1;
+ if(QRI.complete&&QRI.naturalWidth){const q=92,qx=W-34-14-q,qy=H-150+12;x.fillStyle='#fff';x.fillRect(qx-5,qy-5,q+10,q+10);x.drawImage(QRI,qx,qy,q,q)}
 }
 function draw(){render($('cv'),1080,1350)}
 function dlCanvas(W,H,name){const c=document.createElement('canvas');render(c,W,H);const a=document.createElement('a');a.download=name;a.href=c.toDataURL('image/png');a.click();draw()}
