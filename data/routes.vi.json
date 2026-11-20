@@ -124,5 +124,65 @@
     "description": "Làm sao để AI khiến mỗi quyết định làm đẹp cá nhân hơn, mỗi tương tác hữu ích hơn và mỗi cơ hội bán hàng mở rộng được hơn?",
     "label": "AI trong bán lẻ làm đẹp: từ cá nhân hóa đến tăng trưởng 24/7",
     "image": "assets/og/default.png"
+  },
+  "/blog/ai-consumer-electronics": {
+    "title": "AI trong bán lẻ điện tử tiêu dùng: các use case thực tế từ Đông Nam Á | Jade",
+    "description": "Quyết định mua đồ điện tử ngày càng là một bài toán ra quyết định, và AI có giá trị khi biến một nhu cầu mơ hồ thành một lựa chọn cụ thể.",
+    "label": "AI trong bán lẻ điện tử tiêu dùng: các use case thực tế từ Đông Nam Á",
+    "image": "assets/og/default.png"
+  },
+  "/blog/sea-retail-growth-scale": {
+    "title": "Các nhà bán lẻ Đông Nam Á đang nghĩ lại về tăng trưởng ở quy mô lớn như thế nào | Jade",
+    "description": "Tăng trưởng tạo ra nhu cầu. Việc thực thi quyết định bao nhiêu phần của nhu cầu đó trở thành giá trị, và AI hữu ích nhất khi gỡ bỏ một nút thắt đang cản trở tăng trưởng.",
+    "label": "Các nhà bán lẻ Đông Nam Á đang nghĩ lại về tăng trưởng ở quy mô lớn như thế nào",
+    "image": "assets/og/default.png"
+  },
+  "/blog/ai-access-to-capability": {
+    "title": "Từ quyền truy cập AI đến năng lực AI: nhà bán lẻ cần xây dựng gì để tăng trưởng doanh thu | Jade",
+    "description": "Có AI không đồng nghĩa với có năng lực AI. Câu hỏi thực sự là doanh thu đang rò rỉ ở đâu trong hành trình khách hàng, và cần xây năng lực gì để khắc phục.",
+    "label": "Từ quyền truy cập AI đến năng lực AI: nhà bán lẻ cần xây dựng gì để tăng trưởng doanh thu",
+    "image": "assets/og/default.png"
+  },
+  "/blog/revenue-vs-profit-growth": {
+    "title": "Tăng trưởng doanh thu không phải lúc nào cũng là tăng trưởng lợi nhuận | Jade",
+    "description": "Lợi nhuận được tạo ra từ các quyết định vận hành diễn ra trước khi khách hàng đến quầy thanh toán, và AI là một lớp thực thi chứ không phải chiến lược tăng trưởng.",
+    "label": "Tăng trưởng doanh thu không phải lúc nào cũng là tăng trưởng lợi nhuận",
+    "image": "assets/og/default.png"
+  },
+  "/blog/retail-sales-vs-profit": {
+    "title": "Vì sao doanh số bán lẻ tăng không phải lúc nào cũng kéo theo lợi nhuận tăng | Jade",
+    "description": "Phần lớn nhà bán lẻ không gặp vấn đề tăng trưởng mà gặp vấn đề thực thi, và AI giúp mọi cửa hàng vận hành giống cửa hàng tốt nhất hơn một chút.",
+    "label": "Vì sao doanh số bán lẻ tăng không phải lúc nào cũng kéo theo lợi nhuận tăng",
+    "image": "assets/og/default.png"
+  },
+  "/blog/revenue-ai-os": {
+    "title": "AI không còn là lợi thế cạnh tranh. Revenue AI OS của bạn mới là | Jade",
+    "description": "Công nghệ không còn khan hiếm. Điều phân biệt người thắng là cách họ kết nối AI xuyên suốt hành trình khách hàng thành một hệ thống.",
+    "label": "AI không còn là lợi thế cạnh tranh. Revenue AI OS của bạn mới là",
+    "image": "assets/og/default.png"
+  },
+  "/blog/ai-manufacturing-vietnam-sea": {
+    "title": "AI trong sản xuất tại Việt Nam và Đông Nam Á: không còn là lựa chọn, mà là sự sống còn của doanh nghiệp | Jade",
+    "description": "Ngành sản xuất đang chuyển từ \"tự động hóa + thủ công\" sang \"thông minh + thích ứng\", và AI trở thành yêu cầu chiến lược chứ không chỉ là công cụ.",
+    "label": "AI trong sản xuất tại Việt Nam và Đông Nam Á: không còn là lựa chọn, mà là sự sống còn của doanh nghiệp",
+    "image": "assets/og/default.png"
+  },
+  "/blog/sme-ai-perception-gap": {
+    "title": "Khoảng cách nhận thức: vì sao AI không nên làm các SME e ngại | Jade",
+    "description": "Quan niệm AI chỉ dành cho tập đoàn lớn đã lỗi thời. AI giá phải chăng, dễ dùng và dễ mở rộng nay đã trong tầm tay doanh nghiệp vừa và nhỏ.",
+    "label": "Khoảng cách nhận thức: vì sao AI không nên làm các SME e ngại",
+    "image": "assets/og/default.png"
+  },
+  "/blog/sme-affordable-ai-chatbots": {
+    "title": "Vì sao chatbot AI giá phải chăng có thể thay đổi cuộc chơi của SME | Jade",
+    "description": "Chatbot AI chạy trên đám mây, tính phí theo thuê bao, giúp AI trở thành lựa chọn khả thi cho doanh nghiệp ở mọi quy mô.",
+    "label": "Vì sao chatbot AI giá phải chăng có thể thay đổi cuộc chơi của SME",
+    "image": "assets/og/default.png"
+  },
+  "/blog/sme-ai-implementation-challenges": {
+    "title": "Vượt qua những thách thức thường gặp khi triển khai AI | Jade",
+    "description": "AI có tiềm năng rất lớn, nhưng triển khai cũng gặp rào cản về bảo mật, tích hợp, con người và ROI. Đây là cách đi qua chúng.",
+    "label": "Vượt qua những thách thức thường gặp khi triển khai AI",
+    "image": "assets/og/default.png"
   }
 }
