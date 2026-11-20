@@ -81,108 +81,108 @@
     "title": "When AI Becomes Part of the Operating Model | Jade",
     "description": "Moving from isolated AI tools to systems embedded in daily customer operations: a field note on turning AI into an operating model.",
     "label": "When AI Becomes Part of the Operating Model",
-    "image": "assets/og/default.png"
+    "image": "assets/og/blog-operating-model.png"
   },
   "/blog/workflow": {
     "title": "Design the Workflow Before the Tool | Jade",
     "description": "A practical method for finding the decision, handoff and exception a product needs to serve, before choosing any AI tool or vendor.",
     "label": "Designing the workflow before choosing the tool",
-    "image": "assets/og/default.png"
+    "image": "assets/og/blog-workflow.png"
   },
   "/blog/pilot": {
     "title": "What Makes an Enterprise AI Pilot Worth Scaling | Jade",
     "description": "A pilot should reduce uncertainty about an operating model, not only prove that a feature can work. Notes on judging an enterprise AI pilot.",
     "label": "What makes an enterprise pilot worth scaling",
-    "image": "assets/og/default.png"
+    "image": "assets/og/blog-pilot.png"
   },
   "/blog/service": {
     "title": "Lessons from Shipping AI for Service Teams | Jade",
     "description": "In customer operations, AI adoption depends on the workflow around an answer as much as the answer itself. Lessons from real service teams.",
     "label": "Lessons from shipping AI for real service teams",
-    "image": "assets/og/default.png"
+    "image": "assets/og/blog-service.png"
   },
   "/blog/ai-veterinary-clinics": {
     "title": "AI in Veterinary Clinics: From Lead Conversion to Customer Loyalty | Jade",
     "description": "How AI can turn veterinary leads into booked visits, rebooking and long-term loyalty, with examples from Southeast Asia.",
     "label": "AI in veterinary clinics",
-    "image": "assets/og/default.png"
+    "image": "assets/og/blog-ai-veterinary-clinics.png"
   },
   "/blog/ai-travel-hospitality": {
     "title": "AI in SEA travel and hospitality: from booking to guest loyalty and growth | Jade",
     "description": "The opportunity is not a chatbot that answers more guest questions. It is connecting every interaction to the workflow behind the experience.",
     "label": "AI in SEA travel and hospitality: from booking to guest loyalty and growth",
-    "image": "assets/og/default.png"
+    "image": "assets/og/blog-ai-travel-hospitality.png"
   },
   "/blog/ai-automotive-retail": {
     "title": "AI in automotive retail: from vehicle sales to customer lifetime value | Jade",
     "description": "Buying a vehicle is rarely a one-time transaction. AI can sell, service, maintain and retain customers across the whole ownership lifecycle.",
     "label": "AI in automotive retail: from vehicle sales to customer lifetime value",
-    "image": "assets/og/default.png"
+    "image": "assets/og/blog-ai-automotive-retail.png"
   },
   "/blog/ai-beauty-retail": {
     "title": "AI in beauty retail: from personalization to always-on growth | Jade",
     "description": "How can AI make every beauty decision more personal, every interaction more useful and every selling opportunity more scalable?",
     "label": "AI in beauty retail: from personalization to always-on growth",
-    "image": "assets/og/default.png"
+    "image": "assets/og/blog-ai-beauty-retail.png"
   },
   "/blog/ai-consumer-electronics": {
     "title": "AI in consumer electronics retail: practical use cases from Southeast Asia | Jade",
     "description": "A purchase decision in consumer electronics is increasingly a decision problem, and AI becomes valuable when it turns an ambiguous need into a specific decision.",
     "label": "AI in consumer electronics retail: practical use cases from Southeast Asia",
-    "image": "assets/og/default.png"
+    "image": "assets/og/blog-ai-consumer-electronics.png"
   },
   "/blog/sea-retail-growth-scale": {
     "title": "How Southeast Asian retailers are rethinking growth at scale | Jade",
     "description": "Growth creates demand. Execution determines how much of that demand becomes value, and AI helps most when it removes a constraint already limiting growth.",
     "label": "How Southeast Asian retailers are rethinking growth at scale",
-    "image": "assets/og/default.png"
+    "image": "assets/og/blog-sea-retail-growth-scale.png"
   },
   "/blog/ai-access-to-capability": {
     "title": "From AI access to AI capability: what retailers need to build for revenue growth | Jade",
     "description": "Having AI is not the same as having AI capability. The real question is where revenue leaks from the customer journey, and what capability fixes it.",
     "label": "From AI access to AI capability: what retailers need to build for revenue growth",
-    "image": "assets/og/default.png"
+    "image": "assets/og/blog-ai-access-to-capability.png"
   },
   "/blog/revenue-vs-profit-growth": {
     "title": "Revenue growth doesn't always mean profit growth | Jade",
     "description": "Profit is created by operational decisions made before a customer reaches the checkout, and AI is an execution layer, not a growth strategy.",
     "label": "Revenue growth doesn't always mean profit growth",
-    "image": "assets/og/default.png"
+    "image": "assets/og/blog-revenue-vs-profit-growth.png"
   },
   "/blog/retail-sales-vs-profit": {
     "title": "Why growing retail sales doesn't always mean higher profits | Jade",
     "description": "Most retailers don't have a growth problem. They have an execution problem, and AI helps every store operate a little more like the best one.",
     "label": "Why growing retail sales doesn't always mean higher profits",
-    "image": "assets/og/default.png"
+    "image": "assets/og/blog-retail-sales-vs-profit.png"
   },
   "/blog/revenue-ai-os": {
     "title": "AI is no longer the competitive advantage. Your Revenue AI OS is | Jade",
     "description": "The technology is no longer scarce. What separates winners is how they connect AI across the customer journey into one system.",
     "label": "AI is no longer the competitive advantage. Your Revenue AI OS is",
-    "image": "assets/og/default.png"
+    "image": "assets/og/blog-revenue-ai-os.png"
   },
   "/blog/ai-manufacturing-vietnam-sea": {
     "title": "AI in manufacturing across Vietnam and SEA: why it's no longer optional, it's business survival | Jade",
     "description": "Manufacturing is shifting from \"automated + manual\" to \"intelligent + adaptive\", and AI is becoming a strategic imperative, not just a tool.",
     "label": "AI in manufacturing across Vietnam and SEA: why it's no longer optional, it's business survival",
-    "image": "assets/og/default.png"
+    "image": "assets/og/blog-ai-manufacturing-vietnam-sea.png"
   },
   "/blog/sme-ai-perception-gap": {
     "title": "The perception gap: why AI should not scare SMEs | Jade",
     "description": "The belief that AI is only for large corporations is outdated. Affordable, user-friendly and scalable AI is now within reach of small and medium-sized businesses.",
     "label": "The perception gap: why AI should not scare SMEs",
-    "image": "assets/og/default.png"
+    "image": "assets/og/blog-sme-ai-perception-gap.png"
   },
   "/blog/sme-affordable-ai-chatbots": {
     "title": "Why affordable AI chatbots can revolutionize your SME | Jade",
     "description": "Cloud-based, subscription-priced AI chatbots make AI a viable option for businesses of every size.",
     "label": "Why affordable AI chatbots can revolutionize your SME",
-    "image": "assets/og/default.png"
+    "image": "assets/og/blog-sme-affordable-ai-chatbots.png"
   },
   "/blog/sme-ai-implementation-challenges": {
     "title": "Overcoming common challenges of implementing AI | Jade",
     "description": "AI offers immense potential, but implementing it brings hurdles in security, integration, people and ROI. Here is how to navigate them.",
     "label": "Overcoming common challenges of implementing AI",
-    "image": "assets/og/default.png"
+    "image": "assets/og/blog-sme-ai-implementation-challenges.png"
   }
 }

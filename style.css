@@ -238,3 +238,16 @@ header nav a:last-child{border-bottom:0}
 @media(max-width:760px){
 header nav .lang{display:inline-flex;margin-top:14px;align-self:flex-start;padding:8px 12px;border-bottom:1px solid var(--line)}
 }
+/* 2026-11-20: sticky header, smaller CTA, blog imagery */
+header{position:sticky;top:0;z-index:50;background:var(--paper);box-shadow:0 0 0 100vmax var(--paper);clip-path:inset(0 -100vmax)}
+header.stuck{border-bottom:1px solid var(--line)}
+.close a{padding:12px 22px;margin-top:24px;border-radius:6px}
+.mainpost{position:relative;overflow:hidden;padding:0}
+.mainpost-img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+.mainpost>small,.mainpost>h2,.mainpost>p,.mainpost>a{margin-left:32px;margin-right:32px}
+.mainpost>small{margin-top:26px}.mainpost>h2{margin-top:14px}.mainpost>a{margin-bottom:30px}
+.article-hero>img{aspect-ratio:16/9;height:auto;max-height:560px}
+.article-image img{aspect-ratio:16/9;object-fit:cover}
+@media(max-width:760px){.mainpost>small,.mainpost>h2,.mainpost>p,.mainpost>a{margin-left:20px;margin-right:20px}}
+html[lang="vi"] .hero h1,html[lang="vi"] .pagehero h1,html[lang="vi"] .contact h1,html[lang="vi"] .casehero h1,html[lang="vi"] .article-heading h1,html[lang="vi"] .sc-hero h1{line-height:1.14}
+html[lang="vi"] h2{line-height:1.2}

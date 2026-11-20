@@ -81,108 +81,108 @@
     "title": "Khi AI trở thành một phần của mô hình vận hành | Jade",
     "description": "Từ các công cụ AI rời rạc đến hệ thống gắn liền với vận hành khách hàng hằng ngày: ghi chép về việc biến AI thành mô hình vận hành.",
     "label": "Khi AI trở thành một phần của mô hình vận hành",
-    "image": "assets/og/default.png"
+    "image": "assets/og/blog-operating-model.png"
   },
   "/blog/workflow": {
     "title": "Thiết kế workflow trước khi chọn công cụ | Jade",
     "description": "Phương pháp thực tế để tìm ra quyết định, khâu bàn giao và ngoại lệ mà sản phẩm cần phục vụ, trước khi chọn bất kỳ công cụ hay nhà cung cấp AI nào.",
     "label": "Thiết kế workflow trước khi chọn công cụ",
-    "image": "assets/og/default.png"
+    "image": "assets/og/blog-workflow.png"
   },
   "/blog/pilot": {
     "title": "Điều gì khiến pilot AI doanh nghiệp đáng nhân rộng | Jade",
     "description": "Một dự án thử nghiệm nên giảm bất định về mô hình vận hành, chứ không chỉ chứng minh một tính năng chạy được. Ghi chép về cách đánh giá pilot AI.",
     "label": "Điều gì khiến một dự án thử nghiệm doanh nghiệp đáng nhân rộng",
-    "image": "assets/og/default.png"
+    "image": "assets/og/blog-pilot.png"
   },
   "/blog/service": {
     "title": "Bài học khi triển khai AI cho đội dịch vụ | Jade",
     "description": "Trong vận hành khách hàng, việc áp dụng AI phụ thuộc vào workflow quanh câu trả lời không kém gì bản thân câu trả lời. Bài học từ các đội dịch vụ thực tế.",
     "label": "Bài học khi triển khai AI cho các đội dịch vụ thực tế",
-    "image": "assets/og/default.png"
+    "image": "assets/og/blog-service.png"
   },
   "/blog/ai-veterinary-clinics": {
     "title": "AI cho phòng khám thú y: từ chuyển đổi khách đến lòng trung thành | Jade",
     "description": "AI giúp phòng khám thú y biến khách tiềm năng thành lịch hẹn, tái khám và lòng trung thành lâu dài, kèm ví dụ từ Đông Nam Á.",
     "label": "AI cho phòng khám thú y",
-    "image": "assets/og/default.png"
+    "image": "assets/og/blog-ai-veterinary-clinics.png"
   },
   "/blog/ai-travel-hospitality": {
     "title": "AI trong du lịch và lưu trú Đông Nam Á: từ đặt phòng đến lòng trung thành và tăng trưởng | Jade",
     "description": "Cơ hội không phải là một chatbot trả lời nhiều câu hỏi hơn, mà là kết nối mọi tương tác với quy trình đứng sau trải nghiệm.",
     "label": "AI trong du lịch và lưu trú Đông Nam Á: từ đặt phòng đến lòng trung thành và tăng trưởng",
-    "image": "assets/og/default.png"
+    "image": "assets/og/blog-ai-travel-hospitality.png"
   },
   "/blog/ai-automotive-retail": {
     "title": "AI trong bán lẻ ô tô: từ bán xe đến giá trị vòng đời khách hàng | Jade",
     "description": "Mua xe hiếm khi là giao dịch một lần. AI có thể giúp bán, bảo dưỡng và giữ chân khách xuyên suốt vòng đời sở hữu xe.",
     "label": "AI trong bán lẻ ô tô: từ bán xe đến giá trị vòng đời khách hàng",
-    "image": "assets/og/default.png"
+    "image": "assets/og/blog-ai-automotive-retail.png"
   },
   "/blog/ai-beauty-retail": {
     "title": "AI trong bán lẻ làm đẹp: từ cá nhân hóa đến tăng trưởng 24/7 | Jade",
     "description": "Làm sao để AI khiến mỗi quyết định làm đẹp cá nhân hơn, mỗi tương tác hữu ích hơn và mỗi cơ hội bán hàng mở rộng được hơn?",
     "label": "AI trong bán lẻ làm đẹp: từ cá nhân hóa đến tăng trưởng 24/7",
-    "image": "assets/og/default.png"
+    "image": "assets/og/blog-ai-beauty-retail.png"
   },
   "/blog/ai-consumer-electronics": {
     "title": "AI trong bán lẻ điện tử tiêu dùng: các use case thực tế từ Đông Nam Á | Jade",
     "description": "Quyết định mua đồ điện tử ngày càng là một bài toán ra quyết định, và AI có giá trị khi biến một nhu cầu mơ hồ thành một lựa chọn cụ thể.",
     "label": "AI trong bán lẻ điện tử tiêu dùng: các use case thực tế từ Đông Nam Á",
-    "image": "assets/og/default.png"
+    "image": "assets/og/blog-ai-consumer-electronics.png"
   },
   "/blog/sea-retail-growth-scale": {
     "title": "Các nhà bán lẻ Đông Nam Á đang nghĩ lại về tăng trưởng ở quy mô lớn như thế nào | Jade",
     "description": "Tăng trưởng tạo ra nhu cầu. Việc thực thi quyết định bao nhiêu phần của nhu cầu đó trở thành giá trị, và AI hữu ích nhất khi gỡ bỏ một nút thắt đang cản trở tăng trưởng.",
     "label": "Các nhà bán lẻ Đông Nam Á đang nghĩ lại về tăng trưởng ở quy mô lớn như thế nào",
-    "image": "assets/og/default.png"
+    "image": "assets/og/blog-sea-retail-growth-scale.png"
   },
   "/blog/ai-access-to-capability": {
     "title": "Từ quyền truy cập AI đến năng lực AI: nhà bán lẻ cần xây dựng gì để tăng trưởng doanh thu | Jade",
     "description": "Có AI không đồng nghĩa với có năng lực AI. Câu hỏi thực sự là doanh thu đang rò rỉ ở đâu trong hành trình khách hàng, và cần xây năng lực gì để khắc phục.",
     "label": "Từ quyền truy cập AI đến năng lực AI: nhà bán lẻ cần xây dựng gì để tăng trưởng doanh thu",
-    "image": "assets/og/default.png"
+    "image": "assets/og/blog-ai-access-to-capability.png"
   },
   "/blog/revenue-vs-profit-growth": {
     "title": "Tăng trưởng doanh thu không phải lúc nào cũng là tăng trưởng lợi nhuận | Jade",
     "description": "Lợi nhuận được tạo ra từ các quyết định vận hành diễn ra trước khi khách hàng đến quầy thanh toán, và AI là một lớp thực thi chứ không phải chiến lược tăng trưởng.",
     "label": "Tăng trưởng doanh thu không phải lúc nào cũng là tăng trưởng lợi nhuận",
-    "image": "assets/og/default.png"
+    "image": "assets/og/blog-revenue-vs-profit-growth.png"
   },
   "/blog/retail-sales-vs-profit": {
     "title": "Vì sao doanh số bán lẻ tăng không phải lúc nào cũng kéo theo lợi nhuận tăng | Jade",
     "description": "Phần lớn nhà bán lẻ không gặp vấn đề tăng trưởng mà gặp vấn đề thực thi, và AI giúp mọi cửa hàng vận hành giống cửa hàng tốt nhất hơn một chút.",
     "label": "Vì sao doanh số bán lẻ tăng không phải lúc nào cũng kéo theo lợi nhuận tăng",
-    "image": "assets/og/default.png"
+    "image": "assets/og/blog-retail-sales-vs-profit.png"
   },
   "/blog/revenue-ai-os": {
     "title": "AI không còn là lợi thế cạnh tranh. Revenue AI OS của bạn mới là | Jade",
     "description": "Công nghệ không còn khan hiếm. Điều phân biệt người thắng là cách họ kết nối AI xuyên suốt hành trình khách hàng thành một hệ thống.",
     "label": "AI không còn là lợi thế cạnh tranh. Revenue AI OS của bạn mới là",
-    "image": "assets/og/default.png"
+    "image": "assets/og/blog-revenue-ai-os.png"
   },
   "/blog/ai-manufacturing-vietnam-sea": {
     "title": "AI trong sản xuất tại Việt Nam và Đông Nam Á: không còn là lựa chọn, mà là sự sống còn của doanh nghiệp | Jade",
     "description": "Ngành sản xuất đang chuyển từ \"tự động hóa + thủ công\" sang \"thông minh + thích ứng\", và AI trở thành yêu cầu chiến lược chứ không chỉ là công cụ.",
     "label": "AI trong sản xuất tại Việt Nam và Đông Nam Á: không còn là lựa chọn, mà là sự sống còn của doanh nghiệp",
-    "image": "assets/og/default.png"
+    "image": "assets/og/blog-ai-manufacturing-vietnam-sea.png"
   },
   "/blog/sme-ai-perception-gap": {
     "title": "Khoảng cách nhận thức: vì sao AI không nên làm các SME e ngại | Jade",
     "description": "Quan niệm AI chỉ dành cho tập đoàn lớn đã lỗi thời. AI giá phải chăng, dễ dùng và dễ mở rộng nay đã trong tầm tay doanh nghiệp vừa và nhỏ.",
     "label": "Khoảng cách nhận thức: vì sao AI không nên làm các SME e ngại",
-    "image": "assets/og/default.png"
+    "image": "assets/og/blog-sme-ai-perception-gap.png"
   },
   "/blog/sme-affordable-ai-chatbots": {
     "title": "Vì sao chatbot AI giá phải chăng có thể thay đổi cuộc chơi của SME | Jade",
     "description": "Chatbot AI chạy trên đám mây, tính phí theo thuê bao, giúp AI trở thành lựa chọn khả thi cho doanh nghiệp ở mọi quy mô.",
     "label": "Vì sao chatbot AI giá phải chăng có thể thay đổi cuộc chơi của SME",
-    "image": "assets/og/default.png"
+    "image": "assets/og/blog-sme-affordable-ai-chatbots.png"
   },
   "/blog/sme-ai-implementation-challenges": {
     "title": "Vượt qua những thách thức thường gặp khi triển khai AI | Jade",
     "description": "AI có tiềm năng rất lớn, nhưng triển khai cũng gặp rào cản về bảo mật, tích hợp, con người và ROI. Đây là cách đi qua chúng.",
     "label": "Vượt qua những thách thức thường gặp khi triển khai AI",
-    "image": "assets/og/default.png"
+    "image": "assets/og/blog-sme-ai-implementation-challenges.png"
   }
 }
