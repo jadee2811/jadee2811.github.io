@@ -300,3 +300,9 @@ html[lang="vi"] h2{line-height:1.2}
 @media(max-width:900px){.article-body{grid-template-columns:1fr}.article-hero>img{max-height:200px}}
 html[lang="vi"] .article-heading h1{line-height:1.18}
 .article-hero>img,.article-image img{object-position:center 55%}
+/* featured: 3 equal cards in a row */
+.feat3{grid-template-columns:repeat(3,1fr);grid-template-rows:auto;gap:28px;align-items:start}
+.feat3 .big,.feat3 .side{grid-row:auto;display:block}
+.feat3 .big img,.feat3 .side img{aspect-ratio:16/10;max-height:none;flex:none}
+.feat3 .big h2,.feat3 .side h2{font:400 21px/1.28 var(--sans);letter-spacing:-.01em}
+@media(max-width:900px){.feat3{grid-template-columns:1fr}}
