@@ -106,5 +106,23 @@
     "description": "How AI can turn veterinary leads into booked visits, rebooking and long-term loyalty, with examples from Southeast Asia.",
     "label": "AI in veterinary clinics",
     "image": "assets/og/default.png"
+  },
+  "/blog/ai-travel-hospitality": {
+    "title": "AI in SEA travel and hospitality: from booking to guest loyalty and growth | Jade",
+    "description": "The opportunity is not a chatbot that answers more guest questions. It is connecting every interaction to the workflow behind the experience.",
+    "label": "AI in SEA travel and hospitality: from booking to guest loyalty and growth",
+    "image": "assets/og/default.png"
+  },
+  "/blog/ai-automotive-retail": {
+    "title": "AI in automotive retail: from vehicle sales to customer lifetime value | Jade",
+    "description": "Buying a vehicle is rarely a one-time transaction. AI can sell, service, maintain and retain customers across the whole ownership lifecycle.",
+    "label": "AI in automotive retail: from vehicle sales to customer lifetime value",
+    "image": "assets/og/default.png"
+  },
+  "/blog/ai-beauty-retail": {
+    "title": "AI in beauty retail: from personalization to always-on growth | Jade",
+    "description": "How can AI make every beauty decision more personal, every interaction more useful and every selling opportunity more scalable?",
+    "label": "AI in beauty retail: from personalization to always-on growth",
+    "image": "assets/og/default.png"
   }
 }

@@ -106,5 +106,23 @@
     "description": "AI giúp phòng khám thú y biến khách tiềm năng thành lịch hẹn, tái khám và lòng trung thành lâu dài, kèm ví dụ từ Đông Nam Á.",
     "label": "AI cho phòng khám thú y",
     "image": "assets/og/default.png"
+  },
+  "/blog/ai-travel-hospitality": {
+    "title": "AI trong du lịch và lưu trú Đông Nam Á: từ đặt phòng đến lòng trung thành và tăng trưởng | Jade",
+    "description": "Cơ hội không phải là một chatbot trả lời nhiều câu hỏi hơn, mà là kết nối mọi tương tác với quy trình đứng sau trải nghiệm.",
+    "label": "AI trong du lịch và lưu trú Đông Nam Á: từ đặt phòng đến lòng trung thành và tăng trưởng",
+    "image": "assets/og/default.png"
+  },
+  "/blog/ai-automotive-retail": {
+    "title": "AI trong bán lẻ ô tô: từ bán xe đến giá trị vòng đời khách hàng | Jade",
+    "description": "Mua xe hiếm khi là giao dịch một lần. AI có thể giúp bán, bảo dưỡng và giữ chân khách xuyên suốt vòng đời sở hữu xe.",
+    "label": "AI trong bán lẻ ô tô: từ bán xe đến giá trị vòng đời khách hàng",
+    "image": "assets/og/default.png"
+  },
+  "/blog/ai-beauty-retail": {
+    "title": "AI trong bán lẻ làm đẹp: từ cá nhân hóa đến tăng trưởng 24/7 | Jade",
+    "description": "Làm sao để AI khiến mỗi quyết định làm đẹp cá nhân hơn, mỗi tương tác hữu ích hơn và mỗi cơ hội bán hàng mở rộng được hơn?",
+    "label": "AI trong bán lẻ làm đẹp: từ cá nhân hóa đến tăng trưởng 24/7",
+    "image": "assets/og/default.png"
   }
 }

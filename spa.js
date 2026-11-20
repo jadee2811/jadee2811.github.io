@@ -85,7 +85,7 @@ async function article(slug,L){
   const d=(await getJSON(L==='vi'?'/data/content.vi.json':'/data/content.json')).articles[slug];if(!d)throw 0;const t=T[L];
   return{html:'<section class="article-hero"><div class="article-heading"><label>'+d[0]+' · '+t.field+'</label><h1>'+d[1]+'</h1><p>'+d[2]+'</p><div class="article-by">'+t.by+'</div></div></section><section class="article-body"><aside><b>'+t.toc+'</b><a href="#start">'+t.t1+'</a><a href="#handoff">'+t.t2+'</a><a href="#scale">'+t.t3+'</a></aside><article><p class="standfirst">'+t.stand+'</p><h2 id="start">'+t.h1+'</h2><p>'+t.p1+'</p><h2 id="handoff">'+t.h2+'</h2><p>'+t.p2+'</p><blockquote>'+t.q+'</blockquote><h2 id="scale">'+t.h3+'</h2><p>'+t.p3+'</p><p><a class="more" href="/blog">'+t.backblog+'</a></p></article></section>'};
 }
-const PAGES={'/':'home','/about':'about','/work':'work','/blog':'blog','/contact':'contact','/sitemap':'sitemap','/blog/operating-model':'operating-model','/blog/ai-veterinary-clinics':'ai-veterinary-clinics'};
+const PAGES={'/':'home','/about':'about','/work':'work','/blog':'blog','/contact':'contact','/sitemap':'sitemap','/blog/operating-model':'operating-model','/blog/ai-veterinary-clinics':'ai-veterinary-clinics','/blog/ai-beauty-retail':'ai-beauty-retail','/blog/ai-automotive-retail':'ai-automotive-retail','/blog/ai-travel-hospitality':'ai-travel-hospitality'};
 const notFoundSeo=L=>({title:T[L].nfT,description:T[L].nfD,label:'404',noindex:true});
 async function resolve(path,L){
   const dir=L==='vi'?'/pages/vi/':'/pages/';
