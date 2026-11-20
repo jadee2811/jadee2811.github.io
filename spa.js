@@ -162,7 +162,6 @@ const on=()=>{b.classList.toggle('show',scrollY>500);lab()};addEventListener('sc
   const p=location.pathname.replace(/\/+$/,'');
   if(p!==''&&p!=='/vi')return;
   if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  try{if(sessionStorage.getItem('jade-intro'))return;sessionStorage.setItem('jade-intro','1')}catch(e){}
   let seed=7;const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647,R=(a,b)=>a+rnd()*(b-a);
   const S4=(r)=>`M0-${r}L${r*.26}-${r*.26}L${r} 0L${r*.26} ${r*.26}L0 ${r}L-${r*.26} ${r*.26}L-${r} 0L-${r*.26}-${r*.26}Z`;
   let st='';
