@@ -6,43 +6,57 @@
 <meta name="robots" content="noindex">
 <title>English by Jade</title>
 <meta name="description" content="Luyện nói tiếng Anh mỗi ngày: business, phỏng vấn, giao tiếp công sở.">
-<meta name="theme-color" content="#116b54">
+<meta name="theme-color" content="#141b3d">
 <style>
-:root{--g:#116b54;--g2:#0b4a3a;--bg:#f4f8f6;--ink:#17332b;--mut:#5d7a70;--card:#fff;--red:#d64545;--gold:#f2b93b}
-*{box-sizing:border-box}body{margin:0;font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink)}
-main{max-width:520px;margin:0 auto;padding:max(12px,env(safe-area-inset-top)) 14px calc(24px + env(safe-area-inset-bottom))}
-html{-webkit-text-size-adjust:100%}button{min-height:52px;-webkit-tap-highlight-color:transparent}button:active{transform:scale(.98)}
-#talk .row{position:sticky;bottom:0}header{position:sticky;top:0;background:var(--bg);padding:8px 0;z-index:5}
-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
-h1{font-size:18px;margin:0}.stats{display:flex;gap:12px;font-weight:700}
-.card{background:var(--card);border-radius:18px;padding:18px;margin:12px 0;box-shadow:0 2px 10px #0001}
-.tree{text-align:center}.tree .em{font-size:76px;line-height:1.1}
-.bar{height:10px;background:#dfeae5;border-radius:9px;overflow:hidden;margin:8px 0}.bar i{display:block;height:100%;background:var(--g)}
-button{font:inherit;border:0;border-radius:14px;padding:14px 18px;background:var(--g);color:#fff;font-weight:700;width:100%;cursor:pointer}
-button.sec{background:#dfeae5;color:var(--g2)}button:disabled{opacity:.5}
-button.rec.on{background:var(--red)}
+:root{--bg:#141b3d;--bg2:#1d2750;--card:#222d5c;--ink:#f6efe0;--mut:#a9b3d6;--gold:#f2c14e;--rose:#e0485a;--g:#f2c14e;--red:#e0485a}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);background-image:radial-gradient(#ffffff22 1px,transparent 1px);background-size:34px 34px}
+main{max-width:520px;margin:0 auto;padding:max(10px,env(safe-area-inset-top)) 14px calc(96px + env(safe-area-inset-bottom))}
+header{display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:5;background:var(--bg);padding:8px 0}
+h1{font-size:17px;margin:0;font-family:Georgia,serif;letter-spacing:.3px}.stats{display:flex;gap:10px;font-weight:700;font-size:15px}
+.card{background:var(--card);border-radius:20px;padding:16px;margin:12px 0;box-shadow:0 4px 18px #0004}
+.hero{padding:0;overflow:hidden;position:relative}.hero img{display:block;width:100%;height:auto;aspect-ratio:1/1}
+.hero .ov{position:absolute;left:0;right:0;bottom:0;padding:44px 16px 14px;background:linear-gradient(transparent,#141b3dee)}
+.lv{font-weight:800;font-size:20px;font-family:Georgia,serif}.bar{height:10px;background:#ffffff22;border-radius:9px;overflow:hidden;margin:8px 0 4px}.bar i{display:block;height:100%;background:linear-gradient(90deg,#f2c14e,#f7e08c)}
+button{font:inherit;border:0;border-radius:16px;padding:14px 18px;background:var(--gold);color:#2a2410;font-weight:800;width:100%;cursor:pointer;min-height:52px;-webkit-tap-highlight-color:transparent}button:active{transform:scale(.98)}
+button.sec{background:#ffffff1a;color:var(--ink)}button:disabled{opacity:.45}button.rec.on{background:var(--rose);color:#fff}
 .chat{display:flex;flex-direction:column;gap:8px;max-height:38dvh;overflow:auto}
-.b{padding:10px 14px;border-radius:14px;max-width:88%}.ai{background:#e6f1ed;align-self:flex-start}.me{background:var(--g);color:#fff;align-self:flex-end}
-textarea{width:100%;font-size:16px;border:1px solid #cddcd5;border-radius:12px;padding:10px;font:inherit;min-height:64px}
-.tag{display:inline-block;font-size:12px;background:#dfeae5;color:var(--g2);padding:2px 10px;border-radius:99px;font-weight:700}
+.b{padding:10px 14px;border-radius:16px;max-width:88%}.ai{background:#ffffff1a;align-self:flex-start}.me{background:var(--gold);color:#2a2410;align-self:flex-end}
+textarea{width:100%;font-size:16px;border:1px solid #ffffff33;background:#141b3d;color:var(--ink);border-radius:14px;padding:10px;font-family:inherit;min-height:64px}
+.tag{display:inline-block;font-size:12px;background:#ffffff1f;color:var(--gold);padding:2px 10px;border-radius:99px;font-weight:700}
 .mut{color:var(--mut);font-size:14px}.row{display:flex;gap:8px}.row>*{flex:1}
-table{width:100%;border-collapse:collapse}td{padding:6px 0;border-bottom:1px solid #eef3f1}
-.hidden{display:none}
+table{width:100%;border-collapse:collapse}td{padding:7px 0;border-bottom:1px solid #ffffff14}
+.hidden{display:none}.quote{font-family:Georgia,serif;font-style:italic;color:var(--mut);text-align:center;font-size:14px}
+#talk .row{position:sticky;bottom:0}
+nav{position:fixed;left:0;right:0;bottom:0;display:flex;justify-content:space-around;background:#0e1430f2;padding:8px 8px calc(8px + env(safe-area-inset-bottom));backdrop-filter:blur(8px);z-index:9;max-width:520px;margin:0 auto;border-radius:22px 22px 0 0}
+nav a{flex:1;text-align:center;color:var(--mut);font-size:12px;font-weight:700;padding:4px 0;cursor:pointer}nav a b{display:block;font-size:22px}nav a.on{color:var(--gold)}
+.path{position:relative;padding:8px 0 20px}.node{display:flex;align-items:center;margin:10px 0;gap:10px}
+.dot{width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;background:#ffffff1a;border:3px solid #ffffff33}
+.dot.done{background:var(--gold);border-color:#f7e08c}.dot.now{background:var(--rose);border-color:#ff9aa6;animation:pulse 1.6s infinite}.dot.chest{border-radius:16px}
+.lab{font-size:13px;color:var(--mut)}.lab b{color:var(--ink);display:block;font-size:14px}
+@keyframes pulse{50%{box-shadow:0 0 0 10px #e0485a33}}@media(prefers-reduced-motion:reduce){.dot.now{animation:none}}
 </style>
 </head>
 <body>
 <main>
-<header><h1>🌹 English by Jade</h1><div class="stats"><span id="streak">🔥0</span><span id="hearts">❤️5</span><span id="xp">⭐0</span></div></header>
+<header><h1>✦ English by Jade</h1><div class="stats"><span id="streak">🔥0</span><span id="hearts">❤️5</span><span id="xp">⭐0</span></div></header>
 
 <section id="home">
-  <div class="card tree"><div class="em" id="treeEm">🌱</div>
-    <div><b id="treeName">Hạt mầm</b> <span class="mut" id="treeSub"></span></div>
-    <div class="bar"><i id="treeBar" style="width:0"></i></div>
-    <div class="mut" id="treeMsg"></div></div>
+  <div class="card hero"><img id="heroImg" src="img/bud.webp" width="720" height="720" alt="Hoàng tử bé và bông hồng">
+    <div class="ov"><div class="lv" id="lv">Lv.1</div><div class="bar"><i id="treeBar" style="width:0"></i></div>
+    <div class="mut" id="treeSub"></div></div></div>
+  <div class="quote" id="treeMsg"></div>
   <div class="card"><span class="tag" id="todayTrack"></span>
-    <h2 style="margin:8px 0 4px" id="todayTitle"></h2><div class="mut" id="todayDesc"></div>
+    <h2 style="margin:8px 0 4px;font-family:Georgia,serif" id="todayTitle"></h2><div class="mut" id="todayDesc"></div>
     <p></p><button id="start">Bắt đầu cuộc hội thoại hôm nay</button>
-    <p class="mut" style="margin-bottom:0">Học xong là "tưới nước": nước là nội dung đã nói. Bỏ ngày nào cây rũ ngày đó.</p></div>
+    <p class="mut" style="margin-bottom:0">Mỗi bài học xong là một ca nước tưới bông hồng. Nước là nội dung chị đã nói.</p></div>
+</section>
+
+<section id="journey" class="hidden">
+  <div class="card"><b>Hành trình 30 ngày</b> <span class="mut" id="jSub"></span><div class="path" id="path"></div></div>
+</section>
+
+<section id="stats" class="hidden">
   <div class="card"><b>Tuần này</b> <span class="mut" id="weekTotal"></span><table id="weekTbl"></table>
     <div class="mut" id="best"></div></div>
   <div class="card"><b>Nước đã tưới (nội dung đã học)</b><div class="mut" id="learned">Chưa có</div></div>
@@ -61,10 +75,11 @@ table{width:100%;border-collapse:collapse}td{padding:6px 0;border-bottom:1px sol
 </section>
 
 <section id="done" class="hidden">
-  <div class="card tree"><div class="em">🌧️🌱</div><h2 id="dTitle"></h2><div id="dBody"></div></div>
-  <button id="back">Về cây của chị</button>
+  <div class="card" style="text-align:center"><div style="font-size:54px">💧🌹</div><h2 id="dTitle" style="font-family:Georgia,serif"></h2><div id="dBody" style="text-align:left"></div></div>
+  <button id="back">Về với bông hồng</button>
 </section>
 </main>
+<nav id="nav"><a data-t="home" class="on"><b>🌹</b>Bông hồng</a><a data-t="journey"><b>🪐</b>Hành trình</a><a data-t="stats"><b>📈</b>Tiến bộ</a></nav>
 
 <script>
 const TRACKS={
@@ -122,20 +137,28 @@ function stage(){let s=STAGES[0],nx=null;for(let i=0;i<STAGES.length;i++){if(S.x
 function wiltLevel(){if(!S.last)return 0;const g=dayNum(today())-dayNum(S.last);return g<=1?0:g<=2?1:g<=4?2:3}
 function weekKey(t){const d=new Date(t);const day=(d.getUTCDay()+6)%7;return new Date(d-day*864e5).toISOString().slice(0,10)}
 
+function lvl(){return Math.floor(S.xp/40)+1}
 function render(){
   rollDay();
   $("streak").textContent="🔥"+S.streak;$("hearts").textContent="❤️"+S.hearts;$("xp").textContent="⭐"+S.xp;
-  const {s,nx}=stage();const w=wiltLevel();
-  $("treeEm").textContent=w>=3?"🥀":w==2?"🍂":s[1];
-  $("treeName").textContent=w>=3?"Cây héo":s[2];
-  $("treeBar").style.width=nx?Math.round((S.xp-s[0])/(nx[0]-s[0])*100)+"%":"100%";
-  $("treeSub").textContent=nx?`${nx[0]-S.xp} XP nữa lên "${nx[2]}"`:"cao nhất rồi";
+  const w=wiltLevel();
+  const img=w>=2?"wilt":S.xp>=200?"bloom":S.xp>=40?"grow":"bud";
+  $("heroImg").src="img/"+img+".webp";
+  $("lv").textContent="Lv."+lvl()+" · "+(w>=2?"Bông hồng đang khát":S.xp>=200?"Hồng nở":S.xp>=40?"Hồng lớn lên":"Mầm hồng");
+  $("treeBar").style.width=(S.xp%40)/40*100+"%";
+  $("treeSub").textContent=(40-S.xp%40)+" XP nữa lên Lv."+(lvl()+1);
   const done=S.last===today();
-  $("treeMsg").textContent=done?"Hôm nay cây đã được tưới 💧":w==0?"Chưa tưới hôm nay, vào học để giữ streak":w==1?"Cây hơi rũ, tưới ngay nha":w==2?"Cây đang khô, học để cứu nó":"Cây héo rồi, học 1 bài là hồi sinh";
+  $("treeMsg").textContent=done?"“Chính thời gian em đã dành cho bông hồng làm nó quan trọng.” Hôm nay chị đã tưới rồi 💧":w==0?"Bông hồng đang đợi chị tưới nước tối nay":w==1?"Hoàng tử bé hơi lo, bông hồng đang rũ":"Bông hồng khát lắm rồi, học 1 bài để cứu nó";
   const {tr,it}=pickToday();
   $("todayTrack").textContent=TRACKS[tr].name;$("todayTitle").textContent=it.t;$("todayDesc").textContent="Với "+it.who+". "+it.d;
   $("start").textContent=done?"Học thêm 1 vòng (tính XP)":"Bắt đầu cuộc hội thoại hôm nay";
   $("start").disabled=S.hearts<=0;if(S.hearts<=0)$("start").textContent="Hết tim, mai quay lại nha";
+  // journey
+  const days=Object.keys(S.log).length;const cur=done?days-1:days;$("jSub").textContent=`· ${days}/30 ngày`;
+  let p="";for(let i=0;i<30;i++){const chest=(i+1)%7==0;const st=i<days&&!(i==cur&&!done&&false)?"done":i==cur?"now":"";
+    const off=Math.round(Math.sin(i*0.9)*64)+64;const tr2=ORDER[(dayNum(today())-cur+i)%3<0?0:((dayNum(today())-cur+i)%3)];
+    p+=`<div class="node" style="margin-left:${off}px"><div class="dot ${st} ${chest?"chest":""}">${i<days?"💧":i==cur?"🌹":chest?"🎁":"🔒"}</div><div class="lab"><b>Ngày ${i+1}</b>${chest?"Mốc tuần":TRACKS[tr2].name}</div></div>`}
+  $("path").innerHTML=p;
   const wk=weekKey(today());let tot=0,rows="";
   for(let i=0;i<7;i++){const d=new Date(Date.parse(wk)+i*864e5).toISOString().slice(0,10);const v=S.log[d]||0;tot+=v;rows+=`<tr><td>${["T2","T3","T4","T5","T6","T7","CN"][i]}</td><td>${v?"💧 "+v+" XP":"–"}</td></tr>`}
   $("weekTbl").innerHTML=rows;$("weekTotal").textContent=`· ${tot} XP`;
@@ -148,7 +171,8 @@ let cur=null,idx=0,mins=0,words=0,weak=0,fillers=0,t0=0;
 function addMsg(c,t){const d=document.createElement("div");d.className="b "+c;d.textContent=t;$("chat").appendChild(d);$("chat").scrollTop=1e9}
 function speak(t){try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang="en-US";u.rate=.95;speechSynthesis.speak(u)}catch(e){}}
 function ask(){addMsg("ai",cur.it.q[idx]);speak(cur.it.q[idx]);$("tProg").textContent=`Câu ${idx+1}/${cur.it.q.length} · đang nói chuyện với ${cur.it.who}`;t0=Date.now()}
-function show(id){for(const x of["home","talk","done"])$(x).classList.toggle("hidden",x!==id)}
+function show(id){for(const x of["home","journey","stats","talk","done"])$(x).classList.toggle("hidden",x!==id);$("nav").style.display=(id=="talk")?"none":"flex";document.querySelectorAll("#nav a").forEach(a=>a.classList.toggle("on",a.dataset.t===id));window.scrollTo(0,0)}
+document.querySelectorAll("#nav a").forEach(a=>a.onclick=()=>{render();show(a.dataset.t)});
 
 $("start").onclick=()=>{cur=pickToday();idx=0;words=0;weak=0;fillers=0;$("chat").innerHTML="";$("tTrack").textContent=TRACKS[cur.tr].name;$("tTitle").textContent=cur.it.t;show("talk");
   addMsg("ai","Mẹo: "+cur.it.learn.join(" · "));ask()};
