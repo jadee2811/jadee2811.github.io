@@ -65,6 +65,7 @@ main,header{position:relative;z-index:1}nav{position:fixed;z-index:9}
 .fb{background:#ffffff12;border-radius:16px;padding:12px;font-size:14px;margin:4px 0;align-self:stretch}.fb h4{margin:8px 0 4px;font-size:13px;color:var(--gold);text-transform:uppercase;letter-spacing:.5px}.fb h4:first-child{margin-top:0}
 .w{padding:1px 5px;border-radius:6px;cursor:pointer}.w.g{background:#4caf7a33}.w.a{background:#f2c14e44}.w.r{background:#e0485a55}
 .fix{padding:6px 0;border-bottom:1px solid #ffffff14}.fix s{color:#ff9aa6}.fix b{color:#9fe3b0}.model{padding:8px 10px;background:#ffffff14;border-radius:10px;margin-top:4px}
+.sum h4{margin:12px 0 4px;font-size:13px;color:var(--gold);text-transform:uppercase;letter-spacing:.5px}.sum div{padding:3px 0;font-size:14px;text-align:left}#done .card{text-align:left}.hrow{padding:6px 0;border-bottom:1px solid #ffffff14}
 </style>
 </head>
 <body>
@@ -109,6 +110,7 @@ main,header{position:relative;z-index:1}nav{position:fixed;z-index:9}
 <section id="stats" class="hidden">
   <div class="card"><b>This week</b> <span class="mut" id="weekTotal"></span><table id="weekTbl"></table>
     <div class="mut" id="best"></div></div>
+  <div class="card"><b>Lesson summaries</b><div id="hist" class="mut">No lessons yet</div></div>
   <div class="card"><b>Water so far (phrases you have learned)</b><div class="mut" id="learned">Nothing yet</div></div>
 </section>
 
@@ -243,6 +245,7 @@ function render(){
   $("weekTbl").innerHTML=rows;$("weekTotal").textContent=`· ${tot} XP`;
   S.weekBest=Math.max(S.weekBest||0,tot);save();
   $("best").textContent=`Best week: ${S.weekBest} XP · longest streak: ${S.best} days`;
+  $("hist").innerHTML=(S.hist||[]).length?S.hist.slice(-10).reverse().map(r=>`<div class="hrow"><b>${r.d.slice(5)}</b> · ${r.t}<br><span class="mut">${r.avg} words/answer · ${r.xp} XP · ${(r.L?r.L.g+r.L.cap+r.L.rep:0)} slips · ${(r.L?r.L.red:0)} unclear</span></div>`).join(""):"No lessons yet";
   $("learned").innerHTML=S.learned.length?S.learned.slice(-8).reverse().map(x=>"• "+x).join("<br>"):"Nothing yet, start your first lesson";
 }
 
@@ -291,24 +294,25 @@ const FIXES=[
  [/more (\w+er)/i,"more …er","…er","double comparative"],
 ];
 function esc(x){return x.replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]))}
+let L={g:0,cap:0,rep:0,lng:0,fil:0,red:0,amb:0,sp:0,ans:0};
 function feedback(a,segs,k){
-  const out=[];
+  const out=[];L.ans++;
   // 1. spelling / form checks
   const fixes=[];
-  for(const [re,bad,good,why] of FIXES){if(re.test(a))fixes.push(`<div class="fix"><s>${bad}</s> → <b>${good}</b> <span class="mut">(${why})</span></div>`)}
-  if(/\bi\b/.test(a))fixes.push(`<div class="fix"><s>i</s> → <b>I</b> <span class="mut">(capital I)</span></div>`);
-  if(a&&a[0]!==a[0].toUpperCase())fixes.push(`<div class="fix"><s>${esc(a.slice(0,12))}…</s> → <b>Start the sentence with a capital letter</b></div>`);
-  const rep=a.match(/\b(\w+)\s+\1\b/i);if(rep)fixes.push(`<div class="fix"><s>${rep[0]}</s> → <b>${rep[1]}</b> <span class="mut">(repeated word)</span></div>`);
+  for(const [re,bad,good,why] of FIXES){if(re.test(a)){L.g++;fixes.push(`<div class="fix"><s>${bad}</s> → <b>${good}</b> <span class="mut">(${why})</span></div>`)}}
+  if(/\bi\b/.test(a)){L.cap++;fixes.push(`<div class="fix"><s>i</s> → <b>I</b> <span class="mut">(capital I)</span></div>`)};
+  if(a&&a[0]!==a[0].toUpperCase()){L.cap++;fixes.push(`<div class="fix"><s>${esc(a.slice(0,12))}…</s> → <b>Start the sentence with a capital letter</b></div>`)}
+  const rep=a.match(/\b(\w+)\s+\1\b/i);if(rep){L.rep++;fixes.push(`<div class="fix"><s>${rep[0]}</s> → <b>${rep[1]}</b> <span class="mut">(repeated word)</span></div>`)}
   const wc=(a.match(/[A-Za-z']+/g)||[]).length;
-  if(wc>45&&!/[.!?]/.test(a.slice(10)))fixes.push(`<div class="fix"><b>Break it into shorter sentences</b> <span class="mut">(long run-on, add pauses)</span></div>`);
+  if(wc>45&&!/[.!?]/.test(a.slice(10))){L.lng++;fixes.push(`<div class="fix"><b>Break it into shorter sentences</b> <span class="mut">(long run-on, add pauses)</span></div>`)}
   const fl=a.toLowerCase().match(/\b(um+|uh+|er|you know|actually|like)\b/g)||[];
-  if(fl.length)fixes.push(`<div class="fix"><b>Filler words:</b> ${[...new Set(fl)].join(", ")} <span class="mut">(pause silently instead)</span></div>`);
+  if(fl.length){L.fil+=fl.length;fixes.push(`<div class="fix"><b>Filler words:</b> ${[...new Set(fl)].join(", ")} <span class="mut">(pause silently instead)</span></div>`)}
   // 2. how it sounded (recognition confidence)
   let heard="";
   if(segs&&segs.length){
     heard=segs.map(g=>{const c=g.c;const cls=c>=.85?"g":c>=.6?"a":"r";return `<span class="w ${cls}" data-t="${esc(g.t.replace(/"/g,''))}">${esc(g.t)}</span>`}).join(" ");
   } else heard=esc(a);
-  const hasR=segs&&segs.some(g=>g.c<.6),hasA=segs&&segs.some(g=>g.c>=.6&&g.c<.85);
+  const hasR=segs&&segs.some(g=>g.c<.6),hasA=segs&&segs.some(g=>g.c>=.6&&g.c<.85);if(segs&&segs.length){L.sp++;if(hasR)L.red++;else if(hasA)L.amb++}
   let h=`<h4>How it sounded</h4><div>${heard}</div><div class="mut" style="margin-top:4px">${segs&&segs.length?(hasR?"Red parts were hard to understand, so work on clearer pronunciation there. ":"")+(hasA?"Yellow parts were a little unclear. ":"")+(!hasR&&!hasA?"Clear and easy to understand. ":"")+"Tap any part to hear it spoken.":"Typed answer: no pronunciation check."}</div>`;
   h+=`<h4>Corrections</h4>`+(fixes.length?fixes.join(""):`<div class="mut">No clear mistakes found. Nice.</div>`);
   h+=`<h4>A stronger way to say it</h4><div class="model">${esc(k)}</div><div class="bt" style="margin-top:6px"><button class="sec2 ml">Listen to the model</button></div>`;
@@ -318,7 +322,7 @@ function ask(){fit();stepUI("idle");const ks=(cur.it.k||[])[idx]||[];$("chips").
 function show(id){for(const x of["home","journey","stats","talk","done"])$(x).classList.toggle("hidden",x!==id);$("nav").style.display=(id=="talk")?"none":"flex";document.querySelectorAll("#nav a").forEach(a=>a.classList.toggle("on",a.dataset.t===id));window.scrollTo(0,0)}
 document.querySelectorAll("#nav a").forEach(a=>a.onclick=()=>{render();show(a.dataset.t)});
 
-$("start").onclick=()=>{cur=pickToday();persona=pickPersona();lastSegs=null;idx=0;words=0;weak=0;fillers=0;$("chat").innerHTML="";$("tTrack").textContent=TRACKS[cur.tr].name;$("tTitle").textContent=cur.it.t;show("talk");$("tCtx").innerHTML="<b>Scenario:</b> "+(cur.it.c||"");
+$("start").onclick=()=>{cur=pickToday();persona=pickPersona();lastSegs=null;idx=0;words=0;weak=0;fillers=0;L={g:0,cap:0,rep:0,lng:0,fil:0,red:0,amb:0,sp:0,ans:0};$("chat").innerHTML="";$("tTrack").textContent=TRACKS[cur.tr].name;$("tTitle").textContent=cur.it.t;show("talk");$("tCtx").innerHTML="<b>Scenario:</b> "+(cur.it.c||"");
   addMsg("ai","Tip: "+cur.it.learn.join(" · "));ask()};
 let lastSegs=null,lastBase="";
 $("send").onclick=()=>{
@@ -350,9 +354,34 @@ function finish(out){
   save();
   const avg=Math.round(words/cur.it.q.length);
   $("dTitle").textContent=full?`+${xp} XP · your rose has been watered`:`Out of hearts, +${xp} XP`;
-  $("dBody").innerHTML=`<p>Average <b>${avg}</b> words per answer (goal 20+). Filler words (um, like...): <b>${fillers}</b>. Answers too short: <b>${weak}</b>.</p>
-  <p class="mut">Phrases to remember today: ${cur.it.learn.map(x=>"<br>• "+x).join("")}</p>
-  <p class="mut">Streak: ${S.streak} days. Come back tomorrow so your rose does not droop.</p>`;
+  const prev=(S.hist||[]).slice(-1)[0];
+  const rec={d:t,t:cur.it.t,tr:cur.tr,avg,xp,w:weak,L:Object.assign({},L),n:cur.it.q.length};
+  S.hist=(S.hist||[]);S.hist.push(rec);if(S.hist.length>60)S.hist.shift();save();
+  const good=[],imp=[];
+  if(avg>=20)good.push(`Strong answers: ${avg} words on average (goal 20+).`);else imp.push(`Answers are short (${avg} words on average). Aim for 20+: answer, give a reason, add an example.`);
+  if(!weak&&avg>=12)good.push("You answered every question with enough detail.");
+  if(L.sp&&!L.red)good.push("Your speech was clear: no red (hard to understand) parts.");
+  if(L.red)imp.push(`${L.red} of ${L.sp} spoken answers had red parts. Tap the red words, listen, repeat them out loud 3 times.`);
+  if(!L.g&&!L.cap&&!L.rep)good.push("No grammar or spelling slips found.");
+  if(L.g)imp.push(`${L.g} grammar/word-form slip(s). Re-read the Corrections above and rewrite those sentences once.`);
+  if(L.cap)imp.push("Capital letters (I, start of sentence). Quick fix, check before you send.");
+  if(L.fil)imp.push(`${L.fil} filler word(s) (um, like, actually). Pause silently instead.`);else if(L.ans)good.push("No filler words.");
+  if(L.lng)imp.push("Some answers were one long sentence. Split into 2-3 short ones.");
+  if(prev&&avg>prev.avg)good.push(`Up from ${prev.avg} to ${avg} words per answer since your last lesson.`);
+  if(prev&&avg<prev.avg)imp.push(`Down from ${prev.avg} to ${avg} words per answer vs last lesson.`);
+  const H=S.hist.slice(-5);const tot=k=>H.reduce((a,r)=>a+(r.L?r.L[k]||0:0),0);
+  const wk=[["Pronunciation",tot("red")*2+tot("amb")],["Grammar",tot("g")*2+tot("cap")+tot("rep")],["Fluency (fillers, long sentences)",tot("fil")+tot("lng")*2],["Answer length",H.reduce((a,r)=>a+(r.w||0),0)*2]].sort((a,b)=>b[1]-a[1]);
+  const ex={"Pronunciation":["Shadowing, 5 min: tap 'Listen to the model' on 3 answers, then say each one right after it, copying rhythm and stress.","Record yourself reading the 'Phrases to remember' aloud and check there is no red."],
+   "Grammar":["Rewrite your 3 weakest sentences from today without looking at the corrections.","Write 5 new sentences using today's phrases, then say them aloud."],
+   "Fluency (fillers, long sentences)":["60-second talk: pick any question and speak for one minute with zero fillers. Pause instead.","Say each answer in exactly 3 short sentences: point, reason, example."],
+   "Answer length":["Use the 'point, reason, example' pattern on every answer today.","Redo one question you answered shortest, and double the length."]};
+  const top=wk[0][1]>0?wk[0][0]:null;
+  const tasks=top?ex[top]:["Great week. Challenge: use 'Shuffle lesson' to pick a topic you have not practised, and aim for 30 words per answer.","Add one new phrase from a real meeting this week to your answers."];
+  $("dBody").innerHTML=`<div class="sum"><h4>What you did well</h4>${good.length?good.map(x=>"<div>✓ "+x+"</div>").join(""):"<div class=\"mut\">You showed up and finished. That is the habit that matters.</div>"}
+  <h4>To improve</h4>${imp.length?imp.map(x=>"<div>• "+x+"</div>").join(""):"<div class=\"mut\">Nothing major. Push for longer, richer answers.</div>"}
+  <h4>Practice tasks for you${top?" (focus: "+top+")":""}</h4>${tasks.map(x=>"<div>→ "+x+"</div>").join("")}
+  <p class="mut">Next lessons adjust to this: your focus is <b>${top||"stretching further"}</b>. Filler words today: ${fillers}. Streak: ${S.streak} days.</p></div>
+  <p class="mut">Phrases to remember today: ${cur.it.learn.map(x=>"<br>• "+x).join("")}</p>`;
   show("done")
 }
 $("back").onclick=()=>{show("home");render()};
