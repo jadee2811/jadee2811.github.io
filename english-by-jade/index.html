@@ -70,6 +70,7 @@ main,header{position:relative;z-index:1}nav{position:fixed;z-index:9}
 .plan{margin-top:12px;display:flex;flex-direction:column;gap:8px}.step{display:flex;gap:10px;align-items:center;padding:10px 12px;border-radius:14px;background:#ffffff12}.step .n{width:26px;height:26px;border-radius:50%;background:#ffffff22;display:grid;place-items:center;font-weight:700;flex:none}.step.ok .n{background:var(--gold);color:#2a2410}.step .tx{flex:1;font-size:14px}.step button{width:auto;flex:none;min-height:38px;padding:6px 14px;font-size:13px;border-radius:12px}
 .vid{margin-top:8px;border-radius:14px;overflow:hidden;position:relative;padding-top:56.25%;background:#000}.vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .sh{font-size:20px;line-height:1.5;font-family:Georgia,serif;margin:10px 0}.sh .m{color:#9fe3b0}.sh .x{color:#ff9aa6;text-decoration:underline}
+.qm{position:fixed;inset:0;background:#0a0d2acc;display:none;align-items:center;justify-content:center;z-index:99;padding:20px;backdrop-filter:blur(4px)}.qm.on{display:flex}.qc{max-width:420px;width:100%;background:#232a5c;border:1px solid #f2c14e55;border-radius:22px;padding:24px 22px;text-align:center;box-shadow:0 20px 60px #0008}.qc .q{font-family:Georgia,serif;font-size:22px;line-height:1.45;margin:10px 0}.qc .by{color:var(--gold);font-size:13px;margin-bottom:14px}.qc img{width:84px;height:84px;border-radius:50%;object-fit:cover}.qc .bt{justify-content:center}
 </style>
 </head>
 <body>
@@ -495,6 +496,18 @@ $("music").onclick=()=>{musicOn=!musicOn;localStorage.setItem("ebj.music",musicO
 musicBtn();
 addEventListener("pointerdown",function f(){removeEventListener("pointerdown",f);if(musicOn)musicStart()},{once:true});
 render();
+
+// daily Little Prince quote popup (this page only)
+const QUOTES=["It is only with the heart that one can see rightly. What is essential is invisible to the eye.","You become responsible, forever, for what you have tamed.","It is the time you have spent on your rose that makes your rose so important.","All grown-ups were once children, but only a few of them remember it.","If you love a flower that lives on a star, it is sweet to look at the sky at night.","What makes the desert beautiful is that somewhere it hides a well.","One runs the risk of weeping a little, if one lets oneself be tamed.","Words are the source of misunderstandings.","It is much more difficult to judge yourself than to judge others.","Straight ahead of him, nobody can go very far.","The stars are beautiful because of a flower that cannot be seen.","Grown-ups never understand anything by themselves, and it is tiresome for children to explain everything to them.","Here is my secret. It is very simple: what is essential is invisible to the eye.","People have forgotten this truth, but you must not forget it.","The things that make me happy are quiet, and they are never far from the heart."];
+addEventListener("DOMContentLoaded",function(){try{const t=today();let q=JSON.parse(localStorage.getItem("ebj.quote")||"null");if(q&&q.d===t)return;
+ let i;do{i=Math.floor(Math.random()*QUOTES.length)}while(q&&i===q.i&&QUOTES.length>1);
+ $("qT").textContent="“"+QUOTES[i]+"”";$("qS").textContent="Antoine de Saint-Exupéry, The Little Prince (adapted)";
+ $("qm").classList.add("on");localStorage.setItem("ebj.quote",JSON.stringify({d:t,i}));
+ $("qGo").onclick=()=>{$("qm").classList.remove("on");try{speechSynthesis.cancel()}catch(e){}};
+ $("qSay").onclick=()=>speak(QUOTES[i]);
+ addEventListener("keydown",e=>{if(e.key==="Escape")$("qGo").click()});
+}catch(e){}});
 </script>
+<div class="qm" id="qm" role="dialog" aria-modal="true" aria-label="Quote of the day"><div class="qc"><img src="img/bloom.webp" alt="" onerror="this.style.display='none'"><div class="by">Today's message from The Little Prince</div><div class="q" id="qT"></div><div class="mut" id="qS" style="font-size:12px"></div><div class="bt" style="margin-top:16px"><button class="sec2" id="qSay">Say it aloud</button><button id="qGo">Start my day</button></div></div></div>
 </body>
 </html>
