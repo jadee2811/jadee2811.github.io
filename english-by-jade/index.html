@@ -35,9 +35,18 @@ nav a{flex:1;text-align:center;color:var(--mut);font-size:12px;font-weight:700;p
 .dot.done{background:var(--gold);border-color:#f7e08c}.dot.now{background:var(--rose);border-color:#ff9aa6;animation:pulse 1.6s infinite}.dot.chest{border-radius:16px}
 .lab{font-size:13px;color:var(--mut)}.lab b{color:var(--ink);display:block;font-size:14px}
 @keyframes pulse{50%{box-shadow:0 0 0 10px #e0485a33}}@media(prefers-reduced-motion:reduce){.dot.now{animation:none}}
+#sky{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:radial-gradient(ellipse at 20% 10%,#2a2f6e55,transparent 55%),radial-gradient(ellipse at 85% 80%,#5a2d6a44,transparent 55%)}
+#sky i{position:absolute;border-radius:50%;background:#fff;animation:tw var(--d) ease-in-out infinite;animation-delay:var(--l)}
+#sky i.g{background:#ffe08a;box-shadow:0 0 8px 2px #ffe08a99}
+#sky i.s{width:2px!important;height:2px!important;background:linear-gradient(90deg,#fff,transparent);border-radius:2px;width:90px!important;opacity:0;animation:shoot 7s linear infinite;animation-delay:var(--l)}
+@keyframes tw{0%,100%{opacity:.15;transform:scale(.7)}50%{opacity:1;transform:scale(1.25)}}
+@keyframes shoot{0%{opacity:0;transform:translate(0,0) rotate(25deg)}3%{opacity:1}12%{opacity:0;transform:translate(260px,120px) rotate(25deg)}100%{opacity:0}}
+@media(prefers-reduced-motion:reduce){#sky i{animation:none;opacity:.7}}
+main,nav,header{position:relative;z-index:1}nav{position:fixed}header{position:sticky}
 </style>
 </head>
 <body>
+<div id="sky"></div>
 <main>
 <header><h1>✦ English by Jade</h1><div class="stats"><span id="streak">🔥0</span><span id="hearts">❤️5</span><span id="xp">⭐0</span></div></header>
 
@@ -212,6 +221,11 @@ else{$("micHint").textContent="Bấm Nói, nói tiếng Anh, bấm lần nữa �
   rec.onresult=e=>{let t="";for(let i=0;i<e.results.length;i++)t+=e.results[i][0].transcript;$("ans").value=(base?base+" ":"")+t};
   rec.onend=()=>{on=false;$("mic").classList.remove("on");$("mic").textContent="🎙 Nói"};
   speechSynthesis.cancel();rec.start();on=true;$("mic").classList.add("on");$("mic").textContent="⏹ Dừng"}}
+(function(){const k=$("sky");let h="";const n=innerWidth>700?150:80;
+for(let i=0;i<n;i++){const z=Math.random()<.12?"g":"";const sz=z?3+Math.random()*3:1+Math.random()*2.2;
+h+=`<i class="${z}" style="left:${Math.random()*100}%;top:${Math.random()*100}%;width:${sz}px;height:${sz}px;--d:${2+Math.random()*4}s;--l:-${Math.random()*6}s"></i>`}
+for(let i=0;i<3;i++)h+=`<i class="s" style="left:${Math.random()*60}%;top:${Math.random()*40}%;--l:${i*2.6}s"></i>`;
+k.innerHTML=h})();
 render();
 </script>
 </body>
