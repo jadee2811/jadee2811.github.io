@@ -67,6 +67,9 @@ main,header{position:relative;z-index:1}nav{position:fixed;z-index:9}
 .w{padding:1px 5px;border-radius:6px;cursor:pointer}.w.g{background:#4caf7a33}.w.a{background:#f2c14e44}.w.r{background:#e0485a55}
 .fix{padding:6px 0;border-bottom:1px solid #ffffff14}.fix s{color:#ff9aa6}.fix b{color:#9fe3b0}.model{padding:8px 10px;background:#ffffff14;border-radius:10px;margin-top:4px}
 .sum h4{margin:12px 0 4px;font-size:13px;color:var(--gold);text-transform:uppercase;letter-spacing:.5px}.sum div{padding:3px 0;font-size:14px;text-align:left}#done .card{text-align:left}.hrow{padding:6px 0;border-bottom:1px solid #ffffff14}
+.plan{margin-top:12px;display:flex;flex-direction:column;gap:8px}.step{display:flex;gap:10px;align-items:center;padding:10px 12px;border-radius:14px;background:#ffffff12}.step .n{width:26px;height:26px;border-radius:50%;background:#ffffff22;display:grid;place-items:center;font-weight:700;flex:none}.step.ok .n{background:var(--gold);color:#2a2410}.step .tx{flex:1;font-size:14px}.step button{width:auto;flex:none;min-height:38px;padding:6px 14px;font-size:13px;border-radius:12px}
+.vid{margin-top:8px;border-radius:14px;overflow:hidden;position:relative;padding-top:56.25%;background:#000}.vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.sh{font-size:20px;line-height:1.5;font-family:Georgia,serif;margin:10px 0}.sh .m{color:#9fe3b0}.sh .x{color:#ff9aa6;text-decoration:underline}
 </style>
 </head>
 <body>
@@ -100,6 +103,12 @@ main,header{position:relative;z-index:1}nav{position:fixed;z-index:9}
   <div class="quote" id="treeMsg"></div>
   <div class="card"><span class="tag" id="todayTrack"></span>
     <h2 style="margin:8px 0 4px;font-family:Georgia,serif" id="todayTitle"></h2><div class="mut" id="todayDesc"></div><div class="ctx" id="todayCtx"></div>
+    <div class="plan" id="plan">
+      <div class="step" id="pv"><span class="n">1</span><span class="tx" id="pvT">Watch</span><button class="sec2" id="vidBtn">Watch</button></div>
+      <div id="vidBox" class="hidden"><div class="vid"><iframe id="vidFrame" title="Lesson video" allow="accelerometer; encrypted-media; picture-in-picture; fullscreen" allowfullscreen loading="lazy"></iframe></div><div class="row" style="margin-top:8px"><button class="sec2" id="vidDone">I watched it (+5 XP)</button></div></div>
+      <div class="step" id="ps"><span class="n">2</span><span class="tx">Shadowing: listen, then repeat 3 sentences (+10 XP)</span><button class="sec2" id="shBtn">Start</button></div>
+      <div class="step" id="pt"><span class="n">3</span><span class="tx">Conversation: answer 5 questions out loud</span></div>
+    </div>
     <p></p><div class="row" style="margin-bottom:8px"><button class="sec" id="rnd"><svg class="ic" width="24" height="24"><use href="#i-globe"/></svg> Shuffle lesson</button></div><button id="start">Start today's conversation</button>
     <p class="mut" style="margin-bottom:0">Every lesson you finish is a can of water for your rose. The water is everything you have said and learned.</p></div>
 </section>
@@ -129,6 +138,17 @@ main,header{position:relative;z-index:1}nav{position:fixed;z-index:9}
   <button class="sec" id="quit">Quit (lose 1 heart)</button>
 </section>
 
+<section id="shadow" class="hidden">
+  <div class="card"><span class="tag">Shadowing</span> <b id="shT"></b><div class="mut" id="shP"></div>
+    <div class="sh" id="shS"></div>
+    <div class="mut" id="shHint">Tap Listen, then Repeat and say it right after the model, copying rhythm and stress.</div>
+    <div class="row" style="margin-top:10px"><button class="sec2" id="shL">Listen</button><button class="rec" id="shR">Repeat</button></div>
+    <div id="shRes" style="margin-top:10px"></div>
+    <div class="row" style="margin-top:10px"><button id="shN" class="hidden">Next</button></div>
+  </div>
+  <button class="sec" id="shQ">Back</button>
+</section>
+
 <section id="done" class="hidden">
   <div class="card" style="text-align:center"><div><svg class="ic" width="56" height="56"><use href="#i-drop"/></svg><svg class="ic" width="56" height="56"><use href="#i-rose"/></svg></div><h2 id="dTitle" style="font-family:Georgia,serif"></h2><div id="dBody" style="text-align:left"></div></div>
   <button id="back">Back to my rose</button>
@@ -139,6 +159,7 @@ main,header{position:relative;z-index:1}nav{position:fixed;z-index:9}
 
 <script>
 const TRACKS={
+ curious:{name:"Curiosity",items:[{"t": "Carl Jung and the shadow", "m": ["Carl Jung was a Swiss psychiatrist who believed that, besides our personal memories, all humans share a deeper layer of the mind called the collective unconscious.", "An archetype is a universal pattern, like the hero, the caregiver or the wise old man. We see the same characters in stories from every culture.", "The shadow is the part of ourselves we do not like and prefer to hide. Jung said we grow when we face it instead of ignoring it.", "Yes. When I notice that I get angry at a trait in someone else, it often shows something about me, and that helps me react more calmly in meetings.", "I like the idea of the shadow, because it is honest. Growth starts when I accept the parts of myself that I usually avoid."], "c": "You are chatting with a friend who just read about Carl Jung and wants to understand archetypes and the shadow in plain words.", "who": "a curious friend", "d": "Explain a Jung idea in simple English.", "learn": ["One idea that stuck with me is...", "In other words,"], "q": ["I keep hearing about Carl Jung. Who was he, in simple words?", "What is an archetype? Give me an example.", "What does Jung mean by the shadow?", "Is this useful in real life, for example at work?", "Which idea of Jung's do you find the most interesting, and why?"], "k": [["Swiss psychiatrist", "unconscious", "dreams", "symbols", "personality"], ["universal pattern", "hero", "caregiver", "stories", "every culture"], ["hide", "dark side", "accept", "face it", "grow"], ["self-awareness", "react", "trigger", "teamwork", "reflect"], ["I find it", "because", "honest", "growth", "real life"]]}, {"t": "Meditation and inner calm", "m": ["Yes, I try to meditate almost every morning. It helps me slow down before the day gets busy.", "I sit comfortably, close my eyes, and follow my breath. When I notice a thought, I let it go and come back to the breath.", "That is completely normal. Noticing that your mind wandered is the practice itself, not a failure.", "I feel less reactive and more present. I also sleep better and I listen more carefully in meetings.", "First, sit for five minutes. Second, focus on your breathing. Third, be kind to yourself when your mind wanders."], "c": "A friend is stressed at work and asks how you meditate, how it feels, and how to start.", "who": "a friend who is new to meditation", "d": "Describe a practice and its effects.", "learn": ["It helps me to slow down and...", "Start small, even five minutes"], "q": ["You always seem calm. Do you meditate?", "What do you actually do for those minutes?", "It sounds hard. My mind keeps wandering. Is that normal?", "What changes have you noticed?", "How should I start? Give me three simple steps."], "k": [["every morning", "slow down", "routine", "before work", "calm"], ["breath", "close my eyes", "let it go", "focus", "thoughts"], ["normal", "wandering mind", "not a failure", "come back", "patience"], ["less stress", "present", "sleep better", "reactive", "focus"], ["five minutes", "breathing", "be kind", "start small", "every day"]]}, {"t": "Numerology and life path", "m": ["Numerology is the belief that numbers carry meaning. I do not treat it as science, but I find it fun and a good way to reflect.", "You add up the digits of your birth date until you get a single digit, or a master number like eleven or twenty-two.", "Each number is linked with traits. For example, people say a life path one is independent, and a life path two is a peacemaker.", "I do not think it predicts the future. I see it as a mirror that gives me questions to think about myself.", "People like patterns and stories about who they are. It gives a simple language to talk about personality and purpose."], "c": "A friend asks about numerology after seeing their life path number online. You explain how it works, and share an honest opinion.", "who": "a friend curious about numerology", "d": "Explain a belief system without judging it.", "learn": ["Some people believe that...", "I take it as a way to reflect"], "q": ["What is numerology? Do you believe in it?", "How do I find my life path number?", "What does my number say about my personality?", "Do you think it can predict the future?", "Why do you think people find it so interesting?"], "k": [["belief", "meaning", "not science", "reflect", "for fun"], ["birth date", "add up", "single digit", "master number", "calculate"], ["traits", "independent", "peacemaker", "strengths", "personality"], ["predict", "mirror", "questions", "open-minded", "skeptical"], ["patterns", "identity", "purpose", "simple language", "curious"]]}, {"t": "Archaeology and ancient cultures", "m": ["What fascinates me most is that people built something so complex thousands of years ago, without metal tools or machines.", "It was built by early communities around eleven thousand years ago, long before cities and writing.", "Archaeologists dig carefully layer by layer, date the materials, and compare the objects with other sites.", "It suggests that people gathered and built monuments before farming, which changes how we think about the start of civilization.", "These places are the only memory we have of people who left no writing. If they are damaged, that knowledge is lost forever."], "c": "You are visiting an archaeological site with a guide. You ask about the people who built it, how we know, and why it matters today.", "who": "a museum guide", "d": "Describe an ancient site and what it teaches us.", "learn": ["Archaeologists found evidence that...", "It changes how we think about..."], "q": ["Welcome to the site. What do you find most fascinating about it?", "Who built it and when?", "How do archaeologists know all this?", "Why does this place change our understanding of history?", "Why should we protect places like this?"], "k": [["fascinating", "thousands of years", "complex", "monument", "tools"], ["built by", "communities", "years ago", "before cities", "early people"], ["dig", "layer by layer", "date", "evidence", "compare"], ["change", "civilization", "farming", "rewrite history", "suggests"], ["protect", "heritage", "lost forever", "future generations", "tourism"]]}, {"t": "Exploring the world", "m": ["The most memorable place for me was a small mountain town. It was quiet, and the local people were incredibly welcoming.", "I walked through the old streets, tried local food, and spent an afternoon talking with a family about their traditions.", "Once I missed my bus in a village with no signal. I stayed calm, asked a local for help, and we found another way.", "Travel taught me to be more patient and curious. I notice how many different ways there are to live a good life.", "I would love to visit Peru, because I am fascinated by its ancient sites and its mix of cultures."], "c": "You meet a fellow traveler at a hostel. You swap stories about places you explored and how travel changes you.", "who": "a fellow traveler", "d": "Share travel stories and what they taught you.", "learn": ["The place that surprised me most was...", "Travelling taught me to..."], "q": ["Where was the most memorable place you have been to?", "What did you do there?", "What was a challenge on the road, and how did you handle it?", "How has travel changed the way you see the world?", "Where do you want to go next, and why?"], "k": [["memorable", "welcoming", "quiet", "small town", "local people"], ["walked", "tried local food", "traditions", "explored", "talked with"], ["missed", "no signal", "stayed calm", "asked for help", "found a way"], ["patient", "curious", "perspective", "different ways", "open-minded"], ["next", "I would love to", "fascinated", "ancient", "cultures"]]}, {"t": "AI in recruitment", "m": ["AI can read and rank resumes in minutes, so recruiters spend their time talking to the best candidates instead of sorting files.", "The risk is real. If the AI learns from biased past decisions, it repeats them. So we need to test the results for different groups regularly.", "I would start with one role, keep a human in the loop, and compare the AI shortlist with the recruiters' shortlist for a month.", "People should make the final decision and run the interviews. AI should explain why it recommends a candidate.", "We track time to hire, quality of hire, candidate experience and fairness across groups, then adjust every quarter."], "c": "You advise an HR manager who is thinking about using AI to screen resumes. You explain the benefits, the risks and how to start safely.", "who": "an HR manager", "d": "Discuss pros and risks of AI in hiring.", "learn": ["AI should support people, not replace them", "The risk is bias, so we..."], "q": ["We receive thousands of resumes. How can AI help us?", "Is it fair? I worry about bias.", "How would you start, in practice?", "What should a human still decide?", "How do we measure if it works?"], "k": [["screen", "rank", "save time", "shortlist", "candidates"], ["bias", "fair", "test", "past decisions", "regularly"], ["one role", "pilot", "human in the loop", "compare", "a month"], ["final decision", "interview", "explain", "accountable", "judgment"], ["time to hire", "quality of hire", "experience", "metrics", "quarter"]]}, {"t": "Talking about art", "m": ["The one by the window speaks to me. The colors are warm, and the scene feels calm and a little mysterious.", "What I notice first is the light. It falls on the central figure and pulls my eyes there before I see the details.", "It makes me feel peaceful, but also curious, like there is a story that I have not understood yet.", "I think the artist wanted to show a quiet moment of everyday life and make us look at it more slowly.", "Yes, I would hang it in my living room, because it brings calm and it gives me something new to notice every day."], "c": "You are at an art gallery with a friend. You describe a painting you like, how it makes you feel, and what you notice about the artist's choices.", "who": "a gallery visitor", "d": "Describe and react to an artwork.", "learn": ["What stands out to me is...", "It makes me feel..."], "q": ["Which painting here speaks to you the most?", "What do you notice first when you look at it?", "How does it make you feel?", "What do you think the artist wanted to say?", "Would you hang it at home? Why or why not?"], "k": [["speaks to me", "colors", "warm", "calm", "mysterious"], ["light", "central figure", "details", "composition", "eyes"], ["peaceful", "curious", "emotion", "story", "feel"], ["wanted to show", "everyday life", "message", "slowly", "symbol"], ["hang", "living room", "every day", "notice", "bring calm"]]}]},
  biz:{name:"Business",items:[
   {t:"60-second pitch to a client",m:["We help banks answer customers instantly with AI, so your team spends less time on repeat questions and customers wait seconds instead of minutes.", "Building it takes a year and a dedicated team. Our solution is proven and live in weeks, so you stay focused on your core business.", "In our pilot, response time dropped by sixty percent and customer satisfaction went up twelve points within two months.", "The main risks are integration and data security. We mitigate both with a phased rollout, a security review, and a dedicated support plan.", "I would like to run a four-week pilot with one product line, so we can decide together based on real results."],c:"You are a product owner at an AI company. You have one minute to pitch an AI customer-service assistant to the CTO of a bank who doubts that AI is ready for real customers.",who:"a skeptical CTO",d:"Introduce an AI solution to an enterprise customer.",
    learn:["problem → solution → proof → ask","Let me start with the problem we saw"],
@@ -170,7 +191,16 @@ const TRACKS={
    learn:["What brings you here?","Let's keep in touch"],
    q:["Hi, I'm Alex. What do you do?","What are you working on at the moment?","That's interesting. What is the hardest part of your work?","Have you used AI in your product team?","Nice talking to you. How can we stay in touch?"],k:[["I work as", "product owner", "AI", "Vietnam", "you?"], ["currently", "building", "enterprise", "chatbot", "pilot"], ["challenge", "adoption", "data", "change management", "time"], ["yes", "we use", "customer service", "workflow", "results"], ["connect on LinkedIn", "keep in touch", "coffee", "email", "nice meeting you"]]}]}
 };
-const ORDER=["biz","job","daily"];
+const ORDER=["biz","job","daily","curious"];
+const VID={"Carl Jung and the shadow":["wywUQc-4Opk", "Carl Jung: what are the archetypes?", "12 min"],"Meditation and inner calm":["qzR62JJCMBQ", "All it takes is 10 mindful minutes (TED)", "9 min"],"Numerology and life path":["jBbGK2brccQ", "Life path numerology 101", "6 min"],"Archaeology and ancient cultures":["iSG1MsQSo_A", "Göbekli Tepe: the dawn of civilization (first 5 min)", "21 min"],"Exploring the world":["kidwSFte8-E", "Life lessons from travelling to every country (TEDx)", "14 min"],"AI in recruitment":["r45nySzozqc", "The truth about AI in hiring", "5 min"],"Talking about art":["loMy3sbW64g", "Why is this painting so captivating? (TED-Ed)", "4 min"],"60-second pitch to a client":["u6uNSpCDPbI","How to write an elevator pitch","4 min"],"Negotiating scope":["8hrPkzR0_6Q","10 idioms for negotiations","6 min"],"Delivering bad news on progress":["dX0z04nUHTc","Business negotiation: state your position clearly","8 min"],
+"Tell me about yourself and your wins":["HMQlA-TIAsk","Tell me about yourself, job interview","8 min"],"Behavioral questions":["yBtMwyQFXwA","How to interview for a job (Rachel's English)","7 min"],"Salary negotiation":["vHuKU6_cYJM","Interview questions and answers","11 min"],
+"Small talk and standup":["aA8sgiw-8jA","Small talk practice at work (mmmEnglish)","9 min"],"Feedback and polite refusals":["4f9rKcuHg9g","What native speakers say at work","12 min"],"Networking at events":["Q51JL50ofOw","How to master small talk at work","13 min"]};
+function shSents(it){return(it.m||[]).slice(0,3).map(x=>{const a=x.split(/(?<=[.!?])\s+/);let r=a[0];if(r.split(/\s+/).length<7&&a[1])r+=" "+a[1];return r}).filter(Boolean)}
+function planUI(){const c=pickToday();const v=VID[c.it.t];const d=S.day;
+  $("pvT").textContent=v?`Watch: ${v[1]} (${v[2]})`:"Watch a short video";$("vidBtn").style.display=v?"":"none";
+  $("pv").classList.toggle("ok",!!d.v);$("ps").classList.toggle("ok",!!d.s);$("pt").classList.toggle("ok",S.last===today());
+  $("pv").querySelector(".n").textContent=d.v?"✓":"1";$("ps").querySelector(".n").textContent=d.s?"✓":"2";$("pt").querySelector(".n").textContent=S.last===today()?"✓":"3";
+  $("shBtn").textContent=d.s?"Again":"Start";$("vidBtn").textContent=d.v?"Watch again":"Watch"}
 const KEY="ebj.v1";
 const today=()=>{const d=new Date();return new Date(d.getTime()-d.getTimezoneOffset()*6e4).toISOString().slice(0,10)};
 const dayNum=s=>Math.floor(Date.parse(s)/864e5);
@@ -181,13 +211,14 @@ const $=id=>document.getElementById(id);
 function rollDay(){
   const t=today();
   if(S.heartsDay!==t){S.hearts=5;S.heartsDay=t}
+  if(!S.day||S.day.d!==t)S.day={d:t,v:0,s:0,sc:null};
   if(S.last){const gap=dayNum(t)-dayNum(S.last);if(gap>1){S.streak=0}if(gap>=5&&(S.chain||0)>0){S.chain=0;S.dead=true}}
   save();
 }
 let override=null;
 function pickToday(){if(override)return override;
-  const n=dayNum(today());const tr=ORDER[n%3];const items=TRACKS[tr].items;
-  return {tr,it:items[Math.floor(n/3)%items.length]};
+  const n=dayNum(today());const tr=ORDER[n%ORDER.length];const items=TRACKS[tr].items;
+  return {tr,it:items[Math.floor(n/ORDER.length)%items.length]};
 }
 function stage(){let s=STAGES[0],nx=null;for(let i=0;i<STAGES.length;i++){if(S.xp>=STAGES[i][0]){s=STAGES[i];nx=STAGES[i+1]||null}}return {s,nx}}
 function wiltLevel(){if(S.dead)return 3;if(!S.last)return 0;const g=dayNum(today())-dayNum(S.last);return g<=1?0:g==2?1:g<=4?2:3}
@@ -214,7 +245,7 @@ function journeyHTML(ph,inPh,done){
     const rose=i==N,st=(!rose&&i<inPh)?"done":(i==cur&&!(done&&inPh==0&&false))?"now":"lock";
     const state=rose?(inPh>=30?"done":cur==N?"now":"lock"):st;
     const label=rose?"Meet your rose":PNAMES[i%PNAMES.length];
-    const track=rose?"The little prince waits at the end of the journey":"Day "+(ph*30+i+1)+" · "+TRACKS[ORDER[(ph*30+i)%3]].name;
+    const track=rose?"The little prince waits at the end of the journey":"Day "+(ph*30+i+1)+" · "+TRACKS[ORDER[(ph*30+i)%ORDER.length]].name;
     nodes+=`<div class="pn ${state}${rose?" rosen":""}" style="left:${x}%;top:${y}px"><div class="pw">${rose?roseSVG(state):planetSVG(i,state)}${state=="now"&&!rose?'<svg class="bdg rs" viewBox="0 0 24 24"><use href="#i-rose"/></svg>':''}${state=="done"?'<svg class="bdg"><use href="#i-check"/></svg>':state=="lock"?'<svg class="bdg lk"><use href="#i-lock"/></svg>':""}</div><div class="lab"><b>${label}</b>${track}</div></div>`}
   let d="M"+pts.map(p=>p[0].toFixed(1)+" "+p[1]).join(" L");
   return `<div class="pathbox" style="height:${tot}px"><svg class="route" viewBox="0 0 100 ${tot}" preserveAspectRatio="none"><path d="${d}" fill="none" stroke="#f2c14e55" stroke-width="3" stroke-dasharray="2 9" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>${nodes}</div>`}
@@ -234,6 +265,7 @@ function render(){
   $("treeMsg").textContent=S.dead?"Your rose withered after more than 3 days without practice. The little prince planted a new seed, so we start again from day 1.":done?"“It is the time you spent on your rose that makes it so important.” You watered it today.":w==0?"Your rose is waiting for its water tonight.":w==1?"You skipped a day, so your rose is a little droopy. Water it now.":"Your rose is about to wither. Do one lesson to save it (more than 3 days off means starting over).";
   const {tr,it}=pickToday();
   $("todayTrack").textContent=TRACKS[tr].name;$("todayTitle").textContent=it.t;$("todayDesc").textContent="With "+it.who+". "+it.d;$("todayCtx").innerHTML="<b>Scenario:</b> "+(it.c||"");
+  planUI();
   $("start").textContent=done?"Practice one more round (earns XP)":"Start today's conversation";
   $("start").disabled=S.hearts<=0;if(S.hearts<=0)$("start").textContent="Out of hearts, come back tomorrow";
   // journey
@@ -246,7 +278,7 @@ function render(){
   $("weekTbl").innerHTML=rows;$("weekTotal").textContent=`· ${tot} XP`;
   S.weekBest=Math.max(S.weekBest||0,tot);save();
   $("best").textContent=`Best week: ${S.weekBest} XP · longest streak: ${S.best} days`;
-  $("hist").innerHTML=(S.hist||[]).length?S.hist.slice(-10).reverse().map(r=>`<div class="hrow"><b>${r.d.slice(5)}</b> · ${r.t}<br><span class="mut">${r.avg} words/answer · ${r.xp} XP · ${(r.L?r.L.g+r.L.cap+r.L.rep:0)} slips · ${(r.L?r.L.red:0)} unclear</span></div>`).join(""):"No lessons yet";
+  $("hist").innerHTML=(S.hist||[]).length?S.hist.slice(-10).reverse().map(r=>`<div class="hrow"><b>${r.d.slice(5)}</b> · ${r.t}<br><span class="mut">${r.avg} words/answer · ${r.xp} XP · ${(r.L?r.L.g+r.L.cap+r.L.rep:0)} slips · ${(r.L?r.L.red:0)} unclear${r.sh!=null?" · shadowing "+r.sh+"%":""}</span></div>`).join(""):"No lessons yet";
   $("learned").innerHTML=S.learned.length?S.learned.slice(-8).reverse().map(x=>"• "+x).join("<br>"):"Nothing yet, start your first lesson";
 }
 
@@ -320,7 +352,7 @@ function feedback(a,segs,k){
   return h;
 }
 function ask(){fit();stepUI("idle");const ks=(cur.it.k||[])[idx]||[];$("chips").innerHTML=ks.map(k=>`<span class="chip">${k}</span>`).join("");$("hintCard").classList.toggle("hidden",!ks.length);document.querySelectorAll("#chips .chip").forEach(c=>c.onclick=()=>{const a=$("ans");a.value=(a.value?a.value+" ":"")+c.textContent;a.focus()});addQ(cur.it.q[idx]);speak(cur.it.q[idx]);$("tProg").textContent=`Question ${idx+1}/${cur.it.q.length} · talking with ${persona?persona.name:''} (${cur.it.who})`;t0=Date.now()}
-function show(id){for(const x of["home","journey","stats","talk","done"])$(x).classList.toggle("hidden",x!==id);$("nav").style.display=(id=="talk")?"none":"flex";document.querySelectorAll("#nav a").forEach(a=>a.classList.toggle("on",a.dataset.t===id));window.scrollTo(0,0)}
+function show(id){for(const x of["home","journey","stats","talk","shadow","done"])$(x).classList.toggle("hidden",x!==id);$("nav").style.display=(id=="talk"||id=="shadow")?"none":"flex";document.querySelectorAll("#nav a").forEach(a=>a.classList.toggle("on",a.dataset.t===id));window.scrollTo(0,0)}
 document.querySelectorAll("#nav a").forEach(a=>a.onclick=()=>{render();show(a.dataset.t)});
 
 $("start").onclick=()=>{cur=pickToday();persona=pickPersona();lastSegs=null;idx=0;words=0;weak=0;fillers=0;L={g:0,cap:0,rep:0,lng:0,fil:0,red:0,amb:0,sp:0,ans:0};$("chat").innerHTML="";$("tTrack").textContent=TRACKS[cur.tr].name;$("tTitle").textContent=cur.it.t;show("talk");$("tCtx").innerHTML="<b>Scenario:</b> "+(cur.it.c||"");
@@ -355,8 +387,8 @@ function finish(out){
   save();
   const avg=Math.round(words/cur.it.q.length);
   $("dTitle").textContent=full?`+${xp} XP · your rose has been watered`:`Out of hearts, +${xp} XP`;
-  const prev=(S.hist||[]).slice(-1)[0];
-  const rec={d:t,t:cur.it.t,tr:cur.tr,avg,xp,w:weak,L:Object.assign({},L),n:cur.it.q.length};
+  const prev=(S.hist||[]).slice(-1)[0];const shd=S.day&&S.day.s?S.day.sc:null;
+  const rec={d:t,t:cur.it.t,tr:cur.tr,avg,xp,w:weak,sh:shd,v:S.day?S.day.v:0,L:Object.assign({},L),n:cur.it.q.length};
   S.hist=(S.hist||[]);S.hist.push(rec);if(S.hist.length>60)S.hist.shift();save();
   const good=[],imp=[];
   if(avg>=20)good.push(`Strong answers: ${avg} words on average (goal 20+).`);else imp.push(`Answers are short (${avg} words on average). Aim for 20+: answer, give a reason, add an example.`);
@@ -368,10 +400,12 @@ function finish(out){
   if(L.cap)imp.push("Capital letters (I, start of sentence). Quick fix, check before you send.");
   if(L.fil)imp.push(`${L.fil} filler word(s) (um, like, actually). Pause silently instead.`);else if(L.ans)good.push("No filler words.");
   if(L.lng)imp.push("Some answers were one long sentence. Split into 2-3 short ones.");
+  if(shd!=null){if(shd>=80)good.push(`Shadowing: ${shd}% match with the model. Your rhythm is close.`);else imp.push(`Shadowing only ${shd}% match. Replay the model 3 times before repeating.`)}else if(!(S.day&&S.day.s))imp.push("You skipped shadowing today. 5 minutes of it is the fastest way to improve pronunciation.");
+  if(S.day&&S.day.v)good.push("You watched today's video, good input for your ear.");
   if(prev&&avg>prev.avg)good.push(`Up from ${prev.avg} to ${avg} words per answer since your last lesson.`);
   if(prev&&avg<prev.avg)imp.push(`Down from ${prev.avg} to ${avg} words per answer vs last lesson.`);
   const H=S.hist.slice(-5);const tot=k=>H.reduce((a,r)=>a+(r.L?r.L[k]||0:0),0);
-  const wk=[["Pronunciation",tot("red")*2+tot("amb")],["Grammar",tot("g")*2+tot("cap")+tot("rep")],["Fluency (fillers, long sentences)",tot("fil")+tot("lng")*2],["Answer length",H.reduce((a,r)=>a+(r.w||0),0)*2]].sort((a,b)=>b[1]-a[1]);
+  const wk=[["Pronunciation",tot("red")*2+tot("amb")+H.reduce((a,r)=>a+(r.sh!=null&&r.sh<80?2:0),0)],["Grammar",tot("g")*2+tot("cap")+tot("rep")],["Fluency (fillers, long sentences)",tot("fil")+tot("lng")*2],["Answer length",H.reduce((a,r)=>a+(r.w||0),0)*2]].sort((a,b)=>b[1]-a[1]);
   const ex={"Pronunciation":["Shadowing, 5 min: tap 'Listen to the model' on 3 answers, then say each one right after it, copying rhythm and stress.","Record yourself reading the 'Phrases to remember' aloud and check there is no red."],
    "Grammar":["Rewrite your 3 weakest sentences from today without looking at the corrections.","Write 5 new sentences using today's phrases, then say them aloud."],
    "Fluency (fillers, long sentences)":["60-second talk: pick any question and speak for one minute with zero fillers. Pause instead.","Say each answer in exactly 3 short sentences: point, reason, example."],
@@ -387,6 +421,30 @@ function finish(out){
 }
 $("back").onclick=()=>{show("home");render()};
 
+// video + shadowing
+function addXP(n){const t=today();S.xp+=n;S.log[t]=(S.log[t]||0)+n;save()}
+$("vidBtn").onclick=()=>{const v=VID[pickToday().it.t];if(!v)return;const b=$("vidBox");if(b.classList.contains("hidden")){$("vidFrame").src="https://www.youtube-nocookie.com/embed/"+v[0]+"?rel=0&cc_load_policy=1&hl=en&cc_lang_pref=en";b.classList.remove("hidden");$("vidBtn").textContent="Hide"}else{b.classList.add("hidden");$("vidFrame").src="";planUI()}};
+$("vidDone").onclick=()=>{if(!S.day.v){S.day.v=1;addXP(5)}$("vidBox").classList.add("hidden");$("vidFrame").src="";render()};
+let shCur=null,shI=0,shSc=[],shRec=null,shOn=false;
+const normW=t=>(t.toLowerCase().replace(/[^a-z0-9' ]/g," ").match(/[a-z0-9']+/g)||[]);
+$("shBtn").onclick=()=>{shCur=pickToday();shI=0;shSc=[];persona=persona||pickPersona();$("shT").textContent=shCur.it.t;show("shadow");shShow()};
+function shShow(){const ss=shSents(shCur.it);$("shP").textContent=`Sentence ${shI+1}/${ss.length}`;$("shS").textContent=ss[shI];$("shRes").innerHTML="";$("shN").classList.add("hidden");$("shL").onclick=()=>speak(ss[shI]);setTimeout(()=>speak(ss[shI]),250)}
+$("shQ").onclick=()=>{try{speechSynthesis.cancel();shRec&&shRec.stop()}catch(e){}show("home");render()};
+$("shR").onclick=()=>{const SRr=window.SpeechRecognition||window.webkitSpeechRecognition;const ss=shSents(shCur.it);
+  if(!SRr){$("shRes").innerHTML='<div class="mut">This browser cannot hear you. Use Chrome (Android) or a recent Safari. Read the sentence aloud 3 times, then tap Next.</div>';shSc[shI]=null;$("shN").classList.remove("hidden");return}
+  if(shOn){shRec.stop();return}
+  speechSynthesis.cancel();shRec=new SRr();shRec.lang="en-US";shRec.interimResults=false;shRec.continuous=false;let heard="";
+  shRec.onresult=e=>{heard=[...e.results].map(r=>r[0].transcript).join(" ")};
+  shRec.onend=()=>{shOn=false;$("shR").textContent="Repeat";$("shR").classList.remove("on");
+    const tw=normW(ss[shI]),hw=new Set(normW(heard));const raw=ss[shI].split(/\s+/);let ok=0;
+    const html=raw.map(w=>{const n=normW(w)[0];const m=!n||hw.has(n);if(n&&m)ok++;return `<span class="${m?"m":"x"}">${esc(w)}</span>`}).join(" ");
+    const sc=tw.length?Math.round(ok/tw.length*100):0;shSc[shI]=sc;
+    $("shRes").innerHTML=heard?`<div class="sh" style="font-size:17px">${html}</div><div><b>${sc}%</b> of the words matched. ${sc>=85?"Great, very close to the model.":sc>=60?"Good. Listen again and focus on the red words.":"Listen again, slower, then repeat."}</div><div class="mut">You said: ${esc(heard)}</div>`:'<div class="mut">I could not hear you. Check the microphone and try again.</div>';
+    if(heard)$("shN").classList.remove("hidden");$("shN").textContent=shI+1>=ss.length?"Finish shadowing":"Next sentence"};
+  shRec.start();shOn=true;$("shR").textContent="Stop";$("shR").classList.add("on")};
+$("shN").onclick=()=>{const ss=shSents(shCur.it);if(shI+1<ss.length){shI++;shShow();return}
+  const v=shSc.filter(x=>x!=null);const avg=v.length?Math.round(v.reduce((a,b)=>a+b,0)/v.length):null;
+  const first=!S.day.s;S.day.s=1;S.day.sc=avg;if(first)addXP(10);save();show("home");render()};
 // microphone
 $("rnd").onclick=()=>{const all=[];for(const tr of ORDER)for(const it of TRACKS[tr].items)all.push({tr,it});const c=pickToday();let n;do{n=all[Math.floor(Math.random()*all.length)]}while(n.it===c.it);override=n;render()};
 const SR=window.SpeechRecognition||window.webkitSpeechRecognition;let rec=null,on=false,tick=null,t1=0;
