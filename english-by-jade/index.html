@@ -112,7 +112,7 @@ main,header{position:relative;z-index:1}nav{position:fixed;z-index:9}
     </div>
     <p></p><div class="row" style="margin-bottom:8px"><button class="sec" id="rnd"><svg class="ic" width="24" height="24"><use href="#i-globe"/></svg> Shuffle lesson</button></div><button id="start">Start today's conversation</button>
     <p class="mut" style="margin-bottom:0">Every lesson you finish is a can of water for your rose. The water is everything you have said and learned.</p></div>
-<p class="mut" style="text-align:center;font-size:12px">Music: Erik Satie, Gymnopédie No. 1 (Musopen, public domain)</p>
+<p class="mut" style="text-align:center;font-size:12px">Music: "Little Rose Waltz", an original piece composed for this site</p>
 </section>
 
 <section id="journey" class="hidden">
@@ -490,7 +490,7 @@ function loop(){if(!musicOn||!AC)return;const t=AC.currentTime+.05;const chords=
  for(let k=0;k<8;k++){const n=NOTES[ch[Math.floor(Math.random()*3)]+(Math.random()<.4?0:0)]*(Math.random()<.5?1:2);if(Math.random()<.8)tone(n,t+k*.55,1.6,.03,"triangle")}
  tmr=setTimeout(loop,4400)}
 let BG=null;
-function musicStart(){if(!BG){BG=new Audio("audio/gymnopedie1.mp3");BG.loop=true;BG.volume=.2}BG.play().catch(()=>{})}
+function musicStart(){if(!BG){BG=new Audio("audio/little-rose-waltz.mp3");BG.loop=true;BG.volume=.2}BG.play().catch(()=>{})}
 function musicBtn(){$("music").classList.toggle("off",!musicOn)}
 $("music").onclick=()=>{musicOn=!musicOn;localStorage.setItem("ebj.music",musicOn?"1":"0");musicBtn();if(musicOn)musicStart();else{if(BG)BG.pause()}};
 musicBtn();
@@ -498,10 +498,10 @@ addEventListener("pointerdown",function f(){removeEventListener("pointerdown",f)
 render();
 
 // daily Little Prince quote popup (this page only)
-const QUOTES=["It is only with the heart that one can see rightly. What is essential is invisible to the eye.","You become responsible, forever, for what you have tamed.","It is the time you have spent on your rose that makes your rose so important.","All grown-ups were once children, but only a few of them remember it.","If you love a flower that lives on a star, it is sweet to look at the sky at night.","What makes the desert beautiful is that somewhere it hides a well.","One runs the risk of weeping a little, if one lets oneself be tamed.","Words are the source of misunderstandings.","It is much more difficult to judge yourself than to judge others.","Straight ahead of him, nobody can go very far.","The stars are beautiful because of a flower that cannot be seen.","Grown-ups never understand anything by themselves, and it is tiresome for children to explain everything to them.","Here is my secret. It is very simple: what is essential is invisible to the eye.","People have forgotten this truth, but you must not forget it.","The things that make me happy are quiet, and they are never far from the heart."];
+const QUOTES=["And now here is my secret, a very simple secret: It is only with the heart that one can see rightly; what is essential is invisible to the eye.", "All grown-ups were once children... but only few of them remember it.", "It is the time you have wasted for your rose that makes your rose so important.", "The most beautiful things in the world cannot be seen or touched, they are felt with the heart.", "What makes the desert beautiful,” said the little prince, “is that somewhere it hides a well...", "People have forgotten this truth,\" the fox said. \"But you mustn’t forget it. You become responsible forever for what you’ve tamed. You’re responsible for your rose.", "Grown-ups never understand anything by themselves, and it is tiresome for children to be always and forever explaining things to them", "Well, I must endure the presence of a few caterpillars if I wish to become acquainted with the butterflies.", "It is such a mysterious place, the land of tears.", "You see, one loves the sunset when one is so sad.", "You become responsible, forever, for what you have tamed.", "Where are the people?” resumed the little prince at last. “It’s a little lonely in the desert…” “It is lonely when you’re among people, too,” said the snake.", "If you love a flower that lives on a star, it is sweet to look at the sky at night. All the stars are a-bloom with flowers...", "You're beautiful, but you're empty. No one could die for you.", "I remembered the fox. One runs the risk of crying a bit if one allows oneself to be tamed.", "A rock pile ceases to be a rock pile the moment a single man contemplates it, bearing within him the image of a cathedral.", "But if you tame me, then we shall need each other. To me, you will be unique in all the world. To you, I shall be unique in all the world.", "When someone blushes, doesn't that mean 'yes'?", "I have lived a great deal among grown-ups. I have seen them intimately, close at hand. And that hasn’t much improved my opinion of them.", "I did not know how to reach him, how to catch up with him... The land of tears is so mysterious."];
 addEventListener("DOMContentLoaded",function(){try{const t=today();let q=JSON.parse(localStorage.getItem("ebj.quote")||"null");if(q&&q.d===t)return;
  let i;do{i=Math.floor(Math.random()*QUOTES.length)}while(q&&i===q.i&&QUOTES.length>1);
- $("qT").textContent="“"+QUOTES[i]+"”";$("qS").textContent="Antoine de Saint-Exupéry, The Little Prince (adapted)";
+ $("qT").textContent="“"+QUOTES[i].replace(/^[“"]|[”"]$/g,"")+"”";$("qS").textContent="Antoine de Saint-Exupéry, The Little Prince (quotes via Goodreads)";
  $("qm").classList.add("on");localStorage.setItem("ebj.quote",JSON.stringify({d:t,i}));
  $("qGo").onclick=()=>{$("qm").classList.remove("on");try{speechSynthesis.cancel()}catch(e){}};
  $("qSay").onclick=()=>speak(QUOTES[i]);
