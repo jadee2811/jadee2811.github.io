@@ -121,6 +121,7 @@ main,header{position:relative;z-index:1}nav{position:fixed;z-index:9}
 <section id="stats" class="hidden">
   <div class="card"><b>This week</b> <span class="mut" id="weekTotal"></span><table id="weekTbl"></table>
     <div class="mut" id="best"></div></div>
+  <div class="card"><b>Shadowing log</b> <span class="mut">(every attempt, % match; below 70% means try again)</span><div id="shLog" class="mut">No shadowing yet</div></div>
   <div class="card"><b>Lesson summaries</b><div id="hist" class="mut">No lessons yet</div></div>
   <div class="card"><b>Water so far (phrases you have learned)</b><div class="mut" id="learned">Nothing yet</div></div>
 </section>
@@ -193,9 +194,9 @@ const TRACKS={
    q:["Hi, I'm Alex. What do you do?","What are you working on at the moment?","That's interesting. What is the hardest part of your work?","Have you used AI in your product team?","Nice talking to you. How can we stay in touch?"],k:[["I work as", "product owner", "AI", "Vietnam", "you?"], ["currently", "building", "enterprise", "chatbot", "pilot"], ["challenge", "adoption", "data", "change management", "time"], ["yes", "we use", "customer service", "workflow", "results"], ["connect on LinkedIn", "keep in touch", "coffee", "email", "nice meeting you"]]}]}
 };
 const ORDER=["biz","job","daily","curious"];
-const VID={"Carl Jung and the shadow":["wywUQc-4Opk", "Carl Jung: what are the archetypes?", "12 min"],"Meditation and inner calm":["qzR62JJCMBQ", "All it takes is 10 mindful minutes (TED)", "9 min"],"Numerology and life path":["jBbGK2brccQ", "Life path numerology 101", "6 min"],"Archaeology and ancient cultures":["iSG1MsQSo_A", "Göbekli Tepe: the dawn of civilization (first 5 min)", "21 min"],"Exploring the world":["kidwSFte8-E", "Life lessons from travelling to every country (TEDx)", "14 min"],"AI in recruitment":["r45nySzozqc", "The truth about AI in hiring", "5 min"],"Talking about art":["loMy3sbW64g", "Why is this painting so captivating? (TED-Ed)", "4 min"],"60-second pitch to a client":["u6uNSpCDPbI","How to write an elevator pitch","4 min"],"Negotiating scope":["8hrPkzR0_6Q","10 idioms for negotiations","6 min"],"Delivering bad news on progress":["dX0z04nUHTc","Business negotiation: state your position clearly","8 min"],
-"Tell me about yourself and your wins":["HMQlA-TIAsk","Tell me about yourself, job interview","8 min"],"Behavioral questions":["yBtMwyQFXwA","How to interview for a job (Rachel's English)","7 min"],"Salary negotiation":["vHuKU6_cYJM","Interview questions and answers","11 min"],
-"Small talk and standup":["aA8sgiw-8jA","Small talk practice at work (mmmEnglish)","9 min"],"Feedback and polite refusals":["4f9rKcuHg9g","What native speakers say at work","12 min"],"Networking at events":["Q51JL50ofOw","How to master small talk at work","13 min"]};
+const VID={"Carl Jung and the shadow":["XxePENTLAzk", "Carl Jung's shadow explained", "3 min"],"Meditation and inner calm":["qzR62JJCMBQ", "All it takes is 10 mindful minutes (TED)", "9 min"],"Numerology and life path":["jBbGK2brccQ", "Life path numerology 101", "6 min"],"Archaeology and ancient cultures":["YFC5CwZVCEw", "Archaeology from space (TED)", "5 min"],"Exploring the world":["WiYWSKFpdWY", "How traveling makes you a better person (TEDx)", "6 min"],"AI in recruitment":["r45nySzozqc", "The truth about AI in hiring", "5 min"],"Talking about art":["loMy3sbW64g", "Why is this painting so captivating? (TED-Ed)", "4 min"],"60-second pitch to a client":["u6uNSpCDPbI","How to write an elevator pitch","4 min"],"Negotiating scope":["8hrPkzR0_6Q","10 idioms for negotiations","6 min"],"Delivering bad news on progress":["dX0z04nUHTc","Business negotiation: state your position clearly","8 min"],
+"Tell me about yourself and your wins":["HMQlA-TIAsk","Tell me about yourself, job interview","8 min"],"Behavioral questions":["yBtMwyQFXwA","How to interview for a job (Rachel's English)","7 min"],"Salary negotiation":["GttZhFJ2vRI", "3 expressions to ask about compensation", "1 min"],
+"Small talk and standup":["aA8sgiw-8jA","Small talk practice at work (mmmEnglish)","9 min"],"Feedback and polite refusals":["Z0YaLOyGiXo", "9 professional phrases to say no at work", "5 min"],"Networking at events":["Z-AOshRnJEY", "How to start a conversation at a networking event", "7 min"]};
 function shSents(it){return(it.m||[]).slice(0,3).map(x=>{const a=x.split(/(?<=[.!?])\s+/);let r=a[0];if(r.split(/\s+/).length<7&&a[1])r+=" "+a[1];return r}).filter(Boolean)}
 function planUI(){const c=pickToday();const v=VID[c.it.t];const d=S.day;
   $("pvT").textContent=v?`Watch: ${v[1]} (${v[2]})`:"Watch a short video";$("vidBtn").style.display=v?"":"none";
@@ -279,6 +280,7 @@ function render(){
   $("weekTbl").innerHTML=rows;$("weekTotal").textContent=`· ${tot} XP`;
   S.weekBest=Math.max(S.weekBest||0,tot);save();
   $("best").textContent=`Best week: ${S.weekBest} XP · longest streak: ${S.best} days`;
+  $("shLog").innerHTML=(S.shLog||[]).length?S.shLog.slice(-10).reverse().map(r=>`<div class="hrow"><b>${r.d.slice(5)}</b> · ${r.t}<br><span class="mut">${r.n} attempts, final avg ${r.avg==null?"-":r.avg+"%"}<br>${(r.att||[]).map((x,i)=>"S"+(i+1)+": "+((x||[]).join("% → ")||"-")+((x||[]).length?"%":"")).join(" · ")}</span></div>`).join(""):"No shadowing yet";
   $("hist").innerHTML=(S.hist||[]).length?S.hist.slice(-10).reverse().map(r=>`<div class="hrow"><b>${r.d.slice(5)}</b> · ${r.t}<br><span class="mut">${r.avg} words/answer · ${r.xp} XP · ${(r.L?r.L.g+r.L.cap+r.L.rep:0)} slips · ${(r.L?r.L.red:0)} unclear${r.sh!=null?" · shadowing "+r.sh+"%":""}</span></div>`).join(""):"No lessons yet";
   $("learned").innerHTML=S.learned.length?S.learned.slice(-8).reverse().map(x=>"• "+x).join("<br>"):"Nothing yet, start your first lesson";
 }
@@ -389,7 +391,7 @@ function finish(out){
   const avg=Math.round(words/cur.it.q.length);
   $("dTitle").textContent=full?`+${xp} XP · your rose has been watered`:`Out of hearts, +${xp} XP`;
   const prev=(S.hist||[]).slice(-1)[0];const shd=S.day&&S.day.s?S.day.sc:null;
-  const rec={d:t,t:cur.it.t,tr:cur.tr,avg,xp,w:weak,sh:shd,v:S.day?S.day.v:0,L:Object.assign({},L),n:cur.it.q.length};
+  const sat=S.day&&S.day.att?S.day.att.reduce((a,x)=>a+(x?x.length:0),0):0;const rec={d:t,t:cur.it.t,tr:cur.tr,avg,xp,w:weak,sh:shd,sat,v:S.day?S.day.v:0,L:Object.assign({},L),n:cur.it.q.length};
   S.hist=(S.hist||[]);S.hist.push(rec);if(S.hist.length>60)S.hist.shift();save();
   const good=[],imp=[];
   if(avg>=20)good.push(`Strong answers: ${avg} words on average (goal 20+).`);else imp.push(`Answers are short (${avg} words on average). Aim for 20+: answer, give a reason, add an example.`);
@@ -401,7 +403,7 @@ function finish(out){
   if(L.cap)imp.push("Capital letters (I, start of sentence). Quick fix, check before you send.");
   if(L.fil)imp.push(`${L.fil} filler word(s) (um, like, actually). Pause silently instead.`);else if(L.ans)good.push("No filler words.");
   if(L.lng)imp.push("Some answers were one long sentence. Split into 2-3 short ones.");
-  if(shd!=null){if(shd>=80)good.push(`Shadowing: ${shd}% match with the model. Your rhythm is close.`);else imp.push(`Shadowing only ${shd}% match. Replay the model 3 times before repeating.`)}else if(!(S.day&&S.day.s))imp.push("You skipped shadowing today. 5 minutes of it is the fastest way to improve pronunciation.");
+  if(shd!=null){if(sat>3)imp.push(`Shadowing took ${sat} attempts for 3 sentences. Listen to each sentence 2-3 times before you repeat.`);if(shd>=80)good.push(`Shadowing: ${shd}% match with the model. Your rhythm is close.`);else imp.push(`Shadowing only ${shd}% match. Replay the model 3 times before repeating.`)}else if(!(S.day&&S.day.s))imp.push("You skipped shadowing today. 5 minutes of it is the fastest way to improve pronunciation.");
   if(S.day&&S.day.v)good.push("You watched today's video, good input for your ear.");
   if(prev&&avg>prev.avg)good.push(`Up from ${prev.avg} to ${avg} words per answer since your last lesson.`);
   if(prev&&avg<prev.avg)imp.push(`Down from ${prev.avg} to ${avg} words per answer vs last lesson.`);
@@ -426,26 +428,31 @@ $("back").onclick=()=>{show("home");render()};
 function addXP(n){const t=today();S.xp+=n;S.log[t]=(S.log[t]||0)+n;save()}
 $("vidBtn").onclick=()=>{const v=VID[pickToday().it.t];if(!v)return;const b=$("vidBox");if(b.classList.contains("hidden")){$("vidFrame").src="https://www.youtube-nocookie.com/embed/"+v[0]+"?rel=0&cc_load_policy=1&hl=en&cc_lang_pref=en";b.classList.remove("hidden");$("vidBtn").textContent="Hide"}else{b.classList.add("hidden");$("vidFrame").src="";planUI()}};
 $("vidDone").onclick=()=>{if(!S.day.v){S.day.v=1;addXP(5)}$("vidBox").classList.add("hidden");$("vidFrame").src="";render()};
-let shCur=null,shI=0,shSc=[],shRec=null,shOn=false;
+let shCur=null,shI=0,shSc=[],shAtt=[],shRec=null,shOn=false;const PASS=70;
 const normW=t=>(t.toLowerCase().replace(/[^a-z0-9' ]/g," ").match(/[a-z0-9']+/g)||[]);
-$("shBtn").onclick=()=>{shCur=pickToday();shI=0;shSc=[];persona=persona||pickPersona();$("shT").textContent=shCur.it.t;show("shadow");shShow()};
-function shShow(){const ss=shSents(shCur.it);$("shP").textContent=`Sentence ${shI+1}/${ss.length}`;$("shS").textContent=ss[shI];$("shRes").innerHTML="";$("shN").classList.add("hidden");$("shL").onclick=()=>speak(ss[shI]);setTimeout(()=>speak(ss[shI]),250)}
+$("shBtn").onclick=()=>{shCur=pickToday();shI=0;shSc=[];shAtt=[];persona=persona||pickPersona();$("shT").textContent=shCur.it.t;show("shadow");shShow()};
+function shShow(){const ss=shSents(shCur.it);$("shP").textContent=`Sentence ${shI+1}/${ss.length}`;$("shS").textContent=ss[shI];$("shRes").innerHTML="";$("shHint").classList.remove("hidden");$("shR").textContent="Repeat";shAtt[shI]=shAtt[shI]||[];$("shN").classList.add("hidden");$("shL").onclick=()=>speak(ss[shI]);setTimeout(()=>speak(ss[shI]),250)}
 $("shQ").onclick=()=>{try{speechSynthesis.cancel();shRec&&shRec.stop()}catch(e){}show("home");render()};
 $("shR").onclick=()=>{const SRr=window.SpeechRecognition||window.webkitSpeechRecognition;const ss=shSents(shCur.it);
-  if(!SRr){$("shRes").innerHTML='<div class="mut">This browser cannot hear you. Use Chrome (Android) or a recent Safari. Read the sentence aloud 3 times, then tap Next.</div>';shSc[shI]=null;$("shN").classList.remove("hidden");return}
+  if(!SRr){$("shRes").innerHTML='<div class="mut">This browser cannot hear you. Use Chrome (Android) or a recent Safari. Read the sentence aloud 3 times, then tap Next.</div>';shSc[shI]=null;shAtt[shI]=[];$("shN").classList.remove("hidden");return}
   if(shOn){shRec.stop();return}
-  speechSynthesis.cancel();shRec=new SRr();shRec.lang="en-US";shRec.interimResults=false;shRec.continuous=false;let heard="";
+  speechSynthesis.cancel();shRec=new SRr();shRec.lang="en-US";shRec.interimResults=false;shRec.continuous=true;let heard="";
   shRec.onresult=e=>{heard=[...e.results].map(r=>r[0].transcript).join(" ")};
-  shRec.onend=()=>{shOn=false;$("shR").textContent="Repeat";$("shR").classList.remove("on");
+  shRec.onend=()=>{shOn=false;$("shR").classList.remove("on");
     const tw=normW(ss[shI]),hw=new Set(normW(heard));const raw=ss[shI].split(/\s+/);let ok=0;
     const html=raw.map(w=>{const n=normW(w)[0];const m=!n||hw.has(n);if(n&&m)ok++;return `<span class="${m?"m":"x"}">${esc(w)}</span>`}).join(" ");
-    const sc=tw.length?Math.round(ok/tw.length*100):0;shSc[shI]=sc;
-    $("shRes").innerHTML=heard?`<div class="sh" style="font-size:17px">${html}</div><div><b>${sc}%</b> of the words matched. ${sc>=85?"Great, very close to the model.":sc>=60?"Good. Listen again and focus on the red words.":"Listen again, slower, then repeat."}</div><div class="mut">You said: ${esc(heard)}</div>`:'<div class="mut">I could not hear you. Check the microphone and try again.</div>';
-    if(heard)$("shN").classList.remove("hidden");$("shN").textContent=shI+1>=ss.length?"Finish shadowing":"Next sentence"};
+    const sc=tw.length?Math.round(ok/tw.length*100):0;
+    if(!heard){$("shRes").innerHTML='<div class="mut">I could not hear you. Check the microphone and try again.</div>';$("shR").textContent=shAtt[shI].length?"Try again":"Repeat";return}
+    shAtt[shI].push(sc);const pass=sc>=PASS;if(pass)shSc[shI]=sc;
+    const hist=shAtt[shI].map((x,i)=>`<span style="color:${x>=PASS?"#9fe3b0":"#ff9aa6"}">#${i+1}: ${x}%</span>`).join(" · ");
+    $("shRes").innerHTML=`<div class="sh" style="font-size:17px">${html}</div><div><b>${sc}%</b> of the words matched. ${pass?(sc>=85?"Great, very close to the model.":"Good, you can move on."):`Below ${PASS}%. Listen again, slower, then try again.`}</div><div class="mut">You said: ${esc(heard)}</div><div class="mut" style="margin-top:4px">Attempts: ${hist}</div>`;
+    $("shR").textContent=pass?"Repeat again":"Try again";
+    $("shN").classList.toggle("hidden",!pass);$("shN").textContent=shI+1>=shSents(shCur.it).length?"Finish shadowing":"Next sentence"};
+  $("shHint").classList.add("hidden");$("shRes").innerHTML="";
   shRec.start();shOn=true;$("shR").textContent="Stop";$("shR").classList.add("on")};
 $("shN").onclick=()=>{const ss=shSents(shCur.it);if(shI+1<ss.length){shI++;shShow();return}
   const v=shSc.filter(x=>x!=null);const avg=v.length?Math.round(v.reduce((a,b)=>a+b,0)/v.length):null;
-  const first=!S.day.s;S.day.s=1;S.day.sc=avg;if(first)addXP(10);save();show("home");render()};
+  const first=!S.day.s;S.day.s=1;S.day.sc=avg;S.day.att=shAtt;const n=shAtt.reduce((a,x)=>a+(x?x.length:0),0);S.shLog=S.shLog||[];S.shLog.push({d:today(),t:shCur.it.t,att:shAtt,n,avg});if(S.shLog.length>60)S.shLog.shift();if(first)addXP(10);save();show("home");render()};
 // microphone
 $("rnd").onclick=()=>{const all=[];for(const tr of ORDER)for(const it of TRACKS[tr].items)all.push({tr,it});const c=pickToday();let n;do{n=all[Math.floor(Math.random()*all.length)]}while(n.it===c.it);override=n;render()};
 const SR=window.SpeechRecognition||window.webkitSpeechRecognition;let rec=null,on=false,tick=null,t1=0;
