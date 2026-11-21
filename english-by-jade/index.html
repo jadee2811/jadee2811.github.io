@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="vi">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex">
 <title>English by Jade</title>
-<meta name="description" content="Luyện nói tiếng Anh mỗi ngày: business, phỏng vấn, giao tiếp công sở.">
+<meta name="description" content="Daily English speaking practice: business, interviews, workplace talk.">
 <meta name="theme-color" content="#141b3d">
 <style>
 :root{--bg:#141b3d;--bg2:#1d2750;--card:#222d5c;--ink:#f6efe0;--mut:#a9b3d6;--gold:#f2c14e;--rose:#e0485a;--g:#f2c14e;--red:#e0485a}
@@ -81,24 +81,24 @@ main,nav,header{position:relative;z-index:1}nav{position:fixed}header{position:s
 <header><h1>✦ English by Jade</h1><div class="stats"><span><svg class="ic" width="22" height="22"><use href="#i-flame"/></svg><em id="streak" style="font-style:normal">0</em></span><span><svg class="ic" width="22" height="22"><use href="#i-heart"/></svg><em id="hearts" style="font-style:normal">5</em></span><span><svg class="ic" width="22" height="22"><use href="#i-star"/></svg><em id="xp" style="font-style:normal">0</em></span></div></header>
 
 <section id="home">
-  <div class="card hero"><img id="heroImg" src="img/bud.webp" width="720" height="720" alt="Hoàng tử bé và bông hồng">
+  <div class="card hero"><img id="heroImg" src="img/bud.webp" width="720" height="720" alt="The little prince and his rose">
     <div class="ov"><div class="lv" id="lv">Lv.1</div><div class="bar"><i id="treeBar" style="width:0"></i></div>
     <div class="mut" id="treeSub"></div></div></div>
   <div class="quote" id="treeMsg"></div>
   <div class="card"><span class="tag" id="todayTrack"></span>
     <h2 style="margin:8px 0 4px;font-family:Georgia,serif" id="todayTitle"></h2><div class="mut" id="todayDesc"></div>
-    <p></p><div class="row" style="margin-bottom:8px"><button class="sec" id="rnd"><svg class="ic"><use href="#i-dice"/></svg> Đổi bài ngẫu nhiên</button></div><button id="start">Bắt đầu cuộc hội thoại hôm nay</button>
-    <p class="mut" style="margin-bottom:0">Mỗi bài học xong là một ca nước tưới bông hồng. Nước là nội dung chị đã nói.</p></div>
+    <p></p><div class="row" style="margin-bottom:8px"><button class="sec" id="rnd"><svg class="ic"><use href="#i-dice"/></svg> Shuffle lesson</button></div><button id="start">Start today's conversation</button>
+    <p class="mut" style="margin-bottom:0">Every lesson you finish is a can of water for your rose. The water is everything you have said and learned.</p></div>
 </section>
 
 <section id="journey" class="hidden">
-  <div class="card"><b>Hành trình 30 ngày</b> <span class="mut" id="jSub"></span><div class="path" id="path"></div></div>
+  <div class="card"><b>30-day journey</b> <span class="mut" id="jSub"></span><div class="path" id="path"></div></div>
 </section>
 
 <section id="stats" class="hidden">
-  <div class="card"><b>Tuần này</b> <span class="mut" id="weekTotal"></span><table id="weekTbl"></table>
+  <div class="card"><b>This week</b> <span class="mut" id="weekTotal"></span><table id="weekTbl"></table>
     <div class="mut" id="best"></div></div>
-  <div class="card"><b>Nước đã tưới (nội dung đã học)</b><div class="mut" id="learned">Chưa có</div></div>
+  <div class="card"><b>Water so far (phrases you have learned)</b><div class="mut" id="learned">Nothing yet</div></div>
 </section>
 
 <section id="talk" class="hidden">
@@ -106,51 +106,51 @@ main,nav,header{position:relative;z-index:1}nav{position:fixed}header{position:s
     <div class="mut" id="tProg"></div></div>
   <div class="card chat" id="chat"></div>
   <div class="card">
-    <textarea id="ans" placeholder="Nói bằng micro hoặc gõ câu trả lời tiếng Anh (cố gắng 2-4 câu)"></textarea>
-    <div class="row" style="margin-top:8px"><button class="rec" id="mic">Nói</button><button id="send">Gửi</button></div>
+    <textarea id="ans" placeholder="Speak with the mic or type your answer (aim for 2-4 sentences)"></textarea>
+    <div class="row" style="margin-top:8px"><button class="rec" id="mic">Speak</button><button id="send">Send</button></div>
     <div class="mut" id="micHint"></div>
   </div>
-  <button class="sec" id="quit">Thoát (mất 1 tim)</button>
+  <button class="sec" id="quit">Quit (lose 1 heart)</button>
 </section>
 
 <section id="done" class="hidden">
   <div class="card" style="text-align:center"><div><svg class="ic" width="56" height="56"><use href="#i-drop"/></svg><svg class="ic" width="56" height="56"><use href="#i-rose"/></svg></div><h2 id="dTitle" style="font-family:Georgia,serif"></h2><div id="dBody" style="text-align:left"></div></div>
-  <button id="back">Về với bông hồng</button>
+  <button id="back">Back to my rose</button>
 </section>
 </main>
-<button class="musicbtn" id="music" aria-label="Nhạc nền"><svg class="ic" width="24" height="24"><use href="#i-note"/></svg></button>
-<nav id="nav"><a data-t="home" class="on"><svg class="ic" width="28" height="28"><use href="#i-rose"/></svg>Bông hồng</a><a data-t="journey"><svg class="ic" width="28" height="28"><use href="#i-planet"/></svg>Hành trình</a><a data-t="stats"><svg class="ic" width="28" height="28"><use href="#i-chart"/></svg>Tiến bộ</a></nav>
+<button class="musicbtn" id="music" aria-label="Background music"><svg class="ic" width="24" height="24"><use href="#i-note"/></svg></button>
+<nav id="nav"><a data-t="home" class="on"><svg class="ic" width="28" height="28"><use href="#i-rose"/></svg>My rose</a><a data-t="journey"><svg class="ic" width="28" height="28"><use href="#i-planet"/></svg>Journey</a><a data-t="stats"><svg class="ic" width="28" height="28"><use href="#i-chart"/></svg>Progress</a></nav>
 
 <script>
 const TRACKS={
  biz:{name:"Business",items:[
-  {t:"Pitch 60 giây cho khách",who:"a skeptical CTO",d:"Giới thiệu giải pháp AI cho khách enterprise.",
+  {t:"60-second pitch to a client",who:"a skeptical CTO",d:"Introduce an AI solution to an enterprise customer.",
    learn:["problem → solution → proof → ask","Let me start with the problem we saw"],
    q:["Thanks for coming. In one minute, what problem do you solve and for whom?","Interesting. Why would we choose you over building it ourselves?","What evidence do you have that it works? Give me one real number.","What is the biggest risk if we start next month?","Okay. What exactly do you want from me today?"]},
-  {t:"Đàm phán scope",who:"a client who wants more for less",d:"Giữ scope, không mất quan hệ.",
+  {t:"Negotiating scope",who:"a client who wants more for less",d:"Protect the scope without hurting the relationship.",
    learn:["Here's what I can do within the timeline","Let's park that for phase two"],
    q:["We need three extra features, but the deadline stays the same. Is that possible?","Your competitor said they can do it for the same price. What do you say?","I don't have budget for phase two. How can we still move forward?","If we cut one feature, which one would you cut and why?","Summarize what we agreed in two sentences."]},
-  {t:"Báo tin xấu về tiến độ",who:"your director",d:"Dự án trễ, trình bày rõ và có phương án.",
+  {t:"Delivering bad news on progress",who:"your director",d:"The project is late: explain clearly and bring options.",
    learn:["Heads-up: we're two weeks behind","Here are two options and my recommendation"],
    q:["I heard there is a delay. What happened?","What is the impact on the customer?","What options do you see?","Which one do you recommend and why?","What do you need from me to make it work?"]}]},
- job:{name:"Phỏng vấn",items:[
-  {t:"Tự giới thiệu và thành tích",who:"a hiring manager at a global tech company",d:"Kể thành tích bằng STAR, có số liệu.",
+ job:{name:"Interview",items:[
+  {t:"Tell me about yourself and your wins",who:"a hiring manager at a global tech company",d:"Tell achievements with STAR and real numbers.",
    learn:["Situation, Task, Action, Result","I led / I drove / I shipped"],
    q:["Tell me about yourself in under two minutes.","What is the achievement you're most proud of in product management?","What exactly was your role, and what did you personally do?","What was the measurable result?","What would you do differently?"]},
-  {t:"Câu hỏi hành vi",who:"a senior interviewer at Google",d:"Mâu thuẫn, ưu tiên, ra quyết định khi thiếu dữ liệu.",
+  {t:"Behavioral questions",who:"a senior interviewer at Google",d:"Conflict, prioritizing, deciding with incomplete data.",
    learn:["The trade-off was...","I aligned the stakeholders by..."],
    q:["Tell me about a time you disagreed with a stakeholder. What happened?","How do you prioritize when everything is urgent?","Describe a decision you made with incomplete data.","Tell me about a product that failed. What did you learn?","Why do you want to work here?"]},
-  {t:"Thương lượng lương",who:"an HR partner",d:"Nói con số tự tin và lịch sự.",
+  {t:"Salary negotiation",who:"an HR partner",d:"State your number with confidence and politeness.",
    learn:["Based on my scope and impact...","I'm flexible on structure, but..."],
    q:["We would like to offer you the role. What are your salary expectations?","That is above our band. How flexible are you?","What matters most to you besides the base salary?","Can you tell me your timeline for deciding?","Great. Is there anything else you'd like to clarify?"]}]},
- daily:{name:"Giao tiếp công sở",items:[
-  {t:"Small talk và standup",who:"a new teammate from Singapore",d:"Chào hỏi tự nhiên, báo cáo ngắn gọn.",
+ daily:{name:"Workplace talk",items:[
+  {t:"Small talk and standup",who:"a new teammate from Singapore",d:"Greet naturally and report briefly.",
    learn:["Quick update from my side","I'm blocked on..."],
    q:["Hi! I'm new here. How long have you been on the team?","How was your weekend?","Okay, standup time. What did you do yesterday?","What are you working on today, and are you blocked on anything?","We're going to lunch. Want to join? Tell me about the food you like."]},
-  {t:"Góp ý và từ chối lịch sự",who:"a colleague who needs your help",d:"Nói không mà không mất lòng.",
+  {t:"Feedback and polite refusals",who:"a colleague who needs your help",d:"Say no without losing goodwill.",
    learn:["I'd love to, but my plate is full","Can I offer an alternative?"],
    q:["Hey, could you review my deck today? It's urgent.","I know you are busy, but it would really help. Can you do it?","Okay, when would be a good time for you?","By the way, can I give you some feedback on your last presentation?","Thanks for listening. Anything you want to ask me?"]},
-  {t:"Networking ở sự kiện",who:"an engineer you just met at a conference",d:"Giới thiệu bản thân và tạo kết nối.",
+  {t:"Networking at events",who:"an engineer you just met at a conference",d:"Introduce yourself and build connections.",
    learn:["What brings you here?","Let's keep in touch"],
    q:["Hi, I'm Alex. What do you do?","What are you working on at the moment?","That's interesting. What is the hardest part of your work?","Have you used AI in your product team?","Nice talking to you. How can we stay in touch?"]}]}
 };
@@ -173,13 +173,12 @@ function pickToday(){if(override)return override;
   const n=dayNum(today());const tr=ORDER[n%3];const items=TRACKS[tr].items;
   return {tr,it:items[Math.floor(n/3)%items.length]};
 }
-const STAGES=[[0,"🌱","Hạt mầm"],[30,"🌿","Mầm non"],[90,"🪴","Cây con"],[200,"🌷","Nụ hoa"],[400,"🌹","Hoa hồng nở"]];
 function stage(){let s=STAGES[0],nx=null;for(let i=0;i<STAGES.length;i++){if(S.xp>=STAGES[i][0]){s=STAGES[i];nx=STAGES[i+1]||null}}return {s,nx}}
 function wiltLevel(){if(S.dead)return 3;if(!S.last)return 0;const g=dayNum(today())-dayNum(S.last);return g<=1?0:g==2?1:g<=4?2:3}
 function weekKey(t){const d=new Date(t);const day=(d.getUTCDay()+6)%7;return new Date(d-day*864e5).toISOString().slice(0,10)}
 
 
-const PNAMES=["Hành tinh của Nhà vua","Hành tinh Người hợm hĩnh","Hành tinh Kẻ say rượu","Hành tinh Doanh nhân","Hành tinh Người thắp đèn","Hành tinh Nhà địa lý","Hành tinh Sa mạc cáo","Hành tinh Gió sao","Hành tinh Mưa sao băng","Hành tinh Ngàn sao","Hành tinh Mặt trăng nhỏ","Hành tinh Cầu vồng","Hành tinh Vòng nhẫn bạc","Hành tinh Biển sương","Hành tinh Núi lửa ngủ","Hành tinh Rừng baobab","Hành tinh Bình minh","Hành tinh Hoàng hôn","Hành tinh Đom đóm","Hành tinh Giếng nước","Hành tinh Đồng cỏ","Hành tinh Tuyết tím","Hành tinh Vàng mật","Hành tinh Lá thư","Hành tinh Tiếng cười","Hành tinh Con cừu","Hành tinh Ngọn đèn","Hành tinh Chiếc khăn xanh","Hành tinh Lời hứa"];
+const PNAMES=["The King's planet","The Vain Man's planet","The Drunkard's planet","The Businessman's planet","The Lamplighter's planet","The Geographer's planet","Fox Desert","Star Wind","Meteor Shower","A Thousand Stars","Little Moon","Rainbow Reef","Silver Ring","Mist Sea","Sleeping Volcano","Baobab Forest","Sunrise","Sunset","Firefly Field","The Hidden Well","Meadow","Violet Snow","Honey Gold","The Letter","Laughing Stars","The Sheep","The Lamp","The Green Scarf","The Promise"];
 function planetSVG(i,st){
   const h=(i*47+20)%360,h2=(h+40)%360,id="pl"+i+st,f=i%6;
   let extra="";
@@ -198,12 +197,12 @@ function journeyHTML(ph,inPh,done){
   for(let i=0;i<=N;i++){const x=50+Math.sin(i*0.95)*30,y=40+i*H;pts.push([x,y]);
     const rose=i==N,st=(!rose&&i<inPh)?"done":(i==cur&&!(done&&inPh==0&&false))?"now":"lock";
     const state=rose?(inPh>=30?"done":cur==N?"now":"lock"):st;
-    const label=rose?"Gặp bông hồng":PNAMES[i%PNAMES.length];
-    const track=rose?"Hoàng tử bé chờ chị ở cuối hành trình":"Ngày "+(ph*30+i+1)+" · "+TRACKS[ORDER[(ph*30+i)%3]].name;
+    const label=rose?"Meet your rose":PNAMES[i%PNAMES.length];
+    const track=rose?"The little prince waits at the end of the journey":"Day "+(ph*30+i+1)+" · "+TRACKS[ORDER[(ph*30+i)%3]].name;
     nodes+=`<div class="pn ${state}${rose?" rosen":""}" style="left:${x}%;top:${y}px"><div class="pw">${rose?roseSVG(state):planetSVG(i,state)}${state=="done"?'<svg class="bdg"><use href="#i-check"/></svg>':state=="lock"?'<svg class="bdg lk"><use href="#i-lock"/></svg>':""}</div><div class="lab"><b>${label}</b>${track}</div></div>`}
   let d="M"+pts.map(p=>p[0].toFixed(1)+" "+p[1]).join(" L");
   return `<div class="pathbox" style="height:${tot}px"><svg class="route" viewBox="0 0 100 ${tot}" preserveAspectRatio="none"><path d="${d}" fill="none" stroke="#f2c14e55" stroke-width="3" stroke-dasharray="2 9" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>${nodes}</div>`}
-function lockedHTML(n){let g="";for(let i=0;i<4;i++)g+=`<div class="lp">${planetSVG(i+7,"lock")}</div>`;return `<div class="phase"><div class="lockline"><svg class="ic" width="22" height="22"><use href="#i-lock"/></svg> Chặng ${n} · đang khoá</div><div class="mut" style="text-align:center">Mở ra sau khi chị gặp bông hồng ở ngày 30. Mỗi chặng 30 ngày là một hành trình mới.</div><div class="lps">${g}</div></div>`}
+function lockedHTML(n){let g="";for(let i=0;i<4;i++)g+=`<div class="lp">${planetSVG(i+7,"lock")}</div>`;return `<div class="phase"><div class="lockline"><svg class="ic" width="22" height="22"><use href="#i-lock"/></svg> Stage ${n} · locked</div><div class="mut" style="text-align:center">Unlocks after you meet your rose on day 30. Every 30 days is a new journey.</div><div class="lps">${g}</div></div>`}
 function lvl(){return Math.floor(S.xp/40)+1}
 function render(){
   rollDay();
@@ -211,44 +210,44 @@ function render(){
   const w=wiltLevel();const ch=S.chain||0;const stg=ch>=14?2:ch>=7?1:0;
   const img=w>=2?"wilt":["bud","grow","bloom"][stg];
   $("heroImg").src="img/"+img+".webp";$("heroImg").style.filter=w==1?"saturate(.6) brightness(.85)":"";
-  const SN=["Nảy mầm","Nụ hoa","Nở hoa"];
-  $("lv").textContent="Lv."+lvl()+" · "+(S.dead?"Bông hồng đã lụi":w>=2?SN[stg]+" (đang héo)":w==1?SN[stg]+" (hơi héo)":SN[stg]);
+  const SN=["Sprouting","Budding","In bloom"];
+  $("lv").textContent="Lv."+lvl()+" · "+(S.dead?"Your rose has withered":w>=2?SN[stg]+" (wilting)":w==1?SN[stg]+" (a little droopy)":SN[stg]);
   $("treeBar").style.width=(S.xp%40)/40*100+"%";
-  $("treeSub").textContent=S.dead?"Bắt đầu lại từ ngày 1 · ":(stg<2?`${(stg?14:7)-ch} ngày nữa thành ${SN[stg+1].toLowerCase()} · `:"")+(40-S.xp%40)+" XP nữa lên Lv."+(lvl()+1);
+  $("treeSub").textContent=S.dead?"Starting over from day 1 · ":(stg<2?`${(stg?14:7)-ch} more days to ${SN[stg+1].toLowerCase()} · `:"")+(40-S.xp%40)+" XP to Lv."+(lvl()+1);
   const done=S.last===today();
-  $("treeMsg").textContent=S.dead?"Bông hồng lụi vì bỏ quá 3 ngày. Hoàng tử bé gieo lại hạt, mình học lại từ đầu nha.":done?"“Chính thời gian em đã dành cho bông hồng làm nó quan trọng.” Hôm nay chị đã tưới rồi.":w==0?"Bông hồng đang đợi chị tưới nước tối nay":w==1?"Bỏ 1 ngày rồi, bông hồng hơi héo. Tưới ngay nha":"Bông hồng sắp lụi, học 1 bài để cứu nó (quá 3 ngày là phải học lại từ đầu)";
+  $("treeMsg").textContent=S.dead?"Your rose withered after more than 3 days without practice. The little prince planted a new seed, so we start again from day 1.":done?"“It is the time you spent on your rose that makes it so important.” You watered it today.":w==0?"Your rose is waiting for its water tonight.":w==1?"You skipped a day, so your rose is a little droopy. Water it now.":"Your rose is about to wither. Do one lesson to save it (more than 3 days off means starting over).";
   const {tr,it}=pickToday();
-  $("todayTrack").textContent=TRACKS[tr].name;$("todayTitle").textContent=it.t;$("todayDesc").textContent="Với "+it.who+". "+it.d;
-  $("start").textContent=done?"Học thêm 1 vòng (tính XP)":"Bắt đầu cuộc hội thoại hôm nay";
-  $("start").disabled=S.hearts<=0;if(S.hearts<=0)$("start").textContent="Hết tim, mai quay lại nha";
+  $("todayTrack").textContent=TRACKS[tr].name;$("todayTitle").textContent=it.t;$("todayDesc").textContent="With "+it.who+". "+it.d;
+  $("start").textContent=done?"Practice one more round (earns XP)":"Start today's conversation";
+  $("start").disabled=S.hearts<=0;if(S.hearts<=0)$("start").textContent="Out of hearts, come back tomorrow";
   // journey
   const days=S.chain||0;const ph=Math.floor(days/30),inPh=days%30;
   const cur=done&&inPh>0?inPh-1:inPh;
-  $("jSub").textContent=`· Chặng ${ph+1} · ${inPh}/30 ngày`+(ph?` · đã gặp bông hồng ${ph} lần`:"");
+  $("jSub").textContent=`· Stage ${ph+1} · ${inPh}/30 days`+(ph?` · met your rose ${ph}×`:"");
   $("path").innerHTML=journeyHTML(ph,inPh,done)+lockedHTML(ph+2);
   const wk=weekKey(today());let tot=0,rows="";
-  for(let i=0;i<7;i++){const d=new Date(Date.parse(wk)+i*864e5).toISOString().slice(0,10);const v=S.log[d]||0;tot+=v;rows+=`<tr><td>${["T2","T3","T4","T5","T6","T7","CN"][i]}</td><td>${v?v+" XP":"–"}</td></tr>`}
+  for(let i=0;i<7;i++){const d=new Date(Date.parse(wk)+i*864e5).toISOString().slice(0,10);const v=S.log[d]||0;tot+=v;rows+=`<tr><td>${["Mon","Tue","Wed","Thu","Fri","Sat","Sun"][i]}</td><td>${v?v+" XP":"–"}</td></tr>`}
   $("weekTbl").innerHTML=rows;$("weekTotal").textContent=`· ${tot} XP`;
   S.weekBest=Math.max(S.weekBest||0,tot);save();
-  $("best").textContent=`Kỷ lục tuần: ${S.weekBest} XP · streak dài nhất: ${S.best} ngày`;
-  $("learned").innerHTML=S.learned.length?S.learned.slice(-8).reverse().map(x=>"• "+x).join("<br>"):"Chưa có, học bài đầu tiên nha";
+  $("best").textContent=`Best week: ${S.weekBest} XP · longest streak: ${S.best} days`;
+  $("learned").innerHTML=S.learned.length?S.learned.slice(-8).reverse().map(x=>"• "+x).join("<br>"):"Nothing yet, start your first lesson";
 }
 
 let cur=null,idx=0,mins=0,words=0,weak=0,fillers=0,t0=0;
 function addMsg(c,t){const d=document.createElement("div");d.className="b "+c;d.textContent=t;$("chat").appendChild(d);$("chat").scrollTop=1e9}
 function speak(t){try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang="en-US";u.rate=.95;speechSynthesis.speak(u)}catch(e){}}
-function ask(){addMsg("ai",cur.it.q[idx]);speak(cur.it.q[idx]);$("tProg").textContent=`Câu ${idx+1}/${cur.it.q.length} · đang nói chuyện với ${cur.it.who}`;t0=Date.now()}
+function ask(){addMsg("ai",cur.it.q[idx]);speak(cur.it.q[idx]);$("tProg").textContent=`Question ${idx+1}/${cur.it.q.length} · talking with ${cur.it.who}`;t0=Date.now()}
 function show(id){for(const x of["home","journey","stats","talk","done"])$(x).classList.toggle("hidden",x!==id);$("nav").style.display=(id=="talk")?"none":"flex";document.querySelectorAll("#nav a").forEach(a=>a.classList.toggle("on",a.dataset.t===id));window.scrollTo(0,0)}
 document.querySelectorAll("#nav a").forEach(a=>a.onclick=()=>{render();show(a.dataset.t)});
 
 $("start").onclick=()=>{cur=pickToday();idx=0;words=0;weak=0;fillers=0;$("chat").innerHTML="";$("tTrack").textContent=TRACKS[cur.tr].name;$("tTitle").textContent=cur.it.t;show("talk");
-  addMsg("ai","Mẹo: "+cur.it.learn.join(" · "));ask()};
+  addMsg("ai","Tip: "+cur.it.learn.join(" · "));ask()};
 $("send").onclick=()=>{
   const a=$("ans").value.trim();if(!a)return;speechSynthesis&&speechSynthesis.cancel();
   addMsg("me",a);$("ans").value="";
   const w=(a.match(/[A-Za-z']+/g)||[]).length;words+=w;
   const f=(a.toLowerCase().match(/\b(um+|uh+|er|like|you know|actually)\b/g)||[]).length;fillers+=f;
-  if(w<8){weak++;S.hearts=Math.max(0,S.hearts-1);addMsg("ai","Hơi ngắn, thử nói 2-3 câu nhé (-1 tim). Tôi hỏi tiếp.");save();$("hearts").textContent=S.hearts;if(S.hearts<=0){finish(true);return}}
+  if(w<8){weak++;S.hearts=Math.max(0,S.hearts-1);addMsg("ai","A bit short. Try 2-3 sentences next time (-1 heart). Next question:");save();$("hearts").textContent=S.hearts;if(S.hearts<=0){finish(true);return}}
   idx++;if(idx>=cur.it.q.length){finish(false)}else setTimeout(ask,600)
 };
 $("quit").onclick=()=>{S.hearts=Math.max(0,S.hearts-1);save();show("home");render()};
@@ -261,10 +260,10 @@ function finish(out){
   if(full)for(const l of cur.it.learn)if(!S.learned.includes(l))S.learned.push(l);
   save();
   const avg=Math.round(words/cur.it.q.length);
-  $("dTitle").textContent=full?`+${xp} XP · bông hồng được tưới nước`:`Hết tim, +${xp} XP`;
-  $("dBody").innerHTML=`<p>Trung bình <b>${avg}</b> từ/câu (mục tiêu 20+). Từ đệm (um, like...): <b>${fillers}</b>. Câu quá ngắn: <b>${weak}</b>.</p>
-  <p class="mut">Câu nên thuộc hôm nay: ${cur.it.learn.map(x=>"<br>• "+x).join("")}</p>
-  <p class="mut">Streak: ${S.streak} ngày. Mai quay lại để cây không rũ.</p>`;
+  $("dTitle").textContent=full?`+${xp} XP · your rose has been watered`:`Out of hearts, +${xp} XP`;
+  $("dBody").innerHTML=`<p>Average <b>${avg}</b> words per answer (goal 20+). Filler words (um, like...): <b>${fillers}</b>. Answers too short: <b>${weak}</b>.</p>
+  <p class="mut">Phrases to remember today: ${cur.it.learn.map(x=>"<br>• "+x).join("")}</p>
+  <p class="mut">Streak: ${S.streak} days. Come back tomorrow so your rose does not droop.</p>`;
   show("done")
 }
 $("back").onclick=()=>{show("home");render()};
@@ -272,14 +271,14 @@ $("back").onclick=()=>{show("home");render()};
 // microphone
 $("rnd").onclick=()=>{const all=[];for(const tr of ORDER)for(const it of TRACKS[tr].items)all.push({tr,it});const c=pickToday();let n;do{n=all[Math.floor(Math.random()*all.length)]}while(n.it===c.it);override=n;render()};
 const SR=window.SpeechRecognition||window.webkitSpeechRecognition;let rec=null,on=false;
-if(!SR){$("mic").disabled=true;$("micHint").textContent="Trình duyệt này chưa hỗ trợ nói thành chữ: chị mở bằng Chrome (Android) hoặc Safari mới, hoặc gõ tạm."}
-else{$("micHint").textContent="Bấm Nói, nói tiếng Anh, bấm lần nữa để dừng rồi Gửi.";
+if(!SR){$("mic").disabled=true;$("micHint").textContent="This browser cannot turn speech into text. Open it in Chrome (Android) or a recent Safari, or type for now."}
+else{$("micHint").textContent="Tap Speak, talk in English, tap again to stop, then Send.";
  $("mic").onclick=()=>{
   if(on){rec.stop();return}
   rec=new SR();rec.lang="en-US";rec.interimResults=true;rec.continuous=true;let base=$("ans").value;
   rec.onresult=e=>{let t="";for(let i=0;i<e.results.length;i++)t+=e.results[i][0].transcript;$("ans").value=(base?base+" ":"")+t};
-  rec.onend=()=>{on=false;$("mic").classList.remove("on");$("mic").textContent="Nói"};
-  speechSynthesis.cancel();rec.start();on=true;$("mic").classList.add("on");$("mic").textContent="Dừng"}}
+  rec.onend=()=>{on=false;$("mic").classList.remove("on");$("mic").textContent="Speak"};
+  speechSynthesis.cancel();rec.start();on=true;$("mic").classList.add("on");$("mic").textContent="Stop"}}
 (function(){const k=$("sky");let h="";const n=innerWidth>700?150:80;
 for(let i=0;i<n;i++){const z=Math.random()<.12?"g":"";const sz=z?3+Math.random()*3:1+Math.random()*2.2;
 h+=`<i class="${z}" style="left:${Math.random()*100}%;top:${Math.random()*100}%;width:${sz}px;height:${sz}px;--d:${2+Math.random()*4}s;--l:-${Math.random()*6}s"></i>`}
