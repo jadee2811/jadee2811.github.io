@@ -27,7 +27,7 @@ textarea{width:100%;font-size:16px;border:1px solid #ffffff33;background:#141b3d
 .mut{color:var(--mut);font-size:14px}.row{display:flex;gap:8px}.row>*{flex:1}
 table{width:100%;border-collapse:collapse}td{padding:7px 0;border-bottom:1px solid #ffffff14}
 .hidden{display:none}.quote{font-family:Georgia,serif;font-style:italic;color:var(--mut);text-align:center;font-size:14px}
-#talk .row{position:sticky;bottom:0}
+
 nav{position:fixed;left:0;right:0;bottom:0;display:flex;justify-content:space-around;background:#0e1430f2;padding:8px 8px calc(8px + env(safe-area-inset-bottom));backdrop-filter:blur(8px);z-index:9;max-width:520px;margin:0 auto;border-radius:22px 22px 0 0}
 nav a{flex:1;text-align:center;color:var(--mut);font-size:12px;font-weight:700;padding:4px 0;cursor:pointer}nav a.on{color:var(--gold)}
 .path{position:relative;padding:8px 0 20px}.node{display:flex;align-items:center;margin:10px 0;gap:10px}
@@ -61,6 +61,10 @@ main,header{position:relative;z-index:1}nav{position:fixed;z-index:9}
 #ans{resize:none;overflow:hidden;min-height:76px;line-height:1.4}
 .rec.on{animation:rp 1.2s infinite}@keyframes rp{50%{box-shadow:0 0 0 8px #e0485a44}}@media(prefers-reduced-motion:reduce){.rec.on{animation:none}}
 #send.ready{animation:rp2 1.4s infinite}@keyframes rp2{50%{box-shadow:0 0 0 8px #f2c14e55}}button.sec2{background:#ffffff1a;color:var(--ink)}
+.b.ai.hid .tx{filter:blur(7px);user-select:none}.b.ai{display:flex;flex-direction:column;gap:8px}.bt{display:flex;gap:8px}.bt button{min-height:38px;padding:6px 12px;font-size:13px;border-radius:12px;width:auto;flex:none}
+.fb{background:#ffffff12;border-radius:16px;padding:12px;font-size:14px;margin:4px 0;align-self:stretch}.fb h4{margin:8px 0 4px;font-size:13px;color:var(--gold);text-transform:uppercase;letter-spacing:.5px}.fb h4:first-child{margin-top:0}
+.w{padding:1px 5px;border-radius:6px;cursor:pointer}.w.g{background:#4caf7a33}.w.a{background:#f2c14e44}.w.r{background:#e0485a55}
+.fix{padding:6px 0;border-bottom:1px solid #ffffff14}.fix s{color:#ff9aa6}.fix b{color:#9fe3b0}.model{padding:8px 10px;background:#ffffff14;border-radius:10px;margin-top:4px}
 </style>
 </head>
 <body>
@@ -133,33 +137,33 @@ main,header{position:relative;z-index:1}nav{position:fixed;z-index:9}
 <script>
 const TRACKS={
  biz:{name:"Business",items:[
-  {t:"60-second pitch to a client",c:"You are a product owner at an AI company. You have one minute to pitch an AI customer-service assistant to the CTO of a bank who doubts that AI is ready for real customers.",who:"a skeptical CTO",d:"Introduce an AI solution to an enterprise customer.",
+  {t:"60-second pitch to a client",m:["We help banks answer customers instantly with AI, so your team spends less time on repeat questions and customers wait seconds instead of minutes.", "Building it takes a year and a dedicated team. Our solution is proven and live in weeks, so you stay focused on your core business.", "In our pilot, response time dropped by sixty percent and customer satisfaction went up twelve points within two months.", "The main risks are integration and data security. We mitigate both with a phased rollout, a security review, and a dedicated support plan.", "I would like to run a four-week pilot with one product line, so we can decide together based on real results."],c:"You are a product owner at an AI company. You have one minute to pitch an AI customer-service assistant to the CTO of a bank who doubts that AI is ready for real customers.",who:"a skeptical CTO",d:"Introduce an AI solution to an enterprise customer.",
    learn:["problem → solution → proof → ask","Let me start with the problem we saw"],
    q:["Thanks for coming. In one minute, what problem do you solve and for whom?","Interesting. Why would we choose you over building it ourselves?","What evidence do you have that it works? Give me one real number.","What is the biggest risk if we start next month?","Okay. What exactly do you want from me today?"],k:[["pain point", "cost", "time saved", "automate", "customers like"], ["build vs buy", "faster to deploy", "proven", "maintenance", "focus on core business"], ["pilot", "results", "reduced by", "percent", "case study"], ["integration", "data security", "timeline", "mitigate", "support plan"], ["next step", "pilot", "demo", "decision", "timeline"]]},
-  {t:"Negotiating scope",c:"You are delivering a website and chatbot project for a client. Two weeks before launch, the client asks for three extra features without moving the deadline or the budget. You must protect the scope politely.",who:"a client who wants more for less",d:"Protect the scope without hurting the relationship.",
+  {t:"Negotiating scope",m:["It is possible, but not all within the same timeline. I suggest we prioritize one feature now and move the others to phase two.", "I understand the budget concern. Cutting corners would risk quality, so let me show you a leaner option that protects the launch date.", "Let's start small with a minimum viable version now, and plan phase two once we see the first results.", "I would cut the nice-to-have feature, because it has the least impact on users and the highest effort for the team.", "We agreed to deliver the core features by the launch date, and to schedule the extra features for phase two. Next, I will send the updated plan."],c:"You are delivering a website and chatbot project for a client. Two weeks before launch, the client asks for three extra features without moving the deadline or the budget. You must protect the scope politely.",who:"a client who wants more for less",d:"Protect the scope without hurting the relationship.",
    learn:["Here's what I can do within the timeline","Let's park that for phase two"],
    q:["We need three extra features, but the deadline stays the same. Is that possible?","Your competitor said they can do it for the same price. What do you say?","I don't have budget for phase two. How can we still move forward?","If we cut one feature, which one would you cut and why?","Summarize what we agreed in two sentences."],k:[["scope", "timeline", "trade-off", "prioritize", "phase two"], ["value", "quality", "not just price", "track record", "risks of cutting corners"], ["phased approach", "minimum viable", "budget", "start small", "roadmap"], ["impact", "effort", "must-have", "nice-to-have", "defer"], ["we agreed", "deliver", "by", "in exchange for", "next steps"]]},
-  {t:"Delivering bad news on progress",c:"Your team's AI project is two weeks behind schedule because a key data source arrived late. You are meeting your director to explain what happened, the impact, and what you propose.",who:"your director",d:"The project is late: explain clearly and bring options.",
+  {t:"Delivering bad news on progress",m:["Heads-up: we are two weeks behind because a key data source arrived late, which blocked the integration work.", "The customer will see the launch move by two weeks. I have already informed them and agreed on a revised milestone.", "Option A is to add two engineers to catch up. Option B is to reduce the scope of the first release. Option C is to move the date.", "I recommend option B, because it keeps the date for the main use case with the least risk to quality.", "I need your approval on the revised scope by Friday, and your support to unblock the data access."],c:"Your team's AI project is two weeks behind schedule because a key data source arrived late. You are meeting your director to explain what happened, the impact, and what you propose.",who:"your director",d:"The project is late: explain clearly and bring options.",
    learn:["Heads-up: we're two weeks behind","Here are two options and my recommendation"],
    q:["I heard there is a delay. What happened?","What is the impact on the customer?","What options do you see?","Which one do you recommend and why?","What do you need from me to make it work?"],k:[["heads-up", "root cause", "delay", "dependency", "two weeks"], ["customer impact", "deadline", "risk", "escalate", "communicate early"], ["option A", "option B", "add resources", "cut scope", "move the date"], ["I recommend", "because", "least risk", "trade-off", "mitigation"], ["decision", "approval", "support", "unblock", "by Friday"]]}]},
  job:{name:"Interview",items:[
-  {t:"Tell me about yourself and your wins",c:"You are interviewing for a Product Owner role at a global tech company. The hiring manager wants a clear story of who you are and one achievement with real numbers.",who:"a hiring manager at a global tech company",d:"Tell achievements with STAR and real numbers.",
+  {t:"Tell me about yourself and your wins",m:["I am a product owner with eight years of experience in AI and digital products. Right now I design AI solutions for large enterprises, and I am passionate about turning complex workflows into simple products.", "I led the launch of an AI assistant for a large hospital, which handled thousands of patient questions every month with a high satisfaction score.", "I owned the roadmap and coordinated design, engineering and the client's stakeholders, and I personally drove the pilot from idea to launch.", "We reduced the average response time by sixty percent and increased user adoption to seventy percent within three months.", "In hindsight, I would validate the data quality earlier and communicate risks to stakeholders sooner."],c:"You are interviewing for a Product Owner role at a global tech company. The hiring manager wants a clear story of who you are and one achievement with real numbers.",who:"a hiring manager at a global tech company",d:"Tell achievements with STAR and real numbers.",
    learn:["Situation, Task, Action, Result","I led / I drove / I shipped"],
    q:["Tell me about yourself in under two minutes.","What is the achievement you're most proud of in product management?","What exactly was your role, and what did you personally do?","What was the measurable result?","What would you do differently?"],k:[["currently", "years of experience", "product owner", "AI solutions", "passionate about"], ["led", "launched", "achievement", "enterprise", "impact"], ["my role", "I drove", "coordinated", "owned", "stakeholders"], ["increased", "reduced", "percent", "revenue", "adoption"], ["in hindsight", "I would", "earlier", "communicate", "validate first"]]},
-  {t:"Behavioral questions",c:"You are in a final-round interview at Google for a Product Manager role. The interviewer asks real-life questions about conflict, priorities and decisions to see how you think.",who:"a senior interviewer at Google",d:"Conflict, prioritizing, deciding with incomplete data.",
+  {t:"Behavioral questions",m:["Once, a stakeholder wanted a feature that I thought was risky. I showed data from user interviews, we found a compromise, and we aligned on a smaller first version.", "I use a simple framework: impact versus effort. I align with stakeholders on the goal first, then prioritize the items that move that goal the most.", "We had incomplete data, so I made a clear assumption, tested it with a small experiment, and adjusted quickly based on the results.", "One product failed because we skipped user validation. The lesson I learned is to test the riskiest assumption early with real users.", "I want to work on a mission I believe in, at a scale where my product decisions create real impact, and I want to keep growing with strong teammates."],c:"You are in a final-round interview at Google for a Product Manager role. The interviewer asks real-life questions about conflict, priorities and decisions to see how you think.",who:"a senior interviewer at Google",d:"Conflict, prioritizing, deciding with incomplete data.",
    learn:["The trade-off was...","I aligned the stakeholders by..."],
    q:["Tell me about a time you disagreed with a stakeholder. What happened?","How do you prioritize when everything is urgent?","Describe a decision you made with incomplete data.","Tell me about a product that failed. What did you learn?","Why do you want to work here?"],k:[["disagreed", "perspective", "data", "aligned", "compromise"], ["impact", "urgency", "framework", "stakeholders", "trade-off"], ["assumption", "hypothesis", "validate", "small experiment", "iterate"], ["failed", "lesson learned", "root cause", "user feedback", "pivot"], ["mission", "impact", "grow", "scale", "contribute"]]},
-  {t:"Salary negotiation",c:"You passed all interview rounds and the company wants to hire you. HR now asks about your salary expectations. State your number clearly and negotiate politely.",who:"an HR partner",d:"State your number with confidence and politeness.",
+  {t:"Salary negotiation",m:["Based on my scope and impact, I am looking for a range of X to Y, and I am flexible depending on the full package.", "I understand it is above your band. If we can agree on a broader scope, I would be happy to review the number again in six months.", "Besides salary, I care about growth opportunities, flexibility, and working with a strong team.", "I am excited about this role. I can decide by next week, and I would appreciate the offer in writing.", "Yes, could you tell me about the start date and benefits, and what the next steps are?"],c:"You passed all interview rounds and the company wants to hire you. HR now asks about your salary expectations. State your number clearly and negotiate politely.",who:"an HR partner",d:"State your number with confidence and politeness.",
    learn:["Based on my scope and impact...","I'm flexible on structure, but..."],
    q:["We would like to offer you the role. What are your salary expectations?","That is above our band. How flexible are you?","What matters most to you besides the base salary?","Can you tell me your timeline for deciding?","Great. Is there anything else you'd like to clarify?"],k:[["market range", "based on my scope", "impact", "I'm looking for", "flexible"], ["I understand", "total package", "if we can", "scope", "review in six months"], ["growth", "learning", "equity", "flexibility", "team"], ["timeline", "decision", "by next week", "other offers", "excited"], ["start date", "benefits", "next steps", "team", "thank you"]]}]},
  daily:{name:"Workplace talk",items:[
-  {t:"Small talk and standup",c:"It is your first week in a global team. A friendly teammate from Singapore chats with you, then the daily standup starts and you give a short update.",who:"a new teammate from Singapore",d:"Greet naturally and report briefly.",
+  {t:"Small talk and standup",m:["Hi, nice to meet you! I joined a few weeks ago, and I am still getting to know the team. How about you?", "It was relaxing. I caught up on sleep and had lunch with my family. How about yours?", "Yesterday I finished the draft of the proposal and reviewed the roadmap with the team.", "Today I will focus on the client meeting. I am waiting for feedback from design, but I am not blocked yet.", "Sure, I would love to join. I like noodles and sushi. Do you know a good place nearby?"],c:"It is your first week in a global team. A friendly teammate from Singapore chats with you, then the daily standup starts and you give a short update.",who:"a new teammate from Singapore",d:"Greet naturally and report briefly.",
    learn:["Quick update from my side","I'm blocked on..."],
    q:["Hi! I'm new here. How long have you been on the team?","How was your weekend?","Okay, standup time. What did you do yesterday?","What are you working on today, and are you blocked on anything?","We're going to lunch. Want to join? Tell me about the food you like."],k:[["joined", "months ago", "team", "product", "how about you"], ["relaxed", "caught up", "went to", "with family", "you?"], ["yesterday", "finished", "reviewed", "shipped", "meeting"], ["today", "focus on", "blocked", "waiting for", "need help"], ["love", "noodles", "sushi", "vegetarian", "let's go"]]},
-  {t:"Feedback and polite refusals",c:"A busy colleague asks you to review their deck today, but your own schedule is full. You practice saying no politely, offering an alternative, and giving feedback.",who:"a colleague who needs your help",d:"Say no without losing goodwill.",
+  {t:"Feedback and polite refusals",m:["I would love to help, but my plate is full today. Can I review it first thing tomorrow instead?", "I understand it is urgent. I can give you quick comments this afternoon if you send it over before lunch.", "Would 3 p.m. work for you? I can spend thirty minutes on it after my meeting.", "Sure. Your structure was clear, and one suggestion is to slow down and add an example in the key slide.", "Thanks for listening. I have one question: what is the next step after this feedback?"],c:"A busy colleague asks you to review their deck today, but your own schedule is full. You practice saying no politely, offering an alternative, and giving feedback.",who:"a colleague who needs your help",d:"Say no without losing goodwill.",
    learn:["I'd love to, but my plate is full","Can I offer an alternative?"],
    q:["Hey, could you review my deck today? It's urgent.","I know you are busy, but it would really help. Can you do it?","Okay, when would be a good time for you?","By the way, can I give you some feedback on your last presentation?","Thanks for listening. Anything you want to ask me?"],k:[["I'd love to", "but my plate is full", "tomorrow", "alternative", "deadline"], ["I understand", "priority", "capacity", "after lunch", "can you send"], ["this afternoon", "Friday", "after my meeting", "send it over", "30 minutes"], ["strengths", "one suggestion", "slow down", "examples", "clear structure"], ["question", "next steps", "thanks", "appreciate", "happy to help"]]},
-  {t:"Networking at events",c:"You are at a tech conference during the coffee break. You meet an engineer from another company and want to introduce yourself and exchange contacts.",who:"an engineer you just met at a conference",d:"Introduce yourself and build connections.",
+  {t:"Networking at events",m:["Hi, I am Linh. I work as a product owner on AI solutions in Vietnam. What about you?", "I am currently building an AI chatbot for enterprise customers, and we are running a pilot right now.", "The hardest part is adoption. People need time to change habits, and data quality also takes time.", "Yes, we use AI for customer service and for internal workflows, and the results have been promising.", "It was great talking to you. Could we connect on LinkedIn and keep in touch by email?"],c:"You are at a tech conference during the coffee break. You meet an engineer from another company and want to introduce yourself and exchange contacts.",who:"an engineer you just met at a conference",d:"Introduce yourself and build connections.",
    learn:["What brings you here?","Let's keep in touch"],
    q:["Hi, I'm Alex. What do you do?","What are you working on at the moment?","That's interesting. What is the hardest part of your work?","Have you used AI in your product team?","Nice talking to you. How can we stay in touch?"],k:[["I work as", "product owner", "AI", "Vietnam", "you?"], ["currently", "building", "enterprise", "chatbot", "pilot"], ["challenge", "adoption", "data", "change management", "time"], ["yes", "we use", "customer service", "workflow", "results"], ["connect on LinkedIn", "keep in touch", "coffee", "email", "nice meeting you"]]}]}
 };
@@ -243,21 +247,97 @@ function render(){
 }
 
 let cur=null,idx=0,mins=0,words=0,weak=0,fillers=0,t0=0;
-function addMsg(c,t){const d=document.createElement("div");d.className="b "+c;d.textContent=t;$("chat").appendChild(d);$("chat").scrollTop=1e9}
-function speak(t){try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang="en-US";u.rate=.95;speechSynthesis.speak(u)}catch(e){}}
-function ask(){fit();stepUI("idle");const ks=(cur.it.k||[])[idx]||[];$("chips").innerHTML=ks.map(k=>`<span class="chip">${k}</span>`).join("");$("hintCard").classList.toggle("hidden",!ks.length);document.querySelectorAll("#chips .chip").forEach(c=>c.onclick=()=>{const a=$("ans");a.value=(a.value?a.value+" ":"")+c.textContent;a.focus()});addMsg("ai",cur.it.q[idx]);speak(cur.it.q[idx]);$("tProg").textContent=`Question ${idx+1}/${cur.it.q.length} · talking with ${cur.it.who}`;t0=Date.now()}
+let persona=null;
+const FEM=["samantha","karen","moira","tessa","victoria","zira","aria","jenny","susan","hazel","female","fiona","serena","allison","ava","emma","libby","sonia","natasha","clara"];
+const MAL=["daniel","alex","fred","tom","oliver","rishi","david","mark","guy","male","george","ryan","james","arthur","aaron","liam","william","brian"];
+const NAMES={f:["Emma","Sophia","Olivia","Grace","Mia"],m:["Daniel","James","Oliver","Ethan","Noah"]};
+function pickPersona(){
+  const vs=(window.speechSynthesis?speechSynthesis.getVoices():[]).filter(v=>/^en/i.test(v.lang));
+  const g=Math.random()<.5?"f":"m";const list=g==="f"?FEM:MAL;
+  let pool=vs.filter(v=>list.some(n=>v.name.toLowerCase().includes(n)));
+  if(!pool.length)pool=vs;
+  const v=pool.length?pool[Math.floor(Math.random()*pool.length)]:null;
+  const name=NAMES[g][Math.floor(Math.random()*5)];
+  return {g,v,name,pitch:pool===vs?(g==="f"?1.25:.8):1,rate:.88+Math.random()*.1};
+}
+if(window.speechSynthesis){speechSynthesis.onvoiceschanged=()=>{}}
+function speak(t,onend){try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang="en-US";const p=persona||{rate:.95,pitch:1};if(p.v)u.voice=p.v;u.rate=p.rate;u.pitch=p.pitch;if(onend)u.onend=onend;speechSynthesis.speak(u)}catch(e){}}
+function addMsg(c,t){const d=document.createElement("div");d.className="b "+c;d.textContent=t;$("chat").appendChild(d);$("chat").scrollTop=1e9;return d}
+function addQ(t){
+  const d=document.createElement("div");d.className="b ai hid";
+  d.innerHTML=`<div class="bt"><button class="sec2 pl-b">Listen again</button><button class="sec2 sh-b">Show text</button></div><div class="tx"></div>`;
+  d.querySelector(".tx").textContent=t;
+  d.querySelector(".pl-b").onclick=()=>speak(t);
+  d.querySelector(".sh-b").onclick=e=>{const h=d.classList.toggle("hid");e.target.textContent=h?"Show text":"Hide text"};
+  $("chat").appendChild(d);$("chat").scrollTop=1e9;
+  d.querySelector(".tx").setAttribute("aria-label","hidden question text");
+}
+// ---- feedback like a teacher
+const FIXES=[
+ [/didn'?t must/i,"didn't must","couldn't / mustn't","\"must\" does not take didn't"],
+ [/I am agree/i,"I am agree","I agree","agree is a verb"],
+ [/discuss about/i,"discuss about","discuss","no \"about\" after discuss"],
+ [/more better/i,"more better","better","better is already comparative"],
+ [/I was projected/i,"I was projected","I projected / I planned","wrong verb form"],
+ [/many informations?/i,"informations","information","information is uncountable"],
+ [/I have (\d+|[a-z]+) years old\b/i,"I have … years old","I am … years old","age uses \"am\""],
+ [/he don'?t|she don'?t|it don'?t/i,"he/she/it don't","doesn't","third person singular"],
+ [/I am (very )?agree/i,"I am agree","I agree","agree is a verb"],
+ [/depend of/i,"depend of","depend on","fixed preposition"],
+ [/I very like/i,"I very like","I like … very much","word order"],
+ [/people is/i,"people is","people are","people is plural"],
+ [/I will to/i,"will to","will","no \"to\" after will"],
+ [/can to/i,"can to","can","no \"to\" after can"],
+ [/more (\w+er)/i,"more …er","…er","double comparative"],
+];
+function esc(x){return x.replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]))}
+function feedback(a,segs,k){
+  const out=[];
+  // 1. spelling / form checks
+  const fixes=[];
+  for(const [re,bad,good,why] of FIXES){if(re.test(a))fixes.push(`<div class="fix"><s>${bad}</s> → <b>${good}</b> <span class="mut">(${why})</span></div>`)}
+  if(/\bi\b/.test(a))fixes.push(`<div class="fix"><s>i</s> → <b>I</b> <span class="mut">(capital I)</span></div>`);
+  if(a&&a[0]!==a[0].toUpperCase())fixes.push(`<div class="fix"><s>${esc(a.slice(0,12))}…</s> → <b>Start the sentence with a capital letter</b></div>`);
+  const rep=a.match(/\b(\w+)\s+\1\b/i);if(rep)fixes.push(`<div class="fix"><s>${rep[0]}</s> → <b>${rep[1]}</b> <span class="mut">(repeated word)</span></div>`);
+  const wc=(a.match(/[A-Za-z']+/g)||[]).length;
+  if(wc>45&&!/[.!?]/.test(a.slice(10)))fixes.push(`<div class="fix"><b>Break it into shorter sentences</b> <span class="mut">(long run-on, add pauses)</span></div>`);
+  const fl=a.toLowerCase().match(/\b(um+|uh+|er|you know|actually|like)\b/g)||[];
+  if(fl.length)fixes.push(`<div class="fix"><b>Filler words:</b> ${[...new Set(fl)].join(", ")} <span class="mut">(pause silently instead)</span></div>`);
+  // 2. how it sounded (recognition confidence)
+  let heard="";
+  if(segs&&segs.length){
+    heard=segs.map(g=>{const c=g.c;const cls=c>=.85?"g":c>=.6?"a":"r";return `<span class="w ${cls}" data-t="${esc(g.t.replace(/"/g,''))}">${esc(g.t)}</span>`}).join(" ");
+  } else heard=esc(a);
+  const hasR=segs&&segs.some(g=>g.c<.6),hasA=segs&&segs.some(g=>g.c>=.6&&g.c<.85);
+  let h=`<h4>How it sounded</h4><div>${heard}</div><div class="mut" style="margin-top:4px">${segs&&segs.length?(hasR?"Red parts were hard to understand, so work on clearer pronunciation there. ":"")+(hasA?"Yellow parts were a little unclear. ":"")+(!hasR&&!hasA?"Clear and easy to understand. ":"")+"Tap any part to hear it spoken.":"Typed answer: no pronunciation check."}</div>`;
+  h+=`<h4>Corrections</h4>`+(fixes.length?fixes.join(""):`<div class="mut">No clear mistakes found. Nice.</div>`);
+  h+=`<h4>A stronger way to say it</h4><div class="model">${esc(k)}</div><div class="bt" style="margin-top:6px"><button class="sec2 ml">Listen to the model</button></div>`;
+  return h;
+}
+function ask(){fit();stepUI("idle");const ks=(cur.it.k||[])[idx]||[];$("chips").innerHTML=ks.map(k=>`<span class="chip">${k}</span>`).join("");$("hintCard").classList.toggle("hidden",!ks.length);document.querySelectorAll("#chips .chip").forEach(c=>c.onclick=()=>{const a=$("ans");a.value=(a.value?a.value+" ":"")+c.textContent;a.focus()});addQ(cur.it.q[idx]);speak(cur.it.q[idx]);$("tProg").textContent=`Question ${idx+1}/${cur.it.q.length} · talking with ${persona?persona.name:''} (${cur.it.who})`;t0=Date.now()}
 function show(id){for(const x of["home","journey","stats","talk","done"])$(x).classList.toggle("hidden",x!==id);$("nav").style.display=(id=="talk")?"none":"flex";document.querySelectorAll("#nav a").forEach(a=>a.classList.toggle("on",a.dataset.t===id));window.scrollTo(0,0)}
 document.querySelectorAll("#nav a").forEach(a=>a.onclick=()=>{render();show(a.dataset.t)});
 
-$("start").onclick=()=>{cur=pickToday();idx=0;words=0;weak=0;fillers=0;$("chat").innerHTML="";$("tTrack").textContent=TRACKS[cur.tr].name;$("tTitle").textContent=cur.it.t;show("talk");$("tCtx").innerHTML="<b>Scenario:</b> "+(cur.it.c||"");
+$("start").onclick=()=>{cur=pickToday();persona=pickPersona();lastSegs=null;idx=0;words=0;weak=0;fillers=0;$("chat").innerHTML="";$("tTrack").textContent=TRACKS[cur.tr].name;$("tTitle").textContent=cur.it.t;show("talk");$("tCtx").innerHTML="<b>Scenario:</b> "+(cur.it.c||"");
   addMsg("ai","Tip: "+cur.it.learn.join(" · "));ask()};
+let lastSegs=null,lastBase="";
 $("send").onclick=()=>{
   const a=$("ans").value.trim();if(!a)return;speechSynthesis&&speechSynthesis.cancel();
-  addMsg("me",a);$("ans").value="";fit();stepUI("idle");
+  const segs=lastSegs&&lastSegs.map(g=>g.t).join(" ").trim()===a?lastSegs:null;
+  addMsg("me",a);$("ans").value="";fit();stepUI("idle");lastSegs=null;
   const w=(a.match(/[A-Za-z']+/g)||[]).length;words+=w;
   const f=(a.toLowerCase().match(/\b(um+|uh+|er|like|you know|actually)\b/g)||[]).length;fillers+=f;
-  if(w<8){weak++;S.hearts=Math.max(0,S.hearts-1);addMsg("ai","A bit short. Try 2-3 sentences next time (-1 heart). Next question:");save();$("hearts").textContent=S.hearts;if(S.hearts<=0){finish(true);return}}
-  idx++;if(idx>=cur.it.q.length){finish(false)}else setTimeout(ask,600)
+  const fb=document.createElement("div");fb.className="fb";const model=(cur.it.m||[])[idx]||"";fb.innerHTML=feedback(a,segs,model);
+  fb.querySelectorAll(".w").forEach(x=>x.onclick=()=>speak(x.dataset.t));
+  const ml=fb.querySelector(".ml");if(ml)ml.onclick=()=>speak(model);
+  $("chat").appendChild(fb);
+  let lost=false;
+  if(w<8){weak++;S.hearts=Math.max(0,S.hearts-1);lost=true;const n=document.createElement("div");n.className="mut";n.textContent="A bit short, so you lost 1 heart. Aim for 2-3 sentences next time.";fb.appendChild(n);save();$("hearts").textContent=S.hearts}
+  const last=idx+1>=cur.it.q.length||S.hearts<=0&&lost;
+  const nb=document.createElement("button");nb.textContent=last?"Finish lesson":"Next question";nb.style.marginTop="8px";
+  nb.onclick=()=>{nb.remove();if(last){finish(S.hearts<=0&&lost)}else{idx++;ask()}};
+  fb.appendChild(nb);$("send").disabled=true;$("mic").disabled=true;nb.addEventListener("click",()=>{$("mic").disabled=!SR;stepUI("idle")});
+  fb.scrollIntoView({behavior:"smooth",block:"nearest"});
 };
 $("quit").onclick=()=>{S.hearts=Math.max(0,S.hearts-1);save();show("home");render()};
 function finish(out){
@@ -295,7 +375,7 @@ if(!SR){$("mic").disabled=true}
 else{$("mic").onclick=()=>{
   if(on){rec.stop();return}
   rec=new SR();rec.lang="en-US";rec.interimResults=true;rec.continuous=true;let base=$("ans").value;
-  rec.onresult=e=>{let t="";for(let i=0;i<e.results.length;i++)t+=e.results[i][0].transcript;$("ans").value=(base?base+" ":"")+t;fit()};
+  let segs0=[];rec.onresult=e=>{let t="";segs0=[];for(let i=0;i<e.results.length;i++){const r=e.results[i][0];t+=r.transcript;segs0.push({t:r.transcript.trim(),c:r.confidence||0.9})}$("ans").value=(base?base+" ":"")+t;lastSegs=base?null:segs0;fit()};
   rec.onend=()=>{on=false;clearInterval(tick);stepUI("idle")};
   speechSynthesis.cancel();rec.start();on=true;t1=Date.now();stepUI("rec")}}
 stepUI("idle");
