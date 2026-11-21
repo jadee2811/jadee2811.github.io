@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>English by Jade</title>
+<meta name="description" content="Luyện nói tiếng Anh mỗi ngày: business, phỏng vấn, giao tiếp công sở.">
+<meta name="theme-color" content="#116b54">
+<style>
+:root{--g:#116b54;--g2:#0b4a3a;--bg:#f4f8f6;--ink:#17332b;--mut:#5d7a70;--card:#fff;--red:#d64545;--gold:#f2b93b}
+*{box-sizing:border-box}body{margin:0;font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink)}
+main{max-width:520px;margin:0 auto;padding:16px 16px 90px}
+header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+h1{font-size:18px;margin:0}.stats{display:flex;gap:12px;font-weight:700}
+.card{background:var(--card);border-radius:18px;padding:18px;margin:12px 0;box-shadow:0 2px 10px #0001}
+.tree{text-align:center}.tree .em{font-size:84px;line-height:1.1}
+.bar{height:10px;background:#dfeae5;border-radius:9px;overflow:hidden;margin:8px 0}.bar i{display:block;height:100%;background:var(--g)}
+button{font:inherit;border:0;border-radius:14px;padding:14px 18px;background:var(--g);color:#fff;font-weight:700;width:100%;cursor:pointer}
+button.sec{background:#dfeae5;color:var(--g2)}button:disabled{opacity:.5}
+button.rec.on{background:var(--red)}
+.chat{display:flex;flex-direction:column;gap:8px;max-height:44vh;overflow:auto}
+.b{padding:10px 14px;border-radius:14px;max-width:88%}.ai{background:#e6f1ed;align-self:flex-start}.me{background:var(--g);color:#fff;align-self:flex-end}
+textarea{width:100%;border:1px solid #cddcd5;border-radius:12px;padding:10px;font:inherit;min-height:64px}
+.tag{display:inline-block;font-size:12px;background:#dfeae5;color:var(--g2);padding:2px 10px;border-radius:99px;font-weight:700}
+.mut{color:var(--mut);font-size:14px}.row{display:flex;gap:8px}.row>*{flex:1}
+table{width:100%;border-collapse:collapse}td{padding:6px 0;border-bottom:1px solid #eef3f1}
+.hidden{display:none}
+</style>
+</head>
+<body>
+<main>
+<header><h1>🌹 English by Jade</h1><div class="stats"><span id="streak">🔥0</span><span id="hearts">❤️5</span><span id="xp">⭐0</span></div></header>
+
+<section id="home">
+  <div class="card tree"><div class="em" id="treeEm">🌱</div>
+    <div><b id="treeName">Hạt mầm</b> <span class="mut" id="treeSub"></span></div>
+    <div class="bar"><i id="treeBar" style="width:0"></i></div>
+    <div class="mut" id="treeMsg"></div></div>
+  <div class="card"><span class="tag" id="todayTrack"></span>
+    <h2 style="margin:8px 0 4px" id="todayTitle"></h2><div class="mut" id="todayDesc"></div>
+    <p></p><button id="start">Bắt đầu cuộc hội thoại hôm nay</button>
+    <p class="mut" style="margin-bottom:0">Học xong là "tưới nước": nước là nội dung đã nói. Bỏ ngày nào cây rũ ngày đó.</p></div>
+  <div class="card"><b>Tuần này</b> <span class="mut" id="weekTotal"></span><table id="weekTbl"></table>
+    <div class="mut" id="best"></div></div>
+  <div class="card"><b>Nước đã tưới (nội dung đã học)</b><div class="mut" id="learned">Chưa có</div></div>
+</section>
+
+<section id="talk" class="hidden">
+  <div class="card"><span class="tag" id="tTrack"></span> <b id="tTitle"></b>
+    <div class="mut" id="tProg"></div></div>
+  <div class="card chat" id="chat"></div>
+  <div class="card">
+    <textarea id="ans" placeholder="Nói bằng micro hoặc gõ câu trả lời tiếng Anh (cố gắng 2-4 câu)"></textarea>
+    <div class="row" style="margin-top:8px"><button class="rec" id="mic">🎙 Nói</button><button id="send">Gửi</button></div>
+    <div class="mut" id="micHint"></div>
+  </div>
+  <button class="sec" id="quit">Thoát (mất 1 ❤️)</button>
+</section>
+
+<section id="done" class="hidden">
+  <div class="card tree"><div class="em">🌧️🌱</div><h2 id="dTitle"></h2><div id="dBody"></div></div>
+  <button id="back">Về cây của chị</button>
+</section>
+</main>
+
+<script>
+const TRACKS={
+ biz:{name:"Business",items:[
+  {t:"Pitch 60 giây cho khách",who:"a skeptical CTO",d:"Giới thiệu giải pháp AI cho khách enterprise.",
+   learn:["problem → solution → proof → ask","Let me start with the problem we saw"],
+   q:["Thanks for coming. In one minute, what problem do you solve and for whom?","Interesting. Why would we choose you over building it ourselves?","What evidence do you have that it works? Give me one real number.","What is the biggest risk if we start next month?","Okay. What exactly do you want from me today?"]},
+  {t:"Đàm phán scope",who:"a client who wants more for less",d:"Giữ scope, không mất quan hệ.",
+   learn:["Here's what I can do within the timeline","Let's park that for phase two"],
+   q:["We need three extra features, but the deadline stays the same. Is that possible?","Your competitor said they can do it for the same price. What do you say?","I don't have budget for phase two. How can we still move forward?","If we cut one feature, which one would you cut and why?","Summarize what we agreed in two sentences."]},
+  {t:"Báo tin xấu về tiến độ",who:"your director",d:"Dự án trễ, trình bày rõ và có phương án.",
+   learn:["Heads-up: we're two weeks behind","Here are two options and my recommendation"],
+   q:["I heard there is a delay. What happened?","What is the impact on the customer?","What options do you see?","Which one do you recommend and why?","What do you need from me to make it work?"]}]},
+ job:{name:"Phỏng vấn",items:[
+  {t:"Tự giới thiệu và thành tích",who:"a hiring manager at a global tech company",d:"Kể thành tích bằng STAR, có số liệu.",
+   learn:["Situation, Task, Action, Result","I led / I drove / I shipped"],
+   q:["Tell me about yourself in under two minutes.","What is the achievement you're most proud of in product management?","What exactly was your role, and what did you personally do?","What was the measurable result?","What would you do differently?"]},
+  {t:"Câu hỏi hành vi",who:"a senior interviewer at Google",d:"Mâu thuẫn, ưu tiên, ra quyết định khi thiếu dữ liệu.",
+   learn:["The trade-off was...","I aligned the stakeholders by..."],
+   q:["Tell me about a time you disagreed with a stakeholder. What happened?","How do you prioritize when everything is urgent?","Describe a decision you made with incomplete data.","Tell me about a product that failed. What did you learn?","Why do you want to work here?"]},
+  {t:"Thương lượng lương",who:"an HR partner",d:"Nói con số tự tin và lịch sự.",
+   learn:["Based on my scope and impact...","I'm flexible on structure, but..."],
+   q:["We would like to offer you the role. What are your salary expectations?","That is above our band. How flexible are you?","What matters most to you besides the base salary?","Can you tell me your timeline for deciding?","Great. Is there anything else you'd like to clarify?"]}]},
+ daily:{name:"Giao tiếp công sở",items:[
+  {t:"Small talk và standup",who:"a new teammate from Singapore",d:"Chào hỏi tự nhiên, báo cáo ngắn gọn.",
+   learn:["Quick update from my side","I'm blocked on..."],
+   q:["Hi! I'm new here. How long have you been on the team?","How was your weekend?","Okay, standup time. What did you do yesterday?","What are you working on today, and are you blocked on anything?","We're going to lunch. Want to join? Tell me about the food you like."]},
+  {t:"Góp ý và từ chối lịch sự",who:"a colleague who needs your help",d:"Nói không mà không mất lòng.",
+   learn:["I'd love to, but my plate is full","Can I offer an alternative?"],
+   q:["Hey, could you review my deck today? It's urgent.","I know you are busy, but it would really help. Can you do it?","Okay, when would be a good time for you?","By the way, can I give you some feedback on your last presentation?","Thanks for listening. Anything you want to ask me?"]},
+  {t:"Networking ở sự kiện",who:"an engineer you just met at a conference",d:"Giới thiệu bản thân và tạo kết nối.",
+   learn:["What brings you here?","Let's keep in touch"],
+   q:["Hi, I'm Alex. What do you do?","What are you working on at the moment?","That's interesting. What is the hardest part of your work?","Have you used AI in your product team?","Nice talking to you. How can we stay in touch?"]}]}
+};
+const ORDER=["biz","job","daily"];
+const KEY="ebj.v1";
+const today=()=>{const d=new Date();return new Date(d.getTime()-d.getTimezoneOffset()*6e4).toISOString().slice(0,10)};
+const dayNum=s=>Math.floor(Date.parse(s)/864e5);
+let S=JSON.parse(localStorage.getItem(KEY)||"null")||{xp:0,streak:0,best:0,last:null,hearts:5,heartsDay:null,log:{},learned:[],sessions:0,weekBest:0};
+const save=()=>localStorage.setItem(KEY,JSON.stringify(S));
+const $=id=>document.getElementById(id);
+
+function rollDay(){
+  const t=today();
+  if(S.heartsDay!==t){S.hearts=5;S.heartsDay=t}
+  if(S.last){const gap=dayNum(t)-dayNum(S.last);if(gap>1){S.streak=0}}
+  save();
+}
+function pickToday(){
+  const n=dayNum(today());const tr=ORDER[n%3];const items=TRACKS[tr].items;
+  return {tr,it:items[Math.floor(n/3)%items.length]};
+}
+const STAGES=[[0,"🌱","Hạt mầm"],[30,"🌿","Mầm non"],[90,"🪴","Cây con"],[200,"🌷","Nụ hoa"],[400,"🌹","Hoa hồng nở"]];
+function stage(){let s=STAGES[0],nx=null;for(let i=0;i<STAGES.length;i++){if(S.xp>=STAGES[i][0]){s=STAGES[i];nx=STAGES[i+1]||null}}return {s,nx}}
+function wiltLevel(){if(!S.last)return 0;const g=dayNum(today())-dayNum(S.last);return g<=1?0:g<=2?1:g<=4?2:3}
+function weekKey(t){const d=new Date(t);const day=(d.getUTCDay()+6)%7;return new Date(d-day*864e5).toISOString().slice(0,10)}
+
+function render(){
+  rollDay();
+  $("streak").textContent="🔥"+S.streak;$("hearts").textContent="❤️"+S.hearts;$("xp").textContent="⭐"+S.xp;
+  const {s,nx}=stage();const w=wiltLevel();
+  $("treeEm").textContent=w>=3?"🥀":w==2?"🍂":s[1];
+  $("treeName").textContent=w>=3?"Cây héo":s[2];
+  $("treeBar").style.width=nx?Math.round((S.xp-s[0])/(nx[0]-s[0])*100)+"%":"100%";
+  $("treeSub").textContent=nx?`${nx[0]-S.xp} XP nữa lên "${nx[2]}"`:"cao nhất rồi";
+  const done=S.last===today();
+  $("treeMsg").textContent=done?"Hôm nay cây đã được tưới 💧":w==0?"Chưa tưới hôm nay, vào học để giữ streak":w==1?"Cây hơi rũ, tưới ngay nha":w==2?"Cây đang khô, học để cứu nó":"Cây héo rồi, học 1 bài là hồi sinh";
+  const {tr,it}=pickToday();
+  $("todayTrack").textContent=TRACKS[tr].name;$("todayTitle").textContent=it.t;$("todayDesc").textContent="Với "+it.who+". "+it.d;
+  $("start").textContent=done?"Học thêm 1 vòng (tính XP)":"Bắt đầu cuộc hội thoại hôm nay";
+  $("start").disabled=S.hearts<=0;if(S.hearts<=0)$("start").textContent="Hết tim, mai quay lại nha";
+  const wk=weekKey(today());let tot=0,rows="";
+  for(let i=0;i<7;i++){const d=new Date(Date.parse(wk)+i*864e5).toISOString().slice(0,10);const v=S.log[d]||0;tot+=v;rows+=`<tr><td>${["T2","T3","T4","T5","T6","T7","CN"][i]}</td><td>${v?"💧 "+v+" XP":"–"}</td></tr>`}
+  $("weekTbl").innerHTML=rows;$("weekTotal").textContent=`· ${tot} XP`;
+  S.weekBest=Math.max(S.weekBest||0,tot);save();
+  $("best").textContent=`Kỷ lục tuần: ${S.weekBest} XP · streak dài nhất: ${S.best} ngày`;
+  $("learned").innerHTML=S.learned.length?S.learned.slice(-8).reverse().map(x=>"• "+x).join("<br>"):"Chưa có, học bài đầu tiên nha";
+}
+
+let cur=null,idx=0,mins=0,words=0,weak=0,fillers=0,t0=0;
+function addMsg(c,t){const d=document.createElement("div");d.className="b "+c;d.textContent=t;$("chat").appendChild(d);$("chat").scrollTop=1e9}
+function speak(t){try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang="en-US";u.rate=.95;speechSynthesis.speak(u)}catch(e){}}
+function ask(){addMsg("ai",cur.it.q[idx]);speak(cur.it.q[idx]);$("tProg").textContent=`Câu ${idx+1}/${cur.it.q.length} · đang nói chuyện với ${cur.it.who}`;t0=Date.now()}
+function show(id){for(const x of["home","talk","done"])$(x).classList.toggle("hidden",x!==id)}
+
+$("start").onclick=()=>{cur=pickToday();idx=0;words=0;weak=0;fillers=0;$("chat").innerHTML="";$("tTrack").textContent=TRACKS[cur.tr].name;$("tTitle").textContent=cur.it.t;show("talk");
+  addMsg("ai","Mẹo: "+cur.it.learn.join(" · "));ask()};
+$("send").onclick=()=>{
+  const a=$("ans").value.trim();if(!a)return;speechSynthesis&&speechSynthesis.cancel();
+  addMsg("me",a);$("ans").value="";
+  const w=(a.match(/[A-Za-z']+/g)||[]).length;words+=w;
+  const f=(a.toLowerCase().match(/\b(um+|uh+|er|like|you know|actually)\b/g)||[]).length;fillers+=f;
+  if(w<8){weak++;S.hearts=Math.max(0,S.hearts-1);addMsg("ai","Hơi ngắn, thử nói 2-3 câu nhé (-1 ❤️). Tôi hỏi tiếp.");save();$("hearts").textContent="❤️"+S.hearts;if(S.hearts<=0){finish(true);return}}
+  idx++;if(idx>=cur.it.q.length){finish(false)}else setTimeout(ask,600)
+};
+$("quit").onclick=()=>{S.hearts=Math.max(0,S.hearts-1);save();show("home");render()};
+function finish(out){
+  const t=today();const full=!out;
+  let xp=Math.min(60,Math.round(words/4))+(full?20:0)-weak*2;xp=Math.max(5,xp);
+  const gap=S.last?dayNum(t)-dayNum(S.last):9;
+  if(S.last!==t){S.streak=(gap===1)?S.streak+1:1}
+  S.best=Math.max(S.best,S.streak);S.last=t;S.xp+=xp;S.log[t]=(S.log[t]||0)+xp;S.sessions++;
+  if(full)for(const l of cur.it.learn)if(!S.learned.includes(l))S.learned.push(l);
+  save();
+  const avg=Math.round(words/cur.it.q.length);
+  $("dTitle").textContent=full?`+${xp} XP · cây được tưới 💧`:`Hết tim, +${xp} XP`;
+  $("dBody").innerHTML=`<p>Trung bình <b>${avg}</b> từ/câu (mục tiêu 20+). Từ đệm (um, like...): <b>${fillers}</b>. Câu quá ngắn: <b>${weak}</b>.</p>
+  <p class="mut">Câu nên thuộc hôm nay: ${cur.it.learn.map(x=>"<br>• "+x).join("")}</p>
+  <p class="mut">Streak: ${S.streak} ngày. Mai quay lại để cây không rũ.</p>`;
+  show("done")
+}
+$("back").onclick=()=>{show("home");render()};
+
+// microphone
+const SR=window.SpeechRecognition||window.webkitSpeechRecognition;let rec=null,on=false;
+if(!SR){$("mic").disabled=true;$("micHint").textContent="Trình duyệt này chưa hỗ trợ nói thành chữ: chị mở bằng Chrome (Android) hoặc Safari mới, hoặc gõ tạm."}
+else{$("micHint").textContent="Bấm Nói, nói tiếng Anh, bấm lần nữa để dừng rồi Gửi.";
+ $("mic").onclick=()=>{
+  if(on){rec.stop();return}
+  rec=new SR();rec.lang="en-US";rec.interimResults=true;rec.continuous=true;let base=$("ans").value;
+  rec.onresult=e=>{let t="";for(let i=0;i<e.results.length;i++)t+=e.results[i][0].transcript;$("ans").value=(base?base+" ":"")+t};
+  rec.onend=()=>{on=false;$("mic").classList.remove("on");$("mic").textContent="🎙 Nói"};
+  speechSynthesis.cancel();rec.start();on=true;$("mic").classList.add("on");$("mic").textContent="⏹ Dừng"}}
+render();
+</script>
+</body>
+</html>
