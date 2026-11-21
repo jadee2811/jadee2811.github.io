@@ -57,6 +57,10 @@ main,header{position:relative;z-index:1}nav{position:fixed;z-index:9}
 #micHint{margin-top:12px}#talk .card{margin:12px 0}#talk .row{align-items:stretch}#quit{margin-top:4px}
 .chip{display:inline-block;margin:0 6px 8px 0;padding:7px 12px;border-radius:99px;background:#ffffff1a;color:var(--ink);font-size:14px;font-weight:600;cursor:pointer;border:1px solid #f2c14e55}.chip:active{background:var(--gold);color:#2a2410}
 .ctx{margin-top:10px;padding:10px 12px;border-left:3px solid var(--gold);background:#ffffff12;border-radius:0 12px 12px 0;font-size:14px;color:var(--ink)}.ctx b{color:var(--gold)}
+.flow{display:flex;gap:6px;margin-top:10px;font-size:12px;font-weight:700}.flow span{flex:1;text-align:center;padding:5px 0;border-radius:99px;background:#ffffff14;color:var(--mut)}.flow span.on{background:var(--gold);color:#2a2410}.flow span.ok{background:#ffffff26;color:var(--gold)}
+#ans{resize:none;overflow:hidden;min-height:76px;line-height:1.4}
+.rec.on{animation:rp 1.2s infinite}@keyframes rp{50%{box-shadow:0 0 0 8px #e0485a44}}@media(prefers-reduced-motion:reduce){.rec.on{animation:none}}
+#send.ready{animation:rp2 1.4s infinite}@keyframes rp2{50%{box-shadow:0 0 0 8px #f2c14e55}}button.sec2{background:#ffffff1a;color:var(--ink)}
 </style>
 </head>
 <body>
@@ -111,7 +115,8 @@ main,header{position:relative;z-index:1}nav{position:fixed;z-index:9}
   <div class="card" id="hintCard"><div class="mut" style="margin-bottom:8px"><b style="color:var(--gold)">Keywords you can use</b> (tap to add)</div><div id="chips"></div></div>
   <div class="card">
     <textarea id="ans" placeholder="Speak with the mic or type your answer (aim for 2-4 sentences)"></textarea>
-    <div class="row" style="margin-top:8px"><button class="rec" id="mic">Speak</button><button id="send">Send</button></div>
+    <div class="flow" id="flow"><span id="f1" class="on">1 Speak</span><span id="f2">2 Check</span><span id="f3">3 Send</span></div>
+    <div class="row" style="margin-top:8px"><button class="rec" id="mic">Tap to speak</button><button id="send" disabled>Send answer</button></div>
     <div class="mut" id="micHint"></div>
   </div>
   <button class="sec" id="quit">Quit (lose 1 heart)</button>
@@ -240,7 +245,7 @@ function render(){
 let cur=null,idx=0,mins=0,words=0,weak=0,fillers=0,t0=0;
 function addMsg(c,t){const d=document.createElement("div");d.className="b "+c;d.textContent=t;$("chat").appendChild(d);$("chat").scrollTop=1e9}
 function speak(t){try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang="en-US";u.rate=.95;speechSynthesis.speak(u)}catch(e){}}
-function ask(){const ks=(cur.it.k||[])[idx]||[];$("chips").innerHTML=ks.map(k=>`<span class="chip">${k}</span>`).join("");$("hintCard").classList.toggle("hidden",!ks.length);document.querySelectorAll("#chips .chip").forEach(c=>c.onclick=()=>{const a=$("ans");a.value=(a.value?a.value+" ":"")+c.textContent;a.focus()});addMsg("ai",cur.it.q[idx]);speak(cur.it.q[idx]);$("tProg").textContent=`Question ${idx+1}/${cur.it.q.length} · talking with ${cur.it.who}`;t0=Date.now()}
+function ask(){fit();stepUI("idle");const ks=(cur.it.k||[])[idx]||[];$("chips").innerHTML=ks.map(k=>`<span class="chip">${k}</span>`).join("");$("hintCard").classList.toggle("hidden",!ks.length);document.querySelectorAll("#chips .chip").forEach(c=>c.onclick=()=>{const a=$("ans");a.value=(a.value?a.value+" ":"")+c.textContent;a.focus()});addMsg("ai",cur.it.q[idx]);speak(cur.it.q[idx]);$("tProg").textContent=`Question ${idx+1}/${cur.it.q.length} · talking with ${cur.it.who}`;t0=Date.now()}
 function show(id){for(const x of["home","journey","stats","talk","done"])$(x).classList.toggle("hidden",x!==id);$("nav").style.display=(id=="talk")?"none":"flex";document.querySelectorAll("#nav a").forEach(a=>a.classList.toggle("on",a.dataset.t===id));window.scrollTo(0,0)}
 document.querySelectorAll("#nav a").forEach(a=>a.onclick=()=>{render();show(a.dataset.t)});
 
@@ -248,7 +253,7 @@ $("start").onclick=()=>{cur=pickToday();idx=0;words=0;weak=0;fillers=0;$("chat")
   addMsg("ai","Tip: "+cur.it.learn.join(" · "));ask()};
 $("send").onclick=()=>{
   const a=$("ans").value.trim();if(!a)return;speechSynthesis&&speechSynthesis.cancel();
-  addMsg("me",a);$("ans").value="";
+  addMsg("me",a);$("ans").value="";fit();stepUI("idle");
   const w=(a.match(/[A-Za-z']+/g)||[]).length;words+=w;
   const f=(a.toLowerCase().match(/\b(um+|uh+|er|like|you know|actually)\b/g)||[]).length;fillers+=f;
   if(w<8){weak++;S.hearts=Math.max(0,S.hearts-1);addMsg("ai","A bit short. Try 2-3 sentences next time (-1 heart). Next question:");save();$("hearts").textContent=S.hearts;if(S.hearts<=0){finish(true);return}}
@@ -274,15 +279,26 @@ $("back").onclick=()=>{show("home");render()};
 
 // microphone
 $("rnd").onclick=()=>{const all=[];for(const tr of ORDER)for(const it of TRACKS[tr].items)all.push({tr,it});const c=pickToday();let n;do{n=all[Math.floor(Math.random()*all.length)]}while(n.it===c.it);override=n;render()};
-const SR=window.SpeechRecognition||window.webkitSpeechRecognition;let rec=null,on=false;
-if(!SR){$("mic").disabled=true;$("micHint").textContent="This browser cannot turn speech into text. Open it in Chrome (Android) or a recent Safari, or type for now."}
-else{$("micHint").textContent="Tap Speak, talk in English, tap again to stop, then Send.";
- $("mic").onclick=()=>{
+const SR=window.SpeechRecognition||window.webkitSpeechRecognition;let rec=null,on=false,tick=null,t1=0;
+function fit(){const a=$("ans");a.style.height="auto";a.style.height=Math.max(76,a.scrollHeight+2)+"px"}
+function stepUI(st){ // st: idle | rec | check
+  const m=$("mic"),sd=$("send"),has=$("ans").value.trim().length>0;
+  $("f1").className=st==="idle"&&!has?"on":st==="rec"?"on":"ok";$("f2").className=st==="check"||(st==="idle"&&has)?"on":st==="rec"?"":"";$("f3").className="";
+  m.classList.toggle("on",st==="rec");m.classList.toggle("sec2",st!=="rec"&&has);
+  sd.disabled=!has||st==="rec";sd.classList.toggle("ready",has&&st!=="rec");
+  if(st==="rec"){m.textContent="Stop recording";$("micHint").textContent="Listening... speak in English, tap Stop when you finish."}
+  else if(has){m.textContent="Speak again (adds more)";$("micHint").textContent="Check your text above (you can edit it), then tap Send answer.";$("f2").className="on"}
+  else{m.textContent="Tap to speak";$("micHint").textContent=SR?"Tap the button and speak and talk in English, or type your answer.":"This browser cannot turn speech into text. Use Chrome (Android) or a recent Safari, or type."}
+}
+$("ans").addEventListener("input",()=>{fit();stepUI(on?"rec":"idle")});
+if(!SR){$("mic").disabled=true}
+else{$("mic").onclick=()=>{
   if(on){rec.stop();return}
   rec=new SR();rec.lang="en-US";rec.interimResults=true;rec.continuous=true;let base=$("ans").value;
-  rec.onresult=e=>{let t="";for(let i=0;i<e.results.length;i++)t+=e.results[i][0].transcript;$("ans").value=(base?base+" ":"")+t};
-  rec.onend=()=>{on=false;$("mic").classList.remove("on");$("mic").textContent="Speak"};
-  speechSynthesis.cancel();rec.start();on=true;$("mic").classList.add("on");$("mic").textContent="Stop"}}
+  rec.onresult=e=>{let t="";for(let i=0;i<e.results.length;i++)t+=e.results[i][0].transcript;$("ans").value=(base?base+" ":"")+t;fit()};
+  rec.onend=()=>{on=false;clearInterval(tick);stepUI("idle")};
+  speechSynthesis.cancel();rec.start();on=true;t1=Date.now();stepUI("rec")}}
+stepUI("idle");
 (function(){const k=$("sky");let h="";const n=innerWidth>700?150:80;
 for(let i=0;i<n;i++){const z=Math.random()<.12?"g":"";const sz=z?3+Math.random()*3:1+Math.random()*2.2;
 h+=`<i class="${z}" style="left:${Math.random()*100}%;top:${Math.random()*100}%;width:${sz}px;height:${sz}px;--d:${5+Math.random()*8}s;--l:-${Math.random()*12}s"></i>`}
