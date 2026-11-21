@@ -10,18 +10,20 @@
 <style>
 :root{--g:#116b54;--g2:#0b4a3a;--bg:#f4f8f6;--ink:#17332b;--mut:#5d7a70;--card:#fff;--red:#d64545;--gold:#f2b93b}
 *{box-sizing:border-box}body{margin:0;font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink)}
-main{max-width:520px;margin:0 auto;padding:16px 16px 90px}
+main{max-width:520px;margin:0 auto;padding:max(12px,env(safe-area-inset-top)) 14px calc(24px + env(safe-area-inset-bottom))}
+html{-webkit-text-size-adjust:100%}button{min-height:52px;-webkit-tap-highlight-color:transparent}button:active{transform:scale(.98)}
+#talk .row{position:sticky;bottom:0}header{position:sticky;top:0;background:var(--bg);padding:8px 0;z-index:5}
 header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
 h1{font-size:18px;margin:0}.stats{display:flex;gap:12px;font-weight:700}
 .card{background:var(--card);border-radius:18px;padding:18px;margin:12px 0;box-shadow:0 2px 10px #0001}
-.tree{text-align:center}.tree .em{font-size:84px;line-height:1.1}
+.tree{text-align:center}.tree .em{font-size:76px;line-height:1.1}
 .bar{height:10px;background:#dfeae5;border-radius:9px;overflow:hidden;margin:8px 0}.bar i{display:block;height:100%;background:var(--g)}
 button{font:inherit;border:0;border-radius:14px;padding:14px 18px;background:var(--g);color:#fff;font-weight:700;width:100%;cursor:pointer}
 button.sec{background:#dfeae5;color:var(--g2)}button:disabled{opacity:.5}
 button.rec.on{background:var(--red)}
-.chat{display:flex;flex-direction:column;gap:8px;max-height:44vh;overflow:auto}
+.chat{display:flex;flex-direction:column;gap:8px;max-height:38dvh;overflow:auto}
 .b{padding:10px 14px;border-radius:14px;max-width:88%}.ai{background:#e6f1ed;align-self:flex-start}.me{background:var(--g);color:#fff;align-self:flex-end}
-textarea{width:100%;border:1px solid #cddcd5;border-radius:12px;padding:10px;font:inherit;min-height:64px}
+textarea{width:100%;font-size:16px;border:1px solid #cddcd5;border-radius:12px;padding:10px;font:inherit;min-height:64px}
 .tag{display:inline-block;font-size:12px;background:#dfeae5;color:var(--g2);padding:2px 10px;border-radius:99px;font-weight:700}
 .mut{color:var(--mut);font-size:14px}.row{display:flex;gap:8px}.row>*{flex:1}
 table{width:100%;border-collapse:collapse}td{padding:6px 0;border-bottom:1px solid #eef3f1}
