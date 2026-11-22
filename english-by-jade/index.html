@@ -2,6 +2,8 @@
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>English by Jade</title><meta name="robots" content="noindex,nofollow">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="English by Jade">
 <style>
 *{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;background:radial-gradient(circle at 30% 20%,#2a3170,#141844 60%,#0c0f2e);color:#f3efe2;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;padding:20px}
 .c{width:100%;max-width:380px;background:#232a5c;border:1px solid #f2c14e44;border-radius:22px;padding:26px 22px;box-shadow:0 20px 60px #0008;text-align:center}
@@ -22,7 +24,7 @@ const d=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
 const enc=new TextEncoder();
 async function openWith(K,user){const k=await crypto.subtle.importKey("raw",K,"AES-GCM",false,["decrypt"]);
  const html=new TextDecoder().decode(await crypto.subtle.decrypt({name:"AES-GCM",iv:d(B.iv)},k,d(B.ct)));
- window.EBJ_USER=user;window.EBJ_K=K;try{sessionStorage.setItem("ebj.sauth",JSON.stringify({u:user,k:btoa(String.fromCharCode(...K))}))}catch(e){}if(document.readyState==="loading")await new Promise(r=>document.addEventListener("DOMContentLoaded",r));document.body.innerHTML="";document.open();document.write(html);document.close()}
+ window.EBJ_USER=user;window.EBJ_K=K;try{sessionStorage.setItem("ebj.sauth",JSON.stringify({u:user,k:btoa(String.fromCharCode(...K))}))}catch(e){}if(document.readyState==="loading")await new Promise(r=>document.addEventListener("DOMContentLoaded",r));document.body.innerHTML="";document.open();document.write(html);document.close();document.querySelectorAll('link[rel~="apple-touch-icon"]').forEach(e=>e.remove());var l=document.createElement("link");l.rel="apple-touch-icon";l.href="/english-by-jade/apple-touch-icon.png";document.head.appendChild(l);document.title="English by Jade"}
 async function tryLogin(user,pass){const base=await crypto.subtle.importKey("raw",enc.encode(user+"\0"+pass),"PBKDF2",false,["deriveKey"]);
  for(const u of B.users){try{const key=await crypto.subtle.deriveKey({name:"PBKDF2",salt:d(u.s),iterations:B.it,hash:"SHA-256"},base,{name:"AES-GCM",length:256},false,["decrypt"]);
   const K=new Uint8Array(await crypto.subtle.decrypt({name:"AES-GCM",iv:d(u.iv)},key,d(u.wk)));return K}catch(e){}}return null}
